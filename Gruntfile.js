@@ -43,13 +43,44 @@ module.exports = function(grunt) {
             }
         },
 
+        // Copy files
+        copy: {
+            styleguide: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'bower_components/bootstrap/dist/',
+                        src: ['fonts/*', 'js/*'],
+                        dest: 'dist/styleguide/public/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/images/',
+                        src: ['*'],
+                        dest: 'dist/styleguide/public/images/'
+                    }
+                ]
+            }
+        },
+
 		// Watch task
         watch: {
             less: {
                 files: ['src/less/**/*.less'],
                 tasks: [
                     'less',
-                    'styleguide'
+                    'styleguide',
+                    'copy'
+                ]
+            },
+            styleguide: {
+                files: [
+                    'src/less/styleguide.md',
+                    'src/styleguide/**/*'
+                ],
+                tasks: [
+                    'styleguide',
+                    'copy'
                 ]
             }
         }
@@ -59,7 +90,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'less',
         'cssmin',
-        'styleguide'
+        'styleguide',
+        'copy'
     ]);
 
     // Development
