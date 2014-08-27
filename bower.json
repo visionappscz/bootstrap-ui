@@ -1,0 +1,14 @@
+{
+  "name": "synergic-ui",
+  "version": "0.1.0",
+  "authors": [
+    "http://www.synergic.cz"
+  ],
+  "description": "Synergic UI",
+  "license": "MIT",
+  "homepage": "www.synergic.cz/ui",
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "less-modules": "~0.2.1"
+  }
+}
