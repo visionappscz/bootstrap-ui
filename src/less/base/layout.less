@@ -1,0 +1,42 @@
+// Base: Layout
+
+
+body {
+    padding-top: @navbar-height; // make place for fixed navbar
+
+    > footer {
+        padding-top: @line-height-computed;
+        padding-bottom: @line-height-computed;
+        color: @gray-light;
+        background-color: @gray-lighter;
+
+        a {
+            color: @gray-light;
+
+            &:hover,
+            &:focus {
+                color: @text-color;
+            }
+        }
+    }
+}
+
+.sticky-footer(3 * @line-height-computed);
+
+.footer-divider {
+    margin-left: .75ex;
+    margin-right: .75ex;
+    color: #ddd;
+}
+
+.footer-author {
+    position: relative;
+    top: 3px;
+    float: right;
+    opacity: .5;
+
+    &:hover,
+    &:focus {
+        opacity: .85;
+    }
+}

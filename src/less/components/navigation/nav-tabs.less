@@ -1,0 +1,38 @@
+// Components: Tabs Navigation
+
+
+.nav-tabs {
+    margin-top: @line-height-computed;
+    margin-bottom: 2 * @line-height-computed;
+
+    > li.active > a {
+        &,
+        &:hover,
+        &:focus {
+            cursor: pointer;
+        }
+    }
+
+    &-header {
+        float: right;
+        margin-top: 2 * @line-height-computed;
+        margin-bottom: -1px; // collapse border
+
+        > li > a {
+            color: @text-color;
+
+            &:hover,
+            &:focus {
+                color: @brand-primary;
+            }
+        }
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        &-header {
+            position: absolute;
+            right: @grid-gutter-width / 2;
+            bottom: 0;
+        }
+    }
+}

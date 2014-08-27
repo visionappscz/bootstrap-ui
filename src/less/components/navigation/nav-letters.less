@@ -1,0 +1,19 @@
+// Components: Letters Navigation
+
+
+.nav-letters {
+    margin-bottom: @line-height-computed;
+    text-align: center;
+
+    > li,
+    > li > a {
+        display: inline-block;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        > li,
+        > li > a {
+            display: block;
+        }
+    }
+}

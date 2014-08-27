@@ -1,0 +1,21 @@
+// Components: Forms
+
+
+input[type="file"] {
+    margin: (@line-height-computed / 2) 0;
+}
+
+form .text-danger {
+    .alert();
+    .alert-danger();
+    display: block;
+}
+
+.form-group .text-danger:not(:only-child) {
+    margin-top: @line-height-computed / 2;
+}
+
+label.required:after {
+    content: ' *';
+    color: @gray-light;
+}

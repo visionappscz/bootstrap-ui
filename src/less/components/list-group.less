@@ -1,0 +1,39 @@
+// Components: List Group
+
+
+.list-group-nested {
+    margin-bottom: 2 * @line-height-computed;
+
+    .list-group-item {
+        &-heading {
+            margin-bottom: 0;
+            font-weight: 700;
+            font-size: 1em;
+        }
+
+        &-nested {
+            padding-left: 2 * @padding-large-horizontal;
+        }
+    }
+}
+
+// Shortcut for quick adding new item
+.list-group-add {
+    position: relative;
+    top: -(2 * 10 + 15px);
+    right: 0;
+    z-index: 2;
+    float: right;
+    padding: 10px 15px;
+    line-height: 17px;
+    color: @brand-primary;
+
+    &:hover,
+    &:focus {
+        color: @text-color;
+    }
+
+    .active + & {
+        color: #fff;
+    }
+}

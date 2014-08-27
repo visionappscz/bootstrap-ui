@@ -1,0 +1,34 @@
+// Components: Data View Table
+
+
+[data-toggle="sort"] {
+    white-space: nowrap;
+    cursor: pointer;
+    .user-select(none);
+
+    &:hover,
+    &:focus {
+        .data-view-table-icon {
+            color: @text-color;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    .data-view-table-icon {
+        .glyphicon();
+        .glyphicon-sort-by-attributes();
+        margin-right: .5ex;
+        color: @gray-light;
+    }
+
+    &.sorting-active .data-view-table-icon {
+        color: @brand-warning;
+    }
+
+    &.sorting-desc .data-view-table-icon {
+        .glyphicon-sort-by-attributes-alt();
+    }
+}

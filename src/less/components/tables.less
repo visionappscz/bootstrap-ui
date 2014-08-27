@@ -1,0 +1,48 @@
+// Components: Tables
+
+
+tr.disabled {
+    opacity: .5;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.table {
+    thead {
+        h2,
+        .h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: .1em;
+        }
+    }
+
+    tbody > tr > td {
+        vertical-align: middle;
+    }
+
+    // Nested row: offset item name to present hierarchy
+    &-row-nested {
+        > td:nth-child(2) {
+            padding-left: 1.5em;
+        }
+    }
+
+    // Special table cells
+    &-cell {
+        &-id {
+            width: 4em;
+
+            td& {
+                color: @gray-light;
+            }
+        }
+
+        &-actions {
+            text-align: right;
+            white-space: nowrap;
+        }
+    }
+}

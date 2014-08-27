@@ -1,0 +1,20 @@
+// Components: Navbar
+
+
+.navbar {
+    @media screen and (max-width: @screen-xs-max) {
+        .dropdown-header {
+            color: #fff;
+        }
+
+        .visible-xs {
+            display: inline-block !important;
+        }
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        &-icon > a {
+            min-height: @navbar-height;
+        }
+    }
+}

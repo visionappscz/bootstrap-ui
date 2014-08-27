@@ -1,0 +1,34 @@
+// Components: Sections
+
+
+.section {
+    &-header {
+        padding-top: 2.5 * @line-height-computed;
+        padding-bottom: 2.5 * @line-height-computed;
+        border-bottom: 1px solid @nav-tabs-border-color;
+        background-color: @gray-lighter;
+
+        h1 {
+            margin: 0;
+        }
+
+        &.has-tabs {
+            padding-bottom: 0;
+
+            > .container {
+                position: relative;
+            }
+        }
+
+        @media screen and (min-width: @screen-sm-min) {
+            &.has-tabs > .container {
+                padding-bottom: 2.5 * @line-height-computed;
+            }
+        }
+    }
+
+    &-content {
+        padding-top: 2 * @line-height-computed;
+        padding-bottom: 2 * @line-height-computed;
+    }
+}

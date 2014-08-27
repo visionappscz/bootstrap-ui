@@ -1,0 +1,50 @@
+// Components: Panels
+
+
+.panel-heading {
+    position: relative;
+    // Make place for action
+    padding-left: 3 * @padding-base-horizontal;
+    padding-right: 3 * @padding-base-horizontal;
+
+    &-action {
+        position: absolute;
+        top: 2 * @padding-large-vertical;
+        right: @padding-base-horizontal;
+        color: @text-color;
+    }
+
+    &-big {
+        padding-top: 2 * @padding-large-vertical;
+        padding-bottom: 2 * @padding-large-vertical;
+    }
+}
+
+.panel-title-big {
+    margin-bottom: .25em;
+    font-size: @font-size-h3;
+}
+
+.panel-title-subtitle {
+    font-weight: 400;
+    font-size: 1em;
+}
+
+// Panel variants
+.panel-default {
+    .panel-heading {
+        a,
+        .panel-title {
+            color: @text-color;
+        }
+    }
+}
+
+.panel-primary {
+    .panel-heading {
+        a,
+        .panel-title {
+            color: #fff;
+        }
+    }
+}

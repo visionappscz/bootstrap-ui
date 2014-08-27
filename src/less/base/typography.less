@@ -1,0 +1,24 @@
+// Base: Typography
+
+
+h1 {
+    margin-bottom: 0;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: .75em;
+
+    &:not(:first-of-type) {
+        margin-top: 2em;
+    }
+
+    h1 + & {
+        margin-bottom: 0;
+        font-size: @font-size-h3;
+    }
+}
+
+hr {
+    margin: (2 * @line-height-computed) 0;
+}

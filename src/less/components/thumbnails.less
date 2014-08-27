@@ -1,0 +1,38 @@
+// Components: Thumbnails
+
+
+.thumbnail {
+    position: relative;
+
+    a {
+        text-decoration: none;
+    }
+
+    &-image {
+        height: 150px;
+        overflow: hidden;
+        text-align: center;
+        background-color: @gray-lighter;
+
+        img {
+            &:extend(.img-responsive all);
+            display: inline-block;
+        }
+
+        &-icon {
+            margin-top: @line-height-computed / 2;
+        }
+    }
+
+    &-title {
+        .text-overflow();
+        font-size: @font-size-base;
+        line-height: 1.5;
+    }
+
+    &-actions {
+        position: absolute;
+        right: @thumbnail-padding;
+        bottom: @thumbnail-padding;
+    }
+}
