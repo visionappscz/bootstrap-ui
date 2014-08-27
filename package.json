@@ -12,9 +12,8 @@
     "matchdep": "~0.3.0",
     "grunt": "~0.4.5",
     "grunt-contrib-less": "~0.11.4",
-    "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-cssmin": "~0.10.0"
+    "grunt-contrib-cssmin": "~0.10.0",
+    "grunt-styleguide": "~0.2.15"
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.6.1"

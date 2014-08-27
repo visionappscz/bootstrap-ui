@@ -26,16 +26,31 @@ module.exports = function(grunt) {
             }
         },
 
-		// Clean temporary files
-		clean: [
-            '.tmp'
-		],
+        // Generate styleguide
+        styleguide: {
+            options: {
+                template: {
+                    src: 'src/styleguide'
+                },
+                framework: {
+                    name: 'kss'
+                }
+            },
+            all: {
+                files: [{
+                    'dist/styleguide': 'src/less/main.less'
+                }]
+            }
+        },
 
 		// Watch task
         watch: {
             less: {
                 files: ['src/less/**/*.less'],
-                tasks: ['less']
+                tasks: [
+                    'less',
+                    'styleguide'
+                ]
             }
         }
     });
@@ -43,8 +58,8 @@ module.exports = function(grunt) {
     // Build task
 	grunt.registerTask('build', [
 		'less',
-        'cssmin'
-        //'clean'
+        'cssmin',
+        'styleguide'
     ]);
 
     // Development
