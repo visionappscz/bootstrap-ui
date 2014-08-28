@@ -29,6 +29,16 @@
     border-width: 1px;
     border-color: #bbb;
     border-style: dashed none;
+
+    @media screen and (min-width: @screen-sm-min) {
+        .container {
+            width: auto;
+        }
+    }
+
+    .footer {
+        position: static;
+    }
 }
 
 .kss__markup {
@@ -42,4 +52,10 @@
         border-radius: 0;
         background-color: #fafafa;
     }
+}
+
+.kss__example-box {
+    padding: 1em;
+    border: 1px solid #ccc;
+    background-color: #eee;
 }
