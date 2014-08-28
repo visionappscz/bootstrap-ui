@@ -23,16 +23,25 @@
 }
 
 .kss__subtitle {
+    margin-top: 2em;
+    margin-bottom: 1em;
     font-weight: bold;
     font-size: 1.2em;
 }
 
 .kss__example {
+    position: relative;
+    min-height: 5em;
     margin: 1.5em 0;
     padding: 1.5em;
     border-width: 1px;
     border-color: #bbb;
     border-style: dashed none;
+
+    &-title {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
 
     @media screen and (min-width: @screen-sm-min) {
         .container {

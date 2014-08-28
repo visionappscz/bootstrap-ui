@@ -130,7 +130,11 @@
                         {{#whenDepth 1}}
                         {{else}}
                         <section id="section-{{reference}}" class="kss__section kss__depth--{{ refDepth }}">
+                            {{#whenDepth 2}}
                             <h2 class="kss__title">{{ reference }}&thinsp;–&thinsp;{{ header }}</h2>
+                            {{else}}
+                            <h3 class="kss__subtitle">{{ reference }}&thinsp;–&thinsp;{{ header }}</h3>
+                            {{/whenDepth}}
                             {{/whenDepth}}
 
                             {{#if description}}
@@ -139,7 +143,7 @@
 
                             {{! Modifiers }}
                             {{#ifAny markup modifiers}}
-                            <h3 class="kss__subtitle">Example</h3>
+                            <p class="kss__example-title">Example</p>
                             <div class="kss__example">
                                 {{modifierMarkup}}
                             </div>
