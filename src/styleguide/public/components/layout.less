@@ -59,12 +59,20 @@
     margin: 1.5em 0;
 
     pre {
-        font-size: 13px;
-        word-break: normal;
-        word-wrap: normal;
-        border-color: #ddd;
-        border-radius: 0;
-        background-color: #fafafa;
+        display: none;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        pre {
+            max-height: 300px;
+            display: block;
+            font-size: 13px;
+            word-break: normal;
+            word-wrap: normal;
+            border-color: #ddd;
+            border-radius: 0;
+            background-color: #fafafa;
+        }
     }
 }
 
