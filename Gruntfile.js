@@ -26,6 +26,15 @@ module.exports = function(grunt) {
             }
         },
 
+        // Compile Coffee script
+        coffee: {
+            compile: {
+                files: {
+                    "dist/js/dataViewTable.js": "src/coffee/dataViewTable.coffee"
+                }
+            }
+        },
+
         // Generate styleguide
         styleguide: {
             options: {
@@ -55,6 +64,12 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
+                        cwd: 'dist/js/',
+                        src: ['*.js'],
+                        dest: 'dist/styleguide/public/js'
+                    },
+                    {
+                        expand: true,
                         cwd: 'src/images/',
                         src: ['*'],
                         dest: 'dist/styleguide/public/images/'
@@ -69,6 +84,14 @@ module.exports = function(grunt) {
                 files: ['src/less/**/*.less'],
                 tasks: [
                     'less',
+                    'styleguide',
+                    'copy'
+                ]
+            },
+            coffee: {
+                files: ['src/coffee/*.coffee'],
+                tasks: [
+                    'coffee',
                     'styleguide',
                     'copy'
                 ]
@@ -90,6 +113,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'less',
         'cssmin',
+        'coffee',
         'styleguide',
         'copy'
     ]);
