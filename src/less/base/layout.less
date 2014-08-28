@@ -1,42 +1,49 @@
 // Base: Layout
 
 
-body {
-    padding-top: @navbar-height; // make place for fixed navbar
+// Grid
+//
+// [Bootstrap grid](http://getbootstrap.com/css/#grid) is used. For easier development, there are `.content` and
+// `.sidebar` shortcuts for the most common layout components so you do not have to remember WTF columns they are
+// (`.col-md-9` and `.col-md-3`).
+//
+// Markup:
+// <div class="row">
+//     <div class="content">
+//         <p class="kss__example-box">This is the content.</p>
+//     </div>
+//     <div class="sidebar">
+//         <p class="kss__example-box">And I am sidebar!</p>
+//     </div>
+// </div><!-- .row -->
+//
+// Styleguide 2.1
 
-    > footer {
-        padding-top: @line-height-computed;
-        padding-bottom: @line-height-computed;
-        color: @gray-light;
-        background-color: @gray-lighter;
-
-        a {
-            color: @gray-light;
-
-            &:hover,
-            &:focus {
-                color: @text-color;
-            }
-        }
-    }
+// Make place for fixed navbar
+body.has-navbar-fixed-top {
+    padding-top: @navbar-height;
 }
 
-.sticky-footer(3 * @line-height-computed);
-
-.footer-divider {
-    margin-left: .75ex;
-    margin-right: .75ex;
-    color: #ddd;
-}
-
-.footer-author {
+// Grid shortcuts
+.content,
+.sidebar {
     position: relative;
-    top: 3px;
-    float: right;
-    opacity: .5;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
-    &:hover,
-    &:focus {
-        opacity: .85;
+@media screen and (min-width: @screen-md-min) {
+    .content,
+    .sidebar {
+        float: left;
+    }
+
+    .content {
+        width: 75%;
+    }
+
+    .sidebar {
+        width: 25%;
     }
 }
