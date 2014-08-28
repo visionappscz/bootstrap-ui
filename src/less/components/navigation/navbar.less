@@ -1,6 +1,79 @@
 // Components: Navbar
 
 
+// Navbar
+//
+// Implements default [Bootstrap navbar](http://getbootstrap.com/components/#navbar) component with minor enhancements
+// (eg. `.navbar-icon` for icon items). This is the recommended setup for admin interfaces.
+//
+// <div class="panel panel-info">
+// <div class="panel-heading"><h4 class="panel-title">Fixed navbar</h4></div>
+// <div class="panel-body">
+//     Add `.has-navbar-fixed-top` class to `<body>` when using `.navbar-fixed-top` modification to ensure the content
+//     does not hide below navbar.
+// </div>
+// </div>
+//
+// Markup:
+// <!-- Main navigation -->
+// <nav class="navbar navbar-default">
+//     <div class="container">
+//         <!-- Brand and menu toggle -->
+//         <div class="navbar-header">
+//             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kssMenu">
+//                 <span class="sr-only">Menu</span>
+//                 <span class="icon-bar"></span>
+//                 <span class="icon-bar"></span>
+//                 <span class="icon-bar"></span>
+//             </button>
+//             <a href="#" class="navbar-brand" title="Synergic UI">Synergic UI</a>
+//         </div>
+//         <!-- Collapsible menu -->
+//         <div class="collapse navbar-collapse" id="kssMenu">
+//             <ul class="nav navbar-nav">
+//                 <li class="active"><a href="#">Dashboard</a></li>
+//                 <li><a href="#">Pages</a></li>
+//                 <li><a href="#">Media</a></li>
+//                 <li><a href="#">Users</a></li>
+//             </ul>
+//             <ul class="nav navbar-nav navbar-right">
+//                 <li class="navbar-icon">
+//                     <a href="#" target="_blank" title="Open site in a new tab">
+//                         <span class="glyphicon glyphicon-home"></span>
+//                         <span class="visible-xs">Home</span>
+//                     </a>
+//                 </li>
+//                 <li class="navbar-icon">
+//                     <a href="#" title="Settings">
+//                         <span class="glyphicon glyphicon-cog"></span>
+//                         <span class="visible-xs">Settings</span>
+//                     </a>
+//                 </li>
+//                 <li class="dropdown">
+//                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="My profile">
+//                         <span class="glyphicon glyphicon-user"></span>
+//                         <span class="visible-xs">My Profile</span>
+//                         <b class="caret"></b>
+//                     </a>
+//                     <ul class="dropdown-menu">
+//                         <li class="dropdown-header">James Brown</li>
+//                         <li class="divider"></li>
+//                         <li>
+//                             <a href="#">My Account</a>
+//                             <a href="#">
+//                                 <span class="glyphicon glyphicon-off"></span>
+//                                 Sign out
+//                             </a>
+//                         </li>
+//                     </ul>
+//                 </li><!-- .dropdown -->
+//              </ul><!-- .nav -->
+//         </div><!-- .collapsible -->
+//     </div><!-- .container -->
+// </nav>
+//
+// Styleguide 3.1
+
 .navbar {
     @media screen and (max-width: @screen-xs-max) {
         .dropdown-header {
@@ -17,4 +90,9 @@
             min-height: @navbar-height;
         }
     }
+}
+
+// Make place for fixed navbar
+.has-navbar-fixed-top {
+    padding-top: @navbar-height;
 }
