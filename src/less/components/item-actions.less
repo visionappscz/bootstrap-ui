@@ -1,0 +1,83 @@
+// Components: Item Actions
+
+
+// Item Actions
+//
+// Item actions extend Bootstrap button component. They are optimized for long lists of items where each item offers one
+// or more action to be taken. They look the best when used only with icons.
+//
+// Markup:
+// <p>
+//     <a href="#" class="item-action" title="Edit">
+//         <span class="glyphicon glyphicon-pencil"></span>
+//     </a>
+//     <a href="#" class="item-action item-action-danger" title="Delete">
+//         <span class="glyphicon glyphicon-trash"></span>
+//     </a>
+//     <a href="#" class="item-action">
+//         <span class="glyphicon glyphicon-share-alt"></span>
+//         Share
+//     </a>
+//     <a href="#" class="item-action item-action-danger">
+//         <span class="glyphicon glyphicon-remove-sign"></span>
+//         Remove
+//     </a>
+// </p>
+// <p><strong>Used in table:</strong></p>
+// <table class="table">
+//     <thead>
+//         <tr>
+//             <th>Article</th>
+//             <th></th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td>Hotforwords Can Explain Lorem Ipsum far better than I can</td>
+//             <td class="table-cell-actions">
+//                 <a href="#" class="item-action" title="Edit">
+//                     <span class="glyphicon glyphicon-pencil"></span>
+//                 </a>
+//                 <a href="#" class="item-action item-action-danger" title="Delete">
+//                     <span class="glyphicon glyphicon-trash"></span>
+//                 </a>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td>Which to isn't lesser together years land heaven brought</td>
+//             <td class="table-cell-actions">
+//                 <a href="#" class="item-action" title="Edit">
+//                     <span class="glyphicon glyphicon-pencil"></span>
+//                 </a>
+//                 <a href="#" class="item-action item-action-danger" title="Delete">
+//                     <span class="glyphicon glyphicon-trash"></span>
+//                 </a>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+//
+// Styleguide 4.3
+
+.item-action {
+    &:extend(.btn all);
+    &:extend(.btn-sm all);
+    color: @btn-default-color;
+    background: transparent; // enforce on buttons and inputs
+
+    &:hover,
+    &:focus {
+        color: @btn-default-color;
+        border-color: darken(@btn-default-border, 12%);
+        background-color: darken(@btn-default-bg, 8%);
+    }
+
+    &-danger {
+        &:hover,
+        &:focus {
+            color: @btn-danger-color;
+            border-color: darken(@btn-danger-border, 12%);
+            background-color: darken(@btn-danger-bg, 8%);
+        }
+    }
+}

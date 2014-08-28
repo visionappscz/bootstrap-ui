@@ -1,36 +1,52 @@
 // Components: Panels
 
 
-.panel-heading {
+// Panels
+//
+// Extends [Bootstrap panels]() with rich header containing icon shortcut (dropdown can also be used).
+//
+// Markup:
+// <div class="panel panel-default">
+//     <div class="panel-heading panel-heading-extended">
+//         <a href="#" class="panel-action" title="Settings"><span class="glyphicon glyphicon-cog"></span></a>
+//         <a href="#">
+//             <h4 class="panel-title panel-title-big">Big Big Title</h4>
+//             <h5 class="panel-title panel-title-subtitle">Teeny Tiny Subtitle</h5>
+//         </a>
+//     </div>
+//     <div class="panel-body">
+//         Winged. Grass female creepeth you're light firmament replenish have seasons may to seed also female.
+//     </div>
+// </div>
+//
+// Styleguide 4.7
+
+// Make place for action
+.panel-heading-extended {
     position: relative;
-    // Make place for action
-    padding-left: 3 * @padding-base-horizontal;
-    padding-right: 3 * @padding-base-horizontal;
+    padding: (2 * @padding-large-vertical) (3 * @padding-base-horizontal);
+}
 
-    &-action {
-        position: absolute;
-        top: 2 * @padding-large-vertical;
-        right: @padding-base-horizontal;
-        color: @text-color;
-    }
-
-    &-big {
-        padding-top: 2 * @padding-large-vertical;
-        padding-bottom: 2 * @padding-large-vertical;
-    }
+.panel-action {
+    position: absolute;
+    top: 2 * @padding-large-vertical;
+    right: @padding-base-horizontal;
+    color: @text-color;
 }
 
 .panel-title-big {
     margin-bottom: .25em;
     font-size: @font-size-h3;
+    text-align: center;
 }
 
 .panel-title-subtitle {
     font-weight: 400;
     font-size: 1em;
+    text-align: center;
 }
 
-// Panel variants
+// Ensure optimum legibility
 .panel-default {
     .panel-heading {
         a,

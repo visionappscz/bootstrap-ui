@@ -1,21 +1,51 @@
 // Components: Forms
 
 
-input[type="file"] {
-    margin: (@line-height-computed / 2) 0;
-}
+// Forms
+//
+// Minor [Bootstrap forms](http://getbootstrap.com/css/#forms) enhancements.
+//
+// Styleguide 4.5
 
-form .text-danger {
+// Better Validation Messages
+//
+// Markup:
+// <div class="form-group">
+//     <label for="email">Email</label>
+//     <input type="email" class="form-control" name="email" />
+//     <div class="text-danger-block">Please enter a valid email address</div>
+// </div>
+//
+// Styleguide 4.5.1
+
+.text-danger-block {
     .alert();
     .alert-danger();
     display: block;
+
+    .form-group &:not(:only-child) {
+        margin-top: @line-height-computed / 2;
+    }
 }
 
-.form-group .text-danger:not(:only-child) {
-    margin-top: @line-height-computed / 2;
-}
+
+// Required Fields
+//
+// Requires `.required` class on labels.
+//
+// Markup:
+// <label for="arrival" class="required">Arrival Date</label>
+// <input type="date" class="form-control" name="arrival" required />
+//
+// Styleguide 4.5.2
 
 label.required:after {
     content: ' *';
     color: @gray-light;
+}
+
+
+// Provide some more spacing around file input
+input[type="file"] {
+    margin: (@line-height-computed / 2) 0;
 }

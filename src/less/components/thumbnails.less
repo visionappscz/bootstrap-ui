@@ -1,14 +1,73 @@
 // Components: Thumbnails
 
 
-.thumbnail {
+// Thumbnails
+//
+// Extends [Bootstrap thumbnails](http://getbootstrap.com/components/#thumbnails) with a fixed-image-height modification
+// which is perfect for media grid listing.
+//
+// Markup:
+// <div class="row">
+//     <div class="col-xs-6 col-sm-4">
+//         <div class="thumbnail thumbnail-fixed">
+//             <a href="#">
+//                 <div class="thumbnail-image">
+//                     <img src="http://placehold.it/400x300" alt="" />
+//                 </div>
+//                 <div class="caption">
+//                     <h4 class="thumbnail-title">my-darling.jpg</h4>
+//                     <small class="text-muted">6378&nbsp;kB</small>
+//                 </div>
+//             </a>
+//             <div class="thumbnail-actions">
+//                 <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash"></span></button>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="col-xs-6 col-sm-4">
+//         <div class="thumbnail thumbnail-fixed">
+//             <a href="#">
+//                 <div class="thumbnail-image">
+//                     <img src="http://placehold.it/400x300" alt="" />
+//                 </div>
+//                 <div class="caption">
+//                     <h4 class="thumbnail-title">my-lovely-darling-with-a-long-name.jpg</h4>
+//                     <small class="text-muted">6378&nbsp;kB</small>
+//                 </div>
+//             </a>
+//             <div class="thumbnail-actions">
+//                 <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash"></span></button>
+//             </div>
+//         </div>
+//     </div>
+//     <div class="col-xs-6 col-sm-4">
+//         <div class="thumbnail thumbnail-fixed">
+//             <a href="#">
+//                 <div class="thumbnail-image">
+//                     <img src="http://placehold.it/400x300" alt="" />
+//                 </div>
+//                 <div class="caption">
+//                     <h4 class="thumbnail-title">my-darling.jpg</h4>
+//                     <small class="text-muted">6378&nbsp;kB</small>
+//                 </div>
+//             </a>
+//             <div class="thumbnail-actions">
+//                 <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash"></span></button>
+//             </div>
+//         </div>
+//     </div>
+// </div><!-- .row -->
+//
+// Styleguide 4.8
+
+.thumbnail-fixed {
     position: relative;
 
     a {
         text-decoration: none;
     }
 
-    &-image {
+    .thumbnail-image {
         height: 150px;
         overflow: hidden;
         text-align: center;
@@ -24,13 +83,13 @@
         }
     }
 
-    &-title {
+    .thumbnail-title {
         .text-overflow();
         font-size: @font-size-base;
         line-height: 1.5;
     }
 
-    &-actions {
+    .thumbnail-actions {
         position: absolute;
         right: @thumbnail-padding;
         bottom: @thumbnail-padding;
