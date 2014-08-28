@@ -17,7 +17,8 @@
 @headings-font-weight: 300;
 
 @headings-color: @gray;
-@link-color: @brand-accent;
+@link-color: @brand-primary;
+@link-hover-color: darken(@brand-primary, 10%);
 
 @padding-base-vertical: 8px;
 @padding-base-horizontal: 16px;
@@ -25,16 +26,22 @@
 // Tables
 @table-cell-padding: 10px;
 
-// Inverted navbar
-@navbar-inverse-color:                      #fff;
-@navbar-inverse-bg:                         @brand-primary;
-@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
+// Default navbar
+@navbar-default-color:                     #fff;
+@navbar-default-bg:                        @brand-primary;
+@navbar-default-border:                    darken(@navbar-default-bg, 10%);
 
-// Inverted navbar links
-@navbar-inverse-link-color:                 #fff;
-@navbar-inverse-link-hover-color:           lighten(@brand-primary, 30%);
+// Default navbar links
+@navbar-default-link-color:                #fff;
+@navbar-default-link-hover-color:          mix(#fff, @navbar-default-bg, 75%);
+@navbar-default-link-active-color:         @navbar-default-link-hover-color;
+@navbar-default-link-active-bg:            darken(@navbar-default-bg, 10%);
 
-// Inverted navbar toggle
-@navbar-inverse-toggle-hover-bg:            transparent;
-@navbar-inverse-toggle-icon-bar-bg:         #fff;
-@navbar-inverse-toggle-border-color:        lighten(@brand-primary, 30%);
+// Navbar brand label
+@navbar-default-brand-color:               #fff;
+@navbar-default-brand-hover-color:         #fff;
+
+// Default navbar toggle
+@navbar-default-toggle-hover-bg:           transparent;
+@navbar-default-toggle-icon-bar-bg:        #fff;
+@navbar-default-toggle-border-color:       #fff;

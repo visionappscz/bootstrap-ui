@@ -24,10 +24,10 @@
 {{/eachSection}}
 {{/if}}
 
-<header role="banner">
+<header role="banner" id="top">
 
     <!-- Main navigation -->
-    <nav class="navbar navbar-fixed-top navbar-inverse">
+    <nav class="navbar navbar-fixed-top navbar-default">
         <div class="container">
 
             <!-- Brand and menu toggle -->
@@ -79,7 +79,7 @@
     {{#whenDepth 1}}
     <section class="section section-header">
         <div class="container">
-            <h1>{{ reference }}.0 – {{ header }}</h1>
+            <h1>{{ reference }}.0&thinsp;–&thinsp;{{ header }}</h1>
         </div>
     </section>
     {{/whenDepth}}
@@ -87,56 +87,83 @@
 
     <section class="section section-content">
         <div class="container">
-            <article>
+            <div class="row">
+                <div class="col-md-3 col-md-push-9">
 
-                {{!
-                Find each section, in order.
-                If there's no markup or modifiers supplied, use a Markdown-only
-                layout instead.
+                    <!-- Secondary navigation -->
+                    <nav class="kss__secondary-nav">
+                        <ul>
+                            {{#if overview}}
+                            <li><a href="#top"><strong>Synergic UI</strong></a></li>
+                            <li><a href="#changelog">Changelog</a></li>
+                            {{else}}
 
-                The "root" element comes first in this loop, and can be detected using
-                the "#whenDepth 1" block as seen below.
-                }}
-                {{#eachSection rootNumber}}
-                {{#whenDepth 1}}
-                {{else}}
-                <section class="kss-depth-{{ refDepth }}">
-                    <h2>{{ reference }} – {{ header }}</h2>
-                    {{/whenDepth}}
-                    {{#ifAny markup modifiers}}
-                    <div class="kss-box">{{html description}}</div>
-                    <table class="kss-mod-list">
-                        <tr class="kss-mod-desc-group">
-                            <td class="kss-mod-desc"><p>Default styling</p></td>
-                            <td class="kss-mod-name"></td>
-                        </tr>
-                        <tr class="kss-mod-example">
-                            <td colspan="2">{{modifierMarkup}}</td>
-                        </tr>
-                        {{#eachModifier}}
-                        <tr class="kss-mod-desc-group">
-                            <td class="kss-mod-desc">{{html description}}</td>
-                            <td class="kss-mod-name"><p>{{name}}</p></td>
-                        </tr>
-                        <tr class="kss-mod-example">
-                            <td colspan="2">{{modifierMarkup}}</td>
-                        </tr>
-                        {{/eachModifier}}
-                    </table>
-                    <div class="kss-markup">
-                        <pre class="prettyprint lang-html">{{markup}}</pre>
-                    </div>
-                    {{else}}
-                    {{#if description}}
-                    {{html description}}
-                    {{/if}}
-                    {{/ifAny}}
-                    {{#whenDepth 1}} {{else}}
-                </section>
-                {{/whenDepth}}
-                {{/eachSection}}
+                            {{#eachSection rootNumber}}
+                            {{#whenDepth 1}}
+                            <li><a href="#top"><strong>{{ header }}</strong></a></li>
+                            {{else}}
+                            {{/whenDepth}}
+                            {{#whenDepth 2}}
+                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
+                            {{else}}
+                            {{/whenDepth}}
+                            {{/eachSection}}
+                            {{/if}}
+                        </ul>
+                    </nav>
 
-            </article>
+                </div>
+                <div class="col-md-9 col-md-pull-3">
+
+                    <article>
+
+                        {{!
+                        Find each section, in order.
+                        If there's no markup or modifiers supplied, use a Markdown-only
+                        layout instead.
+
+                        The "root" element comes first in this loop, and can be detected using
+                        the "#whenDepth 1" block as seen below.
+                        }}
+                        {{#eachSection rootNumber}}
+                        {{#whenDepth 1}}
+                        {{else}}
+                        <section id="section-{{reference}}" class="kss__depth--{{ refDepth }}">
+                            <h2 class="kss__title">{{ reference }}&thinsp;–&thinsp;{{ header }}</h2>
+                            {{/whenDepth}}
+
+                            {{#if description}}
+                            {{html description}}
+                            {{/if}}
+
+                            {{! Modifiers }}
+                            {{#ifAny markup modifiers}}
+                            <h3 class="kss__subtitle">Example</h3>
+                            <div class="kss__example">
+                                {{modifierMarkup}}
+                            </div>
+
+                            {{#eachModifier}}
+                            <p><strong>{{name}}</strong></p>
+                            {{html description}}
+                            <div class="kss__example">{{modifierMarkup}}</div>
+                            {{/eachModifier}}
+
+                            <div class="kss__markup">
+                                <pre class="prettyprint lang-html">{{markup}}</pre>
+                            </div>
+
+                            {{/ifAny}}
+
+                            {{#whenDepth 1}} {{else}}
+                        </section>
+                        {{/whenDepth}}
+                        {{/eachSection}}
+
+                    </article>
+
+                </div>
+            </div><!-- .row -->
         </div><!-- .container -->
     </section>
 
@@ -170,7 +197,7 @@
         }
 
         // Ensure code blocks are highlighted properly...
-        $('pre>code').addClass('prettyprint');
+        $('pre > code').addClass('prettyprint');
         prettyPrint();
 
     });
