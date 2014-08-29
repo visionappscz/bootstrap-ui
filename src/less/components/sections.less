@@ -3,7 +3,7 @@
 
 // Sections
 //
-// Sections are used to divide the page content.
+// Sections are used to structure the page content.
 //
 // Styleguide 4.1
 
@@ -31,7 +31,7 @@
 //         <div class="row">
 //             <div class="col-sm-8">
 //                 <h1>Advanced Header Section</h1>
-//                 <h2>I am a Section Subtitle</h2>
+//                 <h2>I am Section Subtitle</h2>
 //             </div>
 //             <div class="col-sm-4">
 //                 <a href="#" class="btn btn-primary cta"><span class="glyphicon glyphicon-pencil"></span> New Email</a>
@@ -55,6 +55,10 @@
 
         h1 {
             margin: 0;
+
+            & + h2 {
+                margin-top: .1em;
+            }
         }
 
         &.has-tabs {
