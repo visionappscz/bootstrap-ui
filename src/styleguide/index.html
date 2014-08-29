@@ -57,40 +57,27 @@
 
 <main role="main">
 
-    {{#if overview}}
-
     <section class="section section-header">
         <div class="container">
+
+            {{#if overview}}
             <h1>Synergic UI</h1>
-        </div>
-    </section>
-
-    <section class="section section-content">
-        <div class="container">
-            <article>
-                {{html overview}}
-            </article>
-        </div><!-- .container -->
-    </section>
-
-    {{else}}
-
-    {{#eachSection rootNumber}}
-    {{#whenDepth 1}}
-    <section class="section section-header">
-        <div class="container">
+            {{else}}
+            {{#eachSection rootNumber}}
+            {{#whenDepth 1}}
             <h1>{{ reference }}.0&thinsp;–&thinsp;{{ header }}</h1>
+            {{/whenDepth}}
+            {{/eachSection}}
+            {{/if}}
+
         </div>
     </section>
-    {{/whenDepth}}
-    {{/eachSection}}
 
     <section class="section section-content">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-md-push-9">
 
-                    <!-- Secondary navigation -->
                     <nav class="kss__secondary-nav">
                         <ul>
                             {{#if overview}}
@@ -108,15 +95,20 @@
                             {{else}}
                             {{/whenDepth}}
                             {{/eachSection}}
+
                             {{/if}}
                         </ul>
-                        <a href="#top" class="kss__top-link">&uarr; Top</a>
+                        <a href="#top" class="kss__top-link hidden-xs hidden-sm">&uarr; Top</a>
                     </nav>
 
                 </div>
                 <div class="col-md-9 col-md-pull-3">
 
                     <article>
+
+                        {{#if overview}}
+                        {{html overview}}
+                        {{else}}
 
                         {{!
                         Find each section, in order.
@@ -129,6 +121,7 @@
                         {{#eachSection rootNumber}}
                         {{#whenDepth 1}}
                         {{else}}
+
                         <section id="section-{{reference}}" class="kss__section kss__depth--{{ refDepth }}">
                             {{#whenDepth 2}}
                             <h2 class="kss__title">{{ reference }}&thinsp;–&thinsp;{{ header }}</h2>
@@ -165,6 +158,8 @@
                         {{/whenDepth}}
                         {{/eachSection}}
 
+                        {{/if}}
+
                     </article>
 
                     <p class="hidden-md hidden-lg">
@@ -175,8 +170,6 @@
             </div><!-- .row -->
         </div><!-- .container -->
     </section>
-
-    {{/if}}
 
 </main>
 
