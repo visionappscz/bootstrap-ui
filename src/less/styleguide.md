@@ -1,6 +1,6 @@
 ## Built on Bootstrap 3
 
-This a living styleguide of **Synergic UI**, a UI library for building responsive admin interfaces. It is a
+This a living styleguide of **Synergic UI**, a UI library for building responsive admin interfaces. It is a sleek,
 **lightweight extension** built on the shoulders of a
 giant&thinsp;—&thinsp;[**Bootstrap 3**](http://www.getbootstrap.com).
 
@@ -14,14 +14,50 @@ of code on top of Bootstrap’s codebase as possible.
 
 **Technologies used:**
 
-- [**Bootstrap 3**](http://www.getbootstrap.com) together with [jQuery](http://www.jquery.com)
+- [**Bootstrap 3**](http://www.getbootstrap.com) together with [Glyphicons](http://glyphicons.com/) and
+[jQuery](http://www.jquery.com)
 - [LESS modules](https://github.com/adamkudrna/less-modules)
 - [Bower](http://bower.io)
 - [Grunt](http://gruntjs.com)
 - [Styleguide generator](https://github.com/indieisaconcept/grunt-styleguide) using
 [KSS syntax](http://warpspire.com/kss/syntax/)
 
-## Changelog
+## <span id="install"></span>Install
+The recommended way to install Synergic UI is via [Bower](http://bower.io) (assumes you have
+[Node.js](http://nodejs.org) and Bower installed in your system).
+
+```
+$ bower install synergic-ui
+```
+
+## <span id="usage"></span>Usage
+You will find everything you need in the `/dist` directory.
+
+Link Open Sans font and complete Synergic UI CSS:
+
+```
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700&amp;subset=latin,latin-ext" type="text/css" />
+<link rel="stylesheet" href="bower_components/synergic-ui/dist/css/synergic-ui.min.css" type="text/css" />
+```
+
+Bootstrap JS is **not** included in this package. We recommend you to load it from [CDN](http://www.bootstrapcdn.com/),
+you can also link to the package managed by Bower. Do not forget that Bootstrap needs jQuery to work.
+
+```
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+```
+
+Link Synergic UI JS components you want:
+
+```
+<script src="bower_components/synergic-ui/dist/js/data-view-table.js"></script>
+```
+
+You can also use LESS and CoffeeScript source files that are located in `/src` and build CSS and JS packages yourself
+just from the components you need. It is up to you.
+
+## <span id="changelog"></span>Changelog
 
 ### 0.1.0
 Release date: 29 August 2014

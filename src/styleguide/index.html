@@ -82,6 +82,8 @@
                         <ul>
                             {{#if overview}}
                             <li><a href="#top"><strong>Synergic UI</strong></a></li>
+                            <li><a href="#install">Install</a></li>
+                            <li><a href="#usage">Usage</a></li>
                             <li><a href="#changelog">Changelog</a></li>
                             {{else}}
 
@@ -104,11 +106,12 @@
                 </div>
                 <div class="col-md-9 col-md-pull-3">
 
-                    <article>
-
-                        {{#if overview}}
+                    {{#if overview}}
+                    <article class="kss__overview">
                         {{html overview}}
-                        {{else}}
+
+                    {{else}}
+                    <article>
 
                         {{!
                         Find each section, in order.
