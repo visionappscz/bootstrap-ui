@@ -6,7 +6,7 @@
   ],
   "description": "Synergic UI",
   "license": "MIT",
-  "homepage": "www.synergic.cz/ui",
+  "homepage": "ui.synergic.cz",
   "dependencies": {
     "bootstrap": "~3.2.0",
     "less-modules": "~0.2.1"

@@ -4,7 +4,7 @@
   "description": "Synergic UI",
   "repository": {
     "type": "git",
-    "url": "ssh://git@bitbucket.org/synergic/synergic-ui.git"
+    "url": "git@github.com:synergic-cz/synergic-ui.git"
   },
   "author": "http://www.synergic.cz",
   "license": "MIT",
