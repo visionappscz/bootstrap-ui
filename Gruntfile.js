@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             },
             all: {
                 files: [{
-                    'dist/styleguide': 'src/less/main.less'
+                    'styleguide': 'src/less/main.less'
                 }]
             }
         },
@@ -68,19 +68,19 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: 'bower_components/bootstrap/dist/',
                         src: ['fonts/*', 'js/*'],
-                        dest: 'dist/styleguide/public/'
+                        dest: 'styleguide/public/'
                     },
                     {
                         expand: true,
                         cwd: 'dist/',
                         src: ['css/*', 'js/*'],
-                        dest: 'dist/styleguide/public/'
+                        dest: 'styleguide/public/'
                     },
                     {
                         expand: true,
                         cwd: 'src/images/',
                         src: ['*'],
-                        dest: 'dist/styleguide/public/images/'
+                        dest: 'styleguide/public/images/'
                     }
                 ]
             }
