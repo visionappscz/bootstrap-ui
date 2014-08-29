@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         coffee: {
             compile: {
                 files: {
-                    "dist/js/dataViewTable.js": "src/coffee/dataViewTable.coffee"
+                    "dist/js/sortable-tables.js": "src/coffee/sortable-tables.coffee"
                 }
             }
         },
@@ -54,6 +54,14 @@ module.exports = function(grunt) {
 
         // Copy files
         copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'bower_components/bootstrap/dist/',
+                    src: ['fonts/*'],
+                    dest: 'dist/'
+                }]
+            },
             styleguide: {
                 files: [
                     {
@@ -64,9 +72,9 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'dist/js/',
-                        src: ['*.js'],
-                        dest: 'dist/styleguide/public/js'
+                        cwd: 'dist/',
+                        src: ['css/*', 'js/*'],
+                        dest: 'dist/styleguide/public/'
                     },
                     {
                         expand: true,
