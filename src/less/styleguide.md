@@ -59,6 +59,11 @@ just from the components you need. It is up to you.
 
 ## <span id="changelog"></span>Changelog
 
+### 0.1.1
+Release date: 1 September 2014
+
+* Use Bootstrap mixins for layout
+
 ### 0.1.0
 Release date: 29 August 2014
 
