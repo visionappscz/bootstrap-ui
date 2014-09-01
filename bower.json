@@ -1,12 +1,34 @@
 {
   "name": "synergic-ui",
+  "description": "Synergic UI is a UI library for building responsive admin interfaces. Built on Bootstrap 3.",
   "version": "0.1.0",
+  "homepage": "http://ui.synergic.cz",
   "authors": [
+    "http://www.adamkudrna.cz",
     "http://www.synergic.cz"
   ],
-  "description": "Synergic UI",
   "license": "MIT",
-  "homepage": "ui.synergic.cz",
+  "keywords": [
+    "bootstrap",
+    "extension",
+    "css",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "web"
+  ],
+  "main": [
+    "./dist/css/synergic-ui.css",
+    "./dist/css/synergic-ui.min.css",
+    "./dist/fonts/glyphicons-halflings-regular.eot",
+    "./dist/fonts/glyphicons-halflings-regular.svg",
+    "./dist/fonts/glyphicons-halflings-regular.ttf",
+    "./dist/fonts/glyphicons-halflings-regular.woff"
+  ],
+  "ignore": [
+    ".*"
+  ],
   "dependencies": {
     "bootstrap": "~3.2.0",
     "less-modules": "~0.2.1"
