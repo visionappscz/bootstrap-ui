@@ -20,25 +20,20 @@
 // Styleguide 2.1
 
 // Grid shortcuts
-.content,
-.sidebar {
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
+.content {
+    .make-md-column(9);
 }
 
-@media screen and (min-width: @screen-md-min) {
-    .content,
-    .sidebar {
-        float: left;
+.sidebar {
+    .make-md-column(3);
+}
+
+.row-reverse {
+    > .content {
+        .make-md-column-pull(3);
     }
 
-    .content {
-        width: 75%;
-    }
-
-    .sidebar {
-        width: 25%;
+    > .sidebar {
+        .make-md-column-push(9);
     }
 }

@@ -6278,23 +6278,38 @@ h1 + h2 {
 hr {
   margin: 42px 0;
 }
-.content,
+.content {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 992px) {
+  .content {
+    float: left;
+    width: 75%;
+  }
+}
 .sidebar {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
 }
-@media screen and (min-width: 992px) {
-  .content,
+@media (min-width: 992px) {
   .sidebar {
     float: left;
-  }
-  .content {
-    width: 75%;
-  }
-  .sidebar {
     width: 25%;
+  }
+}
+@media (min-width: 992px) {
+  .row-reverse > .content {
+    right: 25%;
+  }
+}
+@media (min-width: 992px) {
+  .row-reverse > .sidebar {
+    left: 75%;
   }
 }
 .footer {
