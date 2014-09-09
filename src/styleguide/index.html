@@ -75,35 +75,7 @@
 
     <section class="section section-content">
         <div class="container">
-            <div class="row row-reverse">
-                <div class="sidebar">
-
-                    <nav class="kss__secondary-nav">
-                        <ul>
-                            {{#if overview}}
-                            <li><a href="#top"><strong>Synergic UI</strong></a></li>
-                            <li><a href="#install">Install</a></li>
-                            <li><a href="#usage">Usage</a></li>
-                            <li><a href="#changelog">Changelog</a></li>
-                            {{else}}
-
-                            {{#eachSection rootNumber}}
-                            {{#whenDepth 1}}
-                            <li><a href="#top"><strong>{{ header }}</strong></a></li>
-                            {{else}}
-                            {{/whenDepth}}
-                            {{#whenDepth 2}}
-                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
-                            {{else}}
-                            {{/whenDepth}}
-                            {{/eachSection}}
-
-                            {{/if}}
-                        </ul>
-                        <a href="#top" class="kss__top-link hidden-xs hidden-sm">&uarr; Top</a>
-                    </nav>
-
-                </div>
+            <div class="row">
                 <div class="content">
 
                     {{#if overview}}
@@ -112,6 +84,20 @@
 
                     {{else}}
                     <article>
+
+                        <ul class="hidden-md hidden-lg">
+                            {{#if overview}}
+                            {{else}}
+
+                            {{#eachSection rootNumber}}
+                            {{#whenDepth 2}}
+                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
+                            {{else}}
+                            {{/whenDepth}}
+                            {{/eachSection}}
+
+                            {{/if}}
+                        </ul>
 
                         {{!
                         Find each section, in order.
@@ -165,9 +151,29 @@
 
                     </article>
 
-                    <p class="hidden-md hidden-lg">
-                        <a href="#top">&uarr; Top</a>
-                    </p>
+                </div>
+                <div class="sidebar">
+
+                    <nav class="kss__secondary-nav">
+                        <ul>
+                            {{#if overview}}
+                            <li><a href="#top"><strong>Synergic UI</strong></a></li>
+                            <li><a href="#install">Install</a></li>
+                            <li><a href="#usage">Usage</a></li>
+                            <li><a href="#changelog">Changelog</a></li>
+                            {{else}}
+
+                            {{#eachSection rootNumber}}
+                            {{#whenDepth 2}}
+                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
+                            {{else}}
+                            {{/whenDepth}}
+                            {{/eachSection}}
+
+                            {{/if}}
+                        </ul>
+                        <a href="#top" class="kss__top-link">&uarr; Top</a>
+                    </nav>
 
                 </div>
             </div><!-- .row -->
