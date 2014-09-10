@@ -1,7 +1,24 @@
-// Components: Buttons
+// Buttons
+//
+// Generic buttons, recolored via LESS variables.
+//
+// Markup:
+// <button type="button" class="btn btn-default">Default button</button>
+// <button type="button" class="btn btn-primary">Primary button</button>
+//
+// Styleguide 5.1
 
 
-// Just give disabled buttons lower opacity to provide a better visual feedback.
+// Disabled Buttons
+//
+// Just give disabled buttons more transparency to provide better visual feedback.
+//
+// Markup:
+// <button type="button" class="btn btn-default" disabled>Disabled default button</button>
+// <button type="button" class="btn btn-primary" disabled>Disabled primary button</button>
+//
+// Styleguide 5.1.1
+
 .btn[disabled] {
     opacity: .5;
 }

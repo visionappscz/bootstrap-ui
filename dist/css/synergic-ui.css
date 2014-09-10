@@ -6353,6 +6353,33 @@ body {
   width: 100%;
   min-height: 63px;
 }
+.section-header {
+  padding-top: 52.5px;
+  padding-bottom: 52.5px;
+  border-bottom: 1px solid #dddddd;
+  background-color: #eeeeee;
+}
+.section-header h1 {
+  margin: 0;
+}
+.section-header h1 + h2 {
+  margin-top: .1em;
+}
+.section-header.has-tabs {
+  padding-bottom: 0;
+}
+.section-header.has-tabs > .container {
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .section-header.has-tabs > .container {
+    padding-bottom: 52.5px;
+  }
+}
+.section-content {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
 .navbar-static-top {
   margin-bottom: 0;
 }
@@ -6414,66 +6441,6 @@ body {
     display: block;
   }
 }
-.alert-full {
-  margin-bottom: 1px;
-  padding-left: 0;
-  border-radius: 0;
-}
-@media screen and (min-width: 768px) {
-  .alert-full {
-    padding-left: 15px;
-  }
-}
-.btn[disabled],
-.item-action[disabled] {
-  opacity: .5;
-}
-.cta {
-  margin-top: 21px;
-}
-@media screen and (min-width: 768px) {
-  .cta {
-    float: right;
-    margin-top: 0;
-  }
-}
-[data-toggle="sort"] {
-  white-space: nowrap;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-[data-toggle="sort"]:hover .data-view-table-icon,
-[data-toggle="sort"]:focus .data-view-table-icon {
-  color: #333333;
-}
-[data-toggle="sort"]:focus {
-  outline: none;
-}
-[data-toggle="sort"] .data-view-table-icon {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-right: .5ex;
-  color: #777777;
-}
-[data-toggle="sort"] .data-view-table-icon:before {
-  content: "\e155";
-}
-[data-toggle="sort"].sorting-active .data-view-table-icon {
-  color: #f0ad4e;
-}
-[data-toggle="sort"].sorting-desc .data-view-table-icon:before {
-  content: "\e156";
-}
 .text-danger-block {
   padding: 15px;
   margin-bottom: 21px;
@@ -6513,6 +6480,29 @@ label.required:after {
 }
 input[type="file"] {
   margin: 10.5px 0;
+}
+.alert-full {
+  margin-bottom: 1px;
+  padding-left: 0;
+  border-radius: 0;
+}
+@media screen and (min-width: 768px) {
+  .alert-full {
+    padding-left: 15px;
+  }
+}
+.btn[disabled],
+.item-action[disabled] {
+  opacity: .5;
+}
+.cta {
+  margin-top: 21px;
+}
+@media screen and (min-width: 768px) {
+  .cta {
+    float: right;
+    margin-top: 0;
+  }
 }
 .item-action {
   color: #333333;
@@ -6589,32 +6579,42 @@ input[type="file"] {
 .panel-primary .panel-heading .panel-title {
   color: #fff;
 }
-.section-header {
-  padding-top: 52.5px;
-  padding-bottom: 52.5px;
-  border-bottom: 1px solid #dddddd;
-  background-color: #eeeeee;
+[data-toggle="sort"] {
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-.section-header h1 {
-  margin: 0;
+[data-toggle="sort"]:hover .data-view-table-icon,
+[data-toggle="sort"]:focus .data-view-table-icon {
+  color: #333333;
 }
-.section-header h1 + h2 {
-  margin-top: .1em;
+[data-toggle="sort"]:focus {
+  outline: none;
 }
-.section-header.has-tabs {
-  padding-bottom: 0;
-}
-.section-header.has-tabs > .container {
+[data-toggle="sort"] .data-view-table-icon {
   position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: .5ex;
+  color: #777777;
 }
-@media screen and (min-width: 768px) {
-  .section-header.has-tabs > .container {
-    padding-bottom: 52.5px;
-  }
+[data-toggle="sort"] .data-view-table-icon:before {
+  content: "\e155";
 }
-.section-content {
-  padding-top: 42px;
-  padding-bottom: 42px;
+[data-toggle="sort"].sorting-active .data-view-table-icon {
+  color: #f0ad4e;
+}
+[data-toggle="sort"].sorting-desc .data-view-table-icon:before {
+  content: "\e156";
 }
 tr.disabled {
   opacity: .5;
