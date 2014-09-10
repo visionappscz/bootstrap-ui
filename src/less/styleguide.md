@@ -59,6 +59,11 @@ just from the components you need. It is up to you.
 
 ## <span id="changelog"></span>Changelog
 
+### NEXT VERSION
+
+* Upgrade to LESS modules 0.3 with default grid columns
+* Various style guide fixes and adjustments
+
 ### 0.1.1
 Release date: 1 September 2014
 

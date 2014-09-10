@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
 
+    // Measure task execution times
+    require('time-grunt')(grunt);
+
     // Autoload all tasks instead of grunt.loadNpmTasks(...)
     require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks);
 
