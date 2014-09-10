@@ -51,7 +51,7 @@ you can also link to the package managed by Bower. Do not forget that Bootstrap 
 Link Synergic UI JS components you want:
 
 ```
-<script src="bower_components/synergic-ui/dist/js/data-view-table.js"></script>
+<script src="bower_components/synergic-ui/dist/js/sortable-tables.js"></script>
 ```
 
 You can also use LESS and CoffeeScript source files that are located in `/src` and build CSS and JS packages yourself
