@@ -65,7 +65,7 @@
             {{else}}
             {{#eachSection rootNumber}}
             {{#whenDepth 1}}
-            <h1>{{ reference }}.0&thinsp;–&thinsp;{{ header }}</h1>
+            <h1>{{ reference }}. {{ header }}</h1>
             {{/whenDepth}}
             {{/eachSection}}
             {{/if}}
@@ -113,9 +113,9 @@
 
                         <section id="section-{{reference}}" class="kss__section kss__depth--{{ refDepth }}">
                             {{#whenDepth 2}}
-                            <h2 class="kss__title">{{ reference }}&thinsp;–&thinsp;{{ header }}</h2>
+                            <h2 class="page-header kss__title">{{ reference }}&thinsp;—&thinsp;{{ header }}</h2>
                             {{else}}
-                            <h3 class="kss__subtitle">{{ reference }}&thinsp;–&thinsp;{{ header }}</h3>
+                            <h3 class="kss__subtitle">{{ reference }}&thinsp;—&thinsp;{{ header }}</h3>
                             {{/whenDepth}}
                             {{/whenDepth}}
 

@@ -14,10 +14,7 @@
 }
 
 .kss__title {
-    padding-bottom: .2em;
-    border-bottom: 1px solid #ddd;
-
-    .kss__section:not(:first-child) & {
+    .kss__section:not(:first-of-type) & {
         margin-top: 1.5em;
     }
 }
@@ -39,9 +36,10 @@
     border-style: dashed none;
 
     &-title {
-        margin-top: 1em;
+        margin-top: 1.5em;
+        margin-bottom: .5em;
         font-weight: bold;
-        font-size: 1.2em;
+        text-transform: uppercase;
         color: #999;
     }
 
@@ -49,10 +47,6 @@
         .container {
             width: auto;
         }
-    }
-
-    .footer {
-        position: static;
     }
 }
 
