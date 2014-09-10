@@ -33,6 +33,6 @@
     "bootstrap": "~3.2.0"
   },
   "devDependencies": {
-    "less-modules": "~0.2.1"
+    "less-modules": "~0.3.0"
   }
 }
