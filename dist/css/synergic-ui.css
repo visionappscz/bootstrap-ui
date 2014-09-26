@@ -929,6 +929,7 @@ img {
 .thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img,
+.teaser-image img,
 .thumbnail-fixed .thumbnail-image img {
   display: block;
   width: 100% \9;
@@ -6647,6 +6648,62 @@ td.table-cell-id {
 .table-cell-actions {
   text-align: right;
   white-space: nowrap;
+}
+.teaser {
+  display: block;
+  margin-bottom: 21px;
+  text-decoration: none;
+}
+.teaser-submitted {
+  margin-bottom: 10.5px;
+  font-size: 13px;
+  color: #777777;
+}
+.teaser-image {
+  margin-bottom: 21px;
+}
+.teaser-description {
+  margin-bottom: 21px;
+  color: #333333;
+}
+.teaser-more {
+  text-decoration: underline;
+}
+.teaser:hover,
+.teaser:focus {
+  text-decoration: none;
+}
+.teaser:hover .teaser-title,
+.teaser:focus .teaser-title {
+  color: #6d9000;
+}
+.teaser:hover .teaser-more,
+.teaser:focus .teaser-more {
+  text-decoration: underline;
+}
+@media screen and (min-width: 480px) {
+  .teaser-description {
+    overflow: hidden;
+  }
+  .teaser-image {
+    max-width: 180px;
+    float: left;
+    margin-right: 1.5em;
+  }
+}
+@media screen and (min-width: 992px) {
+  .teaser-title {
+    overflow: hidden;
+    height: 2.2em;
+  }
+  .teaser-image {
+    max-width: none;
+    float: none;
+    margin-right: 0;
+  }
+  .teaser-description {
+    height: 126px;
+  }
 }
 .thumbnail-fixed {
   position: relative;

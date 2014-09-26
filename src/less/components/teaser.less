@@ -1,0 +1,152 @@
+// Teaser
+//
+// Article teaser. Designed for use in grid.
+//
+// Markup:
+// <a href="#" class="teaser">
+//     <article>
+//         <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
+//         <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
+//         <div class="teaser-image">
+//             <img src="//placehold.it/800x400" alt="Picture" />
+//         </div>
+//         <div class="teaser-description">
+//             <p>V globální mu věrni obrovský zdejších stoupá dva stejného reklamy vy svůj hloubce disponují, kulturním
+//             by šanci posláníjane ledové, pobřeží zdejších zajišťuje, má mě ona ta nimi kameni instituce, pavouka směr
+//             epidemií o institut tehdy ty smeten draci pak i podporovala amatérsky mocná založení žen pročítat kde.
+//             </p>
+//         </div>
+//         <div class="teaser-more">Read more</a>
+//     </article>
+// </a>
+//
+// Styleguide 5.9
+
+
+// Teaser Grid
+//
+// Markup:
+// <div class="row">
+//     <div class="col-md-4">
+//         <a href="#" class="teaser">
+//             <article>
+//                 <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
+//                 <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
+//                 <div class="teaser-image">
+//                     <img src="//placehold.it/800x400" alt="Picture" />
+//                 </div>
+//                 <div class="teaser-description">
+//                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
+//                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
+//                 </div>
+//                 <div class="teaser-more">Read more</a>
+//             </article>
+//         </a>
+//     </div>
+//     <div class="col-md-4">
+//         <a href="#" class="teaser">
+//             <article>
+//                 <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
+//                 <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
+//                 <div class="teaser-image">
+//                     <img src="//placehold.it/800x400" alt="Picture" />
+//                 </div>
+//                 <div class="teaser-description">
+//                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
+//                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
+//                 </div>
+//                 <div class="teaser-more">Read more</a>
+//             </article>
+//         </a>
+//     </div>
+//     <div class="col-md-4">
+//         <a href="#" class="teaser">
+//             <article>
+//                 <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
+//                 <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
+//                 <div class="teaser-image">
+//                     <img src="//placehold.it/800x400" alt="Picture" />
+//                 </div>
+//                 <div class="teaser-description">
+//                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
+//                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
+//                 </div>
+//                 <div class="teaser-more">Read more</a>
+//             </article>
+//         </a>
+//     </div>
+// </div><!-- .row -->
+//
+// Styleguide 5.9.1
+
+
+.teaser {
+    display: block;
+    margin-bottom: @line-height-computed;
+    text-decoration: none;
+
+    &-submitted {
+        margin-bottom: @line-height-computed / 2;
+        font-size: @font-size-small;
+        color: @gray-light;
+    }
+
+    &-image {
+        margin-bottom: @line-height-computed;
+
+        img {
+            &:extend(.img-responsive);
+        }
+    }
+
+    &-description {
+        margin-bottom: @line-height-computed;
+        color: @text-color;
+    }
+
+    &-more {
+        text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+
+        .teaser-title {
+            color: @link-hover-color;
+        }
+
+        .teaser-more {
+            text-decoration: underline;
+        }
+    }
+
+    @media screen and (min-width: 480px) {
+        &-description {
+            overflow: hidden;
+        }
+
+        &-image {
+            max-width: 180px;
+            float: left;
+            margin-right: 1.5em;
+        }
+    }
+
+    @media screen and (min-width: @screen-md-min) {
+        &-title {
+            overflow: hidden;
+            height: 2em * @headings-line-height;
+        }
+
+        &-image {
+            max-width: none;
+            float: none;
+            margin-right: 0;
+        }
+
+        &-description {
+            height: 6 * @line-height-computed;
+        }
+    }
+}
