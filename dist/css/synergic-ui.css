@@ -6496,6 +6496,15 @@ input[type="file"] {
     padding-left: 15px;
   }
 }
+.back {
+  display: block;
+  margin-bottom: 21px;
+}
+@media screen and (min-width: 768px) {
+  .back {
+    float: right;
+  }
+}
 .btn[disabled],
 .item-action[disabled] {
   opacity: .5;
