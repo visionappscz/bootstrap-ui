@@ -6522,6 +6522,37 @@ input[type="file"] {
     margin-top: 0;
   }
 }
+.gallery {
+  margin: 21px -15px 21px 0;
+}
+.gallery > a {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 21px;
+  padding: 5px;
+  border: 1px solid #dddddd;
+}
+.gallery > a > img {
+  width: 100px;
+  height: auto;
+}
+@media screen and (min-width: 768px) {
+  .gallery {
+    margin-top: 31.5px;
+    margin-bottom: 31.5px;
+  }
+  .gallery > a > img {
+    width: 150px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .gallery {
+    margin-right: -30px;
+  }
+  .gallery > a {
+    margin-right: 30px;
+  }
+}
 .item-action {
   color: #333333;
   background: transparent;

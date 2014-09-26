@@ -1,0 +1,52 @@
+// Gallery
+//
+// Bootstrap-grid-independent responsive thumbnail grid. Designed for easy use.
+//
+// Markup:
+// <div class="gallery">
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+//     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+// </div>
+//
+// Styleguide 5.9
+
+
+.gallery {
+    margin: @line-height-computed -(@grid-gutter-width / 2) @line-height-computed 0;
+
+    > a {
+        display: inline-block;
+        margin-right: @grid-gutter-width / 2;
+        margin-bottom: @line-height-computed;
+        padding: 5px;
+        border: 1px solid @thumbnail-border;
+
+        > img {
+            width: 100px;
+            height: auto;
+        }
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        margin-top: 1.5 * @line-height-computed;
+        margin-bottom: 1.5 * @line-height-computed;
+
+        > a > img {
+            width: 150px;
+        }
+    }
+
+    @media screen and (min-width: @screen-md-min) {
+        margin-right: -@grid-gutter-width;
+
+        > a {
+            margin-right: @grid-gutter-width;
+        }
+    }
+}
