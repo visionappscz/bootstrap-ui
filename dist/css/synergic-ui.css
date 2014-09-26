@@ -6486,6 +6486,10 @@ label.required:after {
 input[type="file"] {
   margin: 10.5px 0;
 }
+.input-group-btn > .btn,
+.input-group-btn > .item-action {
+  z-index: 2;
+}
 .alert-full {
   margin-bottom: 1px;
   padding-left: 0;
