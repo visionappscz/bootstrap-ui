@@ -6278,6 +6278,10 @@ h1 + h2 {
 hr {
   margin: 42px 0;
 }
+.article {
+  max-width: 35em;
+  margin-bottom: 42px;
+}
 .content {
   position: relative;
   min-height: 1px;
