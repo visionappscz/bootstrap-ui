@@ -27,21 +27,27 @@ The recommended way to install Synergic UI is via [Bower](http://bower.io) (assu
 [Node.js](http://nodejs.org) and Bower installed in your system).
 
 ```
-$ bower install synergic-ui
+$ bower install --save synergic-ui
 ```
 
 ## <span id="usage"></span>Usage
-You will find everything you need in the `/dist` directory.
+
+### CSS
+You will find everything you need in the `/dist` directory to start using Synergic UI right away.
 
 Link Open Sans font and complete Synergic UI CSS:
 
 ```
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700&amp;subset=latin,latin-ext" type="text/css" />
-<link rel="stylesheet" href="bower_components/synergic-ui/dist/css/synergic-ui.min.css" type="text/css" />
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700&amp;subset=latin,latin-ext" />
+<link rel="stylesheet" href="bower_components/synergic-ui/dist/css/synergic-ui.min.css" />
 ```
 
-Bootstrap JS is **not** included in this package. We recommend you to load it from [CDN](http://www.bootstrapcdn.com/),
-you can also link to the package managed by Bower. Do not forget that Bootstrap needs jQuery to work.
+### JavaScript
+Bootstrap JavaScript is **not** included in this package. We recommend loading it from
+[CDN](http://www.bootstrapcdn.com/), you can also link to the package managed by Bower. Do not forget that Bootstrap
+needs jQuery to work.
+
+Example use (Bootstrap and jQuery installed by Bower):
 
 ```
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -54,10 +60,28 @@ Link Synergic UI JS components you want:
 <script src="bower_components/synergic-ui/dist/js/sortable-tables.js"></script>
 ```
 
-You can also use LESS and CoffeeScript source files that are located in `/src` and build CSS and JS packages yourself
-just from the components you need. It is up to you.
+### LESS
+Loading original LESS components allows you to customize your Synergic UI build. You can pick just the components you
+want and recolor the UI by overriding LESS variables. Remember that Bootstrap and LESS modules dependencies must be
+loaded manually in this case.
+
+Full Synergic UI using custom colors, example use:
+
+```
+// Synergic UI and its dependencies
+@import "../bower_components/bootstrap/less/bootstrap";
+@import "../bower_components/less-modules/less/less-modules";
+@import "../bower_components/synergic-ui/src/less/_synergic-ui"; // not main.less!
+
+// Configuration (custom colors etc.; must be last to override)
+@import "config/variables";
+```
 
 ## <span id="changelog"></span>Changelog
+
+### NEXT
+
+* Synergic UI now can be easily customized via LESS
 
 ### 0.2.0
 Release date: 27 September 2014
