@@ -1,7 +1,10 @@
 // Back Link
 //
+// Typically used together with `<h2>` headings.
+//
 // Markup:
-// <a href="#" class="back">&lt; Zpět</a>
+// <a href="#" class="back">&lt; Back</a>
+// <h2>Upon He Was the Divided</h2>
 //
 // Styleguide 5.12
 
@@ -12,5 +15,7 @@
 
     @media screen and (min-width: @screen-sm-min) {
         float: right;
+        margin-left: 1.5em; // safety margin
+        padding-top: @headings-line-height * @font-size-h2 - @line-height-computed; // align to baseline with H2
     }
 }
