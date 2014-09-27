@@ -63,12 +63,12 @@ just from the components you need. It is up to you.
 Release date: 27 September 2014
 
 * New components:
-** Panel menu
-** Article
-** Teaser
-** Gallery
-** Back link
-** Input groups
+  * Panel menu
+  * Article
+  * Teaser
+  * Gallery
+  * Back link
+  * Input groups
 * Footer now requires `.footer-sticky` class to be sticky
 * Upgrade to LESS modules 0.3 with default grid columns
 * Various style guide fixes and adjustments

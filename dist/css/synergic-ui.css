@@ -6500,7 +6500,6 @@ body {
   }
   .panel-menu-collapse.collapse {
     display: block !important;
-    height: auto !important;
     overflow: visible !important;
   }
   .panel-menu-collapse.in {
