@@ -1,0 +1,102 @@
+// Panel Menu
+//
+// Lef-side panel menu designed for admin navigation. Requires `.has-panel-menu` class on `<body>`. **Depends on Navbar
+// component.**
+//
+// Markup:
+// <nav class="panel-menu">
+//     <div class="panel-menu-header">
+//         <button type="button" class="panel-menu-toggle" data-toggle="collapse" data-target="#kssPanel">
+//             <span class="sr-only">Menu</span>
+//             <span class="icon-bar"></span>
+//             <span class="icon-bar"></span>
+//             <span class="icon-bar"></span>
+//         </button>
+//     </div>
+//     <div class="collapse panel-menu-collapse" id="kssPanel">
+//         <ul class="nav panel-menu-nav">
+//             <li><a href="#">Dashboard</a></li>
+//             <li><a href="#">Pages</a></li>
+//             <li><a href="#">Articles</a></li>
+//             <li><a href="#">Media</a></li>
+//             <li><a href="#">Users</a></li>
+//         </ul>
+//     </div><!-- .collapse -->
+// </nav>
+//
+// Styleguide 3.2
+
+
+.panel-menu {
+    color: @gray-lighter;
+    background-color: @gray-darker;
+
+    &-header {
+        &:extend(.clearfix all);
+    }
+
+    &-toggle {
+        &:extend(.navbar-toggle all);
+        &:extend(.navbar-default .navbar-toggle all);
+    }
+
+    &-collapse {
+        -webkit-overflow-scrolling: touch;
+
+        &.in {
+            overflow-y: auto;
+        }
+    }
+
+    &-nav {
+        > li > a {
+            color: @gray-light;
+
+            &:hover,
+            &:focus {
+                color: #fff;
+                background-color: @gray-dark;
+            }
+        }
+
+        > li > ul > li > a {
+            padding-left: 30px;
+        }
+    }
+
+    @media (min-width: @grid-float-breakpoint) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: @zindex-navbar;
+        width: @panel-menu-width;
+        display: block !important;
+        padding: @line-height-computed 0;
+
+        &-collapse {
+            &.collapse {
+                display: block !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+
+            &.in {
+                overflow-y: visible;
+            }
+        }
+    }
+}
+
+// Make place for the panel
+@media (min-width: @grid-float-breakpoint) {
+    body.has-panel-menu {
+        padding-left: @panel-menu-width;
+
+        // Fixes for sticky footer
+        .footer-sticky {
+            width: calc(~"100% - 220px");
+            left: @panel-menu-width;
+        }
+    }
+}

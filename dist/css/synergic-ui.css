@@ -3964,7 +3964,8 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
     margin-left: -15px;
   }
 }
-.navbar-toggle {
+.navbar-toggle,
+.panel-menu-toggle {
   position: relative;
   float: right;
   margin-right: 15px;
@@ -3976,20 +3977,24 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
   border: 1px solid transparent;
   border-radius: 4px;
 }
-.navbar-toggle:focus {
+.navbar-toggle:focus,
+.panel-menu-toggle:focus {
   outline: 0;
 }
-.navbar-toggle .icon-bar {
+.navbar-toggle .icon-bar,
+.panel-menu-toggle .icon-bar {
   display: block;
   width: 22px;
   height: 2px;
   border-radius: 1px;
 }
-.navbar-toggle .icon-bar + .icon-bar {
+.navbar-toggle .icon-bar + .icon-bar,
+.panel-menu-toggle .icon-bar + .icon-bar {
   margin-top: 4px;
 }
 @media (min-width: 768px) {
-  .navbar-toggle {
+  .navbar-toggle,
+  .panel-menu-toggle {
     display: none;
   }
 }
@@ -4196,14 +4201,22 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
   color: #cccccc;
   background-color: transparent;
 }
-.navbar-default .navbar-toggle {
+.navbar-default .navbar-toggle,
+.navbar-default .panel-menu-toggle,
+.panel-menu-toggle {
   border-color: #ffffff;
 }
 .navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:focus,
+.navbar-default .panel-menu-toggle:hover,
+.navbar-default .panel-menu-toggle:focus,
+.panel-menu-toggle:hover,
+.panel-menu-toggle:focus {
   background-color: transparent;
 }
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-default .navbar-toggle .icon-bar,
+.navbar-default .panel-menu-toggle .icon-bar,
+.panel-menu-toggle .icon-bar {
   background-color: #ffffff;
 }
 .navbar-default .navbar-collapse,
@@ -4292,14 +4305,18 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #444444;
   background-color: transparent;
 }
-.navbar-inverse .navbar-toggle {
+.navbar-inverse .navbar-toggle,
+.navbar-inverse .panel-menu-toggle {
   border-color: #333333;
 }
 .navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .panel-menu-toggle:hover,
+.navbar-inverse .panel-menu-toggle:focus {
   background-color: #333333;
 }
-.navbar-inverse .navbar-toggle .icon-bar {
+.navbar-inverse .navbar-toggle .icon-bar,
+.navbar-inverse .panel-menu-toggle .icon-bar {
   background-color: #ffffff;
 }
 .navbar-inverse .navbar-collapse,
@@ -5995,7 +6012,9 @@ button.close {
 .panel-body:before,
 .panel-body:after,
 .modal-footer:before,
-.modal-footer:after {
+.modal-footer:after,
+.panel-menu-header:before,
+.panel-menu-header:after {
   content: " ";
   display: table;
 }
@@ -6013,7 +6032,8 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
-.modal-footer:after {
+.modal-footer:after,
+.panel-menu-header:after {
   clear: both;
 }
 .center-block {
@@ -6351,7 +6371,7 @@ body {
   width: 100%;
   margin: 0 0 63px;
 }
-.footer {
+.footer-sticky {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -6444,6 +6464,56 @@ body {
   .nav-letters > li,
   .nav-letters > li > a {
     display: block;
+  }
+}
+.panel-menu {
+  color: #eeeeee;
+  background-color: #222222;
+}
+.panel-menu-collapse {
+  -webkit-overflow-scrolling: touch;
+}
+.panel-menu-collapse.in {
+  overflow-y: auto;
+}
+.panel-menu-nav > li > a {
+  color: #777777;
+}
+.panel-menu-nav > li > a:hover,
+.panel-menu-nav > li > a:focus {
+  color: #fff;
+  background-color: #333333;
+}
+.panel-menu-nav > li > ul > li > a {
+  padding-left: 30px;
+}
+@media (min-width: 768px) {
+  .panel-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 220px;
+    display: block !important;
+    padding: 21px 0;
+  }
+  .panel-menu-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .panel-menu-collapse.in {
+    overflow-y: visible;
+  }
+}
+@media (min-width: 768px) {
+  body.has-panel-menu {
+    padding-left: 220px;
+  }
+  body.has-panel-menu .footer-sticky {
+    width: calc(100% - 220px);
+    left: 220px;
   }
 }
 .text-danger-block {
