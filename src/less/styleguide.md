@@ -79,10 +79,11 @@ Full Synergic UI using custom colors, example use:
 
 ## <span id="changelog"></span>Changelog
 
-### NEXT
+### 0.3.0
 
 * Synergic UI now can be easily customized via LESS
-* Teaser fixes
+* Teaser and Back link fixes
+* Various minor fixes
 
 ### 0.2.0
 Release date: 27 September 2014
