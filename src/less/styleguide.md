@@ -82,6 +82,7 @@ Full Synergic UI using custom colors, example use:
 ### NEXT
 
 * Synergic UI now can be easily customized via LESS
+* Teaser fixes
 
 ### 0.2.0
 Release date: 27 September 2014

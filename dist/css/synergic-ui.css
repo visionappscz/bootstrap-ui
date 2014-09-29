@@ -6766,6 +6766,7 @@ td.table-cell-id {
 }
 .teaser {
   display: block;
+  clear: both;
   margin-bottom: 21px;
   text-decoration: none;
 }
@@ -6775,6 +6776,7 @@ td.table-cell-id {
   color: #777777;
 }
 .teaser-image {
+  display: block;
   margin-bottom: 21px;
 }
 .teaser-description {
@@ -6797,6 +6799,11 @@ td.table-cell-id {
   text-decoration: underline;
 }
 @media screen and (min-width: 480px) {
+  .teaser-submitted {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .teaser-description {
     overflow: hidden;
   }

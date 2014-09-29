@@ -1,24 +1,23 @@
 // Teaser
 //
-// Article teaser. Designed for use in grid.
+// Article teaser. You can turn the whole teaser into link (preferred use) or just make links from title, image, and
+// more link. Designed for use in grid.
 //
 // Markup:
-// <a href="#" class="teaser">
-//     <article>
-//         <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
-//         <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
-//         <div class="teaser-image">
-//             <img src="//placehold.it/800x400" alt="Picture" />
-//         </div>
-//         <div class="teaser-description">
-//             <p>V globální mu věrni obrovský zdejších stoupá dva stejného reklamy vy svůj hloubce disponují, kulturním
-//             by šanci posláníjane ledové, pobřeží zdejších zajišťuje, má mě ona ta nimi kameni instituce, pavouka směr
-//             epidemií o institut tehdy ty smeten draci pak i podporovala amatérsky mocná založení žen pročítat kde.
-//             </p>
-//         </div>
-//         <div class="teaser-more">Read more</a>
-//     </article>
-// </a>
+// <article class="teaser">
+//     <h3 class="teaser-title"><a href="#">Souvisela směrem co pralesem spojených k zákeřný uchu</a></h3>
+//     <div class="teaser-submitted"><a href="#">Leonardo da Vinci</a> | 6. 9. 1986</div>
+//     <a href="#" class="teaser-image">
+//         <img src="//placehold.it/800x400" alt="Picture" />
+//     </a>
+//     <div class="teaser-description">
+//         <p>V globální mu věrni obrovský zdejších stoupá dva stejného reklamy vy svůj hloubce disponují, kulturním
+//         by šanci posláníjane ledové, pobřeží zdejších zajišťuje, má mě ona ta nimi kameni instituce, pavouka směr
+//         epidemií o institut tehdy ty smeten draci pak i podporovala amatérsky mocná založení žen pročítat kde.
+//         </p>
+//     </div>
+//     <a href="#" class="teaser-more">Read more</a>
+// </article>
 //
 // Styleguide 5.10
 
@@ -39,7 +38,7 @@
 //                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
 //                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
 //                 </div>
-//                 <div class="teaser-more">Read more</a>
+//                 <div class="teaser-more">Read more</div>
 //             </article>
 //         </a>
 //     </div>
@@ -55,7 +54,7 @@
 //                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
 //                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
 //                 </div>
-//                 <div class="teaser-more">Read more</a>
+//                 <div class="teaser-more">Read more</div>
 //             </article>
 //         </a>
 //     </div>
@@ -71,7 +70,7 @@
 //                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
 //                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
 //                 </div>
-//                 <div class="teaser-more">Read more</a>
+//                 <div class="teaser-more">Read more</div>
 //             </article>
 //         </a>
 //     </div>
@@ -82,6 +81,7 @@
 
 .teaser {
     display: block;
+    clear: both;
     margin-bottom: @line-height-computed;
     text-decoration: none;
 
@@ -92,6 +92,7 @@
     }
 
     &-image {
+        display: block;
         margin-bottom: @line-height-computed;
 
         img {
@@ -122,6 +123,10 @@
     }
 
     @media screen and (min-width: 480px) {
+        &-submitted {
+            .text-overflow();
+        }
+
         &-description {
             overflow: hidden;
         }
