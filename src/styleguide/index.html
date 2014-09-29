@@ -212,6 +212,11 @@
         $('pre > code').addClass('prettyprint');
         prettyPrint();
 
+        // Prevent dummy links from navigating
+        $('a[href="#"]').on('click', function () {
+            return false;
+        });
+
     });
 </script>
 
