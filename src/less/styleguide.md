@@ -79,7 +79,13 @@ Full Synergic UI using custom colors, example use:
 
 ## <span id="changelog"></span>Changelog
 
+### 0.4.0
+
+* Added Bootstrap datetimepicker component
+
 ### 0.3.0
+
+Release date: 29 September 2014
 
 * Synergic UI now can be easily customized via LESS
 * Teaser and Back link fixes
