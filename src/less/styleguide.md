@@ -79,9 +79,10 @@ Full Synergic UI using custom colors, example use:
 
 ## <span id="changelog"></span>Changelog
 
-### 0.4.0
+### NEXT VERSION
 
 * Added Bootstrap datetimepicker component
+* Use BrowserSync for comfortable local development
 
 ### 0.3.0
 

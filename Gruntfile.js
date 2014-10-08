@@ -127,6 +127,25 @@ module.exports = function(grunt) {
                     'copy'
                 ]
             }
+        },
+
+        // Browser Sync
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src : [
+                        'styleguide/public/css/*.css',
+                        'styleguide/public/js/*.js',
+                        'styleguide/*.html'
+                    ]
+                },
+                options: {
+                    server: {
+                        baseDir: './styleguide/'
+                    },
+                    watchTask: true
+                }
+            }
         }
     });
 
@@ -142,6 +161,13 @@ module.exports = function(grunt) {
     // Development
     grunt.registerTask('dev', [
         'build',
+        'watch'
+    ]);
+
+    // Serve and watch
+    grunt.registerTask('serve', [
+        'build',
+        'browserSync',
         'watch'
     ]);
 
