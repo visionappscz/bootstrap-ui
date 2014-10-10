@@ -6,20 +6,20 @@
 
   // SORTABLE TABLE CLASS DEFINITION
   // ======================
-  var SortableTable = function ($sortedTh) {
-    this.$sortedTable = $sortedTh.closest('table');
+  var SortableTable = function ($sortedTable, options) {
+    this.$sortedTable = $sortedTable;
     this.$sortableThs = this.$sortedTable.find('[data-toggle="sort"]');
+    this.$navigation = options['sort-navigation'];
   };
 
-  SortableTable.prototype.sort = function ($sortedTh) {
-    var $navigation = $(this.$sortedTable.data('sort-navigation'));
+  SortableTable.prototype.sort = function ($sortedTh, sortDir) {
     var rows = this.$sortedTable
       .find('tbody tr')
       .toArray()
       .sort(this.comparer($sortedTh.index()));
 
 
-    if ($sortedTh.hasClass('sorting-asc')) {
+    if ($sortedTh.hasClass('sorting-asc') || sortDir === 'desc') {
       $sortedTh.asc = !$sortedTh.asc;
     }
     else {
@@ -38,14 +38,14 @@
     }
 
     var colCount;
-    if ($navigation) {
+    if (this.$navigation.length) {
       this.$sortedTable.find('thead:gt(0)').remove();
-      $navigation.children().remove();
+      this.$navigation.children().remove();
       colCount = rows[0].childElementCount;
     }
 
     for (var i = 0; i < rows.length; i++) {
-      if ($navigation) {
+      if (this.$navigation.length) {
         var newSortGroup;
         var sortGroup = $(rows[i])
           .children('td')
@@ -54,7 +54,7 @@
 
         if (newSortGroup != sortGroup) {
           newSortGroup = sortGroup;
-          $navigation.append('<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>');
+          this.$navigation.append('<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>');
           this.$sortedTable.append($('<thead><tr class="active"><th colspan="' + colCount + '"><h2 class="h3" id="letter-' + newSortGroup + '">' + newSortGroup + '</h2></th></tr></thead>'));
           this.$sortedTable.append($('<tbody></tbody>'));
         }
@@ -67,7 +67,12 @@
   SortableTable.prototype.comparer = function(index) {
     return function(a, b) {
       var getCellValue = function(row, index) {
-        return $(row).children('td').eq(index).text();
+        var cell = $(row).children('td').eq(index);
+        if (cell.attr('data-sort-value'))
+          return cell.attr('data-sort-value');
+        else {
+          return cell.text();
+        }
       };
       var valA = getCellValue(a, index);
       var valB = getCellValue(b, index);
@@ -84,27 +89,33 @@
   // SORTABLE TABLE PLUGIN DEFINITION
   // =======================
 
-  function Plugin() {
+  function Plugin(options) {
     return this.each(function () {
       var $this = $(this);
+
+      if (!options['sort-navigation']) {
+        options['sort-navigation'] = $($this.data('sort-navigation'));
+      }
+
       var data = $this.data('sui.sortableTable');
       if (!data) {
-        $this.data('sui.sortableTable', (data = new SortableTable($this)));
+        $this.data('sui.sortableTable', (data = new SortableTable($this, options)));
       }
-      data.sort($this);
+
+      data.sort(options['sort-th'], options['sort-direction']);
     });
   }
 
-  var old = $.fn.sort;
+  var old = $.fn.sortableTable;
 
-  $.fn.sortableTable             = Plugin;
+  $.fn.sortableTable = Plugin;
   $.fn.sortableTable.Constructor = SortableTable;
 
 
   // SORTABLE TABLE NO CONFLICT
   // =================
 
-  $.fn.alert.noConflict = function () {
+  $.fn.sortableTable.noConflict = function () {
     $.fn.sortableTable = old;
     return this;
   };
@@ -115,13 +126,13 @@
 
   $(document).on('click.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
     var $sortedTh = $(e.currentTarget);
-    Plugin.call($sortedTh);
+    Plugin.call($sortedTh.closest('table'), {'sort-th': $sortedTh});
   });
 
   $(document).on('keyup.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
     var $sortedTh = $(e.currentTarget);
     if (e.keyCode == 13 || e.keyCode == 32) {
-      Plugin.call($sortedTh);
+      Plugin.call($sortedTh.closest('table'), {'sort-th': $sortedTh});
     }
   });
 
