@@ -23,7 +23,8 @@ module.exports = function(grunt) {
         // Lint custom JS
         jshint: {
             files: [
-                'src/js/sortable-table.js'
+                'src/js/sortable-table.js',
+                'src/js/confirmation.js'
             ]
         },
 
