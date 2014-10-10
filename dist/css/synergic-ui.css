@@ -7095,3 +7095,6 @@ td.table-cell-id {
   right: 4px;
   bottom: 4px;
 }
+.thumbnail-fixed .thumbnail-actions form {
+  display: inline;
+}

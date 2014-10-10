@@ -20,11 +20,11 @@
 // </div>
 //
 // Markup:
-// <table class="table" data-view="table">
+// <table class="table">
 //     <thead>
 //         <tr>
 //             <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
-//             <th data-toggle="sort" data-order="default" tabindex="0">Page Title</th>
+//             <th data-toggle="sort" tabindex="0">Page Title</th>
 //             <th></th>
 //         </tr>
 //     </thead>
@@ -68,47 +68,42 @@
 //     </tbody>
 // </table>
 //
-// Styleguide 5.3
-
-
-// ### Table with automatically generated header sections and letter navigation.
-// ### Not included in the styleguide since the script doesn support more than one table on a page.
-//
 // <p><strong>Table with automatically generated header sections and letter navigation:</strong></p>
 // <div class="row">
 //     <div class="col-sm-2 col-sm-push-10">
-//         <ul id="letterNavigation" class="nav nav-letters"></ul>
+//         <ul id="tableSortNavigation" class="nav nav-letters"></ul>
 //     </div>
 //     <div class="col-sm-10 col-sm-pull-2">
-//         <table class="table" data-view="table" data-navigation="#letterNavigation">
+//         <table class="table" data-sort-navigation="#tableSortNavigation">
 //             <thead>
 //                 <tr>
 //                     <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
-//                     <th data-toggle="sort" data-order="default" data-group="first-letter" tabindex="0">User</th>
+//                     <th data-toggle="sort" tabindex="0">User</th>
 //                 </tr>
 //             </thead>
 //             <tbody>
 //                 <tr>
 //                    <td class="table-cell-id">1</td>
-//                     <td><a href="#"><strong>Brown</strong>, James</a></td>
+//                     <td data-sort-group="B"><a href="#"><strong>Brown</strong>, James</a></td>
 //                 </tr>
 //                 <tr>
 //                     <td class="table-cell-id">2</td>
-//                     <td><a href="#"><strong>Paisley</strong>, Brad</a></td>
+//                     <td data-sort-group="P"><a href="#"><strong>Paisley</strong>, Brad</a></td>
 //                 </tr>
 //                 <tr>
 //                     <td class="table-cell-id">3</td>
-//                     <td><a href="#"><strong>Parker</strong>, Maceo</a></td>
+//                     <td data-sort-group="P"><a href="#"><strong>Parker</strong>, Maceo</a></td>
 //                 </tr>
 //                 <tr>
 //                     <td class="table-cell-id">4</td>
-//                     <td><a href="#"><strong>Wesley</strong>, Fred</a></td>
+//                     <td data-sort-group="W"><a href="#"><strong>Wesley</strong>, Fred</a></td>
 //                 </tr>
 //             </tbody>
 //         </table>
 //     </div>
 // </div><!-- .row -->
-
+//
+// Styleguide 5.3
 
 [data-toggle="sort"] {
     white-space: nowrap;

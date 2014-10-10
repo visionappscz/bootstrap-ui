@@ -20,20 +20,18 @@ module.exports = function(grunt) {
             }
         },
 
+        // Lint custom JS
+        jshint: {
+            files: [
+                'src/js/sortable-table.js'
+            ]
+        },
+
         // Minify CSS
         cssmin: {
             dist: {
                 files: {
                     'dist/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css'
-                }
-            }
-        },
-
-        // Compile Coffee script
-        coffee: {
-            compile: {
-                files: {
-                    "dist/js/sortable-tables.js": "src/coffee/sortable-tables.coffee"
                 }
             }
         },
@@ -93,6 +91,12 @@ module.exports = function(grunt) {
                         cwd: 'src/images/',
                         src: ['*'],
                         dest: 'styleguide/public/images/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/js/',
+                        src: ['*'],
+                        dest: 'styleguide/public/js/'
                     }
                 ]
             }
@@ -109,20 +113,14 @@ module.exports = function(grunt) {
                     'copy'
                 ]
             },
-            coffee: {
-                files: ['src/coffee/*.coffee'],
-                tasks: [
-                    'coffee',
-                    'styleguide',
-                    'copy'
-                ]
-            },
             styleguide: {
                 files: [
                     'src/less/styleguide.md',
-                    'src/styleguide/**/*'
+                    'src/styleguide/**/*',
+                    'src/js/**/*'
                 ],
                 tasks: [
+                    'jshint',
                     'styleguide',
                     'copy'
                 ]
@@ -153,7 +151,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'less',
         'cssmin',
-        'coffee',
         'styleguide',
         'copy'
     ]);
@@ -166,6 +163,7 @@ module.exports = function(grunt) {
 
     // Serve and watch
     grunt.registerTask('serve', [
+        'jshint',
         'build',
         'browserSync',
         'watch'
