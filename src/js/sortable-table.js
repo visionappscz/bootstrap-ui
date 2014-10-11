@@ -6,10 +6,9 @@
 
   // SORTABLE TABLE CLASS DEFINITION
   // ======================
-  var SortableTable = function ($sortedTable, options) {
+  var SortableTable = function ($sortedTable, $navigation) {
     this.$sortedTable = $sortedTable;
-    this.$sortableThs = this.$sortedTable.find('[data-toggle="sort"]');
-    this.$navigation = options['sort-navigation'];
+    this.$navigation = $navigation;
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
@@ -18,34 +17,33 @@
       .toArray()
       .sort(this.comparer($sortedTh.index()));
 
-
-    if ($sortedTh.hasClass('sorting-asc') || sortDir === 'desc') {
-      $sortedTh.asc = !$sortedTh.asc;
+    if ($sortedTh.hasClass('sorting-asc') && sortDir !== 'asc') {
+      sortDir = 'desc';
     }
-    else {
-      this.$sortableThs.removeClass('sorting-active');
-      $sortedTh.addClass('sorting-active');
-    }
+    this.$sortedTable
+      .find('th')
+      .removeClass('sorting-active')
+      .removeClass('sorting-asc')
+      .removeClass('sorting-desc');
 
-    if ($sortedTh.asc) {
+    $sortedTh.addClass('sorting-active');
+    if (sortDir === 'desc') {
       rows = rows.reverse();
       $sortedTh.addClass('sorting-desc');
-      $sortedTh.removeClass('sorting-asc');
     }
     else {
-      $sortedTh.removeClass('sorting-desc');
       $sortedTh.addClass('sorting-asc');
     }
 
     var colCount;
-    if (this.$navigation.length) {
+    if (this.$navigation) {
       this.$sortedTable.find('thead:gt(0)').remove();
       this.$navigation.children().remove();
       colCount = rows[0].childElementCount;
     }
 
     for (var i = 0; i < rows.length; i++) {
-      if (this.$navigation.length) {
+      if (this.$navigation) {
         var newSortGroup;
         var sortGroup = $(rows[i])
           .children('td')
@@ -93,13 +91,9 @@
     return this.each(function () {
       var $this = $(this);
 
-      if (!options['sort-navigation']) {
-        options['sort-navigation'] = $($this.data('sort-navigation'));
-      }
-
       var data = $this.data('sui.sortableTable');
       if (!data) {
-        $this.data('sui.sortableTable', (data = new SortableTable($this, options)));
+        $this.data('sui.sortableTable', (data = new SortableTable($this, options.navigation)));
       }
 
       data.sort(options['sort-th'], options['sort-direction']);
@@ -123,16 +117,22 @@
 
   // SORTABLE TABLE DATA-API
   // ==============
+  var callPlugin = function(e) {
+    var $sortedTh = $(e.currentTarget);
+    var $sortedTable = $sortedTh.closest('table');
+    Plugin.call($sortedTable, {
+      'sort-th': $sortedTh,
+      'navigation': $($sortedTable.data('sort-navigation'))
+    });
+  };
 
   $(document).on('click.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
-    var $sortedTh = $(e.currentTarget);
-    Plugin.call($sortedTh.closest('table'), {'sort-th': $sortedTh});
+    callPlugin(e);
   });
 
   $(document).on('keyup.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
-    var $sortedTh = $(e.currentTarget);
     if (e.keyCode == 13 || e.keyCode == 32) {
-      Plugin.call($sortedTh.closest('table'), {'sort-th': $sortedTh});
+      callPlugin(e);
     }
   });
 
