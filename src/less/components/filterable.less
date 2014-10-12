@@ -1,0 +1,367 @@
+// Filter
+//
+// Allows for filtering of elements matching a given jQuery selector.
+// The elements that do not pass the filter are hidden until the filter is updated and their visibility is reevaluated.
+//
+// Each element that is to be filterable must define on itself the appropriate data attribites by which it can be filtered.
+// If a data attribiute is not provided, the element is ignored by the filter for that particular condition and is treated as if it passed the filter.
+//
+// The options to be passed to the Filterable plugin are allways an array of filter definition objects.
+// If using the data-api each of these object has to be represented by a single `:input` element with the appropriate `data-*` attributes.
+//
+// <div class="panel panel-danger">
+//     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+//     <div class="panel-body">
+//         Script `filterable.js` must be included.
+//     </div>
+// </div>
+//
+// <h3>Filter definition object</h3>
+// All options can be also specified by
+// <table class="table table-bordered table-striped">
+//     <thead>
+//         <tr>
+//             <th>Name</th>
+//             <th>Type</th>
+//             <th>Default</th>
+//             <th>Description</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td>filter-attrib</td>
+//             <td>string</td>
+//             <td></td>
+//             <td>Defines the name of the `data-` attribute of the filterable objects to use for filtering.</td>
+//         </tr>
+//         <tr>
+//             <td>filter-value</td>
+//             <td>string</td>
+//             <td></td>
+//             <td>The filter value to be used in the condition. When using the data-api this is automatically generated from the `:input` element value and is not have to be set manually</td>
+//         </tr>
+//         <tr>
+//             <td>filter-operator</td>
+//             <td>enum</td>
+//             <td></td>
+//             <td>
+//                 Defines how to compare the values. If comparing strings or arrays of strings we can use either `subset` or `intersect` operators.
+//                 For comparing numeric values the `=`, `<`, `>`, `<=` and `>=` are available.
+//                 <table class="table">
+//                     <thead>
+//                         <tr>
+//                             <th>Filter object `filter-value`</th>
+//                             <th>Filterable element `data-*` attribute value</th>
+//                             <th>Operator</th>
+//                             <th>Description</th>
+//                         </tr>
+//                     </thead>
+//                     <tbody>
+//                         <tr>
+//                             <td>[string]</td>
+//                             <td>string</td>
+//                             <td>intersect</td>
+//                             <td>Checks if the filterable string attribute is a member of the filter object value array.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>[string]</td>
+//                             <td>[string]</td>
+//                             <td>intersect</td>
+//                             <td>Checks if the filterable array attribute has at least one common element with the filter object value array.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>[string]</td>
+//                             <td>[string]</td>
+//                             <td>subset</td>
+//                             <td>Checks if the filterable array attribute elements are all members of the filter object value array.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>string</td>
+//                             <td>[string]</td>
+//                             <td>intersect</td>
+//                             <td>Checks if the filterable array attribute contains the filter object value string.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>number</td>
+//                             <td>number</td>
+//                             <td>=</td>
+//                             <td>Checks if the filterable numeric attribute is equal to the filter object numeric value.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>number</td>
+//                             <td>number</td>
+//                             <td>&gt;</td>
+//                             <td>Checks if the filterable numeric attribute is greater then the filter object numeric value.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>number</td>
+//                             <td>number</td>
+//                             <td>&lt;</td>
+//                             <td>Checks if the filterable numeric attribute is lower then the filter object numeric value.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>number</td>
+//                             <td>number</td>
+//                             <td>&gt;=</td>
+//                             <td>Checks if the filterable numeric attribute is greater then or equal to the filter object numeric value.</td>
+//                         </tr>
+//                         <tr>
+//                             <td>number</td>
+//                             <td>number</td>
+//                             <td>&lt;=</td>
+//                             <td>Checks if the filterable numeric attribute is lower then or equal to  the filter object numeric value.</td>
+//                         </tr>
+//                     </tbody>
+//                 </table>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+//
+// <h3>Methods</h3>
+// <h4>$().filterable(filterObjects)</h4>
+// Filters the set of elements on which it is called according to the given array of filter objects.
+//
+// Markup:
+// <div class="row">
+//     <form class="form-filter offset-bottom" data-target="#people tr">
+//         <div class="row">
+//             <div class="col-sm-3">
+//                 <div class="form-group">
+//                     <label>Place of Birth</label>
+//                     <select
+//                         class="form-control"
+//                         data-toggle="filter"
+//                         data-filter-attrib="birth-place"
+//                         data-filter-operator="intersect"
+//                     >
+//                         <option value="">All</option>
+//                         <option value="Denver">Denver</option>
+//                         <option value="Liptákov">Liptákov</option>
+//                         <option value="Moscow">Moscow</option>
+//                         <option value="Munich">Munich</option>
+//                         <option value="Prague">Prague</option>
+//                         <option value="Viena">Viena</option>
+//                     </select>
+//                 </div>
+//             </div>
+//             <div class="col-sm-3">
+//                 <div class="form-group">
+//                     <label>Cash &lt;</label>
+//                     <input
+//                         type="text"
+//                         class="form-control"
+//                         data-toggle="filter"
+//                         data-filter-attrib="cash"
+//                         data-filter-operator="<"
+//                     >
+//                 </div>
+//             </div>
+//             <div class="col-sm-3">
+//                 <div class="form-group">
+//                     <label>Cash &gt;</label>
+//                     <input
+//                         type="text"
+//                         class="form-control"
+//                         data-toggle="filter"
+//                         data-filter-attrib="cash"
+//                         data-filter-operator=">"
+//                     >
+//                 </div>
+//             </div>
+//         </div>
+//         <div class="row">
+//             <div class="col-sm-3">
+//                 <div class="form-group">
+//                     <label>Country visited</label>
+//                     <select
+//                         class="form-control"
+//                         data-toggle="filter"
+//                         data-filter-attrib="countries-visited"
+//                         data-filter-operator="intersect"
+//                         multiple
+//                     >
+//                         <option value="">Any</option>
+//                         <option value="China">China</option>
+//                         <option value="Denmark">Denmark</option>
+//                         <option value="Germany">Germany</option>
+//                         <option value="Holland">Holland</option>
+//                         <option value="Russia">Russia</option>
+//                         <option value="USA">USA</option>
+//                     </select>
+//                 </div>
+//             </div>
+//             <div class="col-sm-3">
+//                 <div class="form-group">
+//                     <label>Residence</label>
+//                     <select
+//                         class="form-control"
+//                         data-toggle="filter"
+//                         data-filter-attrib="residence"
+//                         data-filter-operator="intersect"
+//                         multiple
+//                     >
+//                         <option value="Denver">Denver</option>
+//                         <option value="Philadelphia">Philadelphia</option>
+//                         <option value="Sydney">Sydney</option>
+//                         <option value="Toronto">Toronto</option>
+//                         <option value="Viena">Viena</option>
+//                     </select>
+//                 </div>
+//             </div>
+//             <div class="col-sm-3">
+//                 <div class="form-group">
+//                     <label>Favorite meal </label>
+//                     <select
+//                         class="form-control"
+//                         data-toggle="filter"
+//                         data-filter-attrib="favorite-meal"
+//                         data-filter-operator="subset"
+//                         multiple
+//                     >
+//                         <option value="Fries">Fries</option>
+//                         <option value="Goulash">Goulash</option>
+//                         <option value="Hamburger">Hamburger</option>
+//                         <option value="Hotdog">Hotdog</option>
+//                         <option value="Meatloaf">Meatloaf</option>
+//                         <option value="Pizza">Pizza</option>
+//                         <option value="Spagethi">Spagethi</option>
+//                     </select>
+//                 </div>
+//             </div>
+//             <div class="col-sm-3">
+//                 <div class="form-actions">
+//                     <button
+//                         type="button"
+//                         class="btn btn-default"
+//                         data-toggle="reset-filter"
+//                     >
+//                         Reset Filter
+//                     </button>
+//                 </div>
+//             </div>
+//         </div><!-- .row -->
+//     </form>
+//     <table class="table">
+//         <thead>
+//             <tr>
+//                 <th class="table-cell-id">#</th>
+//                 <th>User</th>
+//                 <th>Place of Birth</th>
+//                 <th>Cash</th>
+//                 <th>Residence</th>
+//                 <th>Countries Visited</th>
+//                 <th>Favorite Meal</th>
+//             </tr>
+//         </thead>
+//         <tbody id="people">
+//             <tr
+//                 data-birth-place="Prague"
+//                 data-residence="Philadelphia"
+//                 data-cash="10"
+//                 data-countries-visited='["China", "Russia"]'
+//                 data-favorite-meal='["Hamburger", "Pizza", "Spagethi"]'
+//             >
+//                 <td class="table-cell-id">1</td>
+//                 <td><a href="#"><strong>Brown</strong>, James</a></td>
+//                 <td>Prague</td>
+//                 <td>10</td>
+//                 <td>Philadelphia</td>
+//                 <td>China, Russia</td>
+//                 <td>Hamburger, Pizza, Spagethi</td>
+//             </tr>
+//             <tr
+//                 data-birth-place="Denver"
+//                 data-residence="Philadelphia"
+//                 data-cash="15"
+//                 data-countries-visited='["China", "USA"]'
+//                 data-favorite-meal='["Hamburger", "Hotdog", "Fries"]'
+//             >
+//                 <td class="table-cell-id">2</td>
+//                 <td><a href="#"><strong>Paisley</strong>, Brad</a></td>
+//                 <td>Denver</td>
+//                 <td>15</td>
+//                 <td>Philadelphia</td>
+//                 <td>China, USA</td>
+//                 <td>Hamburger, Hotdog, Fries</td>
+//             </tr>
+//             <tr
+//                 data-birth-place="Munich"
+//                 data-residence="Toronto"
+//                 data-cash="8"
+//                 data-countries-visited='["USA", "Russia", "Denmark"]'
+//                 data-favorite-meal='["Fries", "Meatloaf"]'
+//             >
+//                 <td class="table-cell-id">3</td>
+//                 <td><a href="#"><strong>Parker</strong>, Maceo</a></td>
+//                 <td>Munich</td>
+//                 <td>8</td>
+//                 <td>Toronto</td>
+//                 <td>USA, Russia, Denmark</td>
+//                 <td>Fries, Meatloaf</td>
+//             </tr>
+//             <tr
+//                 data-birth-place="Liptákov"
+//                 data-residence="Viena"
+//                 data-cash="25"
+//                 data-countries-visited='["China", "Russia", "Germany"]'
+//                 data-favorite-meal='["Goulash"]'
+//             >
+//                 <td class="table-cell-id">4</td>
+//                 <td><a href="#"><strong>Cimrman</strong>, Jára</a></td>
+//                 <td>Liptákov</td>
+//                 <td>25</td>
+//                 <td>Viena</td>
+//                 <td>China, Russia, Germany</td>
+//                 <td>Goulash</td>
+//             </tr>
+//             <tr
+//                 data-birth-place="Munich"
+//                 data-residence="Sydney"
+//                 data-cash="17"
+//                 data-countries-visited='["Germany", "Holland", "Denamrk"]'
+//                 data-favorite-meal='["Meatloaf", "Hotdog"]'
+//             >
+//                 <td class="table-cell-id">5</td>
+//                 <td><a href="#"><strong>Smith</strong>, John</a></td>
+//                 <td>Munich</td>
+//                 <td>17</td>
+//                 <td>Sydney</td>
+//                 <td>Germany, Holland, Denmark</td>
+//                 <td>Meatloaf, Hotdog</td>
+//             </tr>
+//             <tr
+//                 data-birth-place="Moscow"
+//                 data-residence="Philadelphia"
+//                 data-cash="5"
+//                 data-countries-visited='["USA"]'
+//                 data-favorite-meal='["Pizza", "Goulash"]'
+//             >
+//                 <td class="table-cell-id">6</td>
+//                 <td><a href="#"><strong>Scholizin</strong>, Vladimir</a></td>
+//                 <td>Moscow</td>
+//                 <td>5</td>
+//                 <td>Philadelphia</td>
+//                 <td>USA</td>
+//                 <td>Pizza, Goulash</td>
+//             </tr>
+//             <tr
+//                 data-birth-place="Denver"
+//                 data-residence="Toronto"
+//                 data-cash="0"
+//                 data-countries-visited='["Germany", "Russia", "Denamrk"]'
+//                 data-favorite-meal='["Pizza", "Goulash"]'
+//             >
+//                 <td class="table-cell-id">7</td>
+//                 <td><a href="#"><strong>Wesley</strong>, Fred</a></td>
+//                 <td>Denver</td>
+//                 <td>0</td>
+//                 <td>Toronto</td>
+//                 <td>Germany, Russia, Denmark</td>
+//                 <td>Pizza, Hotdog</td>
+//             </tr>
+//         </tbody>
+//     </table>
+// </div><!-- .row -->
+//
+// Styleguide 5.15

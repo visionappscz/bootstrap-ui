@@ -24,7 +24,8 @@ module.exports = function(grunt) {
         jshint: {
             files: [
                 'src/js/sortable-table.js',
-                'src/js/confirmation.js'
+                'src/js/confirmation.js',
+                'src/js/filterable.js'
             ]
         },
 
