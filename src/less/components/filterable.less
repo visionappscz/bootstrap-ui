@@ -126,6 +126,35 @@
 // <h4>$().filterable('reset')</h4>
 // Shows all filterable elements.
 //
+// <h3>Events</h3>
+// All the events are given as their first parameter the jQuery object referencing the given set of filterable DOM elements.
+// <table class="table table-bordered table-striped">
+//     <thead>
+//         <tr>
+//             <th>Event Type</th>
+//             <th>Descriptioin</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td>resetStart.sui.filterable</td>
+//             <td>Fired as soon as the `reset` method is called.</td>
+//         </tr>
+//         <tr>
+//             <td>resetEnd.sui.filterable</td>
+//             <td>Fired as soon as the `reset` method is finished executing.</td>
+//         </tr>
+//         <tr>
+//             <td>filter.sui.filterable</td>
+//             <td>Fired when the `filter` method is called.</td>
+//         </tr>
+//         <tr>
+//             <td>filter.sui.filterable</td>
+//             <td>Fired when the `filter` method is finished executing.</td>
+//         </tr>
+//     <tbody>
+// </table>
+//
 // Markup:
 // <div class="row">
 //     <form class="form-filter offset-bottom" data-target="#people tr">

@@ -6,7 +6,8 @@
 
   // CONFIRMATION CLASS DEFINITION
   // ======================
-  var Confirmation = function ($button, options) {
+  var Confirmation = function ($clickedEl, options) {
+    this.$clickedEl = $clickedEl;
     if (!options['confirm-message']) {
       this.message = 'Are you sure?';
     } else {
@@ -16,7 +17,15 @@
   };
 
   Confirmation.prototype.confirm = function () {
-    return confirm(this.message);
+    this.$clickedEl.trigger('show.sui.confirmation');
+    var isConfirmed = confirm(this.message);
+    if (isConfirmed === true) {
+      this.$clickedEl.trigger('confirmed.sui.confirmation');
+    } else {
+      this.$clickedEl.trigger('rejected.sui.confirmation');
+    }
+
+    return isConfirmed;
   };
 
 
@@ -58,4 +67,3 @@
   });
 
 }(jQuery);
-

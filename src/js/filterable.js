@@ -11,7 +11,8 @@
   };
 
   Filterable.prototype.filter = function (fObjects) {
-    this.reset();
+    $(document).trigger('filter.sui.filterable', [this.$filterable]);
+    this.$filterable.show();
     this.$filterable.each(function(dataIndex, dataEl) {
       for (var i1 = 0; i1 < fObjects.length; i1++) {
         var fObj = fObjects[i1];
@@ -62,10 +63,13 @@
         }
       }
     });
+    $(document).trigger('filtered.sui.filterable', [this.$filterable]);
   };
 
   Filterable.prototype.reset = function () {
+    $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
     this.$filterable.show();
+    $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
   };
 
 
@@ -82,9 +86,9 @@
 
     if (options === 'reset') {
       data.reset();
+    } else {
+      data.filter(options);
     }
-
-    data.filter(options);
   }
 
   var old = $.fn.filterable;

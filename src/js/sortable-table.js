@@ -12,6 +12,7 @@
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
+    this.$sortedTable.trigger('sort.sui.sortableTable');
     var rows = this.$sortedTable
       .find('tbody tr')
       .toArray()
@@ -60,6 +61,7 @@
 
       this.$sortedTable.find('tbody:last').append(rows[i]);
     }
+    this.$sortedTable.trigger('sorted.sui.sortableTable');
   };
 
   SortableTable.prototype.comparer = function(index) {
