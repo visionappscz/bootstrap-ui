@@ -8,7 +8,7 @@
   // ======================
   var Confirmation = function ($clickedEl, options) {
     this.$clickedEl = $clickedEl;
-    if (!options['confirm-message']) {
+    if (!options || !('confirm-message' in options) || !options['confirm-message']) {
       this.message = 'Are you sure?';
     } else {
       this.message = options['confirm-message'];
