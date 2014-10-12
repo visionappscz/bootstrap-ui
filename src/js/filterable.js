@@ -106,7 +106,7 @@
   // ==============
 
   $(document).on('change.sui.filterable.data-api', '[data-toggle=filter]', function(e) {
-    var $filter = $(e.currentTarget).closest('form');
+    var $filter = $(this).closest('form');
 
     var filterData = [];
     $filter.find(':input').each(function(index, filterInput) {

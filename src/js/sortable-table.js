@@ -96,7 +96,7 @@
         $this.data('sui.sortableTable', (data = new SortableTable($this, options.navigation)));
       }
 
-      data.sort(options['sort-th'], options['sort-direction']);
+      data.sort(options['sorted-th'], options['sort-direction']);
     });
   }
 
@@ -121,7 +121,7 @@
     var $sortedTh = $(e.currentTarget);
     var $sortedTable = $sortedTh.closest('table');
     Plugin.call($sortedTable, {
-      'sort-th': $sortedTh,
+      'sorted-th': $sortedTh,
       'navigation': $($sortedTable.data('sort-navigation'))
     });
   };
