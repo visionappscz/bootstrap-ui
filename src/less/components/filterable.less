@@ -9,6 +9,8 @@
 // The options to be passed to the Filterable plugin are allways an array of filter definition objects.
 // If using the data-api each of these object has to be represented by a single `:input` element with the appropriate `data-*` attributes.
 //
+// To allow users to view all filterable elements when using the data-api, simple palce within the filter &lt;form&gt; a button with `type="reset"` attribute.
+//
 // <div class="panel panel-danger">
 //     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
 //     <div class="panel-body">
@@ -121,6 +123,8 @@
 // <h3>Methods</h3>
 // <h4>$().filterable(filterObjects)</h4>
 // Filters the set of elements on which it is called according to the given array of filter objects.
+// <h4>$().filterable('reset')</h4>
+// Shows all filterable elements.
 //
 // Markup:
 // <div class="row">
@@ -232,7 +236,7 @@
 //             <div class="col-sm-3">
 //                 <div class="form-actions">
 //                     <button
-//                         type="button"
+//                         type="reset"
 //                         class="btn btn-default"
 //                         data-toggle="reset-filter"
 //                     >
@@ -319,7 +323,7 @@
 //                 data-birth-place="Munich"
 //                 data-residence="Sydney"
 //                 data-cash="17"
-//                 data-countries-visited='["Germany", "Holland", "Denamrk"]'
+//                 data-countries-visited='["Germany", "Holland", "Denmark"]'
 //                 data-favorite-meal='["Meatloaf", "Hotdog"]'
 //             >
 //                 <td class="table-cell-id">5</td>

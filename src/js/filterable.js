@@ -11,7 +11,7 @@
   };
 
   Filterable.prototype.filter = function (fObjects) {
-    this.$filterable.show();
+    this.reset();
     this.$filterable.each(function(dataIndex, dataEl) {
       for (var i1 = 0; i1 < fObjects.length; i1++) {
         var fObj = fObjects[i1];
@@ -64,11 +64,15 @@
     });
   };
 
+  Filterable.prototype.reset = function () {
+    this.$filterable.show();
+  };
+
 
   // FILTERABLE PLUGIN DEFINITION
   // =======================
 
-  function Plugin(filterData) {
+  function Plugin(options) {
     var $this = $(this);
 
     var data = $this.data('sui.filterable');
@@ -76,7 +80,11 @@
       $this.data('sui.filterable', (data = new Filterable($this)));
     }
 
-    data.filter(filterData);
+    if (options === 'reset') {
+      data.reset();
+    }
+
+    data.filter(options);
   }
 
   var old = $.fn.filterable;
@@ -110,6 +118,10 @@
           'filter-value': $filterInput.val()
         });
       }
+    });
+
+    $filter.find('[type=reset]').click(function(){
+      Plugin.call($($filter.data('target')), 'reset');
     });
 
     Plugin.call($($filter.data('target')), filterData);
