@@ -133,7 +133,7 @@
   });
 
   $(document).on('keyup.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
-    if (e.keyCode == 13 || e.keyCode == 32) {
+    if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
       callPlugin(e);
     }
   });
