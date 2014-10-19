@@ -7,8 +7,9 @@
   // CONFIRMATION CLASS DEFINITION
   // =============================
   //
-  var Confirmation = function ($clickedEl, options) {
-    this.$clickedEl = $clickedEl;
+  var Confirmation = function ($triggerEl, options) {
+    this.$triggerEl = $triggerEl;
+    this.callback = options.callback;
 
     var message = (!options || !('confirm-message' in options) || !options['confirm-message']) ? this.defaults['confirm-message'] : options['confirm-message'];
     var yes = (!options || !('confirm-yes' in options) || !options['confirm-yes']) ? this.defaults['confirm-yes'] : options['confirm-yes'];
@@ -22,47 +23,45 @@
     'confirm-no': 'No'
   };
 
-  Confirmation.prototype.prompt = function () {
-    var $clickedEl = this.$clickedEl;
+  Confirmation.prototype.showConfirmation = function () {
+    var $triggerEl = this.$triggerEl;
+    var callback = this.callback;
 
     var $modal = this.modal.modal({
       keboard: false,
       backdrop: 'static'
     });
-    $clickedEl.trigger('show.sui.confirmation');
+    $triggerEl.trigger('show.sui.confirmation');
 
-    var confirmedFunc = function (event) {
-      $(document).off('keyup.sui.confirmation');
+    $triggerEl.on('rejected.sui.confirmation', function (event) {
+      callback(false);
+    });
+    $triggerEl.on('confirmed.sui.confirmation', function (event) {
+      callback(true);
+    });
+    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function (event) {
       $modal.modal('hide');
-      $clickedEl.trigger('confirmed.sui.confirmation');
-      return true;
-    };
-
-    var rejectedFunc = function (event) {
       $(document).off('keyup.sui.confirmation');
-      $modal.modal('hide');
-      $clickedEl.trigger('rejected.sui.confirmation');
-      return false;
-    };
+      $triggerEl.off('rejected.sui.confirmation confirmed.sui.confirmation');
+    });
 
     $(document).on('keyup.sui.confirmation', function (event) {
       if (event.keyCode === 27) { //escape
-        rejectedFunc();
+        $triggerEl.trigger('rejected.sui.confirmation');
       }
       else if (event.keyCode === 13) { //enter
-        confirmedFunc();
+        $triggerEl.trigger('confirmed.sui.confirmation');
       }
     });
-
     $modal
       .find('[data-confirmation=reject]')
       .on('click.sui.confirmation', function(event) {
-        return rejectedFunc();
+        $triggerEl.trigger('rejected.sui.confirmation');
       });
     $modal
       .find('[data-confirmation=confirm]')
       .on('click.sui.confirmation', function(event) {
-        return confirmedFunc();
+        $triggerEl.trigger('confirmed.sui.confirmation');
       });
   };
 
@@ -71,7 +70,7 @@
       .append('<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>')
       .append('<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>');
 
-    var modal = $('<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"></div>');
+    var modal = $('<div class="modal fade" tabindex="-1"></div>');
     var dialog = $('<div class="modal-dialog modal-sm"></div>');
     var content = $('<div class="modal-content"></div>')
       .append('<div class="modal-body">' + message + '</div>')
@@ -86,14 +85,19 @@
   // ==============================
 
   function Plugin(options) {
-    var $this = $(this);
+    return this.each(function (){
+      var $this = $(this);
+      var confirmed = false;
+      if (confirmed) {
+        confirmed = false;
+      }
+      var data = $this.data('sui.confirmation');
+      if (!data) {
+        $this.data('sui.confirmation', (data = new Confirmation($this, options)));
+      }
 
-    var data = $this.data('sui.confirmation');
-    if (!data) {
-      $this.data('sui.confirmation', (data = new Confirmation($this, options)));
-    }
-
-    data.prompt();
+      data.showConfirmation();
+    });
   }
 
   var old = $.fn.confirmation;
@@ -114,13 +118,21 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(e) {
-    var $clickedEl = $(e.currentTarget);
-    Plugin.call($clickedEl, {
-      'confirm-message': $clickedEl.data('confirm-message'),
-      'confirm-yes': $clickedEl.data('confirm-yes'),
-      'confirm-no': $clickedEl.data('confirm-no')
-    });
+  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(event, noConfirm) {
+    if (!noConfirm) {
+      var $clickedEl = $(event.currentTarget);
+      Plugin.call($clickedEl, {
+        'confirm-message': $clickedEl.data('confirm-message'),
+        'confirm-yes': $clickedEl.data('confirm-yes'),
+        'confirm-no': $clickedEl.data('confirm-no'),
+        'callback': function (result) {
+          if (result) {
+            $clickedEl.trigger('click.sui.confirmation.data-api', true);
+          }
+        }
+      });
+      event.preventDefault();
+    }
   });
 
 }(jQuery);
