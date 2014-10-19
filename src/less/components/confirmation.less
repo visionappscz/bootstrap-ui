@@ -23,6 +23,7 @@
 //     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
 //     <div class="panel-body">
 //         Script `confirmation.js` must be included.
+//         Script `modal.js` must be included.
 //     </div>
 // </div>
 //
@@ -88,14 +89,27 @@
 // </table>
 //
 // Markup:
-// <button class="item-action item-action-danger" data-toggle="confirm">
-//      Basic confirmation
-// </button>
-// <button class="item-action item-action-danger" data-toggle="confirm" data-confirm-message="Really?" data-confirm-yes="Confirm" data-confirm-no="Reject">
-//      Confirmation with custom text
-// </button>
-// <button class="item-action item-action-danger" data-toggle="confirm" data-confirm-yes="<span class='glyphicon glyphicon-ok'></span>" data-confirm-no="<span class='glyphicon glyphicon-remove'></span>">
-//      Confirmation with images
-// </button>
+// <form onsubmit="alert('Confirmation confirmed');" method="get">
+//     <button class="item-action item-action-danger" data-toggle="confirm">
+//         Basic confirmation
+//     </button>
+//     <button
+//         class="item-action item-action-danger"
+//         data-toggle="confirm"
+//         data-confirm-message="Really?"
+//         data-confirm-yes="Confirm"
+//         data-confirm-no="Reject"
+//     >
+//         Confirmation with custom text
+//     </button>
+//     <button
+//         class="item-action item-action-danger"
+//         data-toggle="confirm"
+//         data-confirm-yes="<span class='glyphicon glyphicon-ok'></span>"
+//         data-confirm-no="<span class='glyphicon glyphicon-remove'></span>"
+//     >
+//         Confirmation with images
+//     </button>
+// </form>
 //
 // Styleguide 5.14
