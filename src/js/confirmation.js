@@ -1,13 +1,13 @@
 // Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
 // jshint -W030
 
-+function ($) {
++function($) {
   'use strict';
 
   // CONFIRMATION CLASS DEFINITION
   // =============================
   //
-  var Confirmation = function ($triggerEl, options) {
+  var Confirmation = function($triggerEl, options) {
     this.$triggerEl = $triggerEl;
     this.callback = (!options || !('callback' in options) || !options.callback) ? this.defaults.callback : options.callback;
 
@@ -24,7 +24,7 @@
     'callback': function() {} // Having empty callback makes no sence, it is here as a sane fallback for tests
   };
 
-  Confirmation.prototype.showConfirmation = function () {
+  Confirmation.prototype.showConfirmation = function() {
     var $triggerEl = this.$triggerEl;
     var callback = this.callback;
 
@@ -34,13 +34,13 @@
     });
     $triggerEl.trigger('show.sui.confirmation');
 
-    $triggerEl.on('rejected.sui.confirmation', function (event) {
+    $triggerEl.on('rejected.sui.confirmation', function(event) {
       callback(false);
     });
-    $triggerEl.on('confirmed.sui.confirmation', function (event) {
+    $triggerEl.on('confirmed.sui.confirmation', function(event) {
       callback(true);
     });
-    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function (event) {
+    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function(event) {
       $modal.on('hidden.bs.modal', function() {
         this.remove();
       });
@@ -51,7 +51,7 @@
       $triggerEl.off('rejected.sui.confirmation confirmed.sui.confirmation');
     });
 
-    $modal.on('keydown.sui.confirmation', function (event) {
+    $modal.on('keydown.sui.confirmation', function(event) {
       if (event.keyCode === 27) { //escape
         $triggerEl.trigger('rejected.sui.confirmation');
       }
@@ -71,7 +71,7 @@
       });
   };
 
-  Confirmation.prototype.getModal = function (message, yes, no) {
+  Confirmation.prototype.getModal = function(message, yes, no) {
     var footer = $('<div class="modal-footer"></div>')
       .append('<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>')
       .append('<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>');
@@ -91,7 +91,7 @@
   // ==============================
 
   function Plugin(options) {
-    return this.each(function (){
+    return this.each(function() {
       var $this = $(this);
       var confirmed = false;
       if (confirmed) {
@@ -115,7 +115,7 @@
   // CONFIRMATION NO CONFLICT
   // ========================
 
-  $.fn.confirmation.noConflict = function () {
+  $.fn.confirmation.noConflict = function() {
     $.fn.confirmation = old;
     return this;
   };
@@ -131,7 +131,7 @@
         'confirm-message': $clickedEl.data('confirm-message'),
         'confirm-yes': $clickedEl.data('confirm-yes'),
         'confirm-no': $clickedEl.data('confirm-no'),
-        'callback': function (result) {
+        'callback': function(result) {
           if (result) {
             $clickedEl.trigger('click.sui.confirmation.data-api', true);
           }
