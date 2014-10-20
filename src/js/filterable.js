@@ -12,57 +12,59 @@
 
   Filterable.prototype.filter = function (fObjects) {
     $(document).trigger('filter.sui.filterable', [this.$filterable]);
-    this.$filterable.show();
-    this.$filterable.each(function(dataIndex, dataEl) {
-      for (var i1 = 0; i1 < fObjects.length; i1++) {
-        var fObj = fObjects[i1];
-        var dataElAttribVal = $(dataEl).data(fObj['filter-attrib']);
-        if ($.type(dataElAttribVal) !== 'undefined') {
-          var hideEl = false;
+    if (fObjects && fObjects.length) {
+      this.$filterable.show();
+      this.$filterable.each(function(dataIndex, dataEl) {
+        for (var i1 = 0; i1 < fObjects.length; i1++) {
+          var fObj = fObjects[i1];
+          var dataElAttribVal = $(dataEl).data(fObj['filter-attrib']);
+          if ($.type(dataElAttribVal) !== 'undefined') {
+            var hideEl = false;
 
-          if (fObj['filter-operator'] == 'subset') {
-            for (var i2 = 0; i2 < fObj['filter-value'].length; i2++) {
-              if (dataElAttribVal.indexOf(fObj['filter-value'][i2]) === -1) {
-                hideEl = true;
-                break;
-              }
-            }
-          }
-
-          else if (fObj['filter-operator'] == 'intersect') {
-            hideEl = true;
-            if (typeof(fObj['filter-value']) === 'string') {
-              fObj['filter-value'] = [fObj['filter-value']];
-            }
-            if (typeof(dataElAttribVal) === 'string') {
-              dataElAttribVal = [dataElAttribVal];
-            }
-            for (var i3 = 0; i3 < fObj['filter-value'].length; i3++) {
-              for (var i4 = 0; i4 < dataElAttribVal.length; i4++) {
-                if (dataElAttribVal[i4].indexOf(fObj['filter-value'][i3]) !== -1) {
-                  hideEl = false;
+            if (fObj['filter-operator'] == 'subset') {
+              for (var i2 = 0; i2 < fObj['filter-value'].length; i2++) {
+                if (dataElAttribVal.indexOf(fObj['filter-value'][i2]) === -1) {
+                  hideEl = true;
                   break;
                 }
               }
             }
-          }
 
-          else if (
-            (fObj['filter-operator'] === '=' && +dataElAttribVal !== +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '>=' && +dataElAttribVal < +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '<=' && +dataElAttribVal > +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '<' && +dataElAttribVal >= +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '>' && +dataElAttribVal <= +fObj['filter-value'])
-          ) {
-            hideEl = true;
-          }
+            else if (fObj['filter-operator'] == 'intersect') {
+              hideEl = true;
+              if (typeof(fObj['filter-value']) === 'string') {
+                fObj['filter-value'] = [fObj['filter-value']];
+              }
+              if (typeof(dataElAttribVal) === 'string') {
+                dataElAttribVal = [dataElAttribVal];
+              }
+              for (var i3 = 0; i3 < fObj['filter-value'].length; i3++) {
+                for (var i4 = 0; i4 < dataElAttribVal.length; i4++) {
+                  if (dataElAttribVal[i4].indexOf(fObj['filter-value'][i3]) !== -1) {
+                    hideEl = false;
+                    break;
+                  }
+                }
+              }
+            }
 
-          if (hideEl === true) {
-            $(dataEl).hide();
+            else if (
+              (fObj['filter-operator'] === '=' && +dataElAttribVal !== +fObj['filter-value']) ||
+              (fObj['filter-operator'] === '>=' && +dataElAttribVal < +fObj['filter-value']) ||
+              (fObj['filter-operator'] === '<=' && +dataElAttribVal > +fObj['filter-value']) ||
+              (fObj['filter-operator'] === '<' && +dataElAttribVal >= +fObj['filter-value']) ||
+              (fObj['filter-operator'] === '>' && +dataElAttribVal <= +fObj['filter-value'])
+            ) {
+              hideEl = true;
+            }
+
+            if (hideEl === true) {
+              $(dataEl).hide();
+            }
           }
         }
-      }
-    });
+      });
+    }
     $(document).trigger('filtered.sui.filterable', [this.$filterable]);
   };
 
