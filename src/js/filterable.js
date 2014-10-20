@@ -105,7 +105,7 @@
   // =================
 
   $.fn.filterable.noConflict = function () {
-    $.fn.filter = old;
+    $.fn.filterable = old;
     return this;
   };
 
