@@ -79,18 +79,20 @@
   // =======================
 
   function Plugin(options) {
-    var $this = $(this);
+    return this.each(function () {
+      var $this = $(this);
 
-    var data = $this.data('sui.filterable');
-    if (!data) {
-      $this.data('sui.filterable', (data = new Filterable($this)));
-    }
+      var data = $this.data('sui.filterable');
+      if (!data) {
+        $this.data('sui.filterable', (data = new Filterable($this)));
+      }
 
-    if (options === 'reset') {
-      data.reset();
-    } else {
-      data.filter(options);
-    }
+      if (options === 'reset') {
+        data.reset();
+      } else {
+        data.filter(options);
+      }
+    });
   }
 
   var old = $.fn.filterable;
