@@ -16,7 +16,7 @@ $(function () {
       $.fn.suiConfirmation = $.fn.confirmation.noConflict();
     },
     teardown: function () {
-      $(document).off('.sui');
+      $(document).off('keyup.sui.confirmation');
       $('.modal').remove();
       $('.modal-backdrop').remove();
       $.fn.confirmation = $.fn.suiConfirmation;
@@ -154,6 +154,7 @@ $(function () {
     var $el = $('<button data-toggle="confirm" data-confirm-message="Custom_message" data-confirm-yes="Custom_yes" data-confirm-no="Custom_no" />');
     $('#qunit-fixture').append($el);
     $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function(event) {
+      $(document).off('show.sui.confirmation');
       strictEqual($('.modal-body').text(), 'Custom_message', 'the custom message was used');
       strictEqual($('.modal-footer button[data-confirmation=confirm]').text(), 'Custom_yes', 'the custom yes was used');
       strictEqual($('.modal-footer button[data-confirmation=reject]').text(), 'Custom_no', 'the custom no was used');
@@ -166,7 +167,8 @@ $(function () {
     stop();
     var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
     $('#qunit-fixture').append($el);
-    $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function(event) {
+    $(document).on('click.sui.confirmation.data-api.test', 'button[data-toggle=confirm]', function(event) {
+      $(document).off('click.sui.confirmation.data-api.test');
       if (event.isDefaultPrevented()) {
         ok(true, 'default action prevented');
       }
@@ -183,6 +185,7 @@ $(function () {
     var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
     $('#qunit-fixture').append($el);
     $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function(event) {
+      $(document).off('show.sui.confirmation');
       ok($('.modal').length > 0, 'confirmation modal not shown');
       start();
     });
@@ -193,7 +196,8 @@ $(function () {
     stop();
     var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
     $('#qunit-fixture').append($el);
-    $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function(event) {
+    $(document).on('click.sui.confirmation.data-api.test', function(event) {
+      $(document).off('click.sui.confirmation.data-api.test');
       if (!event.isDefaultPrevented()) {
         ok(true, 'default action not prevented');
       }
@@ -215,4 +219,5 @@ $(function () {
     });
     $el.find('button').trigger('click.sui.confirmation.data-api', true);
   });
+
 });
