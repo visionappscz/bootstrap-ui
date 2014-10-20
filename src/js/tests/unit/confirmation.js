@@ -208,16 +208,4 @@ $(function () {
     });
     $el.find('button').trigger('click.sui.confirmation.data-api', true);
   });
-
-  test('should not show confirmation modal when click.sui.confirmation.data-api triggered with argument noConfirm=true ', function () {
-    stop();
-    var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
-    $('#qunit-fixture').append($el);
-    $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function(event) {
-      ok($('.modal').length === 0, 'confirmation modal not shown');
-      start();
-    });
-    $el.find('button').trigger('click.sui.confirmation.data-api', true);
-  });
-
 });
