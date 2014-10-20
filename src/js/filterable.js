@@ -17,7 +17,7 @@
       for (var i1 = 0; i1 < fObjects.length; i1++) {
         var fObj = fObjects[i1];
         var dataElAttribVal = $(dataEl).data(fObj['filter-attrib']);
-        if (dataElAttribVal) {
+        if ($.type(dataElAttribVal) !== 'undefined') {
           var hideEl = false;
 
           if (fObj['filter-operator'] == 'subset') {
