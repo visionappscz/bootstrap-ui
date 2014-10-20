@@ -57,7 +57,7 @@ Example use (Bootstrap and jQuery installed by Bower):
 Link Synergic UI JS components you want:
 
 ```
-<script src="bower_components/synergic-ui/dist/js/sortable-tables.js"></script>
+<script src="bower_components/synergic-ui/dist/js/sortable-table.js"></script>
 ```
 
 ### LESS
