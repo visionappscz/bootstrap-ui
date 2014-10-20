@@ -1,21 +1,21 @@
 // Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
 // jshint -W030
 
-$(function () {
+$(function() {
   'use strict';
 
   module('confirmation plugin');
 
-  test('should be defined on jquery object', function () {
+  test('should be defined on jquery object', function() {
     ok($(document.body).confirmation, 'confirmation method is defined');
   });
 
   module('confirmation', {
-    setup: function () {
+    setup: function() {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
       $.fn.suiConfirmation = $.fn.confirmation.noConflict();
     },
-    teardown: function () {
+    teardown: function() {
       $(document).off('keyup.sui.confirmation');
       $('.modal').remove();
       $('.modal-backdrop').remove();
@@ -24,11 +24,11 @@ $(function () {
     }
   });
 
-  test('should provide no conflict', function () {
+  test('should provide no conflict', function() {
     strictEqual($.fn.confirmation, undefined, 'confirmation was set back to undefined (original value)');
   });
 
-  test('should return jquery collection containing the element', function () {
+  test('should return jquery collection containing the element', function() {
     var $el = $('<button/>');
     var $confirmation = $el.suiConfirmation();
     ok($confirmation instanceof $, 'returns jquery collection');
@@ -37,7 +37,7 @@ $(function () {
 
 
   // Tests for displaying the modal
-  test('should overload default messages with custom ones if provided', function () {
+  test('should overload default messages with custom ones if provided', function() {
     $('<button/>').suiConfirmation({
       'confirm-message': 'Custom_message',
       'confirm-yes': 'Custom_yes',
@@ -48,17 +48,17 @@ $(function () {
     strictEqual($('.modal-footer button[data-confirmation=reject]').text(), 'Custom_no', 'the custom no was used');
   });
 
-  test('should use default messages when no custom messages are provided', function () {
+  test('should use default messages when no custom messages are provided', function() {
     $('<button/>').suiConfirmation();
     strictEqual($('.modal-body').text(), 'Are you sure?', 'the default message was used');
     strictEqual($('.modal-footer button[data-confirmation=confirm]').text(), 'Yes', 'the default yes was used');
     strictEqual($('.modal-footer button[data-confirmation=reject]').text(), 'No', 'the default no was used');
   });
 
-  test('should fire the show.sui.confirmation event', function () {
+  test('should fire the show.sui.confirmation event', function() {
     stop();
     $('<button/>')
-      .on('show.sui.confirmation', function () {
+      .on('show.sui.confirmation', function() {
         ok(true, 'show.sui.confirmation event fired');
         start();
       })
@@ -67,39 +67,39 @@ $(function () {
 
 
   // Tests for rejecting the confirmation
-  test('should fire rejected.sui.confirmation on pressing escape', function () {
+  test('should fire rejected.sui.confirmation on pressing escape', function() {
     stop();
     var $el = $('<button/>').suiConfirmation();
-    $el.on('rejected.sui.confirmation', function () {
+    $el.on('rejected.sui.confirmation', function() {
       ok(true, 'rejected.sui.confirmation event fired');
       start();
     });
     $('.modal').trigger($.Event('keydown', { keyCode: 27}));
   });
 
-  test('should fire rejected.sui.confirmation on pressing the reject button', function () {
+  test('should fire rejected.sui.confirmation on pressing the reject button', function() {
     stop();
     var $el = $('<button/>').suiConfirmation();
-    $el.on('rejected.sui.confirmation', function () {
+    $el.on('rejected.sui.confirmation', function() {
       ok(true, 'rejected.sui.confirmation event fired');
       start();
     });
     $('.modal button[data-confirmation=reject]').click();
   });
 
-  test('should destroy the confirmation modal when rejected.sui.confirmation was triggered', function () {
+  test('should destroy the confirmation modal when rejected.sui.confirmation was triggered', function() {
     stop();
     var $el = $('<button/>').suiConfirmation();
-    $el.on('rejected.sui.confirmation', function () {
+    $el.on('rejected.sui.confirmation', function() {
       ok($('.modal').length === 0, 'confirmation modal destroyed');
       start();
     });
     $el.trigger('rejected.sui.confirmation');
   });
 
-  test('should execute the callback function with argument set to false when rejected.sui.confirmation was triggered', function () {
+  test('should execute the callback function with argument set to false when rejected.sui.confirmation was triggered', function() {
     stop();
-    var $el = $('<button/>').suiConfirmation({'callback': function (result) {
+    var $el = $('<button/>').suiConfirmation({'callback': function(result) {
       ok(result === false, 'executed the callback function');
       start();
     }});
@@ -108,39 +108,39 @@ $(function () {
 
 
   // Tests for confirming the confirmation
-  test('should fire confirmed.sui.confirmation on pressing enter', function () {
+  test('should fire confirmed.sui.confirmation on pressing enter', function() {
     stop();
     var $el = $('<button/>').suiConfirmation();
-    $el.on('confirmed.sui.confirmation', function () {
+    $el.on('confirmed.sui.confirmation', function() {
       ok(true, 'confirmed.sui.confirmation event fired');
       start();
     });
     $('.modal').trigger($.Event('keydown', { keyCode: 13}));
   });
 
-  test('should fire confirmed.sui.confirmation confirmation on pressing the confirm button', function () {
+  test('should fire confirmed.sui.confirmation confirmation on pressing the confirm button', function() {
     stop();
     var $el = $('<button/>').suiConfirmation();
-    $el.on('confirmed.sui.confirmation', function () {
+    $el.on('confirmed.sui.confirmation', function() {
       ok(true, 'confirmed.sui.confirmation event fired');
       start();
     });
     $('.modal button[data-confirmation=confirm]').click();
   });
 
-  test('should destroy the confirmation modal when confirmed.sui.confirmation was triggered', function () {
+  test('should destroy the confirmation modal when confirmed.sui.confirmation was triggered', function() {
     stop();
     var $el = $('<button/>').suiConfirmation();
-    $el.on('confirmed.sui.confirmation', function () {
+    $el.on('confirmed.sui.confirmation', function() {
       ok($('.modal').length === 0, 'confirmation modal destroyed');
       start();
     });
     $el.trigger('confirmed.sui.confirmation');
   });
 
-  test('should execute callback function with argument set to true when confirmed.sui.confirmation was triggered', function () {
+  test('should execute callback function with argument set to true when confirmed.sui.confirmation was triggered', function() {
     stop();
-    var $el = $('<button/>').suiConfirmation({'callback': function (result) {
+    var $el = $('<button/>').suiConfirmation({'callback': function(result) {
       ok(result === true, 'executed the callback function');
       start();
     }});
@@ -149,7 +149,7 @@ $(function () {
 
 
   // Data API related tests
-  test('should populate the options object from the data attributes', function () {
+  test('should populate the options object from the data attributes', function() {
     stop();
     var $el = $('<button data-toggle="confirm" data-confirm-message="Custom_message" data-confirm-yes="Custom_yes" data-confirm-no="Custom_no" />');
     $('#qunit-fixture').append($el);
@@ -163,7 +163,7 @@ $(function () {
     $el.trigger('click.sui.confirmation.data-api');
   });
 
-  test('should prevent default action when click.sui.confirmation.data-api triggered with no argument ', function () {
+  test('should prevent default action when click.sui.confirmation.data-api triggered with no argument ', function() {
     stop();
     var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
     $('#qunit-fixture').append($el);
@@ -180,7 +180,7 @@ $(function () {
     $el.find('button').trigger('click.sui.confirmation.data-api');
   });
 
-  test('should show confirmation modal when click.sui.confirmation.data-api triggered with no argument', function () {
+  test('should show confirmation modal when click.sui.confirmation.data-api triggered with no argument', function() {
     stop();
     var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
     $('#qunit-fixture').append($el);
@@ -192,7 +192,7 @@ $(function () {
     $el.find('button').trigger('click.sui.confirmation.data-api');
   });
 
-  test('should not prevent default action when click.sui.confirmation.data-api triggered with argument noConfirm=true ', function () {
+  test('should not prevent default action when click.sui.confirmation.data-api triggered with argument noConfirm=true ', function() {
     stop();
     var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
     $('#qunit-fixture').append($el);
