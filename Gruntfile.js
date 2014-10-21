@@ -144,6 +144,11 @@ module.exports = function(grunt) {
                     watchTask: true
                 }
             }
+        },
+
+        qunit: {
+            all: ['src/js/tests/index.html'],
+            noGlobals: true
         }
     });
 

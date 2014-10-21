@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-browser-sync": "~1.5.3"
+    "grunt-browser-sync": "~1.5.3",
+    "grunt-contrib-qunit": "~0.5.2"
   }
 }
