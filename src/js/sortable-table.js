@@ -128,23 +128,25 @@
 
   // SORTABLE TABLE DATA-API
   // ==============
-  var callPlugin = function(e) {
-    var $sortedTh = $(e.currentTarget);
-    var $sortedTable = $sortedTh.closest('table');
-    Plugin.call($sortedTable, {
-      'sorted-th': $sortedTh,
-      'navigation': $($sortedTable.data('sort-navigation'))
-    });
-  };
+  (function() {
+    var callPlugin = function(e) {
+      var $sortedTh = $(e.currentTarget);
+      var $sortedTable = $sortedTh.closest('table');
+      Plugin.call($sortedTable, {
+        'sorted-th': $sortedTh,
+        'navigation': $($sortedTable.data('sort-navigation'))
+      });
+    };
 
-  $(document).on('click.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
-    callPlugin(e);
-  });
-
-  $(document).on('keyup.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
-    if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
+    $(document).on('click.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
       callPlugin(e);
-    }
-  });
+    });
+
+    $(document).on('keydown.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
+      if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
+        callPlugin(e);
+      }
+    });
+  }());
 
 }(jQuery);
