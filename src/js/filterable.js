@@ -126,7 +126,6 @@
 
   $(document).on('change.sui.filterable.data-api', '[data-toggle=filter]', function() {
     var $filter = $(this).closest('form');
-
     var filterData = [];
     $filter.find(':input').each(function(index, filterInput) {
       var $filterInput = $(filterInput);
@@ -139,11 +138,13 @@
       }
     });
 
-    $filter.find('[type=reset]').click(function() {
-      Plugin.call($($filter.data('target')), 'reset');
-    });
-
     Plugin.call($($filter.data('target')), filterData);
+  });
+
+  $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
+    var $form = $(this).closest('form');
+    $form[0].reset();
+    Plugin.call($($form.data('target')), 'reset');
   });
 
 }(jQuery);
