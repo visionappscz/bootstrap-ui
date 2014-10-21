@@ -34,13 +34,13 @@
     });
     $triggerEl.trigger('show.sui.confirmation');
 
-    $triggerEl.on('rejected.sui.confirmation', function(event) {
+    $triggerEl.on('rejected.sui.confirmation', function() {
       callback(false);
     });
-    $triggerEl.on('confirmed.sui.confirmation', function(event) {
+    $triggerEl.on('confirmed.sui.confirmation', function() {
       callback(true);
     });
-    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function(event) {
+    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function() {
       $modal.on('hidden.bs.modal', function() {
         this.remove();
       });
@@ -51,22 +51,22 @@
       $triggerEl.off('rejected.sui.confirmation confirmed.sui.confirmation');
     });
 
-    $modal.on('keydown.sui.confirmation', function(event) {
-      if (event.keyCode === 27) { //escape
+    $modal.on('keydown.sui.confirmation', function(e) {
+      if (e.keyCode === 27) { //escape
         $triggerEl.trigger('rejected.sui.confirmation');
       }
-      else if (event.keyCode === 13) { //enter
+      else if (e.keyCode === 13) { //enter
         $triggerEl.trigger('confirmed.sui.confirmation');
       }
     });
     $modal
       .find('[data-confirmation=reject]')
-      .on('click.sui.confirmation', function(event) {
+      .on('click.sui.confirmation', function() {
         $triggerEl.trigger('rejected.sui.confirmation');
       });
     $modal
       .find('[data-confirmation=confirm]')
-      .on('click.sui.confirmation', function(event) {
+      .on('click.sui.confirmation', function() {
         $triggerEl.trigger('confirmed.sui.confirmation');
       });
   };
@@ -124,9 +124,9 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(event, noConfirm) {
+  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(e, noConfirm) {
     if (!noConfirm) {
-      var $clickedEl = $(event.target);
+      var $clickedEl = $(e.target);
       Plugin.call($clickedEl, {
         'confirm-message': $clickedEl.data('confirm-message'),
         'confirm-yes': $clickedEl.data('confirm-yes'),
@@ -137,7 +137,7 @@
           }
         }
       });
-      event.preventDefault();
+      e.preventDefault();
     }
   });
 
