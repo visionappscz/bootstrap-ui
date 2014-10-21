@@ -42,7 +42,7 @@
     });
     $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function() {
       $modal.on('hidden.bs.modal', function() {
-        this.remove();
+        $(this).remove();
       });
       // The fade class is removed before hiding the modal to prevent the backdrop from staying behond
       // Thats why there is no animation :(
