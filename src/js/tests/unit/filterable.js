@@ -372,4 +372,47 @@ $(function() {
     });
     $('#qunit-fixture div').suiFilterable('reset');
   });
+
+
+  // Data-api
+  test('should filter filterables by changing an element in the filter form', function() {
+    stop();
+    $('#qunit-fixture')
+      .append('<div data-tag="tag1">')
+      .append('<form data-target="#qunit-fixture div[data-tag=tag1]">' +
+        '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+        '</form>');
+
+    $(document).on('filtered.sui.filterable', function() {
+      $(document).off('filtered.sui.filterable');
+      ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === false, 'the filter was triggered');
+      start();
+    });
+    $('#qunit-fixture input').val('tag2').change();
+  });
+
+  test('should reset filterables by clicking on reset element', function() {
+    stop();
+    $('#qunit-fixture')
+      .append('<div data-tag="tag1">')
+      .append('<form data-target="#qunit-fixture div[data-tag=tag1]">' +
+        '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+        '<button type="reset" data-toggle="filter-reset" />' +
+        '</form>');
+
+    $(document).on('filtered.sui.filterable', function() {
+      $(document).off('filtered.sui.filterable');
+      $(document).on('resetEnd.sui.filterable', function() {
+        $(document).off('resetEnd.sui.filterable');
+        ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === true, 'the filter was reset');
+        console.log($('#qunit-fixture input').val());
+        ok(!$('#qunit-fixture input').val(), 'the filter form was reset');
+        start();
+      });
+      ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === false, 'the filter was triggered');
+    });
+    $('#qunit-fixture input').val('tag2').change();
+    $('#qunit-fixture button').click();
+  });
+
 });
