@@ -1,31 +1,31 @@
 // Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
 // jshint -W030
 
-$(function () {
+$(function() {
   'use strict';
 
   module('filterable plugin');
 
-  test('should be defined on jquery object', function () {
+  test('should be defined on jquery object', function() {
     ok($(document.body).filterable, 'filterable method is defined');
   });
 
   module('filterable', {
-    setup: function () {
+    setup: function() {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
       $.fn.suiFilterable = $.fn.filterable.noConflict();
     },
-    teardown: function () {
+    teardown: function() {
       $.fn.filterable = $.fn.suiFilterable;
       delete $.fn.suiFilterable;
     }
   });
 
-  test('should provide no conflict', function () {
+  test('should provide no conflict', function() {
     strictEqual($.fn.filterable, undefined, 'filterable was set back to undefined (original value)');
   });
 
-  test('should return jquery collection containing the element', function () {
+  test('should return jquery collection containing the element', function() {
     var $filterable = $(document).suiFilterable();
     ok($filterable instanceof $, 'returns jquery collection');
     strictEqual($filterable[0], $(document)[0], 'collection contains element');
@@ -33,7 +33,7 @@ $(function () {
 
 
   // Filter related tests
-  test('should fire filter.sui.filterable when filtering is started', function () {
+  test('should fire filter.sui.filterable when filtering is started', function() {
     stop();
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
@@ -48,7 +48,7 @@ $(function () {
     var $filterable = $(document).suiFilterable();
   });
 
-  test('should fire filtered.sui.filterable when filtering is finished', function () {
+  test('should fire filtered.sui.filterable when filtering is finished', function() {
     stop();
     $(document).on('filter.sui.filterable', function() {
       $(document).off('filter.sui.filterable');
@@ -61,7 +61,7 @@ $(function () {
     var $filterable = $(document).suiFilterable();
   });
 
-  test('should filter elements for: filterValue = [], dataValue = [], operator = "subset"', function () {
+  test('should filter elements for: filterValue = [], dataValue = [], operator = "subset"', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-tags=\'["tag1", "tag2"]\'>')
@@ -83,7 +83,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements for: filterValue = [], dataValue = [], operator = "intersect"', function () {
+  test('should filter elements for: filterValue = [], dataValue = [], operator = "intersect"', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-tags=\'["tag4", "tag5"]\'>')
@@ -105,7 +105,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements for: filterValue = string, dataValue = [], operator = "intersect"', function () {
+  test('should filter elements for: filterValue = string, dataValue = [], operator = "intersect"', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-tags=\'["tag4", "tag5"]\'>')
@@ -125,7 +125,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements for: filterValue = [], dataValue = string, operator = "intersect"', function () {
+  test('should filter elements for: filterValue = [], dataValue = string, operator = "intersect"', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-tags="tag4">')
@@ -145,7 +145,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements for: filterValue = string, dataValue = string, operator = "intersect"', function () {
+  test('should filter elements for: filterValue = string, dataValue = string, operator = "intersect"', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-tags="tag4">')
@@ -165,7 +165,7 @@ $(function () {
     }]);
   });
 
-  test('should process numeric filter value weather it is a string or a number', function () {
+  test('should process numeric filter value weather it is a string or a number', function() {
     stop();
     $('#qunit-fixture').append('<div data-amount="10">');
     $(document).on('filtered.sui.filterable', function() {
@@ -195,7 +195,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements for: filterValue = number, dataValue = number, operator = "="', function () {
+  test('should filter elements for: filterValue = number, dataValue = number, operator = "="', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-amount="10">')
@@ -221,7 +221,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements for: filterValue = number, dataValue = number, operator = "<="', function () {
+  test('should filter elements for: filterValue = number, dataValue = number, operator = "<="', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-amount="10">')
@@ -247,7 +247,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements for: filterValue = number, dataValue = number, operator = ">="', function () {
+  test('should filter elements for: filterValue = number, dataValue = number, operator = ">="', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-amount="10">')
@@ -273,7 +273,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements  for: filterValue = number, dataValue = number, operator = "<"', function () {
+  test('should filter elements  for: filterValue = number, dataValue = number, operator = "<"', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-amount="10">')
@@ -299,7 +299,7 @@ $(function () {
     }]);
   });
 
-  test('should filter elements  for: filterValue = number, dataValue = number, operator = ">"', function () {
+  test('should filter elements  for: filterValue = number, dataValue = number, operator = ">"', function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-amount="10">')
@@ -327,7 +327,7 @@ $(function () {
 
 
   // Reset related tests
-  test('should fire resetStart.sui.filterable when reset is started', function () {
+  test('should fire resetStart.sui.filterable when reset is started', function() {
     stop();
     $(document).on('filter.sui.filterable', function() {
       $(document).off('filter.sui.filterable');
@@ -337,7 +337,7 @@ $(function () {
     var $filterable = $(document).suiFilterable();
   });
 
-  test('should fire resetEnd.sui.filterable when reset is finished', function () {
+  test('should fire resetEnd.sui.filterable when reset is finished', function() {
     stop();
     $(document).on('resetStart.sui.filterable', function() {
       $(document).off('resetStart.sui.filterable');
@@ -350,7 +350,7 @@ $(function () {
     var $filterable = $(document).suiFilterable('reset');
   });
 
-  test('should show all elements if reset is called', function () {
+  test('should show all elements if reset is called', function() {
     stop();
     $('#qunit-fixture').append('<div data-tag="tag1">');
 
@@ -371,6 +371,5 @@ $(function () {
       start();
     });
     $('#qunit-fixture div').suiFilterable('reset');
-
   });
 });
