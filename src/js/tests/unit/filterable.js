@@ -139,8 +139,8 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-tags="tag4"').is(':visible') === false, '"tag4" is not a member of ["tag1", "tag2"] -> hidden');
-      ok($('#qunit-fixture div[data-tags="tag1"').is(':visible') === true, '"tag1" is a member of ["tag1", "tag2"] -> visible');
+      ok($('#qunit-fixture div[data-tags="tag4"]').is(':visible') === false, '"tag4" is not a member of ["tag1", "tag2"] -> hidden');
+      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true, '"tag1" is a member of ["tag1", "tag2"] -> visible');
       start();
     });
 
@@ -159,8 +159,8 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-tags="tag4"').is(':visible') === false, '"tag4" is not the same as "tag1" -> hidden');
-      ok($('#qunit-fixture div[data-tags="tag1"').is(':visible') === true, '"tag1" is the same as "tag1"  -> visible');
+      ok($('#qunit-fixture div[data-tags="tag4"]').is(':visible') === false, '"tag4" is not the same as "tag1" -> hidden');
+      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true, '"tag1" is the same as "tag1"  -> visible');
       start();
     });
 
@@ -176,7 +176,7 @@ $(function() {
     $('#qunit-fixture').append('<div data-amount="10">');
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-amount="10"').is(':visible') === false, '10 is not the same as "5.5" -> hidden');
+      ok($('#qunit-fixture div[data-amount="10"]').is(':visible') === false, '10 is not the same as "5.5" -> hidden');
       start();
     });
 
@@ -190,7 +190,7 @@ $(function() {
     $('#qunit-fixture').append('<div data-amount="10">');
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-amount="10"').is(':visible') === false, '10 is not the same as 5.5 -> hidden');
+      ok($('#qunit-fixture div[data-amount="10"]').is(':visible') === false, '10 is not the same as 5.5 -> hidden');
       start();
     });
 
@@ -212,11 +212,11 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-amount="10"').is(':visible') === false, '10 is not the same as 0 -> hidden');
-      ok($('#qunit-fixture div[data-amount="9.57"').is(':visible') === false, '9.57 is not the same as 0 -> hidden');
-      ok($('#qunit-fixture div[data-amount="9.55"').is(':visible') === false, '9.55 is not the same as 0 -> hidden');
-      ok($('#qunit-fixture div[data-amount="0"').is(':visible') === true, '0 is the same as 0  -> visible');
-      ok($('#qunit-fixture div[data-amount="-10"').is(':visible') === false, '-10 is not the same as 0 -> hidden');
+      ok($('#qunit-fixture div[data-amount="10"]').is(':visible') === false, '10 is not the same as 0 -> hidden');
+      ok($('#qunit-fixture div[data-amount="9.57"]').is(':visible') === false, '9.57 is not the same as 0 -> hidden');
+      ok($('#qunit-fixture div[data-amount="9.55"]').is(':visible') === false, '9.55 is not the same as 0 -> hidden');
+      ok($('#qunit-fixture div[data-amount="0"]').is(':visible') === true, '0 is the same as 0  -> visible');
+      ok($('#qunit-fixture div[data-amount="-10"]').is(':visible') === false, '-10 is not the same as 0 -> hidden');
       start();
     });
 
@@ -238,11 +238,11 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-amount="10"').is(':visible') === false, '10 is not <= 9.55 -> hidden');
-      ok($('#qunit-fixture div[data-amount="9.57"').is(':visible') === false, '9.57 is not <= 9.55 -> hidden');
-      ok($('#qunit-fixture div[data-amount="9.55"').is(':visible') === true, '9.55 <= 9.55 -> visible');
-      ok($('#qunit-fixture div[data-amount="0"').is(':visible') === true, '0 <= 9.55  -> visible');
-      ok($('#qunit-fixture div[data-amount="-10"').is(':visible') === true, '-10 <= 9.55 -> visible');
+      ok($('#qunit-fixture div[data-amount="10"]').is(':visible') === false, '10 is not <= 9.55 -> hidden');
+      ok($('#qunit-fixture div[data-amount="9.57"]').is(':visible') === false, '9.57 is not <= 9.55 -> hidden');
+      ok($('#qunit-fixture div[data-amount="9.55"]').is(':visible') === true, '9.55 <= 9.55 -> visible');
+      ok($('#qunit-fixture div[data-amount="0"]').is(':visible') === true, '0 <= 9.55  -> visible');
+      ok($('#qunit-fixture div[data-amount="-10"]').is(':visible') === true, '-10 <= 9.55 -> visible');
       start();
     });
 
@@ -264,11 +264,11 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-amount="10"').is(':visible') === true, '10 >= 0 -> visible');
-      ok($('#qunit-fixture div[data-amount="9.57"').is(':visible') === true, '9.57 is not >= 0 -> visible');
-      ok($('#qunit-fixture div[data-amount="9.55"').is(':visible') === true, '9.55 >= 0 -> visible');
-      ok($('#qunit-fixture div[data-amount="0"').is(':visible') === true, '0 >= 0 -> visible');
-      ok($('#qunit-fixture div[data-amount="-10"').is(':visible') === false, '-10 is not >= 0 -> hidden');
+      ok($('#qunit-fixture div[data-amount="10"]').is(':visible') === true, '10 >= 0 -> visible');
+      ok($('#qunit-fixture div[data-amount="9.57"]').is(':visible') === true, '9.57 is not >= 0 -> visible');
+      ok($('#qunit-fixture div[data-amount="9.55"]').is(':visible') === true, '9.55 >= 0 -> visible');
+      ok($('#qunit-fixture div[data-amount="0"]').is(':visible') === true, '0 >= 0 -> visible');
+      ok($('#qunit-fixture div[data-amount="-10"]').is(':visible') === false, '-10 is not >= 0 -> hidden');
       start();
     });
 
@@ -290,11 +290,11 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-amount="10"').is(':visible') === false, '10 is not < 7.325 -> hidden');
-      ok($('#qunit-fixture div[data-amount="9.57"').is(':visible') === false, '9.57 is not < 7.325 -> hidden');
-      ok($('#qunit-fixture div[data-amount="9.55"').is(':visible') === false, '9.55 is not < 7.325 -> hidden');
-      ok($('#qunit-fixture div[data-amount="0"').is(':visible') === true, '0 < 7.325 -> visible');
-      ok($('#qunit-fixture div[data-amount="-10"').is(':visible') === true, '-10 < 7.325 -> visible');
+      ok($('#qunit-fixture div[data-amount="10"]').is(':visible') === false, '10 is not < 7.325 -> hidden');
+      ok($('#qunit-fixture div[data-amount="9.57"]').is(':visible') === false, '9.57 is not < 7.325 -> hidden');
+      ok($('#qunit-fixture div[data-amount="9.55"]').is(':visible') === false, '9.55 is not < 7.325 -> hidden');
+      ok($('#qunit-fixture div[data-amount="0"]').is(':visible') === true, '0 < 7.325 -> visible');
+      ok($('#qunit-fixture div[data-amount="-10"]').is(':visible') === true, '-10 < 7.325 -> visible');
       start();
     });
 
@@ -316,11 +316,11 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-amount="10"').is(':visible') === true, '10 > 0.01 -> visible');
-      ok($('#qunit-fixture div[data-amount="9.57"').is(':visible') === true, '9.57 > 0.01 -> visible');
-      ok($('#qunit-fixture div[data-amount="9.55"').is(':visible') === true, '9.55 > 0.01 -> visible');
-      ok($('#qunit-fixture div[data-amount="0"').is(':visible') === false, '0 is not > 0.01 -> hidden');
-      ok($('#qunit-fixture div[data-amount="-10"').is(':visible') === false, '-10 is not > 0.01 -> hidden');
+      ok($('#qunit-fixture div[data-amount="10"]').is(':visible') === true, '10 > 0.01 -> visible');
+      ok($('#qunit-fixture div[data-amount="9.57"]').is(':visible') === true, '9.57 > 0.01 -> visible');
+      ok($('#qunit-fixture div[data-amount="9.55"]').is(':visible') === true, '9.55 > 0.01 -> visible');
+      ok($('#qunit-fixture div[data-amount="0"]').is(':visible') === false, '0 is not > 0.01 -> hidden');
+      ok($('#qunit-fixture div[data-amount="-10"]').is(':visible') === false, '-10 is not > 0.01 -> hidden');
       start();
     });
 
@@ -362,7 +362,7 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === false, 'the element was hidden');
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === false, 'the element was hidden');
     });
 
     $('#qunit-fixture div').suiFilterable([{
@@ -373,7 +373,7 @@ $(function() {
 
     $(document).on('resetEnd.sui.filterable', function() {
       $(document).off('resetEnd.sui.filterable');
-      ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === true, 'the visibility of the element was reset');
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true, 'the visibility of the element was reset');
       start();
     });
     $('#qunit-fixture div').suiFilterable('reset');
@@ -391,7 +391,7 @@ $(function() {
 
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === false, 'the filter was triggered');
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === false, 'the filter was triggered');
       start();
     });
     $('#qunit-fixture input').val('tag2').change();
@@ -410,12 +410,12 @@ $(function() {
       $(document).off('filtered.sui.filterable');
       $(document).on('resetEnd.sui.filterable', function() {
         $(document).off('resetEnd.sui.filterable');
-        ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === true, 'the filter was reset');
+        ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true, 'the filter was reset');
         console.log($('#qunit-fixture input').val());
         ok(!$('#qunit-fixture input').val(), 'the filter form was reset');
         start();
       });
-      ok($('#qunit-fixture div[data-tag="tag1"').is(':visible') === false, 'the filter was triggered');
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === false, 'the filter was triggered');
     });
     $('#qunit-fixture input').val('tag2').change();
     $('#qunit-fixture button').click();
