@@ -95,10 +95,15 @@
 
       var data = $this.data('sui.sortableTable');
       if (!data) {
-        $this.data('sui.sortableTable', (data = new SortableTable($this, options.navigation)));
+        var navigation = options && ('navigation' in options) && options.navigation ? options.navigation : false;
+        $this.data('sui.sortableTable', (data = new SortableTable($this, navigation)));
       }
 
-      data.sort(options['sorted-th'], options['sort-direction']);
+      var sortedTh = options && ('sorted-th' in options) && options['sorted-th'] ? options['sorted-th'] : false;
+      var sortDir = options && ('sort-direction' in options) && options['sort-direction'] ? options['sort-direction'] : false;
+      if (sortedTh) {
+        data.sort(options['sorted-th'], options['sort-direction']);
+      }
     });
   }
 
