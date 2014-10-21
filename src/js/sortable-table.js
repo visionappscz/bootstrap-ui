@@ -43,6 +43,14 @@
       colCount = rows[0].childElementCount;
     }
 
+    var $navigationUl;
+    if (this.$navigation) {
+      this.$navigation.find('ul').remove();
+      if ($(rows[0]).children('td').eq($sortedTh.index()).data('sort-group')) {
+        $navigationUl = $('<ul></ul>');
+        this.$navigation.append($navigationUl);
+      }
+    }
     for (var i = 0; i < rows.length; i++) {
       if (this.$navigation) {
         var newSortGroup;
@@ -53,7 +61,7 @@
 
         if (newSortGroup != sortGroup) {
           newSortGroup = sortGroup;
-          this.$navigation.append('<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>');
+          $navigationUl.append('<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>');
           this.$sortedTable.append($('<thead><tr class="active"><th colspan="' + colCount + '"><h2 class="h3" id="letter-' + newSortGroup + '">' + newSortGroup + '</h2></th></tr></thead>'));
           this.$sortedTable.append($('<tbody></tbody>'));
         }
