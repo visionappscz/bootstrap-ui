@@ -37,15 +37,11 @@
     }
 
     var colCount;
-    if (this.$navigation) {
-      this.$sortedTable.find('thead:gt(0)').remove();
-      this.$navigation.children().remove();
-      colCount = rows[0].childElementCount;
-    }
-
     var $navigationUl;
     if (this.$navigation) {
       this.$navigation.find('ul').remove();
+      this.$sortedTable.find('thead:gt(0)').remove();
+      colCount = rows[0].childElementCount;
       if ($(rows[0]).children('td').eq($sortedTh.index()).data('sort-group')) {
         $navigationUl = $('<ul></ul>');
         this.$navigation.append($navigationUl);
