@@ -6937,43 +6937,6 @@ input[type="file"] {
 .panel-primary .panel-heading .panel-title {
   color: #fff;
 }
-[data-toggle="sort"] {
-  white-space: nowrap;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-[data-toggle="sort"]:hover .data-view-table-icon,
-[data-toggle="sort"]:focus .data-view-table-icon {
-  color: #333333;
-}
-[data-toggle="sort"]:focus {
-  outline: none;
-}
-[data-toggle="sort"] .data-view-table-icon {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-right: .5ex;
-  color: #777777;
-}
-[data-toggle="sort"] .data-view-table-icon:before {
-  content: "\e155";
-}
-[data-toggle="sort"].sorting-active .data-view-table-icon {
-  color: #f0ad4e;
-}
-[data-toggle="sort"].sorting-desc .data-view-table-icon:before {
-  content: "\e156";
-}
 tr.disabled {
   opacity: .5;
 }
@@ -7097,4 +7060,41 @@ td.table-cell-id {
 }
 .thumbnail-fixed .thumbnail-actions form {
   display: inline;
+}
+[data-toggle="sort"] {
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+[data-toggle="sort"]:hover .data-view-table-icon,
+[data-toggle="sort"]:focus .data-view-table-icon {
+  color: #333333;
+}
+[data-toggle="sort"]:focus {
+  outline: none;
+}
+[data-toggle="sort"] .data-view-table-icon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: .5ex;
+  color: #777777;
+}
+[data-toggle="sort"] .data-view-table-icon:before {
+  content: "\e155";
+}
+[data-toggle="sort"].sorting-active .data-view-table-icon {
+  color: #f0ad4e;
+}
+[data-toggle="sort"].sorting-desc .data-view-table-icon:before {
+  content: "\e156";
 }
