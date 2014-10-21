@@ -35,30 +35,36 @@ $(function() {
   // Filter related tests
   test('should fire filter.sui.filterable when filtering is started', function() {
     stop();
-    $(document).on('filtered.sui.filterable', function() {
-      $(document).off('filtered.sui.filterable');
-      ok(false, 'filtered.sui.filterable fired before filter.sui.filterable');
-    });
+    $('#qunit-fixture').append('<div data-tags="tag1">');
+
     $(document).on('filter.sui.filterable', function() {
-      $(document).off('filtered.sui.filterable');
       $(document).off('filter.sui.filterable');
-      ok(true, 'event fired');
+      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true, 'event fired before filtering');
       start();
     });
-    var $filterable = $(document).suiFilterable();
+
+    $('#qunit-fixture div').suiFilterable([{
+      'filter-attrib': 'tags',
+      'filter-operator': 'subset',
+      'filter-value': 'tag2'
+    }]);
   });
 
   test('should fire filtered.sui.filterable when filtering is finished', function() {
     stop();
-    $(document).on('filter.sui.filterable', function() {
-      $(document).off('filter.sui.filterable');
-      $(document).on('filtered.sui.filterable', function() {
-        $(document).off('filtered.sui.filterable');
-        ok(true, 'event fired');
-        start();
-      });
+    $('#qunit-fixture').append('<div data-tags="tag1">');
+
+    $(document).on('filtered.sui.filterable', function() {
+      $(document).off('filtered.sui.filterable');
+      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === false, 'event fired after filtering');
+      start();
     });
-    var $filterable = $(document).suiFilterable();
+
+    $('#qunit-fixture div').suiFilterable([{
+      'filter-attrib': 'tags',
+      'filter-operator': 'subset',
+      'filter-value': 'tag2'
+    }]);
   });
 
   test('should filter elements for: filterValue = [], dataValue = [], operator = "subset"', function() {
