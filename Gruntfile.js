@@ -147,8 +147,10 @@ module.exports = function(grunt) {
         },
 
         qunit: {
+            options: {
+                noGlobals: true
+            },
             all: ['src/js/tests/index.html'],
-            noGlobals: true
         }
     });
 
