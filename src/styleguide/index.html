@@ -47,9 +47,9 @@
 <body>
 {{else}}
 {{#eachSection rootNumber}}
-{{#whenDepth 1}}
+{{#ifDepth 1}}
 <body data-current-section="{{ reference }}">
-{{/whenDepth}}
+{{/ifDepth}}
 {{/eachSection}}
 {{/if}}
 
@@ -93,9 +93,9 @@
             <h1>Synergic UI</h1>
             {{else}}
             {{#eachSection rootNumber}}
-            {{#whenDepth 1}}
+            {{#ifDepth 1}}
             <h1>{{ reference }}. {{ header }}</h1>
-            {{/whenDepth}}
+            {{/ifDepth}}
             {{/eachSection}}
             {{/if}}
 
@@ -109,7 +109,7 @@
 
                     {{#if overview}}
                     <article class="kss__overview">
-                        {{html overview}}
+                        {{{overview}}}
 
                     {{else}}
                     <article>
@@ -119,10 +119,10 @@
                             {{else}}
 
                             {{#eachSection rootNumber}}
-                            {{#whenDepth 2}}
+                            {{#ifDepth 2}}
                             <li><a href="#section-{{ reference }}">{{ header }}</a></li>
                             {{else}}
-                            {{/whenDepth}}
+                            {{/ifDepth}}
                             {{/eachSection}}
 
                             {{/if}}
@@ -134,26 +134,26 @@
                         layout instead.
 
                         The "root" element comes first in this loop, and can be detected using
-                        the "#whenDepth 1" block as seen below.
+                        the "#ifDepth 1" block as seen below.
                         }}
                         {{#eachSection rootNumber}}
-                        {{#whenDepth 1}}
+                        {{#ifDepth 1}}
                         {{else}}
 
                         <section id="section-{{reference}}" class="kss__section kss__depth--{{ refDepth }}">
-                            {{#whenDepth 2}}
+                            {{#ifDepth 2}}
                             <h2 class="page-header kss__title">{{ reference }}&thinsp;—&thinsp;{{ header }}</h2>
                             {{else}}
                             <h3 class="kss__subtitle">{{ reference }}&thinsp;—&thinsp;{{ header }}</h3>
-                            {{/whenDepth}}
-                            {{/whenDepth}}
+                            {{/ifDepth}}
+                            {{/ifDepth}}
 
                             {{#if description}}
-                            {{html description}}
+                            {{{description}}}
                             {{/if}}
 
                             {{! Modifiers }}
-                            {{#ifAny markup modifiers}}
+                            {{#if markup}}
                             <p class="kss__example-title">Example</p>
                             <div class="kss__example">
                                 {{modifierMarkup}}
@@ -161,7 +161,7 @@
 
                             {{#eachModifier}}
                             <p><strong>{{name}}</strong></p>
-                            {{html description}}
+                            {{{description}}}
                             <div class="kss__example">{{modifierMarkup}}</div>
                             {{/eachModifier}}
 
@@ -169,11 +169,11 @@
                                 <pre class="prettyprint lang-html">{{markup}}</pre>
                             </div>
 
-                            {{/ifAny}}
+                            {{/if}}
 
-                            {{#whenDepth 1}} {{else}}
+                            {{#ifDepth 1}} {{else}}
                         </section>
-                        {{/whenDepth}}
+                        {{/ifDepth}}
                         {{/eachSection}}
 
                         {{/if}}
@@ -193,10 +193,10 @@
                             {{else}}
 
                             {{#eachSection rootNumber}}
-                            {{#whenDepth 2}}
+                            {{#ifDepth 2}}
                             <li><a href="#section-{{ reference }}">{{ header }}</a></li>
                             {{else}}
-                            {{/whenDepth}}
+                            {{/ifDepth}}
                             {{/eachSection}}
 
                             {{/if}}
