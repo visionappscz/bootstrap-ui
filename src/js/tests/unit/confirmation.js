@@ -1,6 +1,3 @@
-// Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
-// jshint -W030
-
 $(function() {
   'use strict';
 
@@ -110,21 +107,23 @@ $(function() {
   // Tests for confirming the confirmation
   test('should fire confirmed.sui.confirmation on pressing enter', function() {
     stop();
-    var $el = $('<button/>').suiConfirmation();
-    $el.on('confirmed.sui.confirmation', function() {
-      ok(true, 'confirmed.sui.confirmation event fired');
-      start();
-    });
+    $('<button/>')
+      .suiConfirmation()
+      .on('confirmed.sui.confirmation', function() {
+        ok(true, 'confirmed.sui.confirmation event fired');
+        start();
+      });
     $('.modal').trigger($.Event('keydown', { keyCode: 13}));
   });
 
   test('should fire confirmed.sui.confirmation confirmation on pressing the confirm button', function() {
     stop();
-    var $el = $('<button/>').suiConfirmation();
-    $el.on('confirmed.sui.confirmation', function() {
-      ok(true, 'confirmed.sui.confirmation event fired');
-      start();
-    });
+    $('<button/>')
+      .suiConfirmation()
+      .on('confirmed.sui.confirmation', function() {
+        ok(true, 'confirmed.sui.confirmation event fired');
+        start();
+      });
     $('.modal button[data-confirmation=confirm]').click();
   });
 
@@ -140,11 +139,12 @@ $(function() {
 
   test('should execute callback function with argument set to true when confirmed.sui.confirmation was triggered', function() {
     stop();
-    var $el = $('<button/>').suiConfirmation({'callback': function(result) {
-      ok(result === true, 'executed the callback function');
-      start();
-    }});
-    $el.trigger('confirmed.sui.confirmation');
+    $('<button/>')
+      .suiConfirmation({'callback': function(result) {
+        ok(result === true, 'executed the callback function');
+        start();
+      }})
+      .trigger('confirmed.sui.confirmation');
   });
 
 

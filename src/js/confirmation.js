@@ -1,39 +1,35 @@
-// Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
-// jshint -W030
-
-+function($) {
+(function($) {
   'use strict';
 
   // CONFIRMATION CLASS DEFINITION
   // =============================
-  //
-  var Confirmation = function($triggerEl, options) {
-    this.$triggerEl = $triggerEl;
-    this.callback = (!options || !('callback' in options) || !options.callback) ? this.defaults.callback : options.callback;
 
+  var Confirmation = function($triggerEl, options) {
     var message = (!options || !('confirm-message' in options) || !options['confirm-message']) ? this.defaults['confirm-message'] : options['confirm-message'];
     var yes = (!options || !('confirm-yes' in options) || !options['confirm-yes']) ? this.defaults['confirm-yes'] : options['confirm-yes'];
     var no = (!options || !('confirm-no' in options) || !options['confirm-no']) ? this.defaults['confirm-no'] : options['confirm-no'];
     this.modal = this.getModal(message, yes, no);
+
+    this.$triggerEl = $triggerEl;
+    this.callback = (!options || !('callback' in options) || !options.callback) ? this.defaults.callback : options.callback;
   };
 
   Confirmation.prototype.defaults = {
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
-    'callback': function() {} // Having empty callback makes no sence, it is here as a sane fallback for tests
+    'callback': function() {} // Having empty callback is useless, it is here as a sane fallback for tests
   };
 
   Confirmation.prototype.showConfirmation = function() {
     var $triggerEl = this.$triggerEl;
     var callback = this.callback;
-
     var $modal = this.modal.modal({
       keboard: false,
       backdrop: 'static'
     });
-    $triggerEl.trigger('show.sui.confirmation');
 
+    $triggerEl.trigger('show.sui.confirmation');
     $triggerEl.on('rejected.sui.confirmation', function() {
       callback(false);
     });
@@ -75,7 +71,6 @@
     var footer = $('<div class="modal-footer"></div>')
       .append('<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>')
       .append('<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>');
-
     var modal = $('<div class="modal fade" tabindex="-1"></div>');
     var dialog = $('<div class="modal-dialog modal-sm"></div>');
     var content = $('<div class="modal-content"></div>')
@@ -91,15 +86,13 @@
   // ==============================
 
   function Plugin(options) {
+    var $element, data;
     return this.each(function() {
-      var $this = $(this);
-      var confirmed = false;
-      if (confirmed) {
-        confirmed = false;
-      }
-      var data = $this.data('sui.confirmation');
+      $element = $(this);
+
+      data = $element.data('sui.confirmation');
       if (!data) {
-        $this.data('sui.confirmation', (data = new Confirmation($this, options)));
+        $element.data('sui.confirmation', (data = new Confirmation($element, options)));
       }
 
       data.showConfirmation();
@@ -141,4 +134,4 @@
     }
   });
 
-}(jQuery);
+}(jQuery));

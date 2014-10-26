@@ -1,22 +1,22 @@
-// Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
-// jshint -W030
-
-+function ($) {
+(function ($) {
     'use strict';
 
   // SORTABLE TABLE CLASS DEFINITION
-  // ======================
+  // ===============================
+
   var SortableTable = function ($sortedTable, $navigation) {
     this.$sortedTable = $sortedTable;
     this.$navigation = $navigation;
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    this.$sortedTable.trigger('sort.sui.sortableTable');
+    var newSortGroup, sortGroup, colCount, $navigationUl, rowCounter;
     var rows = this.$sortedTable
       .find('tbody tr')
       .toArray()
       .sort(this.comparer($sortedTh.index()));
+
+    this.$sortedTable.trigger('sort.sui.sortableTable');
 
     if ($sortedTh.hasClass('sorting-asc') && sortDir !== 'asc') {
       sortDir = 'desc';
@@ -36,8 +36,6 @@
       $sortedTh.addClass('sorting-asc');
     }
 
-    var colCount;
-    var $navigationUl;
     if (this.$navigation) {
       this.$navigation.find('ul').remove();
       this.$sortedTable.find('thead:gt(0)').remove();
@@ -47,10 +45,10 @@
         this.$navigation.append($navigationUl);
       }
     }
-    for (var i = 0; i < rows.length; i++) {
+
+    for (rowCounter = 0; rowCounter < rows.length; rowCounter++) {
       if (this.$navigation) {
-        var newSortGroup;
-        var sortGroup = $(rows[i])
+        sortGroup = $(rows[rowCounter])
           .children('td')
           .eq($sortedTh.index())
           .data('sort-group');
@@ -62,8 +60,7 @@
           this.$sortedTable.append($('<tbody></tbody>'));
         }
       }
-
-      this.$sortedTable.find('tbody:last').append(rows[i]);
+      this.$sortedTable.find('tbody:last').append(rows[rowCounter]);
     }
     this.$sortedTable.trigger('sorted.sui.sortableTable');
   };
@@ -91,20 +88,20 @@
 
 
   // SORTABLE TABLE PLUGIN DEFINITION
-  // =======================
+  // ================================
 
   function Plugin(options) {
+    var $element, data, $navigation;
+    var sortedTh = options && ('sorted-th' in options) && options['sorted-th'] ? options['sorted-th'] : false;
+    var sortDir = options && ('sort-direction' in options) && options['sort-direction'] ? options['sort-direction'] : false;
+
     return this.each(function () {
-      var $this = $(this);
-
-      var data = $this.data('sui.sortableTable');
+      $element = $(this);
+      data = $element.data('sui.sortableTable');
       if (!data) {
-        var navigation = options && ('navigation' in options) && options.navigation ? options.navigation : false;
-        $this.data('sui.sortableTable', (data = new SortableTable($this, navigation)));
+        $navigation = options && ('navigation' in options) && options.navigation ? options.navigation : false;
+        $element.data('sui.sortableTable', (data = new SortableTable($element, $navigation)));
       }
-
-      var sortedTh = options && ('sorted-th' in options) && options['sorted-th'] ? options['sorted-th'] : false;
-      var sortDir = options && ('sort-direction' in options) && options['sort-direction'] ? options['sort-direction'] : false;
       if (sortedTh) {
         data.sort(options['sorted-th'], options['sort-direction']);
       }
@@ -118,7 +115,7 @@
 
 
   // SORTABLE TABLE NO CONFLICT
-  // =================
+  // ==========================
 
   $.fn.sortableTable.noConflict = function () {
     $.fn.sortableTable = old;
@@ -127,7 +124,8 @@
 
 
   // SORTABLE TABLE DATA-API
-  // ==============
+  // =======================
+
   (function() {
     var callPlugin = function(e) {
       var $sortedTh = $(e.currentTarget);
@@ -149,4 +147,4 @@
     });
   }());
 
-}(jQuery);
+}(jQuery));

@@ -1,6 +1,3 @@
-// Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
-// jshint -W030
-
 $(function() {
   'use strict';
 

@@ -1,6 +1,3 @@
-// Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
-// jshint -W030
-
 $(function() {
   'use strict';
 
@@ -333,17 +330,17 @@ $(function() {
 
 
   // Reset related tests
-  test('should fire resetStart.sui.filterable when reset is started', function() {
+  test('should fire resetStart.sui.filterable when resetFilter is started', function() {
     stop();
-    $(document).on('filter.sui.filterable', function() {
-      $(document).off('filter.sui.filterable');
+    $(document).on('resetStart.sui.filterable', function() {
+      $(document).off('resetStart.sui.filterable');
       ok(true, 'event fired');
       start();
     });
-    var $filterable = $(document).suiFilterable();
+    $(document).suiFilterable('resetFilter');
   });
 
-  test('should fire resetEnd.sui.filterable when reset is finished', function() {
+  test('should fire resetEnd.sui.filterable when resetFilter is finished', function() {
     stop();
     $(document).on('resetStart.sui.filterable', function() {
       $(document).off('resetStart.sui.filterable');
@@ -353,7 +350,7 @@ $(function() {
         start();
       });
     });
-    var $filterable = $(document).suiFilterable('reset');
+    $(document).suiFilterable('resetFilter');
   });
 
   test('should show all elements if reset is called', function() {
@@ -373,10 +370,10 @@ $(function() {
 
     $(document).on('resetEnd.sui.filterable', function() {
       $(document).off('resetEnd.sui.filterable');
-      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true, 'the visibility of the element was reset');
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true, 'all elements were shown');
       start();
     });
-    $('#qunit-fixture div').suiFilterable('reset');
+    $('#qunit-fixture div').suiFilterable('resetFilter');
   });
 
 

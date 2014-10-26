@@ -1,57 +1,55 @@
-// Prevent jshinf from raising the "Expected an assignment or function call and instead saw an expression" warning
-// jshint -W030
-
-+function($) {
+(function($) {
     'use strict';
 
   // FILTERABLE CLASS DEFINITION
-  // ======================
+  // ===========================
+
   var Filterable = function($filterable) {
     this.$filterable = $filterable;
   };
 
   Filterable.prototype.filter = function(fObjects) {
+    var filterValCounter, filterVal, filterOper, dataVal, dataValCounter, fObjCounter, hideEl;
+
     if (fObjects && fObjects.length) {
       this.$filterable.show();
-      for (var i1 = 0; i1 < fObjects.length; i1++) {
-        var fObj = fObjects[i1];
-        var dataElAttribVal = this.$filterable.data(fObj['filter-attrib']);
-        if ($.type(dataElAttribVal) !== 'undefined') {
-          var hideEl = false;
+      for (fObjCounter = 0; fObjCounter < fObjects.length; fObjCounter++) {
+        filterVal = fObjects[fObjCounter]['filter-value'];
+        filterOper = fObjects[fObjCounter]['filter-operator'];
+        dataVal = this.$filterable.data(fObjects[fObjCounter]['filter-attrib']);
 
-          if (fObj['filter-operator'] == 'subset') {
-            for (var i2 = 0; i2 < fObj['filter-value'].length; i2++) {
-              if (dataElAttribVal.indexOf(fObj['filter-value'][i2]) === -1) {
+        if (dataVal !== null) {
+          hideEl = false;
+
+          if (filterOper === 'subset') {
+            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
+              if (dataVal.indexOf(filterVal[filterValCounter]) === -1) {
                 hideEl = true;
                 break;
               }
             }
-          }
-
-          else if (fObj['filter-operator'] == 'intersect') {
+          } else if (filterOper === 'intersect') {
             hideEl = true;
-            if (typeof(fObj['filter-value']) === 'string') {
-              fObj['filter-value'] = [fObj['filter-value']];
+            if (typeof(filterVal) === 'string') {
+              filterVal = [filterVal];
             }
-            if (typeof(dataElAttribVal) === 'string') {
-              dataElAttribVal = [dataElAttribVal];
+            if (typeof(dataVal) === 'string') {
+              dataVal = [dataVal];
             }
-            for (var i3 = 0; i3 < fObj['filter-value'].length; i3++) {
-              for (var i4 = 0; i4 < dataElAttribVal.length; i4++) {
-                if (dataElAttribVal[i4].indexOf(fObj['filter-value'][i3]) !== -1) {
+            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
+              for (dataValCounter = 0; dataValCounter < dataVal.length; dataValCounter++) {
+                if (dataVal[dataValCounter].indexOf(filterVal[filterValCounter]) !== -1) {
                   hideEl = false;
                   break;
                 }
               }
             }
-          }
-
-          else if (
-            (fObj['filter-operator'] === '=' && +dataElAttribVal !== +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '>=' && +dataElAttribVal < +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '<=' && +dataElAttribVal > +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '<' && +dataElAttribVal >= +fObj['filter-value']) ||
-            (fObj['filter-operator'] === '>' && +dataElAttribVal <= +fObj['filter-value'])
+          } else if (
+            (filterOper === '=' && +dataVal !== +filterVal) ||
+            (filterOper === '>=' && +dataVal < +filterVal) ||
+            (filterOper === '<=' && +dataVal > +filterVal) ||
+            (filterOper === '<' && +dataVal >= +filterVal) ||
+            (filterOper === '>' && +dataVal <= +filterVal)
           ) {
             hideEl = true;
           }
@@ -64,42 +62,41 @@
     }
   };
 
-  Filterable.prototype.reset = function() {
+  Filterable.prototype.resetFilter = function() {
     this.$filterable.show();
     $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
   };
 
 
   // FILTERABLE PLUGIN DEFINITION
-  // =======================
+  // ============================
 
   function Plugin(options) {
-    if (options === 'reset') {
+    var $elements, $element, data;
+
+    if (options === 'resetFilter') {
       $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
-    }
-    else {
+    } else {
       $(document).trigger('filter.sui.filterable');
     }
 
-    var $elements = this.each(function() {
-      var $this = $(this);
-
-      var data = $this.data('sui.filterable');
+    $elements = this.each(function() {
+      $element = $(this);
+      data = $element.data('sui.filterable');
       if (!data) {
-        $this.data('sui.filterable', (data = new Filterable($this)));
+        $element.data('sui.filterable', (data = new Filterable($element)));
       }
 
-      if (options === 'reset') {
-        data.reset();
+      if (options === 'resetFilter') {
+        data.resetFilter();
       } else {
         data.filter(options);
       }
     });
 
-    if (options === 'reset') {
+    if (options === 'resetFilter') {
       $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
-    }
-    else {
+    } else {
       $(document).trigger('filtered.sui.filterable');
     }
 
@@ -113,7 +110,7 @@
 
 
   // FILTERABLE NO CONFLICT
-  // =================
+  // ======================
 
   $.fn.filterable.noConflict = function() {
     $.fn.filterable = old;
@@ -122,13 +119,15 @@
 
 
   // FILTERABLE DATA-API
-  // ==============
+  // ===================
 
   $(document).on('change.sui.filterable.data-api', '[data-toggle=filter]', function() {
+    var $filterInput;
     var $filter = $(this).closest('form');
     var filterData = [];
+
     $filter.find(':input').each(function(index, filterInput) {
-      var $filterInput = $(filterInput);
+      $filterInput = $(filterInput);
       if ($filterInput.val() !== '' && $filterInput.val() !== null) {
         filterData.push({
           'filter-attrib': $filterInput.data('filter-attrib'),
@@ -144,7 +143,7 @@
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');
     $form[0].reset();
-    Plugin.call($($form.data('target')), 'reset');
+    Plugin.call($($form.data('target')), 'resetFilter');
   });
 
-}(jQuery);
+}(jQuery));
