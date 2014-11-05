@@ -38,7 +38,7 @@
             prettyPrint();
 
             // Prevent dummy links from navigating
-            $('a[href="#"]').on('click', function () {
+            $('a[href="#"]').not('.dropdown-toggle').on('click', function () {
                 return false;
             });
 
