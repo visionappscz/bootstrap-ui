@@ -162,9 +162,22 @@ module.exports = function(grunt) {
                     },
                     watchTask: true
                 }
+            },
+            test: {
+                bsFiles: {
+                    src : [
+                        'src/js/**/*.js'
+                    ]
+                },
+                options: {
+                    server: {
+                        baseDir: './'
+                    }
+                }
             }
         },
 
+        // JS tests
         qunit: {
             options: {
                 noGlobals: true
@@ -184,17 +197,21 @@ module.exports = function(grunt) {
         'copy'
     ]);
 
-    // Development
-    grunt.registerTask('dev', [
-        'build',
-        'watch'
-    ]);
-
     // Serve and watch
     grunt.registerTask('serve', [
         'build',
-        'browserSync',
+        'browserSync:dev',
         'watch'
+    ]);
+
+    // Alias
+    grunt.registerTask('dev', 'serve');
+
+    // Run JS tests in browser
+    // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
+    grunt.registerTask('test', [
+        'jshint',
+        'browserSync:test'
     ]);
 
     // Default task
