@@ -54,10 +54,18 @@ Example use (Bootstrap and jQuery installed by Bower):
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 ```
 
-Link Synergic UI JS components you want:
+Link all Synergic UI JS components:
 
 ```
-<script src="bower_components/synergic-ui/dist/js/sortable-table.js"></script>
+<script src="bower_components/synergic-ui/dist/js/synergic-ui.min.js"></script>
+```
+
+Or link just the components you want:
+
+```
+<script src="bower_components/synergic-ui/src/js/confirmation.js"></script>
+<script src="bower_components/synergic-ui/src/js/filterable.js"></script>
+<script src="bower_components/synergic-ui/src/js/sortable-table.js"></script>
 ```
 
 ### LESS
@@ -71,9 +79,10 @@ Full Synergic UI using custom colors, example use:
 // Synergic UI and its dependencies
 @import "../bower_components/bootstrap/less/bootstrap";
 @import "../bower_components/less-modules/less/less-modules";
-@import "../bower_components/synergic-ui/src/less/_synergic-ui"; // not main.less!
+@import "../bower_components/eonasdan-bootstrap-datetimepicker/src/less/bootstrap-datetimepicker";
+@import "../bower_components/synergic-ui/src/less/synergic-ui"; // not dist.less!
 
-// Configuration (custom colors etc.; must be last to override)
+// Configuration: custom colors etc.; must be last to override
 @import "config/variables";
 ```
 
