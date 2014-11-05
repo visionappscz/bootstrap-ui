@@ -2,9 +2,18 @@
 //
 // Attaches a confirmation dialog to be triggered by clicking on the element.
 //
-// The message and confirmation button labeles can be modified for each instance either by setting the options appropriately or by overloading the plugin defaults which affects all instances on page.
+// <div class="panel panel-danger">
+//     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+//     <div class="panel-body">
+//         Script `confirmation.js` and Bootstrap’s `modal.js` must be included.
+//     </div>
+// </div>
+//
+// The message and confirmation button labels can be modified for each instance either by setting the options
+// appropriately or by overriding the plugin defaults which affects all instances on page.
+//
 // <div class="panel panel-info">
-//     <div class="panel-heading"><h4 class="panel-title">Overloading defaults example</h4></div>
+//     <div class="panel-heading"><h4 class="panel-title">Overriding Defaults Example</h4></div>
 //     <div class="panel-body">
 // <pre>$(document).ready(function(){
 //   // Localize confirmation messages into Czech
@@ -14,21 +23,13 @@
 //     'confirm-no': 'Ne'
 //   };
 // });</pre>
-//         If overloading the defaults while running the plugin in noConflict mode,
-//         the code above has to be modified by substituting `$.fn.confirmation.Constructor.prototype.defaults` with `$.fn.my_no_conflict_name.Constructor.prototype.defaults`.
-//     </div>
-// </div>
-//
-// <div class="panel panel-danger">
-//     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
-//     <div class="panel-body">
-//         Script `confirmation.js` must be included.
-//         Script `modal.js` must be included.
+//         If overriding the defaults while running the plugin in noConflict mode,
+//         the code above has to be modified by substituting `$.fn.confirmation.Constructor.prototype.defaults` with
+//         `$.fn.my_no_conflict_name.Constructor.prototype.defaults`.
 //     </div>
 // </div>
 //
 // <h3>Options</h3>
-// All options can be also specified by
 // <table class="table table-bordered table-striped">
 //     <thead>
 //         <tr>
@@ -43,7 +44,7 @@
 //             <td>confirm-message</td>
 //             <td>string</td>
 //             <td>Are you sure?</td>
-//             <td>The message o be displayd to the user in the confirmation dialog.</td>
+//             <td>The message to be displayed to the user in the confirmation dialog.</td>
 //         </tr>
 //         <tr>
 //             <td>confirm-yes</td>
@@ -69,7 +70,7 @@
 //     <thead>
 //         <tr>
 //             <th>Event Type</th>
-//             <th>Descriptioin</th>
+//             <th>Description</th>
 //         </tr>
 //     </thead>
 //     <tbody>
@@ -90,11 +91,11 @@
 //
 // Markup:
 // <form onsubmit="alert('Confirmation confirmed');" method="get">
-//     <button class="item-action item-action-danger" data-toggle="confirm">
+//     <button class="btn btn-danger" data-toggle="confirm">
 //         Basic confirmation
 //     </button>
 //     <button
-//         class="item-action item-action-danger"
+//         class="btn btn-danger"
 //         data-toggle="confirm"
 //         data-confirm-message="Really?"
 //         data-confirm-yes="Confirm"
@@ -103,12 +104,12 @@
 //         Confirmation with custom text
 //     </button>
 //     <button
-//         class="item-action item-action-danger"
+//         class="btn btn-danger"
 //         data-toggle="confirm"
 //         data-confirm-yes="<span class='glyphicon glyphicon-ok'></span>"
 //         data-confirm-no="<span class='glyphicon glyphicon-remove'></span>"
 //     >
-//         Confirmation with images
+//         Confirmation with icons
 //     </button>
 // </form>
 //

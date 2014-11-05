@@ -90,8 +90,17 @@ Full Synergic UI using custom colors, example use:
 
 ### NEXT VERSION
 
-* Added Bootstrap datetimepicker component
-* Use BrowserSync for comfortable local development
+Release date: FIXME
+
+* New components:
+  * Confirmation
+  * Filterable
+  * Bootstrap datetimepicker
+* JavaScript Sortable Table component rewritten from the ground up to be compatible with Bootstrap JS components
+* CoffeeScript is no longer used
+* Test all custom JS with QUnit
+* Use BrowserSync for comfortable development
+* Renamed main LESS files (see [Usage &rarr; LESS](#less) for more)
 
 ### 0.3.0
 

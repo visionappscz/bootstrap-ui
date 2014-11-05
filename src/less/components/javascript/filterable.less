@@ -3,13 +3,16 @@
 // Allows for filtering of elements matching a given jQuery selector.
 // The elements that do not pass the filter are hidden until the filter is updated and their visibility is reevaluated.
 //
-// Each element that is to be filterable must define on itself the appropriate data attribites by which it can be filtered.
-// If a data attribiute is not provided, the element is ignored by the filter for that particular condition and is treated as if it passed the filter.
+// Each element that is to be filterable must define on itself the appropriate data attributes by which it can be
+// filtered. If a data attribute is not provided, the element is ignored by the filter for that particular condition and
+// is treated as if it passed the filter.
 //
-// The options to be passed to the Filterable plugin are allways an array of filter definition objects.
-// If using the data-api each of these object has to be represented by a single `:input` element with the appropriate `data-*` attributes.
+// The options to be passed to the Filterable plugin are allways an array of filter definition objects. If using the
+// data-api, each of these object has to be represented by a single `:input` element with the appropriate `data-*`
+// attributes.
 //
-// To allow users to view all filterable elements when using the data-api, simple palce within the filter `<form>` a button with `type="reset"` attribute.
+// To allow users to view all filterable elements when using the data-api, simply place a button with `type="reset"`
+// attribute within the filter `<form>`.
 //
 // <div class="panel panel-danger">
 //     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
@@ -18,8 +21,7 @@
 //     </div>
 // </div>
 //
-// <h3>Filter definition object</h3>
-// All options can be also specified by
+// <h3>Filter Definition Object</h3>
 // <table class="table table-bordered table-striped">
 //     <thead>
 //         <tr>
@@ -40,15 +42,17 @@
 //             <td>filter-value</td>
 //             <td>string</td>
 //             <td></td>
-//             <td>The filter value to be used in the condition. When using the data-api this is automatically generated from the `:input` element value and is not have to be set manually</td>
+//             <td>The filter value to be used in the condition. When using the data-api, this is automatically
+//                 generated from the `:input` element value and does not not have to be set manually.</td>
 //         </tr>
 //         <tr>
 //             <td>filter-operator</td>
 //             <td>enum</td>
 //             <td></td>
 //             <td>
-//                 Defines how to compare the values. If comparing strings or arrays of strings we can use either `subset` or `intersect` operators.
-//                 For comparing numeric values the `=`, `<`, `>`, `<=` and `>=` are available.
+//                 Defines how to compare the values. If comparing strings or arrays of strings, we can use either
+//                 `subset` or `intersect` operators. For comparing numeric values, the `=`, `<`, `>`, `<=` and `>=` are
+//                 available.
 //                 <table class="table">
 //                     <thead>
 //                         <tr>
@@ -131,7 +135,7 @@
 //     <thead>
 //         <tr>
 //             <th>Event Type</th>
-//             <th>Descriptioin</th>
+//             <th>Description</th>
 //         </tr>
 //     </thead>
 //     <tbody>
@@ -173,7 +177,7 @@
 //                         <option value="Moscow">Moscow</option>
 //                         <option value="Munich">Munich</option>
 //                         <option value="Prague">Prague</option>
-//                         <option value="Viena">Viena</option>
+//                         <option value="Viena">Vienna</option>
 //                     </select>
 //                 </div>
 //             </div>
@@ -237,7 +241,7 @@
 //                         <option value="Philadelphia">Philadelphia</option>
 //                         <option value="Sydney">Sydney</option>
 //                         <option value="Toronto">Toronto</option>
-//                         <option value="Viena">Viena</option>
+//                         <option value="Viena">Vienna</option>
 //                     </select>
 //                 </div>
 //             </div>
