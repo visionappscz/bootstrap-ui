@@ -81,8 +81,8 @@
 // <table class="table">
 //     <thead>
 //         <tr>
-//             <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
-//             <th data-toggle="sort" tabindex="0">Page Title</th>
+//             <th class="table-cell-id" data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> #</th>
+//             <th data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> Page Title</th>
 //             <th></th>
 //         </tr>
 //     </thead>
@@ -139,8 +139,8 @@
 //         <table class="table" data-sort-navigation="#tableSortNavigation">
 //             <thead>
 //                 <tr>
-//                     <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
-//                     <th data-toggle="sort" tabindex="0">User</th>
+//                     <th class="table-cell-id" data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> #</th>
+//                     <th data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> User</th>
 //                 </tr>
 //             </thead>
 //             <tbody>
@@ -174,7 +174,7 @@
 
     &:hover,
     &:focus {
-        .data-view-table-icon {
+        .sortable-table-icon {
             color: @text-color;
         }
     }
@@ -183,18 +183,18 @@
         outline: none;
     }
 
-    .data-view-table-icon {
+    .sortable-table-icon {
         .glyphicon();
         .glyphicon-sort-by-attributes();
         margin-right: .5ex;
         color: @gray-light;
     }
 
-    &.sorting-active .data-view-table-icon {
+    &.sorting-active .sortable-table-icon {
         color: @brand-warning;
     }
 
-    &.sorting-desc .data-view-table-icon {
+    &.sorting-desc .sortable-table-icon {
         .glyphicon-sort-by-attributes-alt();
     }
 }
