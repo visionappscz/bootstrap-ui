@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         less: {
             dist: {
                 files: {
-                    'dist/css/<%= pkg.name %>.css': 'src/less/main.less'
+                    'dist/css/<%= pkg.name %>.css': 'src/less/dist.less'
                 }
             }
         },
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
             },
             all: {
                 files: [{
-                    'styleguide': 'src/less/main.less'
+                    'styleguide': 'src/less/dist.less'
                 }]
             }
         },
