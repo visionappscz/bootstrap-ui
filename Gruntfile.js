@@ -20,18 +20,37 @@ module.exports = function(grunt) {
             }
         },
 
-        // Lint custom JS
-        jshint: {
-            files: [
-                'src/js/**/*.js',
-            ]
-        },
-
         // Minify CSS
         cssmin: {
             dist: {
                 files: {
                     'dist/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css'
+                }
+            }
+        },
+
+        // Lint custom JS
+        jshint: {
+            files: [
+                'src/js/**/*.js'
+            ]
+        },
+
+        // Concat all JS
+        concat: {
+            dist: {
+                src: [
+                    'src/js/*.js'
+                ],
+                dest: 'dist/js/<%= pkg.name %>.js'
+            }
+        },
+
+        // Minify concatenated JS
+        uglify: {
+            dist: {
+                files: {
+                    'dist/js/<%= pkg.name %>.min.js': 'dist/js/<%= pkg.name %>.js'
                 }
             }
         },
@@ -150,7 +169,7 @@ module.exports = function(grunt) {
             options: {
                 noGlobals: true
             },
-            all: ['src/js/tests/index.html'],
+            all: ['src/js/tests/index.html']
         }
     });
 
@@ -158,6 +177,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'less',
         'cssmin',
+        'jshint',
+        'concat',
+        'uglify',
         'styleguide',
         'copy'
     ]);
@@ -170,7 +192,6 @@ module.exports = function(grunt) {
 
     // Serve and watch
     grunt.registerTask('serve', [
-        'jshint',
         'build',
         'browserSync',
         'watch'
