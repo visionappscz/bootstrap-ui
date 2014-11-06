@@ -6753,6 +6753,11 @@ body {
     left: 220px;
   }
 }
+@media screen and (min-width: 768px) {
+  .form-filter .form-actions {
+    padding-top: 26px;
+  }
+}
 .text-danger-block {
   padding: 15px;
   margin-bottom: 21px;
@@ -7094,4 +7099,7 @@ td.table-cell-id {
   position: absolute;
   right: 4px;
   bottom: 4px;
+}
+.thumbnail-fixed .thumbnail-actions form {
+  display: inline;
 }
