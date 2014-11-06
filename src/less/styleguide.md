@@ -81,7 +81,11 @@ Full Synergic UI using custom colors, example use:
 
 ### NEXT VERSION
 
-* Added Bootstrap datetimepicker component
+Release date: FIXME
+
+* New components:
+  * Filter
+  * Listbox
 * Use BrowserSync for comfortable local development
 
 ### 0.3.0
