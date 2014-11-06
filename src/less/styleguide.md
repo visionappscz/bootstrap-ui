@@ -86,6 +86,7 @@ Release date: FIXME
 * New components:
   * Filter
   * Listbox
+* Images in Thumbnail component now can be defined as background to achieve nicely centered and filled thumbnails.
 * Use BrowserSync for comfortable local development
 
 ### 0.3.0

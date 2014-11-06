@@ -70,6 +70,10 @@
         overflow: hidden;
         text-align: center;
         background-color: @gray-lighter;
+        // Add support for thumbnails as background images.
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
 
         img {
             &:extend(.img-responsive all);

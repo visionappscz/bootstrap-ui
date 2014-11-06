@@ -8262,6 +8262,9 @@ td.table-cell-id {
   overflow: hidden;
   text-align: center;
   background-color: #eeeeee;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .thumbnail-fixed .thumbnail-image img {
   display: inline-block;
