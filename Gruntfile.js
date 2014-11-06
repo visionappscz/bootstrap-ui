@@ -85,12 +85,6 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
-                        flatten: true,
-                        src: ['bower_components/select2/*.png'],
-                        dest: 'styleguide/public/css/'
-                    },
-                    {
-                        expand: true,
                         cwd: 'dist/',
                         src: ['css/*', 'js/*'],
                         dest: 'styleguide/public/'

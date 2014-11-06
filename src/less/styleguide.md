@@ -71,7 +71,7 @@ Full Synergic UI using custom colors, example use:
 // Synergic UI and its dependencies
 @import "../bower_components/bootstrap/less/bootstrap";
 @import "../bower_components/less-modules/less/less-modules";
-@import "../bower_components/synergic-ui/src/less/_synergic-ui"; // not main.less!
+@import "../bower_components/synergic-ui/src/less/synergic-ui"; // not dist.less!
 
 // Configuration (custom colors etc.; must be last to override)
 @import "config/variables";
