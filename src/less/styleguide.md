@@ -68,7 +68,7 @@ loaded manually in this case.
 Full Synergic UI using custom colors, example use:
 
 ```
-// Synergic UI and its dependencies
+// Synergic UI and its dependencies (see dist.less for complete list)
 @import "../bower_components/bootstrap/less/bootstrap";
 @import "../bower_components/less-modules/less/less-modules";
 @import "../bower_components/synergic-ui/src/less/synergic-ui"; // not dist.less!
