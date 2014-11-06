@@ -78,9 +78,16 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: [
                             'bower_components/eonasdan-bootstrap-datetimepicker/build/js/*',
-                            'bower_components/moment/min/moment.min.js'
+                            'bower_components/moment/min/moment.min.js',
+                            'bower_components/select2/select2.min.js'
                         ],
                         dest: 'styleguide/public/js/'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['bower_components/select2/*.png'],
+                        dest: 'styleguide/public/css/'
                     },
                     {
                         expand: true,
