@@ -8185,6 +8185,9 @@ td.table-cell-id {
   text-align: right;
   white-space: nowrap;
 }
+.table-cell-top {
+  vertical-align: top !important;
+}
 .teaser {
   display: block;
   clear: both;

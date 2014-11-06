@@ -6,6 +6,7 @@
 // - Nested items to present hierarchy
 // - ID column that preserves its width
 // - Actions column which always keeps all actions in a single row
+// - Table cells vertically aligned to top (`.table-cell-top`)
 //
 // This is the recommended setup for common table listing:
 //
@@ -181,6 +182,10 @@ tr.disabled {
         &-actions {
             text-align: right;
             white-space: nowrap;
+        }
+
+        &-top {
+            vertical-align: top !important; // specificity override
         }
     }
 }
