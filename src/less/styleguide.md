@@ -79,14 +79,16 @@ Full Synergic UI using custom colors, example use:
 
 ## <span id="changelog"></span>Changelog
 
-### NEXT VERSION
+### 0.4.0
 
-Release date: FIXME
+Release date: 7 November 2014
 
 * New components:
+  * Bootstrap Datetimepicker
   * Filter
-  * Listbox
-* Images in Thumbnail component now can be defined as background to achieve nicely centered and filled thumbnails.
+  * Listbox (based on select2)
+* Added alignment class in Tables component
+* Images in Thumbnail component now can be defined as background to achieve nicely centered and filled thumbnails
 * Use BrowserSync for comfortable local development
 
 ### 0.3.0
