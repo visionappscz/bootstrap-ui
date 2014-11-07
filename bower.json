@@ -30,7 +30,7 @@
     ".*"
   ],
   "dependencies": {
-    "bootstrap": "~3.2.0",
+    "bootstrap": "~3.3.0",
     "less-modules": "~0.3.0",
     "eonasdan-bootstrap-datetimepicker": "~3.1.3",
     "select2": "~3.5.2",
