@@ -7092,7 +7092,8 @@ td.table-cell-id {
 [data-toggle="sort"] .sortable-table-icon:before {
   content: "\e155";
 }
-[data-toggle="sort"].sorting-active .sortable-table-icon {
+[data-toggle="sort"].sorting-asc .sortable-table-icon,
+[data-toggle="sort"].sorting-desc .sortable-table-icon {
   color: #f0ad4e;
 }
 [data-toggle="sort"].sorting-desc .sortable-table-icon:before {

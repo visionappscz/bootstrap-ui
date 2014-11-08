@@ -162,36 +162,6 @@ $(function() {
     $table.suiSortableTable({'sorted-th': $table.find('th'), 'sort-direction': 'desc'});
   });
 
-  test('should set class "sorting-active" only on the sorted th element', function() {
-    stop();
-    var $table = $('<table>' +
-      '<thead><tr>' +
-      '<th id="headerA">HeaderA</th>' +
-      '<th id="headerB">HeaderB</th>' +
-      '</tr></thead>' +
-      '<tbody>' +
-      '<tr id="row2"><td>A2</td><td>B2</td></tr>' +
-      '<tr id="row1"><td>A1</td><td>B1</td></tr>' +
-      '<tr id="row3"><td>A3</td><td>B3</td></tr>' +
-      '</tbody>' +
-    '</table>');
-
-    $table.on('sorted.sui.sortableTable', function() {
-      $table.off('sorted.sui.sortableTable');
-      ok($table.find('#headerA').hasClass('sorting-active'), 'headerA has the class sorting-active on run 1');
-      ok(!$table.find('#headerB').hasClass('sorting-active'), 'headerB has not the class sorting-active on run 1');
-    });
-    $table.suiSortableTable({'sorted-th': $table.find('#headerA')});
-
-    $table.on('sorted.sui.sortableTable', function() {
-      $table.off('sorted.sui.sortableTable');
-      ok(!$table.find('#headerA').hasClass('sorting-active'), 'headerA has not the class sorting-active on run 2');
-      ok($table.find('#headerB').hasClass('sorting-active'), 'headerB has the class sorting-active on run 2');
-      start();
-    });
-    $table.suiSortableTable({'sorted-th': $table.find('#headerB')});
-  });
-
   test('should set class "sorting-asc" only on the sorted <th> element if sorting direction is ascending', function() {
     stop();
     var $table = $('<table>' +
@@ -400,5 +370,51 @@ $(function() {
     });
 
     $('#headerA').trigger($.Event('keydown', { keyCode: 32}));
+  });
+
+  test('should sort the table in ascending mode on load if <th> has data-sortable-onload="asc" attribute', function() {
+    stop();
+    var $table = $('<table>' +
+      '<thead><tr><th data-toggle="sort" data-sortable-onload="asc" id="headerA">HeaderA</th></tr></thead>' +
+      '<tbody>' +
+      '<tr id="row2"><td>2</td></tr>' +
+      '<tr id="row1"><td>1</td></tr>' +
+      '<tr id="row3"><td>3</td></tr>' +
+      '</tbody>' +
+      '</table>');
+    $('#qunit-fixture').append($table);
+
+    $table.on('sorted.sui.sortableTable', function() {
+      var $rows = $table.find('tbody tr');
+      ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
+      ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
+      ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
+      start();
+    });
+
+    $(window).trigger('load');
+  });
+
+  test('should sort the table in descending mode on load if <th> has data-sortable-onload="desc" attribute', function() {
+    stop();
+    var $table = $('<table>' +
+      '<thead><tr><th data-toggle="sort" data-sortable-onload="desc" id="headerA">HeaderA</th></tr></thead>' +
+      '<tbody>' +
+      '<tr id="row2"><td>2</td></tr>' +
+      '<tr id="row1"><td>1</td></tr>' +
+      '<tr id="row3"><td>3</td></tr>' +
+      '</tbody>' +
+      '</table>');
+    $('#qunit-fixture').append($table);
+
+    $table.on('sorted.sui.sortableTable', function() {
+      var $rows = $table.find('tbody tr');
+      ok($($rows[0]).attr('id') === 'row3', 'row3 is first');
+      ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
+      ok($($rows[2]).attr('id') === 'row1', 'row1 is third');
+      start();
+    });
+
+    $(window).trigger('load');
   });
 });

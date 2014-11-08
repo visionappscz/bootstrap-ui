@@ -6,6 +6,12 @@
 // If a given cell has the attribute `data-sort-value="someValue"` specified, the value of this element is used as
 // opposed to the value of the cell.
 //
+// To initialize the component taking into account that the data is already sorted when the page is loaded,
+// a `.sorting-asc` and `.sorting-desc` can be added to the relevant `<th>` to indicate the column and direction of the default sorting.
+//
+// Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be achieved by specifying the attribute `data-sortable-onload`
+// on the appropriate `<th>`. This attribute takes the value of either `asc` or `desc` to indicate the sorting order.
+//
 // <div class="panel panel-danger">
 //     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
 //     <div class="panel-body">
@@ -34,7 +40,7 @@
 //             <td>sort-direction</td>
 //             <td>string</td>
 //             <td>asc</td>
-//             <td>Defines the direction by which to sort. Accepts values 'asc' or 'desc'.</td>
+//             <td>Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
 //         </tr>
 //         <tr>
 //             <td>sort-navigation</td>
@@ -81,7 +87,7 @@
 // <table class="table">
 //     <thead>
 //         <tr>
-//             <th class="table-cell-id" data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> #</th>
+//             <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> #</th>
 //             <th data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> Page Title</th>
 //             <th></th>
 //         </tr>
@@ -140,7 +146,7 @@
 //             <thead>
 //                 <tr>
 //                     <th class="table-cell-id" data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> #</th>
-//                     <th data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> User</th>
+//                     <th data-toggle="sort" data-sortable-onload="desc" tabindex="0"><span class="sortable-table-icon"></span> User</th>
 //                 </tr>
 //             </thead>
 //             <tbody>
@@ -190,7 +196,8 @@
         color: @gray-light;
     }
 
-    &.sorting-active .sortable-table-icon {
+    &.sorting-asc .sortable-table-icon,
+    &.sorting-desc .sortable-table-icon {
         color: @brand-warning;
     }
 
