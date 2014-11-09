@@ -87,8 +87,8 @@
 // <table class="table">
 //     <thead>
 //         <tr>
-//             <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> #</th>
-//             <th data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> Page Title</th>
+//             <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0">#</th>
+//             <th data-toggle="sort" tabindex="0">Page Title</th>
 //             <th></th>
 //         </tr>
 //     </thead>
@@ -145,8 +145,8 @@
 //         <table class="table" data-sort-navigation="#tableSortNavigation">
 //             <thead>
 //                 <tr>
-//                     <th class="table-cell-id" data-toggle="sort" tabindex="0"><span class="sortable-table-icon"></span> #</th>
-//                     <th data-toggle="sort" data-sortable-onload="desc" tabindex="0"><span class="sortable-table-icon"></span> User</th>
+//                     <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
+//                     <th data-toggle="sort" data-sortable-onload="desc" tabindex="0">User</th>
 //                 </tr>
 //             </thead>
 //             <tbody>
@@ -174,13 +174,25 @@
 // Styleguide 6.3.2
 
 [data-toggle="sort"] {
+    .glyphicon-sort-by-attributes(); // default icon - sorting asc
     white-space: nowrap;
     cursor: pointer;
     .user-select(none);
 
+    // Actual icon
+    &:before {
+        .glyphicon();
+        margin-right: .5ex;
+        color: @gray-light;
+    }
+
+    &.sorting-desc {
+        .glyphicon-sort-by-attributes-alt();
+    }
+
     &:hover,
     &:focus {
-        .sortable-table-icon {
+        &:before {
             color: @text-color;
         }
     }
@@ -189,19 +201,11 @@
         outline: none;
     }
 
-    .sortable-table-icon {
-        .glyphicon();
-        .glyphicon-sort-by-attributes();
-        margin-right: .5ex;
-        color: @gray-light;
-    }
-
-    &.sorting-asc .sortable-table-icon,
-    &.sorting-desc .sortable-table-icon {
-        color: @brand-warning;
-    }
-
-    &.sorting-desc .sortable-table-icon {
-        .glyphicon-sort-by-attributes-alt();
+    // Highlight column by which we are currently sorting
+    &.sorting-asc,
+    &.sorting-desc {
+        &:before {
+            color: @brand-warning;
+        }
     }
 }

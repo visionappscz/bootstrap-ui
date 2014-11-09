@@ -7069,14 +7069,10 @@ td.table-cell-id {
   -ms-user-select: none;
   user-select: none;
 }
-[data-toggle="sort"]:hover .sortable-table-icon,
-[data-toggle="sort"]:focus .sortable-table-icon {
-  color: #333333;
+[data-toggle="sort"]:before {
+  content: "\e155";
 }
-[data-toggle="sort"]:focus {
-  outline: none;
-}
-[data-toggle="sort"] .sortable-table-icon {
+[data-toggle="sort"]:before {
   position: relative;
   top: 1px;
   display: inline-block;
@@ -7089,13 +7085,17 @@ td.table-cell-id {
   margin-right: .5ex;
   color: #777777;
 }
-[data-toggle="sort"] .sortable-table-icon:before {
-  content: "\e155";
-}
-[data-toggle="sort"].sorting-asc .sortable-table-icon,
-[data-toggle="sort"].sorting-desc .sortable-table-icon {
-  color: #f0ad4e;
-}
-[data-toggle="sort"].sorting-desc .sortable-table-icon:before {
+[data-toggle="sort"].sorting-desc:before {
   content: "\e156";
+}
+[data-toggle="sort"]:hover:before,
+[data-toggle="sort"]:focus:before {
+  color: #333333;
+}
+[data-toggle="sort"]:focus {
+  outline: none;
+}
+[data-toggle="sort"].sorting-asc:before,
+[data-toggle="sort"].sorting-desc:before {
+  color: #f0ad4e;
 }

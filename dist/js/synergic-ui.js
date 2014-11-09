@@ -316,11 +316,9 @@
     }
     this.$sortedTable
       .find('th')
-      .removeClass('sorting-active')
       .removeClass('sorting-asc')
       .removeClass('sorting-desc');
 
-    $sortedTh.addClass('sorting-active');
     if (sortDir === 'desc') {
       rows = rows.reverse();
       $sortedTh.addClass('sorting-desc');
@@ -429,14 +427,26 @@
       });
     };
 
-    $(document).on('click.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
+    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
       callPlugin(e);
     });
 
-    $(document).on('keydown.sui.sortableTable.data-api', '[data-toggle=sort]', function(e) {
+    $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
       if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
         callPlugin(e);
       }
+    });
+
+    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+    // and thus it would make it impossible to test this part of the code.
+    $(window).load(function() {
+      var $sortedTh = $('th[data-sortable-onload]');
+      var $sortedTable = $sortedTh.closest('table');
+      Plugin.call($sortedTable, {
+        'sorted-th': $sortedTh,
+        'navigation': $($sortedTable.data('sort-navigation')),
+        'sort-direction': $sortedTh.data('sortable-onload')
+      });
     });
   }());
 
