@@ -3647,30 +3647,38 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
 .input-group-btn:last-child > .item-action {
   margin-left: -1px;
 }
-.nav {
+.nav,
+.sortable-table-nav ul {
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
 }
-.nav > li {
+.nav > li,
+.sortable-table-nav ul > li {
   position: relative;
   display: block;
 }
-.nav > li > a {
+.nav > li > a,
+.sortable-table-nav ul > li > a {
   position: relative;
   display: block;
   padding: 10px 15px;
 }
 .nav > li > a:hover,
-.nav > li > a:focus {
+.nav > li > a:focus,
+.sortable-table-nav ul > li > a:hover,
+.sortable-table-nav ul > li > a:focus {
   text-decoration: none;
   background-color: #eeeeee;
 }
-.nav > li.disabled > a {
+.nav > li.disabled > a,
+.sortable-table-nav ul > li.disabled > a {
   color: #777777;
 }
 .nav > li.disabled > a:hover,
-.nav > li.disabled > a:focus {
+.nav > li.disabled > a:focus,
+.sortable-table-nav ul > li.disabled > a:hover,
+.sortable-table-nav ul > li.disabled > a:focus {
   color: #777777;
   text-decoration: none;
   background-color: transparent;
@@ -3678,17 +3686,22 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
 }
 .nav .open > a,
 .nav .open > a:hover,
-.nav .open > a:focus {
+.nav .open > a:focus,
+.sortable-table-nav ul .open > a,
+.sortable-table-nav ul .open > a:hover,
+.sortable-table-nav ul .open > a:focus {
   background-color: #eeeeee;
   border-color: #94c300;
 }
-.nav .nav-divider {
+.nav .nav-divider,
+.sortable-table-nav ul .nav-divider {
   height: 1px;
   margin: 9.5px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
-.nav > li > a > img {
+.nav > li > a > img,
+.sortable-table-nav ul > li > a > img {
   max-width: none;
 }
 .nav-tabs {
@@ -6014,7 +6027,9 @@ button.close {
 .modal-footer:before,
 .modal-footer:after,
 .panel-menu-header:before,
-.panel-menu-header:after {
+.panel-menu-header:after,
+.sortable-table-nav ul:before,
+.sortable-table-nav ul:after {
   content: " ";
   display: table;
 }
@@ -6033,7 +6048,8 @@ button.close {
 .pager:after,
 .panel-body:after,
 .modal-footer:after,
-.panel-menu-header:after {
+.panel-menu-header:after,
+.sortable-table-nav ul:after {
   clear: both;
 }
 .center-block {
@@ -6690,17 +6706,22 @@ body {
     bottom: 0;
   }
 }
-.nav-letters {
+.nav-letters,
+.sortable-table-nav ul {
   margin-bottom: 21px;
   text-align: center;
 }
 .nav-letters > li,
-.nav-letters > li > a {
+.nav-letters > li > a,
+.sortable-table-nav ul > li,
+.sortable-table-nav ul > li > a {
   display: inline-block;
 }
 @media screen and (min-width: 768px) {
   .nav-letters > li,
-  .nav-letters > li > a {
+  .nav-letters > li > a,
+  .sortable-table-nav ul > li,
+  .sortable-table-nav ul > li > a {
     display: block;
   }
 }

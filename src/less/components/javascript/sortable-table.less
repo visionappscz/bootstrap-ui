@@ -7,15 +7,25 @@
 // opposed to the value of the cell.
 //
 // To initialize the component taking into account that the data is already sorted when the page is loaded,
-// a `.sorting-asc` and `.sorting-desc` can be added to the relevant `<th>` to indicate the column and direction of the default sorting.
+// a `.sorting-asc` and `.sorting-desc` can be added to the relevant `<th>` to indicate the column and direction of the
+// default sorting.
 //
-// Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be achieved by specifying the attribute `data-sortable-onload`
-// on the appropriate `<th>`. This attribute takes the value of either `asc` or `desc` to indicate the sorting order.
+// Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be
+// achieved by specifying the attribute `data-sortable-onload` on the appropriate `<th>`. This attribute takes the value
+// of either `asc` or `desc` to indicate the sorting order.
 //
 // <div class="panel panel-danger">
 //     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
 //     <div class="panel-body">
 //         Script `sortable-table.js` must be included.
+//     </div>
+// </div>
+//
+// <div class="panel panel-warning">
+//     <div class="panel-heading"><h4 class="panel-title">Component Dependency</h4></div>
+//     <div class="panel-body">
+//         [Sortable table with navigation](#section-6.3.2) requires [Letter Navigation](section-3.html#section-3.4)
+//         component.
 //     </div>
 // </div>
 //
@@ -134,45 +144,6 @@
 //
 // Styleguide 6.3.1
 
-// Sortable Table with Navigation
-//
-// Table with automatically generated header sections and letter navigation.
-//
-// Markup:
-// <div class="row">
-//     <div class="col-sm-2 col-sm-push-10" id="tableSortNavigation"></div>
-//     <div class="col-sm-10 col-sm-pull-2">
-//         <table class="table" data-sort-navigation="#tableSortNavigation">
-//             <thead>
-//                 <tr>
-//                     <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
-//                     <th data-toggle="sort" data-sortable-onload="desc" tabindex="0">User</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 <tr>
-//                    <td class="table-cell-id">1</td>
-//                     <td data-sort-group="B"><a href="#"><strong>Brown</strong>, James</a></td>
-//                 </tr>
-//                 <tr>
-//                     <td class="table-cell-id">2</td>
-//                     <td data-sort-group="P"><a href="#"><strong>Paisley</strong>, Brad</a></td>
-//                 </tr>
-//                 <tr>
-//                     <td class="table-cell-id">3</td>
-//                     <td data-sort-group="P"><a href="#"><strong>Parker</strong>, Maceo</a></td>
-//                 </tr>
-//                 <tr>
-//                     <td class="table-cell-id">4</td>
-//                     <td data-sort-group="W"><a href="#"><strong>Wesley</strong>, Fred</a></td>
-//                 </tr>
-//             </tbody>
-//         </table>
-//     </div>
-// </div><!-- .row -->
-//
-// Styleguide 6.3.2
-
 [data-toggle="sort"] {
     .glyphicon-sort-by-attributes(); // default icon - sorting asc
     white-space: nowrap;
@@ -208,4 +179,51 @@
             color: @brand-warning;
         }
     }
+}
+
+
+// Sortable Table with Navigation
+//
+// Table with automatically generated header sections and letter navigation.
+//
+// Markup:
+// <div class="row">
+//     <div class="col-sm-2 col-sm-push-10">
+//         <nav class="sortable-table-nav" id="tableSortNavigation"></nav>
+//     </div>
+//     <div class="col-sm-10 col-sm-pull-2">
+//         <table class="table" data-sort-navigation="#tableSortNavigation">
+//             <thead>
+//                 <tr>
+//                     <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
+//                     <th data-toggle="sort" data-sortable-onload="desc" tabindex="0">User</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 <tr>
+//                    <td class="table-cell-id">1</td>
+//                     <td data-sort-group="B"><a href="#"><strong>Brown</strong>, James</a></td>
+//                 </tr>
+//                 <tr>
+//                     <td class="table-cell-id">2</td>
+//                     <td data-sort-group="P"><a href="#"><strong>Paisley</strong>, Brad</a></td>
+//                 </tr>
+//                 <tr>
+//                     <td class="table-cell-id">3</td>
+//                     <td data-sort-group="P"><a href="#"><strong>Parker</strong>, Maceo</a></td>
+//                 </tr>
+//                 <tr>
+//                     <td class="table-cell-id">4</td>
+//                     <td data-sort-group="W"><a href="#"><strong>Wesley</strong>, Fred</a></td>
+//                 </tr>
+//             </tbody>
+//         </table>
+//     </div>
+// </div><!-- .row -->
+//
+// Styleguide 6.3.2
+
+.sortable-table-nav ul {
+    &:extend(.nav all);
+    &:extend(.nav-letters all);
 }
