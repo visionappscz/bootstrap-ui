@@ -1,0 +1,229 @@
+// Sortable Table
+//
+// Provides client-side sorting functionality. To ensure keyboard accessibility, remember to add `tabindex="0"` to all
+// sortable column headers.
+//
+// If a given cell has the attribute `data-sort-value="someValue"` specified, the value of this element is used as
+// opposed to the value of the cell.
+//
+// To initialize the component taking into account that the data is already sorted when the page is loaded,
+// a `.sorting-asc` and `.sorting-desc` can be added to the relevant `<th>` to indicate the column and direction of the
+// default sorting.
+//
+// Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be
+// achieved by specifying the attribute `data-sortable-onload` on the appropriate `<th>`. This attribute takes the value
+// of either `asc` or `desc` to indicate the sorting order.
+//
+// <div class="panel panel-danger">
+//     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+//     <div class="panel-body">
+//         Script `sortable-table.js` must be included.
+//     </div>
+// </div>
+//
+// <div class="panel panel-warning">
+//     <div class="panel-heading"><h4 class="panel-title">Component Dependency</h4></div>
+//     <div class="panel-body">
+//         [Sortable table with navigation](#section-6.3.2) requires [Letter Navigation](section-3.html#section-3.4)
+//         component.
+//     </div>
+// </div>
+//
+// <h3>Options</h3>
+// <table class="table table-bordered table-striped">
+//     <thead>
+//         <tr>
+//             <th>Name</th>
+//             <th>Type</th>
+//             <th>Default</th>
+//             <th>Description</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td>sorted-th</td>
+//             <td>string</td>
+//             <td></td>
+//             <td>A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
+//         </tr>
+//         <tr>
+//             <td>sort-direction</td>
+//             <td>string</td>
+//             <td>asc</td>
+//             <td>Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
+//         </tr>
+//         <tr>
+//             <td>sort-navigation</td>
+//             <td>jQuery object</td>
+//             <td></td>
+//             <td>
+//                  A jQuery object with reference to the DOM element where the group quick links are to appear.
+//                  The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
+//                  For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
+//              </td>
+//         </tr>
+//     </tbody>
+// </table>
+//
+// <h3>Methods</h3>
+// <h4>$().sortableTable(options)</h4>
+// Initiates a sortable table if needed and performs the sorting according to the options object.
+//
+// <h3>Events</h3>
+// <table class="table table-bordered table-striped">
+//     <thead>
+//         <tr>
+//             <th>Event Type</th>
+//             <th>Description</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td>sort.sui.sortableTable</td>
+//             <td>Fired as soon as the `sort` method is called.</td>
+//         </tr>
+//         <tr>
+//             <td>sorted.sui.sortableTable</td>
+//             <td>Fired as soon as the `sort` method is finished executing.</td>
+//         </tr>
+//     <tbody>
+// </table>
+//
+// Styleguide 6.3
+
+// Sortable Table Simple
+//
+// Markup:
+// <table class="table">
+//     <thead>
+//         <tr>
+//             <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0">#</th>
+//             <th data-toggle="sort" tabindex="0">Page Title</th>
+//             <th></th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td class="table-cell-id">1</td>
+//             <td><a href="#">Hotforwords Can Explain Lorem Ipsum far better than I can</a></td>
+//             <td class="table-cell-actions">
+//                 <a href="#" class="item-action" title="Edit">
+//                     <span class="glyphicon glyphicon-pencil"></span>
+//                 </a>
+//                 <a href="#" class="item-action item-action-danger" title="Delete">
+//                     <span class="glyphicon glyphicon-trash"></span>
+//                 </a>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td class="table-cell-id">2</td>
+//             <td><a href="#">Seas spirit morning, fill seasons every I wherein kind</a></td>
+//             <td class="table-cell-actions">
+//                 <a href="#" class="item-action" title="Edit">
+//                     <span class="glyphicon glyphicon-pencil"></span>
+//                 </a>
+//                 <a href="#" class="item-action item-action-danger" title="Delete">
+//                     <span class="glyphicon glyphicon-trash"></span>
+//                 </a>
+//             </td>
+//         </tr>
+//         <tr>
+//             <td class="table-cell-id">3</td>
+//             <td><a href="#">Cattle she’d of herb third</a></td>
+//             <td class="table-cell-actions">
+//                 <a href="#" class="item-action" title="Edit">
+//                     <span class="glyphicon glyphicon-pencil"></span>
+//                 </a>
+//                 <a href="#" class="item-action item-action-danger" title="Delete">
+//                     <span class="glyphicon glyphicon-trash"></span>
+//                 </a>
+//             </td>
+//         </tr>
+//     </tbody>
+// </table>
+//
+// Styleguide 6.3.1
+
+[data-toggle="sort"] {
+    .glyphicon-sort-by-attributes(); // default icon - sorting asc
+    white-space: nowrap;
+    cursor: pointer;
+    .user-select(none);
+
+    // Actual icon
+    &:before {
+        .glyphicon();
+        margin-right: .5ex;
+        color: @gray-light;
+    }
+
+    &.sorting-desc {
+        .glyphicon-sort-by-attributes-alt();
+    }
+
+    &:hover,
+    &:focus {
+        &:before {
+            color: @text-color;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    // Highlight column by which we are currently sorting
+    &.sorting-asc,
+    &.sorting-desc {
+        &:before {
+            color: @brand-warning;
+        }
+    }
+}
+
+
+// Sortable Table with Navigation
+//
+// Table with automatically generated header sections and letter navigation.
+//
+// Markup:
+// <div class="row">
+//     <div class="col-sm-2 col-sm-push-10">
+//         <nav class="sortable-table-nav" id="tableSortNavigation"></nav>
+//     </div>
+//     <div class="col-sm-10 col-sm-pull-2">
+//         <table class="table" data-sort-navigation="#tableSortNavigation">
+//             <thead>
+//                 <tr>
+//                     <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
+//                     <th data-toggle="sort" data-sortable-onload="desc" tabindex="0">User</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 <tr>
+//                    <td class="table-cell-id">1</td>
+//                     <td data-sort-group="B"><a href="#"><strong>Brown</strong>, James</a></td>
+//                 </tr>
+//                 <tr>
+//                     <td class="table-cell-id">2</td>
+//                     <td data-sort-group="P"><a href="#"><strong>Paisley</strong>, Brad</a></td>
+//                 </tr>
+//                 <tr>
+//                     <td class="table-cell-id">3</td>
+//                     <td data-sort-group="P"><a href="#"><strong>Parker</strong>, Maceo</a></td>
+//                 </tr>
+//                 <tr>
+//                     <td class="table-cell-id">4</td>
+//                     <td data-sort-group="W"><a href="#"><strong>Wesley</strong>, Fred</a></td>
+//                 </tr>
+//             </tbody>
+//         </table>
+//     </div>
+// </div><!-- .row -->
+//
+// Styleguide 6.3.2
+
+.sortable-table-nav ul {
+    &:extend(.nav all);
+    &:extend(.nav-letters all);
+}

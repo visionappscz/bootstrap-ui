@@ -29,11 +29,28 @@ module.exports = function(grunt) {
             }
         },
 
-        // Compile Coffee script
-        coffee: {
-            compile: {
+        // Lint custom JS
+        jshint: {
+            files: [
+                'src/js/**/*.js'
+            ]
+        },
+
+        // Concat all JS
+        concat: {
+            dist: {
+                src: [
+                    'src/js/*.js'
+                ],
+                dest: 'dist/js/<%= pkg.name %>.js'
+            }
+        },
+
+        // Minify concatenated JS
+        uglify: {
+            dist: {
                 files: {
-                    "dist/js/sortable-tables.js": "src/coffee/sortable-tables.coffee"
+                    'dist/js/<%= pkg.name %>.min.js': 'dist/js/<%= pkg.name %>.js'
                 }
             }
         },
@@ -94,6 +111,12 @@ module.exports = function(grunt) {
                         cwd: 'src/images/',
                         src: ['*'],
                         dest: 'styleguide/public/images/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'src/js/',
+                        src: ['*'],
+                        dest: 'styleguide/public/js/'
                     }
                 ]
             }
@@ -110,20 +133,14 @@ module.exports = function(grunt) {
                     'copy'
                 ]
             },
-            coffee: {
-                files: ['src/coffee/*.coffee'],
-                tasks: [
-                    'coffee',
-                    'styleguide',
-                    'copy'
-                ]
-            },
             styleguide: {
                 files: [
                     'src/less/styleguide.md',
-                    'src/styleguide/**/*'
+                    'src/styleguide/**/*',
+                    'src/js/**/*'
                 ],
                 tasks: [
+                    'jshint',
                     'styleguide',
                     'copy'
                 ]
@@ -146,7 +163,27 @@ module.exports = function(grunt) {
                     },
                     watchTask: true
                 }
+            },
+            test: {
+                bsFiles: {
+                    src : [
+                        'src/js/**/*.js'
+                    ]
+                },
+                options: {
+                    server: {
+                        baseDir: './'
+                    }
+                }
             }
+        },
+
+        // JS tests
+        qunit: {
+            options: {
+                noGlobals: true
+            },
+            all: ['src/js/tests/index.html']
         }
     });
 
@@ -154,22 +191,28 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'less',
         'cssmin',
-        'coffee',
+        'jshint',
+        'concat',
+        'uglify',
         'styleguide',
         'copy'
-    ]);
-
-    // Development
-    grunt.registerTask('dev', [
-        'build',
-        'watch'
     ]);
 
     // Serve and watch
     grunt.registerTask('serve', [
         'build',
-        'browserSync',
+        'browserSync:dev',
         'watch'
+    ]);
+
+    // Alias
+    grunt.registerTask('dev', 'serve');
+
+    // Run JS tests in browser
+    // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
+    grunt.registerTask('test', [
+        'jshint',
+        'browserSync:test'
     ]);
 
     // Default task

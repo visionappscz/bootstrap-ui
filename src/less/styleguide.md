@@ -54,10 +54,18 @@ Example use (Bootstrap and jQuery installed by Bower):
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 ```
 
-Link Synergic UI JS components you want:
+Link all Synergic UI JS components:
 
 ```
-<script src="bower_components/synergic-ui/dist/js/sortable-tables.js"></script>
+<script src="bower_components/synergic-ui/dist/js/synergic-ui.min.js"></script>
+```
+
+Or link just the components you want:
+
+```
+<script src="bower_components/synergic-ui/src/js/confirmation.js"></script>
+<script src="bower_components/synergic-ui/src/js/filterable.js"></script>
+<script src="bower_components/synergic-ui/src/js/sortable-table.js"></script>
 ```
 
 ### LESS
@@ -68,16 +76,28 @@ loaded manually in this case.
 Full Synergic UI using custom colors, example use:
 
 ```
-// Synergic UI and its dependencies (see dist.less for complete list)
+// Synergic UI and its dependencies. See `dist.less` for the complete list including external components.
 @import "../bower_components/bootstrap/less/bootstrap";
 @import "../bower_components/less-modules/less/less-modules";
-@import "../bower_components/synergic-ui/src/less/synergic-ui"; // not dist.less!
+@import "../bower_components/synergic-ui/src/less/synergic-ui"; // not `dist.less`!
 
-// Configuration (custom colors etc.; must be last to override)
+// Configuration: custom colors etc.; must be last to override.
 @import "config/variables";
 ```
 
 ## <span id="changelog"></span>Changelog
+
+### NEXT VERSION
+
+Release date: FIXME
+
+* New components:
+  * Confirmation
+  * Filterable
+* JavaScript Sortable Table component rewritten from the ground up to be compatible with Bootstrap JS components
+* CoffeeScript is no longer used
+* Test all custom JS with QUnit
+* Restructured common components
 
 ### 0.4.0
 
@@ -87,6 +107,7 @@ Release date: 7 November 2014
   * Bootstrap Datetimepicker
   * Filter
   * Listbox (based on select2)
+* Renamed main LESS files (see [Usage &rarr; LESS](#less) for more)
 * Added alignment class in Tables component
 * Images in Thumbnail component now can be defined as background to achieve nicely centered and filled thumbnails
 * Use BrowserSync for comfortable local development

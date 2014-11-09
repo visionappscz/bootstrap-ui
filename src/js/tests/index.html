@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Synergic UI Plugin Test Suite</title>
+
+    <!-- jQuery -->
+    <script src="../../../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- QUnit -->
+    <link rel="stylesheet" href="../../../bower_components/qunit/qunit/qunit.css" media="screen" />
+    <script src="../../../bower_components/qunit/qunit/qunit.js"></script>
+    <script>
+        // Cleanup
+        QUnit.testDone(function () {
+            $('#qunit-fixture').empty()
+        })
+    </script>
+
+    <!-- Plugin sources -->
+    <script src="../../../bower_components/bootstrap/js/modal.js"></script>
+    <script src="../confirmation.js"></script>
+    <script src="../filterable.js"></script>
+    <script src="../sortable-table.js"></script>
+
+    <!-- Unit tests -->
+    <script src="unit/confirmation.js"></script>
+    <script src="unit/filterable.js"></script>
+    <script src="unit/sortable-table.js"></script>
+
+</head>
+<body>
+
+    <div id="qunit-container">
+        <div id="qunit"></div>
+        <div id="qunit-fixture"></div>
+    </div>
+
+</body>
+</html>
