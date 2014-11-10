@@ -35,6 +35,31 @@ module.exports = function(grunt) {
             }
         },
 
+        // Add vendor prefixes to CSS, based on Bootstrap settings
+        autoprefixer: {
+            options: {
+                browsers: [
+                    'Android 2.3',
+                    'Android >= 4',
+                    'Chrome >= 20',
+                    'Firefox >= 24', // Firefox 24 is the latest ESR
+                    'Explorer >= 8',
+                    'iOS >= 6',
+                    'Opera >= 12',
+                    'Safari >= 6'
+                ]
+            },
+            core: {
+                options: {
+                    map: true
+                },
+                src: 'dist/css/<%= pkg.name %>.css'
+            },
+            styleguide: {
+                src: 'styleguide/public/kss.css'
+            }
+        },
+
         // Minify CSS
         cssmin: {
             dist: {
@@ -47,7 +72,7 @@ module.exports = function(grunt) {
         // Lint custom JS
         jshint: {
             grunt: 'Gruntfile.js',
-            src: 'src/js/*.js',
+            core: 'src/js/*.js',
             tests: 'src/js/tests/unit/*.js'
         },
 
@@ -256,12 +281,13 @@ module.exports = function(grunt) {
     // Build tasks
     grunt.registerTask('build-css', [
         'less',
+        'autoprefixer:core',
         'cssmin',
         'usebanner'
     ]);
 
     grunt.registerTask('build-js', [
-        'jshint:src',
+        'jshint:core',
         'concat',
         'uglify'
     ]);
@@ -270,6 +296,7 @@ module.exports = function(grunt) {
         'replace:styleguide',
         'copy:styleguideSrc',
         'styleguide',
+        'autoprefixer:styleguide',
         'copy:styleguide'
     ]);
 
