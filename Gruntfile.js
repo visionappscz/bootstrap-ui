@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 
         // Copy files
         copy: {
-            dist: {
+            fonts: {
                 files: [{
                     expand: true,
                     cwd: 'bower_components/bootstrap/dist/',
@@ -185,17 +185,14 @@ module.exports = function(grunt) {
             less: {
                 files: ['src/less/**/*.less'],
                 tasks: [
-                    'less',
-                    'cssmin',
+                    'build-css',
                     'build-styleguide'
                 ]
             },
             js: {
                 files: ['src/js/*.js'],
                 tasks: [
-                    'jshint:src',
-                    'concat',
-                    'uglify',
+                    'build-js',
                     'build-styleguide'
                 ]
             },
@@ -256,17 +253,32 @@ module.exports = function(grunt) {
     // Measure task execution times
     require('time-grunt')(grunt);
 
-    // Build task
-	grunt.registerTask('build', [
-        'clean',
-		'less',
+    // Build tasks
+    grunt.registerTask('build-css', [
+        'less',
         'cssmin',
-        'jshint',
+        'usebanner'
+    ]);
+
+    grunt.registerTask('build-js', [
+        'jshint:src',
         'concat',
-        'uglify',
-        'usebanner',
+        'uglify'
+    ]);
+
+    grunt.registerTask('build-styleguide', [
+        'replace:styleguide',
+        'copy:styleguideSrc',
+        'styleguide',
+        'copy:styleguide'
+    ]);
+
+    grunt.registerTask('build', [
+        'clean',
+        'build-css',
+        'build-js',
         'build-styleguide',
-        'copy:dist'
+        'copy:fonts'
     ]);
 
     // Serve and watch
@@ -274,14 +286,6 @@ module.exports = function(grunt) {
         'build',
         'browserSync:dev',
         'watch'
-    ]);
-
-    // Build style guide
-    grunt.registerTask('build-styleguide', [
-        'replace:styleguide',
-        'copy:styleguideSrc',
-        'styleguide',
-        'copy:styleguide'
     ]);
 
     // Run JS tests in browser
@@ -292,5 +296,10 @@ module.exports = function(grunt) {
     ]);
 
     // Default task
-    grunt.registerTask('default', 'build');
+    grunt.registerTask('default', [
+        'clean:dist',
+        'copy:fonts',
+        'jshint:grunt',
+        'qunit'
+    ]);
 };
