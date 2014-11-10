@@ -10,7 +10,7 @@
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    var newSortGroup, sortGroup, colCount, $navigationUl, rowCounter;
+    var newSortGroup, sortGroup, colCount, $navigationUl, rowCounter, rowsLength, navigationHtml = '', tableHtml = '', row;
     var rows = this.$sortedTable
       .find('tbody tr')
       .toArray()
@@ -44,22 +44,34 @@
       }
     }
 
-    for (rowCounter = 0; rowCounter < rows.length; rowCounter++) {
+    rowsLength = rows.length;
+    tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
+    if (!this.$navigation) {
+      tableHtml += '<tbody>';
+    }
+    for (rowCounter = 0; rowCounter < rowsLength; rowCounter++) {
+      row = rows[rowCounter];
       if (this.$navigation) {
-        sortGroup = $(rows[rowCounter])
+        sortGroup = $(row)
           .children('td')
           .eq($sortedTh.index())
           .data('sort-group');
 
-        if (newSortGroup != sortGroup) {
+        if (newSortGroup !== sortGroup) {
           newSortGroup = sortGroup;
-          $navigationUl.append('<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>');
-          this.$sortedTable.append($('<thead><tr class="active"><th colspan="' + colCount + '"><h2 class="h3" id="letter-' + newSortGroup + '">' + newSortGroup + '</h2></th></tr></thead>'));
-          this.$sortedTable.append($('<tbody></tbody>'));
+          navigationHtml += '<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>';
+          tableHtml += '<thead><tr class="active"><th colspan="' + colCount + '">' +
+            '<h2 class="h3" id="letter-' + newSortGroup + '">' + newSortGroup + '</h2>' +
+            '</th></tr></thead><tbody>';
         }
       }
-      this.$sortedTable.find('tbody:last').append(rows[rowCounter]);
+      tableHtml += row.outerHTML;
     }
+
+    if ($navigationUl) {
+      $navigationUl.html(navigationHtml);
+    }
+    this.$sortedTable.html(tableHtml + '</tbody>');
     this.$sortedTable.trigger('sorted.sui.sortableTable');
   };
 

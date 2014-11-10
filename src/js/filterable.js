@@ -9,11 +9,13 @@
   };
 
   Filterable.prototype.filter = function(fObjects) {
-    var filterValCounter, filterVal, filterOper, dataVal, dataValCounter, fObjCounter, hideEl;
+    var dataVal, filterValCounter, filterValLength, filterVal,
+      filterOper, dataValCounter, dataValLength, fObjCounter, hideEl, fObjectsLength;
 
     if (fObjects && fObjects.length) {
       this.$filterable.show();
-      for (fObjCounter = 0; fObjCounter < fObjects.length; fObjCounter++) {
+      fObjectsLength = fObjects.length;
+      for (fObjCounter = 0; fObjCounter < fObjectsLength; fObjCounter++) {
         filterVal = fObjects[fObjCounter]['filter-value'];
         filterOper = fObjects[fObjCounter]['filter-operator'];
         dataVal = this.$filterable.data(fObjects[fObjCounter]['filter-attrib']);
@@ -21,8 +23,9 @@
         if (dataVal !== null) {
           hideEl = false;
 
+          filterValLength = filterVal.length;
           if (filterOper === 'subset') {
-            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
+            for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               if (dataVal.indexOf(filterVal[filterValCounter]) === -1) {
                 hideEl = true;
                 break;
@@ -36,8 +39,9 @@
             if (typeof(dataVal) === 'string') {
               dataVal = [dataVal];
             }
-            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
-              for (dataValCounter = 0; dataValCounter < dataVal.length; dataValCounter++) {
+            dataValLength = dataVal.length;
+            for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
+              for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
                 if (dataVal[dataValCounter].indexOf(filterVal[filterValCounter]) !== -1) {
                   hideEl = false;
                   break;

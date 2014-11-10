@@ -68,17 +68,14 @@
   };
 
   Confirmation.prototype.getModal = function(message, yes, no) {
-    var footer = $('<div class="modal-footer"></div>')
-      .append('<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>')
-      .append('<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>');
-    var modal = $('<div class="modal fade" tabindex="-1"></div>');
-    var dialog = $('<div class="modal-dialog modal-sm"></div>');
-    var content = $('<div class="modal-content"></div>')
-      .append('<div class="modal-body">' + message + '</div>')
-      .append(footer);
-    modal.append(dialog.append(content));
-
-    return modal;
+    return $('<div class="modal fade" tabindex="-1">' +
+      '<div class="modal-dialog modal-sm">' +
+      '<div class="modal-content">' +
+      '<div class="modal-body">' + message + '</div>'+
+      '<div class="modal-footer">' +
+      '<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>' +
+      '<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>' +
+      '</div></div></div></div>');
   };
 
 
