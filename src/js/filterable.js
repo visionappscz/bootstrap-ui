@@ -72,7 +72,7 @@
 
   function Plugin(options) {
     if (this.length) {
-      if (options === 'resetFilter') {
+      if (options === 'reset') {
         $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
       } else {
         $(document).trigger('filter.sui.filterable');
@@ -87,14 +87,14 @@
           $element.data('sui.filterable', (data = new Filterable($element)));
         }
 
-        if (options === 'resetFilter') {
+        if (options === 'reset') {
           data.resetFilter();
         } else {
           data.filter(options);
         }
       });
 
-      if (options === 'resetFilter') {
+      if (options === 'reset') {
         $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
       } else {
         $(document).trigger('filtered.sui.filterable');
@@ -144,7 +144,7 @@
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');
     $form[0].reset();
-    Plugin.call($($form.data('target')), 'resetFilter');
+    Plugin.call($($form.data('target')), 'reset');
   });
 
 }(jQuery));

@@ -94,7 +94,7 @@ $(function() {
     }, 100);
   });
 
-  test('should fire resetStart.sui.filterable when resetFilter is started', function() {
+  test('should fire resetStart.sui.filterable when reset is invoked', function() {
     stop();
     var eventFired = false;
 
@@ -111,7 +111,7 @@ $(function() {
         'filter-operator': 'subset',
         'filter-value': 'tag2'
       }])
-      .suiFilterable('resetFilter');
+      .suiFilterable('reset');
 
     setTimeout(function() {
       if (!eventFired) {
@@ -122,7 +122,7 @@ $(function() {
     }, 100);
   });
 
-  test('should fire resetEnd.sui.filterable when resetFilter is finished', function() {
+  test('should fire resetEnd.sui.filterable when reset is invoked', function() {
     stop();
     var eventFired = false;
 
@@ -141,7 +141,7 @@ $(function() {
         'filter-operator': 'subset',
         'filter-value': 'tag2'
       }])
-      .suiFilterable('resetFilter');
+      .suiFilterable('reset');
 
     setTimeout(function() {
       if (!eventFired) {
@@ -460,7 +460,7 @@ $(function() {
   /////////////////////////
   // Reset related tests //
   /////////////////////////
-  test('should show all elements if reset is called', function() {
+  test('should show all elements if reset is invoked', function() {
     stop();
     $('#qunit-fixture').append('<div data-tag="tag1">');
 
@@ -480,7 +480,7 @@ $(function() {
       ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true, 'all elements were shown');
       start();
     });
-    $('#qunit-fixture div').suiFilterable('resetFilter');
+    $('#qunit-fixture div').suiFilterable('reset');
   });
 
   ////////////////////////////
