@@ -28,9 +28,15 @@ $(function() {
   });
 
   test('should return jquery collection containing the element', function() {
-    var $sortableTable = $(document).suiSortableTable();
+    var $table = $('<table>' +
+      '<thead><tr><th>HeaderA</th></tr></thead>' +
+      '<tbody>' +
+      '<tr id="row1"><td>1</td></tr>' +
+      '</tbody>' +
+    '</table>');
+    var $sortableTable = $table.suiSortableTable({'sorted-th': $table.find('th')});
     ok($sortableTable instanceof $, 'returns jquery collection');
-    strictEqual($sortableTable[0], $(document)[0], 'collection contains element');
+    strictEqual($sortableTable[0], $table[0], 'collection contains element');
   });
 
   /////////////////////////

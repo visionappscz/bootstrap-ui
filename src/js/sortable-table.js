@@ -102,19 +102,16 @@
 
   function Plugin(options) {
     var $element, data, $navigation;
-    var sortedTh = options && ('sorted-th' in options) && options['sorted-th'] ? options['sorted-th'] : false;
-    var sortDir = options && ('sort-direction' in options) && options['sort-direction'] ? options['sort-direction'] : false;
 
     return this.each(function () {
       $element = $(this);
+
       data = $element.data('sui.sortableTable');
       if (!data) {
         $navigation = options && ('navigation' in options) && options.navigation ? options.navigation : false;
         $element.data('sui.sortableTable', (data = new SortableTable($element, $navigation)));
       }
-      if (sortedTh) {
-        data.sort(options['sorted-th'], options['sort-direction']);
-      }
+      data.sort(options['sorted-th'], options['sort-direction']);
     });
   }
 

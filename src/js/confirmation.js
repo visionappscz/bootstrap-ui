@@ -4,17 +4,14 @@
   // CONFIRMATION CLASS DEFINITION
   // =============================
 
-  var Confirmation = function($triggerEl, callback, message, yes, no) {
-    message = message !== null ? message : this.defaults['confirm-message'];
-    yes = yes !== null ? yes : this.defaults['confirm-yes'];
-    no = no !== null ? no : this.defaults['confirm-no'];
-    callback = callback !== null ? callback : this.defaults.callback;
-    this.modal = this.getModal(message, yes, no);
+  var Confirmation = function($triggerEl, options) {
+    options = $.extend({}, this.options, options);
+    this.modal = this.getModal(options['confirm-message'], options['confirm-yes'], options['confirm-no']);
     this.$triggerEl = $triggerEl;
-    this.callback = callback;
+    this.callback = options.callback;
   };
 
-  Confirmation.prototype.defaults = {
+  Confirmation.prototype.options = {
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
@@ -84,19 +81,14 @@
 
   function Plugin(options) {
     var $element, data;
-    var message = options && ('confirm-message' in options) && options['confirm-message'] ? options['confirm-message'] : null;
-    var yes = options && ('confirm-yes' in options) && options['confirm-yes'] ? options['confirm-yes'] : null;
-    var no = options && ('confirm-no' in options) && options['confirm-no'] ? options['confirm-no'] : null;
-    var callback = options && ('callback' in options) && options.callback ? options.callback : null;
 
     return this.each(function() {
       $element = $(this);
 
       data = $element.data('sui.confirmation');
       if (!data) {
-        $element.data('sui.confirmation', (data = new Confirmation($element, callback, message, yes, no)));
+        $element.data('sui.confirmation', (data = new Confirmation($element, options)));
       }
-
       data.showConfirmation();
     });
   }
