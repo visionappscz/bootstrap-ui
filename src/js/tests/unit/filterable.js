@@ -7,6 +7,8 @@ $(function() {
     ok($(document.body).filterable, 'filterable method is defined');
   });
 
+
+
   module('filterable', {
     setup: function() {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
@@ -18,6 +20,9 @@ $(function() {
     }
   });
 
+  //////////////////
+  // Plugin tests //
+  //////////////////
   test('should provide no conflict', function() {
     strictEqual($.fn.filterable, undefined, 'filterable was set back to undefined (original value)');
   });
@@ -28,42 +33,166 @@ $(function() {
     strictEqual($filterable[0], $(document)[0], 'collection contains element');
   });
 
-
-  // Filter related tests
+  /////////////////////////
+  // Event related tests //
+  /////////////////////////
   test('should fire filter.sui.filterable when filtering is started', function() {
     stop();
-    $('#qunit-fixture').append('<div data-tags="tag1">');
+    var eventFired = false;
 
     $(document).on('filter.sui.filterable', function() {
-      $(document).off('filter.sui.filterable');
-      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true, 'event fired before filtering');
-      start();
+      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true, 'div is visible');
+      ok(true, 'event fired');
+      eventFired = true;
     });
 
-    $('#qunit-fixture div').suiFilterable([{
-      'filter-attrib': 'tags',
-      'filter-operator': 'subset',
-      'filter-value': 'tag2'
-    }]);
+    $('<div data-tags="tag1">')
+      .appendTo($('#qunit-fixture'))
+      .suiFilterable([{
+        'filter-attrib': 'tags',
+        'filter-operator': 'subset',
+        'filter-value': 'tag2'
+      }]);
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      $(document).off('filter.sui.filterable');
+      start();
+    }, 100);
   });
 
   test('should fire filtered.sui.filterable when filtering is finished', function() {
     stop();
-    $('#qunit-fixture').append('<div data-tags="tag1">');
+    var eventFired = false;
 
-    $(document).on('filtered.sui.filterable', function() {
-      $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === false, 'event fired after filtering');
-      start();
+    $(document).on('filter.sui.filterable', function() {
+      $(this).on('filtered.sui.filterable', function() {
+        ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === false, 'div is visible');
+        ok(true, 'event fired');
+        eventFired = true;
+      });
     });
 
-    $('#qunit-fixture div').suiFilterable([{
-      'filter-attrib': 'tags',
-      'filter-operator': 'subset',
-      'filter-value': 'tag2'
-    }]);
+    $('<div data-tags="tag1">')
+      .appendTo($('#qunit-fixture'))
+      .suiFilterable([{
+        'filter-attrib': 'tags',
+        'filter-operator': 'subset',
+        'filter-value': 'tag2'
+      }]);
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      $(document)
+        .off('filter.sui.filterable')
+        .off('filtered.sui.filterable');
+      start();
+    }, 100);
   });
 
+  test('should fire resetStart.sui.filterable when reset is invoked', function() {
+    stop();
+    var eventFired = false;
+
+    $(document).on('resetStart.sui.filterable', function() {
+      ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === false, 'div is visible');
+      ok(true, 'event fired');
+      eventFired = true;
+    });
+
+    $('<div data-tags="tag1">')
+      .appendTo($('#qunit-fixture'))
+      .suiFilterable([{
+        'filter-attrib': 'tags',
+        'filter-operator': 'subset',
+        'filter-value': 'tag2'
+      }])
+      .suiFilterable('reset');
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      $(document).off('resetStart.sui.filterable');
+      start();
+    }, 100);
+  });
+
+  test('should fire resetEnd.sui.filterable when reset is invoked', function() {
+    stop();
+    var eventFired = false;
+
+    $(document).on('resetStart.sui.filterable', function() {
+      $(this).on('resetEnd.sui.filterable', function() {
+        ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true, 'div is visible');
+        ok(true, 'event fired');
+        eventFired = true;
+      });
+    });
+
+    $('<div data-tags="tag1">')
+      .appendTo($('#qunit-fixture'))
+      .suiFilterable([{
+        'filter-attrib': 'tags',
+        'filter-operator': 'subset',
+        'filter-value': 'tag2'
+      }])
+      .suiFilterable('reset');
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      $(document)
+        .off('resetStart.sui.filterable')
+        .off('resetEnd.sui.filterable');
+      start();
+    }, 100);
+  });
+
+  test('should not fire any events when called on empty set', function() {
+    stop();
+
+    $(document)
+      .on('filter.sui.filterable', function() {
+        ok(false, 'event filter.sui.filterable fired');
+      })
+      .on('filtered.sui.filterable', function() {
+        ok(false, 'event filtered.sui.filterable fired');
+      })
+      .on('resetStart.sui.filterable', function() {
+        ok(false, 'event resetStart.sui.filterable fired');
+      })
+      .on('resetEnd.sui.filterable', function() {
+        ok(false, 'event resetEnd.sui.filterable fired');
+      });
+
+    $('#empty-selector')
+      .suiFilterable([{
+        'filter-attrib': 'tags',
+        'filter-operator': 'subset',
+        'filter-value': 'tag2'
+      }])
+      .suiFilterable('reset');
+
+    setTimeout(function() {
+      ok(true, 'allways ok');
+      $(document)
+        .off('filter.sui.filterable')
+        .off('filtered.sui.filterable')
+        .off('resetStart.sui.filterable')
+        .off('resetEnd.sui.filterable');
+      start();
+    }, 100);
+  });
+
+  //////////////////////////
+  // Filter related tests //
+  //////////////////////////
   test('should filter elements for: filterValue = [], dataValue = [], operator = "subset"', function() {
     stop();
     $('#qunit-fixture')
@@ -328,32 +457,10 @@ $(function() {
     }]);
   });
 
-
-  // Reset related tests
-  test('should fire resetStart.sui.filterable when resetFilter is started', function() {
-    stop();
-    $(document).on('resetStart.sui.filterable', function() {
-      $(document).off('resetStart.sui.filterable');
-      ok(true, 'event fired');
-      start();
-    });
-    $(document).suiFilterable('resetFilter');
-  });
-
-  test('should fire resetEnd.sui.filterable when resetFilter is finished', function() {
-    stop();
-    $(document).on('resetStart.sui.filterable', function() {
-      $(document).off('resetStart.sui.filterable');
-      $(document).on('resetEnd.sui.filterable', function() {
-        $(document).off('resetEnd.sui.filterable');
-        ok(true, 'event fired');
-        start();
-      });
-    });
-    $(document).suiFilterable('resetFilter');
-  });
-
-  test('should show all elements if reset is called', function() {
+  /////////////////////////
+  // Reset related tests //
+  /////////////////////////
+  test('should show all elements if reset is invoked', function() {
     stop();
     $('#qunit-fixture').append('<div data-tag="tag1">');
 
@@ -373,11 +480,12 @@ $(function() {
       ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true, 'all elements were shown');
       start();
     });
-    $('#qunit-fixture div').suiFilterable('resetFilter');
+    $('#qunit-fixture div').suiFilterable('reset');
   });
 
-
-  // Data-api
+  ////////////////////////////
+  // Data-api related tests //
+  ////////////////////////////
   test('should filter filterables by changing an element in the filter form', function() {
     stop();
     $('#qunit-fixture')

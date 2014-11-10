@@ -9,11 +9,13 @@
   };
 
   Filterable.prototype.filter = function(fObjects) {
-    var filterValCounter, filterVal, filterOper, dataVal, dataValCounter, fObjCounter, hideEl;
+    var dataVal, filterValCounter, filterValLength, filterVal,
+      filterOper, dataValCounter, dataValLength, fObjCounter, hideEl, fObjectsLength;
 
     if (fObjects && fObjects.length) {
       this.$filterable.show();
-      for (fObjCounter = 0; fObjCounter < fObjects.length; fObjCounter++) {
+      fObjectsLength = fObjects.length;
+      for (fObjCounter = 0; fObjCounter < fObjectsLength; fObjCounter++) {
         filterVal = fObjects[fObjCounter]['filter-value'];
         filterOper = fObjects[fObjCounter]['filter-operator'];
         dataVal = this.$filterable.data(fObjects[fObjCounter]['filter-attrib']);
@@ -21,8 +23,9 @@
         if (dataVal !== null) {
           hideEl = false;
 
+          filterValLength = filterVal.length;
           if (filterOper === 'subset') {
-            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
+            for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               if (dataVal.indexOf(filterVal[filterValCounter]) === -1) {
                 hideEl = true;
                 break;
@@ -36,8 +39,9 @@
             if (typeof(dataVal) === 'string') {
               dataVal = [dataVal];
             }
-            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
-              for (dataValCounter = 0; dataValCounter < dataVal.length; dataValCounter++) {
+            dataValLength = dataVal.length;
+            for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
+              for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
                 if (dataVal[dataValCounter].indexOf(filterVal[filterValCounter]) !== -1) {
                   hideEl = false;
                   break;
@@ -64,7 +68,6 @@
 
   Filterable.prototype.resetFilter = function() {
     this.$filterable.show();
-    $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
   };
 
 
@@ -72,35 +75,37 @@
   // ============================
 
   function Plugin(options) {
-    var $elements, $element, data;
-
-    if (options === 'resetFilter') {
-      $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
-    } else {
-      $(document).trigger('filter.sui.filterable');
-    }
-
-    $elements = this.each(function() {
-      $element = $(this);
-      data = $element.data('sui.filterable');
-      if (!data) {
-        $element.data('sui.filterable', (data = new Filterable($element)));
-      }
-
-      if (options === 'resetFilter') {
-        data.resetFilter();
+    if (this.length) {
+      if (options === 'reset') {
+        $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
       } else {
-        data.filter(options);
+        $(document).trigger('filter.sui.filterable');
       }
-    });
 
-    if (options === 'resetFilter') {
-      $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
-    } else {
-      $(document).trigger('filtered.sui.filterable');
+      this.each(function() {
+        var $element, data;
+
+        $element = $(this);
+        data = $element.data('sui.filterable');
+        if (!data) {
+          $element.data('sui.filterable', (data = new Filterable($element)));
+        }
+
+        if (options === 'reset') {
+          data.resetFilter();
+        } else {
+          data.filter(options);
+        }
+      });
+
+      if (options === 'reset') {
+        $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
+      } else {
+        $(document).trigger('filtered.sui.filterable');
+      }
     }
 
-    return $elements;
+    return this;
   }
 
   var old = $.fn.filterable;
@@ -143,7 +148,7 @@
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');
     $form[0].reset();
-    Plugin.call($($form.data('target')), 'resetFilter');
+    Plugin.call($($form.data('target')), 'reset');
   });
 
 }(jQuery));
