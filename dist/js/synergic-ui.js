@@ -1,3 +1,14 @@
+/*!
+ * Synergic UI
+ * Built on the shoulders of a giant: Bootstrap 3
+ * http://ui.synergic.cz
+ *
+ * Created by Synergic (www.synergic.cz)
+ * HTML & LESS © 2014 Adam Kudrna
+ * JavaScript © 2014 Martin Bohal
+ *
+ * v0.4.0 (10 November 2014)
+ */
 (function($) {
   'use strict';
 

@@ -11,6 +11,26 @@ module.exports = function(grunt) {
         // Load meta info from package.json
         pkg: grunt.file.readJSON('package.json'),
 
+        // Banner for distribution CSS and JS
+        banner: '/*!\n' +
+            ' * Synergic UI\n' +
+            ' * Built on the shoulders of a giant: Bootstrap 3\n' +
+            ' * <%= pkg.homepage %>\n' +
+            ' *\n' +
+            ' * Created by <%= pkg.author %> (www.synergic.cz)\n' +
+            ' * HTML & LESS © 2014 Adam Kudrna\n' +
+            ' * JavaScript © 2014 Martin Bohal\n' +
+            ' *\n' +
+            ' * v<%= pkg.version %> (<%= grunt.template.today("d mmmm yyyy") %>)\n' +
+            ' */\n',
+
+        // Clean
+        clean: {
+            temp: '.tmp',
+            dist: 'dist',
+            styleguide: 'styleguide'
+        },
+
         // Compile LESS
         less: {
             dist: {
@@ -43,6 +63,9 @@ module.exports = function(grunt) {
                     'src/js/*.js'
                 ],
                 dest: 'dist/js/<%= pkg.name %>.js'
+            },
+            options: {
+                banner: '<%= banner %>'
             }
         },
 
@@ -55,11 +78,40 @@ module.exports = function(grunt) {
             }
         },
 
+        // Replace versions
+        replace: {
+            styleguide: {
+                src: 'src/styleguide/index.html',
+                dest: '.tmp/styleguide/index.html',
+                replacements: [
+                    {
+                        from: '%VERSION%',
+                        to: '<%= pkg.version %>'
+                    },
+                    {
+                        from: '%YEAR%',
+                        to: '<%= grunt.template.today("yyyy") %>'
+                    }
+                ]
+            }
+        },
+
+        // Use banner
+        usebanner: {
+            options: {
+                position: 'top',
+                banner: '<%= banner %>'
+            },
+            files: {
+                src: 'dist/css/*.css'
+            }
+        },
+
         // Generate styleguide
         styleguide: {
             options: {
                 template: {
-                    src: 'src/styleguide'
+                    src: '.tmp/styleguide'
                 },
                 framework: {
                     name: 'kss'
@@ -80,6 +132,14 @@ module.exports = function(grunt) {
                     cwd: 'bower_components/bootstrap/dist/',
                     src: ['fonts/*'],
                     dest: 'dist/'
+                }]
+            },
+            styleguideSrc: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/styleguide/public/',
+                    src: ['**/*'],
+                    dest: '.tmp/styleguide/public/'
                 }]
             },
             styleguide: {
@@ -129,20 +189,25 @@ module.exports = function(grunt) {
                 tasks: [
                     'less',
                     'cssmin',
-                    'styleguide',
-                    'copy'
+                    'build-styleguide'
+                ]
+            },
+            js: {
+                files: ['src/js/*.js'],
+                tasks: [
+                    'jshint',
+                    'concat',
+                    'uglify',
+                    'build-styleguide'
                 ]
             },
             styleguide: {
                 files: [
                     'src/less/styleguide.md',
-                    'src/styleguide/**/*',
-                    'src/js/**/*'
+                    'src/styleguide/**/*'
                 ],
                 tasks: [
-                    'jshint',
-                    'styleguide',
-                    'copy'
+                    'build-styleguide'
                 ]
             }
         },
@@ -189,13 +254,15 @@ module.exports = function(grunt) {
 
     // Build task
 	grunt.registerTask('build', [
+        'clean',
 		'less',
         'cssmin',
         'jshint',
         'concat',
         'uglify',
-        'styleguide',
-        'copy'
+        'usebanner',
+        'build-styleguide',
+        'copy:dist'
     ]);
 
     // Serve and watch
@@ -205,8 +272,13 @@ module.exports = function(grunt) {
         'watch'
     ]);
 
-    // Alias
-    grunt.registerTask('dev', 'serve');
+    // Build style guide
+    grunt.registerTask('build-styleguide', [
+        'replace:styleguide',
+        'copy:styleguideSrc',
+        'styleguide',
+        'copy:styleguide'
+    ]),
 
     // Run JS tests in browser
     // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
