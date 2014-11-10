@@ -7,6 +7,8 @@ $(function() {
     ok($(document.body).sortableTable, 'sortable-table method is defined');
   });
 
+
+
   module('sortable-table', {
     setup: function() {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
@@ -18,6 +20,9 @@ $(function() {
     }
   });
 
+  //////////////////
+  // Plugin tests //
+  //////////////////
   test('should provide no conflict', function() {
     strictEqual($.fn.sortableTable, undefined, 'sortableTable was set back to undefined (original value)');
   });
@@ -28,10 +33,12 @@ $(function() {
     strictEqual($sortableTable[0], $(document)[0], 'collection contains element');
   });
 
-
-
+  /////////////////////////
+  // Event related tests //
+  /////////////////////////
   test('should fire sort.sui.sortableTable when sorting begins', function() {
     stop();
+    var eventFired = false;
     var $table = $('<table>' +
       '<thead><tr><th>HeaderA</th></tr></thead>' +
       '<tbody>' +
@@ -43,18 +50,26 @@ $(function() {
 
     $table.on('sort.sui.sortableTable', function() {
       var $rows = $table.find('tbody tr');
+      eventFired = true;
       ok($($rows[0]).attr('id') === 'row2', 'row2 is first');
       ok($($rows[1]).attr('id') === 'row1', 'row1 is second');
       ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
       ok(true, 'event fired');
-      start();
     });
 
     $table.suiSortableTable({'sorted-th': $table.find('th')});
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'Event not fired.');
+      }
+      start();
+    }, 100);
   });
 
   test('should fire sorted.sui.sortableTable when sorting is done', function() {
     stop();
+    var eventFired = false;
     var $table = $('<table>' +
       '<thead><tr><th>HeaderA</th></tr></thead>' +
       '<tbody>' +
@@ -67,17 +82,49 @@ $(function() {
     $table.on('sort.sui.sortableTable', function() {
       $table.on('sorted.sui.sortableTable', function() {
         var $rows = $table.find('tbody tr');
+        eventFired = true;
         ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
         ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
         ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
         ok(true, 'event fired');
-        start();
       });
     });
 
     $table.suiSortableTable({'sorted-th': $table.find('th')});
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'Event not fired.');
+      }
+      start();
+    }, 100);
   });
 
+  test('should not fire any events when called on empty set', function() {
+    stop();
+
+    var $table = $('#empty-selector');
+
+    $(document).on('sort.sui.sortableTable', function() {
+      ok(false, 'event sort.sui.sortableTable fired');
+    });
+    $(document).on('sorted.sui.sortableTable', function() {
+      ok(false, 'event sorted.sui.sortableTable fired');
+    });
+
+    $table.suiSortableTable({'sorted-th': $table.find('th')});
+
+    setTimeout(function() {
+      ok(true, 'allways ok');
+      $(document).off('sort.sui.sortableTable');
+      $(document).off('sorted.sui.sortableTable');
+      start();
+    }, 100);
+  });
+
+  ///////////////////////////
+  // Sorting realted tests //
+  ///////////////////////////
   test('should sort column in ascending direction if no direction is specified and reverse current order if the column has been ordered already', function() {
     stop();
     var $table = $('<table>' +
@@ -301,8 +348,9 @@ $(function() {
     });
   });
 
-
-  // Data-api
+  ////////////////////////////
+  // Data-api related tests //
+  ////////////////////////////
   test('should order table by the column whoms <th> element was clicked', function() {
     stop();
     var $table = $('<table>' +

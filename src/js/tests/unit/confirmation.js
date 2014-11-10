@@ -7,6 +7,8 @@ $(function() {
     ok($(document.body).confirmation, 'confirmation method is defined');
   });
 
+
+
   module('confirmation', {
     setup: function() {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
@@ -21,6 +23,9 @@ $(function() {
     }
   });
 
+  //////////////////
+  // Plugin tests //
+  //////////////////
   test('should provide no conflict', function() {
     strictEqual($.fn.confirmation, undefined, 'confirmation was set back to undefined (original value)');
   });
@@ -32,8 +37,29 @@ $(function() {
     strictEqual($confirmation[0], $el[0], 'collection contains element');
   });
 
+  ///////////////////////////////////////////
+  // Tests related to displaying the modal //
+  ///////////////////////////////////////////
+  test('should fire the show.sui.confirmation event on displaying the modal', function() {
+    stop();
+    var eventFired = false;
 
-  // Tests for displaying the modal
+    $('<button/>')
+      .on('show.sui.confirmation', function() {
+        ok($('.modal').is(':visible') === true, 'modal is visible');
+        ok(true, 'event fired');
+        eventFired = true;
+      })
+      .suiConfirmation();
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      start();
+    }, 100);
+  });
+
   test('should overload default messages with custom ones if provided', function() {
     $('<button/>').suiConfirmation({
       'confirm-message': 'Custom_message',
@@ -52,36 +78,49 @@ $(function() {
     strictEqual($('.modal-footer button[data-confirmation=reject]').text(), 'No', 'the default no was used');
   });
 
-  test('should fire the show.sui.confirmation event', function() {
-    stop();
-    $('<button/>')
-      .on('show.sui.confirmation', function() {
-        ok(true, 'show.sui.confirmation event fired');
-        start();
-      })
-      .suiConfirmation();
-  });
-
-
-  // Tests for rejecting the confirmation
+  //////////////////////////////////////////
+  // Tests for rejecting the confirmation //
+  //////////////////////////////////////////
   test('should fire rejected.sui.confirmation on pressing escape', function() {
     stop();
-    var $el = $('<button/>').suiConfirmation();
-    $el.on('rejected.sui.confirmation', function() {
-      ok(true, 'rejected.sui.confirmation event fired');
-      start();
-    });
+    var eventFired = false;
+
+    $('<button/>')
+      .on('rejected.sui.confirmation', function() {
+        ok(true, 'event fired');
+        eventFired = true;
+      })
+      .suiConfirmation();
+
     $('.modal').trigger($.Event('keydown', { keyCode: 27}));
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      start();
+    }, 100);
   });
 
   test('should fire rejected.sui.confirmation on pressing the reject button', function() {
     stop();
-    var $el = $('<button/>').suiConfirmation();
-    $el.on('rejected.sui.confirmation', function() {
-      ok(true, 'rejected.sui.confirmation event fired');
-      start();
-    });
+    var eventFired = false;
+
+    $('<button/>')
+      .on('rejected.sui.confirmation', function() {
+        ok(true, 'event fired');
+        eventFired = true;
+      })
+      .suiConfirmation();
+
     $('.modal button[data-confirmation=reject]').click();
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      start();
+    }, 100);
   });
 
   test('should destroy the confirmation modal when rejected.sui.confirmation was triggered', function() {
@@ -103,28 +142,49 @@ $(function() {
     $el.trigger('rejected.sui.confirmation');
   });
 
-
-  // Tests for confirming the confirmation
+  //////////////////////////////////////////////////
+  // Tests related to confirming the confirmation //
+  //////////////////////////////////////////////////
   test('should fire confirmed.sui.confirmation on pressing enter', function() {
     stop();
+    var eventFired = false;
+
     $('<button/>')
-      .suiConfirmation()
       .on('confirmed.sui.confirmation', function() {
-        ok(true, 'confirmed.sui.confirmation event fired');
-        start();
-      });
+        ok(true, 'event fired');
+        eventFired = true;
+      })
+      .suiConfirmation();
+
     $('.modal').trigger($.Event('keydown', { keyCode: 13}));
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      start();
+    }, 100);
   });
 
   test('should fire confirmed.sui.confirmation confirmation on pressing the confirm button', function() {
     stop();
+    var eventFired = false;
+
     $('<button/>')
-      .suiConfirmation()
       .on('confirmed.sui.confirmation', function() {
-        ok(true, 'confirmed.sui.confirmation event fired');
-        start();
-      });
+        ok(true, 'event fired');
+        eventFired = true;
+      })
+      .suiConfirmation();
+
     $('.modal button[data-confirmation=confirm]').click();
+
+    setTimeout(function() {
+      if (!eventFired) {
+        ok(false, 'event not fired');
+      }
+      start();
+    }, 100);
   });
 
   test('should destroy the confirmation modal when confirmed.sui.confirmation was triggered', function() {
@@ -148,7 +208,9 @@ $(function() {
   });
 
 
-  // Data API related tests
+  ////////////////////////////
+  // Data-api related tests //
+  ////////////////////////////
   test('should populate the options object from the data attributes', function() {
     stop();
     var $el = $('<button data-toggle="confirm" data-confirm-message="Custom_message" data-confirm-yes="Custom_yes" data-confirm-no="Custom_no" />');
