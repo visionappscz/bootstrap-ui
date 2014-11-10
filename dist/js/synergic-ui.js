@@ -7,7 +7,7 @@
  * HTML & LESS © 2014 Adam Kudrna
  * JavaScript © 2014 Martin Bohal
  *
- * v0.4.0 (10 November 2014)
+ * v0.5.0 (10 November 2014)
  */
 (function($) {
   'use strict';
@@ -15,17 +15,14 @@
   // CONFIRMATION CLASS DEFINITION
   // =============================
 
-  var Confirmation = function($triggerEl, callback, message, yes, no) {
-    message = message !== null ? message : this.defaults['confirm-message'];
-    yes = yes !== null ? yes : this.defaults['confirm-yes'];
-    no = no !== null ? no : this.defaults['confirm-no'];
-    callback = callback !== null ? callback : this.defaults.callback;
-    this.modal = this.getModal(message, yes, no);
+  var Confirmation = function($triggerEl, options) {
+    options = $.extend({}, this.options, options);
+    this.modal = this.getModal(options['confirm-message'], options['confirm-yes'], options['confirm-no']);
     this.$triggerEl = $triggerEl;
-    this.callback = callback;
+    this.callback = options.callback;
   };
 
-  Confirmation.prototype.defaults = {
+  Confirmation.prototype.options = {
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
@@ -79,17 +76,14 @@
   };
 
   Confirmation.prototype.getModal = function(message, yes, no) {
-    var footer = $('<div class="modal-footer"></div>')
-      .append('<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>')
-      .append('<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>');
-    var modal = $('<div class="modal fade" tabindex="-1"></div>');
-    var dialog = $('<div class="modal-dialog modal-sm"></div>');
-    var content = $('<div class="modal-content"></div>')
-      .append('<div class="modal-body">' + message + '</div>')
-      .append(footer);
-    modal.append(dialog.append(content));
-
-    return modal;
+    return $('<div class="modal fade" tabindex="-1">' +
+      '<div class="modal-dialog modal-sm">' +
+      '<div class="modal-content">' +
+      '<div class="modal-body">' + message + '</div>'+
+      '<div class="modal-footer">' +
+      '<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>' +
+      '<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>' +
+      '</div></div></div></div>');
   };
 
 
@@ -98,19 +92,14 @@
 
   function Plugin(options) {
     var $element, data;
-    var message = options && ('confirm-message' in options) && options['confirm-message'] ? options['confirm-message'] : null;
-    var yes = options && ('confirm-yes' in options) && options['confirm-yes'] ? options['confirm-yes'] : null;
-    var no = options && ('confirm-no' in options) && options['confirm-no'] ? options['confirm-no'] : null;
-    var callback = options && ('callback' in options) && options.callback ? options.callback : null;
 
     return this.each(function() {
       $element = $(this);
 
       data = $element.data('sui.confirmation');
       if (!data) {
-        $element.data('sui.confirmation', (data = new Confirmation($element, callback, message, yes, no)));
+        $element.data('sui.confirmation', (data = new Confirmation($element, options)));
       }
-
       data.showConfirmation();
     });
   }
@@ -163,11 +152,13 @@
   };
 
   Filterable.prototype.filter = function(fObjects) {
-    var filterValCounter, filterVal, filterOper, dataVal, dataValCounter, fObjCounter, hideEl;
+    var dataVal, filterValCounter, filterValLength, filterVal,
+      filterOper, dataValCounter, dataValLength, fObjCounter, hideEl, fObjectsLength;
 
     if (fObjects && fObjects.length) {
       this.$filterable.show();
-      for (fObjCounter = 0; fObjCounter < fObjects.length; fObjCounter++) {
+      fObjectsLength = fObjects.length;
+      for (fObjCounter = 0; fObjCounter < fObjectsLength; fObjCounter++) {
         filterVal = fObjects[fObjCounter]['filter-value'];
         filterOper = fObjects[fObjCounter]['filter-operator'];
         dataVal = this.$filterable.data(fObjects[fObjCounter]['filter-attrib']);
@@ -175,8 +166,9 @@
         if (dataVal !== null) {
           hideEl = false;
 
+          filterValLength = filterVal.length;
           if (filterOper === 'subset') {
-            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
+            for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               if (dataVal.indexOf(filterVal[filterValCounter]) === -1) {
                 hideEl = true;
                 break;
@@ -190,8 +182,9 @@
             if (typeof(dataVal) === 'string') {
               dataVal = [dataVal];
             }
-            for (filterValCounter = 0; filterValCounter < filterVal.length; filterValCounter++) {
-              for (dataValCounter = 0; dataValCounter < dataVal.length; dataValCounter++) {
+            dataValLength = dataVal.length;
+            for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
+              for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
                 if (dataVal[dataValCounter].indexOf(filterVal[filterValCounter]) !== -1) {
                   hideEl = false;
                   break;
@@ -218,7 +211,6 @@
 
   Filterable.prototype.resetFilter = function() {
     this.$filterable.show();
-    $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
   };
 
 
@@ -226,35 +218,37 @@
   // ============================
 
   function Plugin(options) {
-    var $elements, $element, data;
-
-    if (options === 'resetFilter') {
-      $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
-    } else {
-      $(document).trigger('filter.sui.filterable');
-    }
-
-    $elements = this.each(function() {
-      $element = $(this);
-      data = $element.data('sui.filterable');
-      if (!data) {
-        $element.data('sui.filterable', (data = new Filterable($element)));
-      }
-
-      if (options === 'resetFilter') {
-        data.resetFilter();
+    if (this.length) {
+      if (options === 'reset') {
+        $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
       } else {
-        data.filter(options);
+        $(document).trigger('filter.sui.filterable');
       }
-    });
 
-    if (options === 'resetFilter') {
-      $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
-    } else {
-      $(document).trigger('filtered.sui.filterable');
+      this.each(function() {
+        var $element, data;
+
+        $element = $(this);
+        data = $element.data('sui.filterable');
+        if (!data) {
+          $element.data('sui.filterable', (data = new Filterable($element)));
+        }
+
+        if (options === 'reset') {
+          data.resetFilter();
+        } else {
+          data.filter(options);
+        }
+      });
+
+      if (options === 'reset') {
+        $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
+      } else {
+        $(document).trigger('filtered.sui.filterable');
+      }
     }
 
-    return $elements;
+    return this;
   }
 
   var old = $.fn.filterable;
@@ -297,7 +291,7 @@
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');
     $form[0].reset();
-    Plugin.call($($form.data('target')), 'resetFilter');
+    Plugin.call($($form.data('target')), 'reset');
   });
 
 }(jQuery));
@@ -314,7 +308,7 @@
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    var newSortGroup, sortGroup, colCount, $navigationUl, rowCounter;
+    var newSortGroup, sortGroup, colCount, $navigationUl, rowCounter, rowsLength, navigationHtml = '', tableHtml = '', row;
     var rows = this.$sortedTable
       .find('tbody tr')
       .toArray()
@@ -348,22 +342,34 @@
       }
     }
 
-    for (rowCounter = 0; rowCounter < rows.length; rowCounter++) {
+    rowsLength = rows.length;
+    tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
+    if (!this.$navigation) {
+      tableHtml += '<tbody>';
+    }
+    for (rowCounter = 0; rowCounter < rowsLength; rowCounter++) {
+      row = rows[rowCounter];
       if (this.$navigation) {
-        sortGroup = $(rows[rowCounter])
+        sortGroup = $(row)
           .children('td')
           .eq($sortedTh.index())
           .data('sort-group');
 
-        if (newSortGroup != sortGroup) {
+        if (newSortGroup !== sortGroup) {
           newSortGroup = sortGroup;
-          $navigationUl.append('<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>');
-          this.$sortedTable.append($('<thead><tr class="active"><th colspan="' + colCount + '"><h2 class="h3" id="letter-' + newSortGroup + '">' + newSortGroup + '</h2></th></tr></thead>'));
-          this.$sortedTable.append($('<tbody></tbody>'));
+          navigationHtml += '<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>';
+          tableHtml += '<thead><tr class="active"><th colspan="' + colCount + '">' +
+            '<h2 class="h3" id="letter-' + newSortGroup + '">' + newSortGroup + '</h2>' +
+            '</th></tr></thead><tbody>';
         }
       }
-      this.$sortedTable.find('tbody:last').append(rows[rowCounter]);
+      tableHtml += row.outerHTML;
     }
+
+    if ($navigationUl) {
+      $navigationUl.html(navigationHtml);
+    }
+    this.$sortedTable.html(tableHtml + '</tbody>');
     this.$sortedTable.trigger('sorted.sui.sortableTable');
   };
 
@@ -394,19 +400,16 @@
 
   function Plugin(options) {
     var $element, data, $navigation;
-    var sortedTh = options && ('sorted-th' in options) && options['sorted-th'] ? options['sorted-th'] : false;
-    var sortDir = options && ('sort-direction' in options) && options['sort-direction'] ? options['sort-direction'] : false;
 
     return this.each(function () {
       $element = $(this);
+
       data = $element.data('sui.sortableTable');
       if (!data) {
         $navigation = options && ('navigation' in options) && options.navigation ? options.navigation : false;
         $element.data('sui.sortableTable', (data = new SortableTable($element, $navigation)));
       }
-      if (sortedTh) {
-        data.sort(options['sorted-th'], options['sort-direction']);
-      }
+      data.sort(options['sorted-th'], options['sort-direction']);
     });
   }
 

@@ -1,13 +1,13 @@
 ## Built on Bootstrap 3
 
-This a living styleguide of **Synergic UI**, a UI library for building responsive admin interfaces. It is a sleek,
+This a living style guide of **Synergic UI**, a UI library for building responsive admin interfaces. It is a sleek,
 **lightweight extension** built on the shoulders of a
 giant&thinsp;—&thinsp;[**Bootstrap 3**](http://www.getbootstrap.com).
 
 Bootstrap itself is a great tool for quick creating admin interfaces. Synergic UI extends its capabilities with some
 features and components that are common in admin UIs, yet too specific to be included in the original framework.
 
-Synergic UI has been made by professionals for professionals. It is rather a styleguide than a ready-to-use
+Synergic UI has been made by professionals for professionals. It is rather a style guide than a ready-to-use
 administration frontend with a dashboard full of eye-catching widgets. The aim of Synergic UI is to enable building
 quality, responsive, intuitive, and easy-to-use admin interfaces that look and work well out of box, with as few lines
 of code on top of Bootstrap’s codebase as possible.
@@ -19,7 +19,7 @@ of code on top of Bootstrap’s codebase as possible.
 - [LESS modules](https://github.com/adamkudrna/less-modules)
 - [Bower](http://bower.io)
 - [Grunt](http://gruntjs.com)
-- [Styleguide generator](https://github.com/indieisaconcept/grunt-styleguide) using
+- [Style guide generator](https://github.com/indieisaconcept/grunt-styleguide) using
 [KSS syntax](http://warpspire.com/kss/syntax/)
 
 ## <span id="install"></span>Install
@@ -89,9 +89,9 @@ Full Synergic UI using custom colors, example use:
 
 ## <span id="changelog"></span>Changelog
 
-### NEXT VERSION
+### 0.5.0
 
-Release date: FIXME
+Release date: 10 November 2014
 
 * New components:
   * Confirmation
@@ -100,6 +100,7 @@ Release date: FIXME
 * CoffeeScript is no longer used
 * Test all custom JS with QUnit
 * Restructured common components
+* Various style guide improvements
 
 ### 0.4.0
 
@@ -144,4 +145,4 @@ Release date: 1 September 2014
 ### 0.1.0
 Release date: 29 August 2014
 
-* Created styleguide
+* Created style guide
