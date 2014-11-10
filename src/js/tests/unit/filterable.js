@@ -377,6 +377,41 @@ $(function() {
   });
 
 
+
+  test('should not fire any events when called on empty set', function() {
+    stop();
+
+    $(document).on('filter.sui.filterable', function() {
+      ok(false, 'event filter.sui.filterable fired');
+    });
+    $(document).on('filtered.sui.filterable', function() {
+      ok(false, 'event filtered.sui.filterable fired');
+    });
+    $(document).on('resetStart.sui.filterable', function() {
+      ok(false, 'event resetStart.sui.filterable fired');
+    });
+    $(document).on('resetEnd.sui.filterable', function() {
+      ok(false, 'event resetEnd.sui.filterable fired');
+    });
+
+    $('#empty-selector').suiFilterable([{
+      'filter-attrib': 'tags',
+      'filter-operator': 'subset',
+      'filter-value': 'tag2'
+    }]);
+    $('#empty-selector').suiFilterable('reset');
+
+    setTimeout(function() {
+      ok(true, 'allways ok');
+      $(document).off('filter.sui.filterable');
+      $(document).off('filtered.sui.filterable');
+      $(document).off('resetStart.sui.filterable');
+      $(document).off('resetEnd.sui.filterable');
+      start();
+    }, 200);
+  });
+
+
   // Data-api
   test('should filter filterables by changing an element in the filter form', function() {
     stop();

@@ -72,35 +72,37 @@
   // ============================
 
   function Plugin(options) {
-    var $elements, $element, data;
-
-    if (options === 'resetFilter') {
-      $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
-    } else {
-      $(document).trigger('filter.sui.filterable');
-    }
-
-    $elements = this.each(function() {
-      $element = $(this);
-      data = $element.data('sui.filterable');
-      if (!data) {
-        $element.data('sui.filterable', (data = new Filterable($element)));
+    if (this.length) {
+      if (options === 'resetFilter') {
+        $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
+      } else {
+        $(document).trigger('filter.sui.filterable');
       }
+
+      this.each(function() {
+        var $element, data;
+
+        $element = $(this);
+        data = $element.data('sui.filterable');
+        if (!data) {
+          $element.data('sui.filterable', (data = new Filterable($element)));
+        }
+
+        if (options === 'resetFilter') {
+          data.resetFilter();
+        } else {
+          data.filter(options);
+        }
+      });
 
       if (options === 'resetFilter') {
-        data.resetFilter();
+        $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
       } else {
-        data.filter(options);
+        $(document).trigger('filtered.sui.filterable');
       }
-    });
-
-    if (options === 'resetFilter') {
-      $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
-    } else {
-      $(document).trigger('filtered.sui.filterable');
     }
 
-    return $elements;
+    return this;
   }
 
   var old = $.fn.filterable;
