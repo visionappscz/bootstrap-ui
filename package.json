@@ -21,7 +21,7 @@
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-styleguide": "~0.2.15",
     "grunt-text-replace": "^0.3.12",
-    "matchdep": "~0.3.0",
+    "load-grunt-tasks": "^1.0.0",
     "time-grunt": "~1.0.0"
   },
   "devDependencies": {

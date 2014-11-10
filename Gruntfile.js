@@ -1,12 +1,6 @@
 module.exports = function(grunt) {
     'use strict';
 
-    // Measure task execution times
-    require('time-grunt')(grunt);
-
-    // Autoload all tasks instead of grunt.loadNpmTasks(...)
-    require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks);
-
     grunt.initConfig({
 
         // Load meta info from package.json
@@ -255,6 +249,12 @@ module.exports = function(grunt) {
             all: ['src/js/tests/index.html']
         }
     });
+
+    // Autoload all Grunt tasks
+    require('load-grunt-tasks')(grunt);
+
+    // Measure task execution times
+    require('time-grunt')(grunt);
 
     // Build task
 	grunt.registerTask('build', [
