@@ -30,6 +30,8 @@ The recommended way to install Synergic UI is via [Bower](http://bower.io) (assu
 $ bower install --save synergic-ui
 ```
 
+You can also download all releases from [GitHub](https://github.com/synergic-cz/synergic-ui/releases).
+
 ## <span id="usage"></span>Usage
 
 ### CSS

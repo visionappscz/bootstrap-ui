@@ -8188,6 +8188,13 @@ input[type="file"] {
   .cta {
     float: right;
     margin-top: 0;
+    text-align: right;
+  }
+  .cta.btn,
+  .cta > .btn,
+  .cta.item-action,
+  .cta > .item-action {
+    float: right;
   }
 }
 .gallery {

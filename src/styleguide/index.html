@@ -93,7 +93,18 @@
         <div class="container">
 
             {{#if overview}}
-            <h1>Synergic UI</h1>
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>Synergic UI</h1>
+                </div>
+                <div class="col-sm-4">
+                    <div class="cta">
+                        <a href="#install" class="btn btn-primary kss__cta"><span class="glyphicon glyphicon-save"></span> Download</a>
+                        <br />
+                        <small class="text-muted">Currently 0.4.0</small>
+                    </div>
+                </div>
+            </div><!-- .row -->
             {{else}}
             {{#eachSection rootNumber}}
             {{#ifDepth 1}}
@@ -218,7 +229,10 @@
     <div class="container">
         © Synergic.cz 2014
         <span class="footer-divider">|</span>
+        <small class="text-muted">Currently 0.4.0</small>
+        <span class="footer-divider">|</span>
         <a href="https://github.com/synergic-cz/synergic-ui" target="_blank">GitHub</a>
+
         <a href="http://www.synergic.cz/en" target="_blank" class="footer-author" title="Created by Synergic">
             <img src="public/images/synergic.svg" alt="Synergic" />
         </a>
