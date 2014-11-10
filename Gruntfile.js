@@ -205,7 +205,7 @@ module.exports = function(grunt) {
             }
         },
 
-		// Watch task
+        // Watch task
         watch: {
             less: {
                 files: ['src/less/**/*.less'],
