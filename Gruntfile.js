@@ -51,9 +51,9 @@ module.exports = function(grunt) {
 
         // Lint custom JS
         jshint: {
-            files: [
-                'src/js/**/*.js'
-            ]
+            grunt: 'Gruntfile.js',
+            src: 'src/js/*.js',
+            tests: 'src/js/tests/unit/*.js'
         },
 
         // Concat all JS
@@ -195,7 +195,7 @@ module.exports = function(grunt) {
             js: {
                 files: ['src/js/*.js'],
                 tasks: [
-                    'jshint',
+                    'jshint:src',
                     'concat',
                     'uglify',
                     'build-styleguide'
@@ -278,7 +278,7 @@ module.exports = function(grunt) {
         'copy:styleguideSrc',
         'styleguide',
         'copy:styleguide'
-    ]),
+    ]);
 
     // Run JS tests in browser
     // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
