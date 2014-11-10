@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+    'use strict';
 
     // Measure task execution times
     require('time-grunt')(grunt);
@@ -71,6 +72,9 @@ module.exports = function(grunt) {
 
         // Minify concatenated JS
         uglify: {
+            options: {
+                preserveComments: 'some'
+            },
             dist: {
                 files: {
                     'dist/js/<%= pkg.name %>.min.js': 'dist/js/<%= pkg.name %>.js'
