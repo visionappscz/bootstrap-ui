@@ -64,7 +64,6 @@
 
   Filterable.prototype.resetFilter = function() {
     this.$filterable.show();
-    $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
   };
 
 
