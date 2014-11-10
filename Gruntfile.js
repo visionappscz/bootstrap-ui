@@ -169,19 +169,20 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        cwd: 'bower_components/bootstrap/dist/',
-                        src: ['fonts/*', 'js/*'],
-                        dest: 'styleguide/public/'
-                    },
-                    {
-                        expand: true,
                         flatten: true,
                         src: [
+                            'bower_components/jquery/dist/jquery.min.*',
                             'bower_components/eonasdan-bootstrap-datetimepicker/build/js/*',
                             'bower_components/moment/min/moment.min.js',
                             'bower_components/select2/select2.min.js'
                         ],
                         dest: 'styleguide/public/js/'
+                    },
+                    {
+                        expand: true,
+                        cwd: 'bower_components/bootstrap/dist/',
+                        src: ['fonts/*', 'js/*'],
+                        dest: 'styleguide/public/'
                     },
                     {
                         expand: true,
@@ -194,12 +195,6 @@ module.exports = function(grunt) {
                         cwd: 'src/images/',
                         src: ['*'],
                         dest: 'styleguide/public/images/'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'src/js/',
-                        src: ['*'],
-                        dest: 'styleguide/public/js/'
                     }
                 ]
             }
