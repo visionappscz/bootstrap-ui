@@ -276,7 +276,7 @@ $(function() {
     $table.suiSortableTable({'sorted-th': $table.find('#headerB'), 'sort-direction': 'desc'});
   });
 
-  test('should fill and empty the navigation element if sorting by grouped column', function() {
+  test('should populate and empty the navigation element if sorting by grouped column', function() {
     stop();
     var $table = $('<table>' +
       '<thead><tr>' +
@@ -426,10 +426,10 @@ $(function() {
     $('#headerA').trigger($.Event('keydown', { keyCode: 32}));
   });
 
-  test('should sort the table in ascending mode on load if <th> has data-sortable-onload="asc" attribute', function() {
+  test('should sort the table in ascending mode on load if <th> has data-sort-onload="asc" attribute', function() {
     stop();
     var $table = $('<table>' +
-      '<thead><tr><th data-toggle="sort" data-sortable-onload="asc" id="headerA">HeaderA</th></tr></thead>' +
+      '<thead><tr><th data-toggle="sort" data-sort-onload="asc" id="headerA">HeaderA</th></tr></thead>' +
       '<tbody>' +
       '<tr id="row2"><td>2</td></tr>' +
       '<tr id="row1"><td>1</td></tr>' +
@@ -449,10 +449,10 @@ $(function() {
     $(window).trigger('load');
   });
 
-  test('should sort the table in descending mode on load if <th> has data-sortable-onload="desc" attribute', function() {
+  test('should sort the table in descending mode on load if <th> has data-sort-onload="desc" attribute', function() {
     stop();
     var $table = $('<table>' +
-      '<thead><tr><th data-toggle="sort" data-sortable-onload="desc" id="headerA">HeaderA</th></tr></thead>' +
+      '<thead><tr><th data-toggle="sort" data-sort-onload="desc" id="headerA">HeaderA</th></tr></thead>' +
       '<tbody>' +
       '<tr id="row2"><td>2</td></tr>' +
       '<tr id="row1"><td>1</td></tr>' +
