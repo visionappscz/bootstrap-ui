@@ -153,12 +153,12 @@
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
-      var $sortedTh = $('th[data-sortable-onload]');
+      var $sortedTh = $('th[data-sort-onload]');
       var $sortedTable = $sortedTh.closest('table');
       Plugin.call($sortedTable, {
         'sorted-th': $sortedTh,
         'navigation': $($sortedTable.data('sort-navigation')),
-        'sort-direction': $sortedTh.data('sortable-onload')
+        'sort-direction': $sortedTh.data('sort-onload')
       });
     });
   }());
