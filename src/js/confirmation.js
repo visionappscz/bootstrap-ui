@@ -113,7 +113,7 @@
 
   $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(e, noConfirm) {
     if (!noConfirm) {
-      var $clickedEl = $(e.target);
+      var $clickedEl = $(e.currentTarget);
       Plugin.call($clickedEl, {
         'confirm-message': $clickedEl.data('confirm-message'),
         'confirm-yes': $clickedEl.data('confirm-yes'),
