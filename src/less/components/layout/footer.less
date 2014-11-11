@@ -21,13 +21,22 @@
 .footer {
     padding-top: @line-height-computed;
     padding-bottom: @line-height-computed;
-    color: @gray-light;
-    background-color: @gray-lighter;
+    color: @footer-text;
+    background-color: @footer-bg;
+
+    a {
+        color: @footer-link-color;
+
+        &:hover,
+        &:focus {
+            color: @footer-link-hover-color;
+        }
+    }
 
     &-divider {
         margin-left: .75ex;
         margin-right: .75ex;
-        color: #ddd;
+        color: @footer-divider-border;
     }
 
     &-author {
