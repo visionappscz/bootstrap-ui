@@ -7,7 +7,7 @@
  * HTML & LESS © 2014 Adam Kudrna
  * JavaScript © 2014 Martin Bohal
  *
- * v0.5.0 (10 November 2014)
+ * v0.5.0 (12 November 2014)
  */
 (function($) {
   'use strict';
@@ -124,7 +124,7 @@
 
   $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(e, noConfirm) {
     if (!noConfirm) {
-      var $clickedEl = $(e.target);
+      var $clickedEl = $(e.currentTarget);
       Plugin.call($clickedEl, {
         'confirm-message': $clickedEl.data('confirm-message'),
         'confirm-yes': $clickedEl.data('confirm-yes'),
@@ -305,51 +305,41 @@
   var SortableTable = function ($sortedTable, $navigation) {
     this.$sortedTable = $sortedTable;
     this.$navigation = $navigation;
+    if ($navigation) {
+      this.colCount = $sortedTable.find('tr')[0].childElementCount;
+    }
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    var newSortGroup, sortGroup, colCount, $navigationUl, rowCounter, rowsLength, navigationHtml = '', tableHtml = '', row;
-    var rows = this.$sortedTable
-      .find('tbody tr')
-      .toArray()
-      .sort(this.comparer($sortedTh.index()));
+    var newSortGroup, sortGroup, rowCounter, rowsLength, navigationHtml = '', tableHtml = '', row, isNavigationCol, rows;
+    var isSortedAsc = $sortedTh.hasClass('sorting-asc');
 
-    this.$sortedTable.trigger('sort.sui.sortableTable');
-
-    if ($sortedTh.hasClass('sorting-asc') && sortDir !== 'asc') {
-      sortDir = 'desc';
-    }
     this.$sortedTable
+      .trigger('sort.sui.sortableTable')
       .find('th')
       .removeClass('sorting-asc')
       .removeClass('sorting-desc');
 
-    if (sortDir === 'desc') {
-      rows = rows.reverse();
+    if (isSortedAsc || sortDir === 'desc') {
+      sortDir = 'desc';
       $sortedTh.addClass('sorting-desc');
-    }
-    else {
+    } else {
       $sortedTh.addClass('sorting-asc');
     }
 
-    if (this.$navigation) {
-      this.$navigation.find('ul').remove();
-      this.$sortedTable.find('thead:gt(0)').remove();
-      colCount = rows[0].childElementCount;
-      if ($(rows[0]).children('td').eq($sortedTh.index()).data('sort-group')) {
-        $navigationUl = $('<ul></ul>');
-        this.$navigation.append($navigationUl);
-      }
-    }
+    rows = this.$sortedTable
+      .find('tbody tr')
+      .toArray()
+      .sort(this.comparer($sortedTh.index(), sortDir));
+
+    isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index()).data('sort-group') !== 'undefined';
+    tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
+    navigationHtml = '';
 
     rowsLength = rows.length;
-    tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
-    if (!this.$navigation) {
-      tableHtml += '<tbody>';
-    }
     for (rowCounter = 0; rowCounter < rowsLength; rowCounter++) {
       row = rows[rowCounter];
-      if (this.$navigation) {
+      if (isNavigationCol) {
         sortGroup = $(row)
           .children('td')
           .eq($sortedTh.index())
@@ -358,7 +348,7 @@
         if (newSortGroup !== sortGroup) {
           newSortGroup = sortGroup;
           navigationHtml += '<li><a href="#letter-' + sortGroup + '">' + sortGroup + '</a></li>';
-          tableHtml += '<thead><tr class="active"><th colspan="' + colCount + '">' +
+          tableHtml += '<thead><tr class="active"><th colspan="' + this.colCount + '">' +
             '<h2 class="h3" id="letter-' + newSortGroup + '">' + newSortGroup + '</h2>' +
             '</th></tr></thead><tbody>';
         }
@@ -366,15 +356,20 @@
       tableHtml += row.outerHTML;
     }
 
-    if ($navigationUl) {
-      $navigationUl.html(navigationHtml);
+    if (this.$navigation) {
+      if (isNavigationCol) {
+        navigationHtml = '<ul>' + navigationHtml + '</ul>';
+      }
+      this.$navigation.html(navigationHtml);
     }
+
     this.$sortedTable.html(tableHtml + '</tbody>');
     this.$sortedTable.trigger('sorted.sui.sortableTable');
   };
 
-  SortableTable.prototype.comparer = function(index) {
+  SortableTable.prototype.comparer = function(index, sortDir) {
     return function(a, b) {
+      var result, valA, valB;
       var getCellValue = function(row, index) {
         var cell = $(row).children('td').eq(index);
         if (cell.attr('data-sort-value'))
@@ -383,14 +378,16 @@
           return cell.text();
         }
       };
-      var valA = getCellValue(a, index);
-      var valB = getCellValue(b, index);
+
+      valA = getCellValue(a, index);
+      valB = getCellValue(b, index);
       if ($.isNumeric(valA) && $.isNumeric(valB)) {
-        return valA - valB;
+        result = valA - valB;
+      } else {
+        result = valA.localeCompare(valB);
       }
-      else {
-        return valA.localeCompare(valB);
-      }
+
+      return sortDir === 'desc' ? result * -1 : result;
     };
   };
 
@@ -406,7 +403,7 @@
 
       data = $element.data('sui.sortableTable');
       if (!data) {
-        $navigation = options && ('navigation' in options) && options.navigation ? options.navigation : false;
+        $navigation = options && ('navigation' in options) && options.navigation ? $(options.navigation) : false;
         $element.data('sui.sortableTable', (data = new SortableTable($element, $navigation)));
       }
       data.sort(options['sorted-th'], options['sort-direction']);
@@ -454,12 +451,12 @@
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
-      var $sortedTh = $('th[data-sortable-onload]');
+      var $sortedTh = $('th[data-sort-onload]');
       var $sortedTable = $sortedTh.closest('table');
       Plugin.call($sortedTable, {
         'sorted-th': $sortedTh,
         'navigation': $($sortedTable.data('sort-navigation')),
-        'sort-direction': $sortedTh.data('sortable-onload')
+        'sort-direction': $sortedTh.data('sort-onload')
       });
     });
   }());
