@@ -10,22 +10,22 @@
 // </div>
 //
 // The message and confirmation button labels can be modified for each instance either by setting the options
-// appropriately or by overriding the plugin defaults which affects all instances on page.
+// appropriately or by overriding the plugin default options which affects all instances on page.
 //
 // <div class="panel panel-info">
-//     <div class="panel-heading"><h4 class="panel-title">Overriding Defaults Example</h4></div>
+//     <div class="panel-heading"><h4 class="panel-title">Overriding Default Options Example</h4></div>
 //     <div class="panel-body">
 // <pre>$(document).ready(function(){
 //   // Localize confirmation messages into Czech
-//   $.fn.confirmation.Constructor.prototype.defaults = {
+//   $.fn.confirmation.Constructor.prototype.options = {
 //     'confirm-message': 'Opravdu?',
 //     'confirm-yes': 'Ano',
 //     'confirm-no': 'Ne'
 //   };
 // });</pre>
-//         If overriding the defaults while running the plugin in noConflict mode,
-//         the code above has to be modified by substituting `$.fn.confirmation.Constructor.prototype.defaults` with
-//         `$.fn.my_no_conflict_name.Constructor.prototype.defaults`.
+//         If overriding the default options while running the plugin in noConflict mode,
+//         the code above has to be modified by substituting `$.fn.confirmation.Constructor.prototype.options` with
+//         `$.fn.my_no_conflict_name.Constructor.prototype.options`.
 //     </div>
 // </div>
 //
