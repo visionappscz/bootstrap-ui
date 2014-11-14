@@ -354,6 +354,38 @@ $(function() {
     });
   });
 
+  test('should not do anything if sorted by column with same values in all rows and the direction is changed', function() {
+    stop();
+
+    $('<table>' +
+      '<thead>' +
+      '<tr><th id="headerA">HeaderA</th><th id="headerB">HeaderB</th></tr>' +
+      '</thead>' +
+      '<tbody>' +
+      '<tr id="row2"><td>2</td><td>0</td></tr>' +
+      '<tr id="row1"><td>1</td><td>0</td></tr>' +
+      '<tr id="row3"><td>3</td><td>0</td></tr>' +
+      '</tbody>' +
+    '</table>')
+      .on('sorted.sui.sortableTable', function() {
+        $(this).off('sorted.sui.sortableTable');
+        var $rows = $(this).find('tbody tr');
+        ok($($rows[0]).attr('id') === 'row2', 'row2 is first');
+        ok($($rows[1]).attr('id') === 'row1', 'row1 is second');
+        ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
+      })
+      .suiSortableTable({'sorted-th': $(this).find('#headerB'), 'sort-direction': 'desc'})
+      .on('sorted.sui.sortableTable', function() {
+        $(this).off('sorted.sui.sortableTable');
+        var $rows = $(this).find('tbody tr');
+        ok($($rows[0]).attr('id') === 'row2', 'row2 is first');
+        ok($($rows[1]).attr('id') === 'row1', 'row1 is second');
+        ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
+        start();
+      })
+      .suiSortableTable({'sorted-th': $(this).find('#headerB'), 'sort-direction': 'asc'});
+  });
+
   ////////////////////////////
   // Data-api related tests //
   ////////////////////////////
