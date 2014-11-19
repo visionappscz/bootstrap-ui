@@ -1,7 +1,8 @@
 // Teaser
 //
 // Article teaser. You can turn the whole teaser into link (preferred use) or just make links from title, image, and
-// more link. Designed for use in grid.
+// more link. Designed for use in grid. Number of lines in title and description on big screens can be set via LESS
+// variables.
 //
 // Markup:
 // <article class="teaser">
@@ -141,7 +142,7 @@
     @media screen and (min-width: @screen-md-min) {
         &-title {
             overflow: hidden;
-            height: 2em * @headings-line-height;
+            height: @teaser-title-lines * 1em * @headings-line-height;
         }
 
         &-image {
@@ -151,7 +152,7 @@
         }
 
         &-description {
-            height: 6 * @line-height-computed;
+            height: @teaser-description-lines * @line-height-computed;
         }
     }
 }
