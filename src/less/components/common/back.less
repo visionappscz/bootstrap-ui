@@ -16,6 +16,10 @@
     @media screen and (min-width: @screen-sm-min) {
         float: right;
         margin-left: 1.5em; // safety margin
-        padding-top: @headings-line-height * @font-size-h2 - @line-height-computed; // align to baseline with H2
+        padding-top: unit(unit(@font-size-h2) * @headings-line-height - unit(@font-size-base) * @line-height-base, px); // align to baseline with H2
+
+        + form {
+            clear: right;
+        }
     }
 }
