@@ -106,8 +106,8 @@
         color: @text-color;
     }
 
-    &-more {
-        text-decoration: underline;
+    &-more:after {
+        content: ' @{teaser-more-decoration}';
     }
 
     &:hover,
@@ -116,10 +116,6 @@
 
         .teaser-title {
             color: @link-hover-color;
-        }
-
-        .teaser-more {
-            text-decoration: underline;
         }
     }
 
