@@ -31,7 +31,8 @@
   "ignore": [
     "/.*",
     "/src/js/tests",
-    "/src/styleguide"
+    "/src/styleguide",
+    "/src/less/styleguide.md"
   ],
   "dependencies": {
     "bootstrap": "~3.3.0",
