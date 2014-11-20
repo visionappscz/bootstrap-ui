@@ -30,7 +30,8 @@
   ],
   "ignore": [
     "/.*",
-    "/src/js/tests"
+    "/src/js/tests",
+    "/src/styleguide"
   ],
   "dependencies": {
     "bootstrap": "~3.3.0",
