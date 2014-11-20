@@ -312,16 +312,17 @@ module.exports = function(grunt) {
 
     // Run JS tests in browser
     // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
-    grunt.registerTask('test', [
+    grunt.registerTask('test-remote', [
         'jshint',
         'browserSync:test'
     ]);
 
-    // Default task
-    grunt.registerTask('default', [
-        'clean:dist',
-        'copy:fonts',
-        'jshint:grunt',
+    // Run tests
+    grunt.registerTask('test', [
+        'jshint',
         'qunit'
     ]);
+
+    // Default task
+    grunt.registerTask('default', 'test');
 };

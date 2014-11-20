@@ -89,6 +89,13 @@ Full Synergic UI using custom colors, example use:
 
 ## <span id="changelog"></span>Changelog
 
+### NEXT VERSION
+
+Release date: FIXME
+
+* Use Travis CI to test builds continuously
+* Renamed Grunt task for remote testing to test-remote
+
 ### 0.5.0
 
 Release date: 10 November 2014

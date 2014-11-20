@@ -29,7 +29,8 @@
     "./dist/fonts/glyphicons-halflings-regular.woff"
   ],
   "ignore": [
-    ".*"
+    "/.*",
+    "/src/js/tests"
   ],
   "dependencies": {
     "bootstrap": "~3.3.0",
