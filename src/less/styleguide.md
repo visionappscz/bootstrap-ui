@@ -93,8 +93,12 @@ Full Synergic UI using custom colors, example use:
 
 Release date: FIXME
 
+* Optimized performance of JavaScript components
+* Minor modification of Sortable Table component data-api: `data-sortable-onload` is now `data-sort-onload`
+* Configuration of Teaser component
 * Use Travis CI to test builds continuously
 * Renamed Grunt task for remote testing to test-remote
+* Various minor improvements and fixes
 
 ### 0.5.0
 
