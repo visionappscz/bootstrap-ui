@@ -9,6 +9,26 @@
 // Styleguide 5.1
 
 
+// Responsive Buttons
+//
+// Expanded on small screens, auto size on the rest.
+//
+// Markup:
+// <button type="button" class="btn btn-default btn-responsive">Responsive button</button>
+//
+// Styleguide 5.1.1
+
+.btn-responsive {
+    width: 100%;
+    display: block;
+
+    @media (min-width: @grid-float-breakpoint) {
+        width: auto;
+        display: inline-block;
+    }
+}
+
+
 // Disabled Buttons
 //
 // Just give disabled buttons more transparency to provide better visual feedback.
@@ -17,7 +37,7 @@
 // <button type="button" class="btn btn-default" disabled>Disabled default button</button>
 // <button type="button" class="btn btn-primary" disabled>Disabled primary button</button>
 //
-// Styleguide 5.1.1
+// Styleguide 5.1.2
 
 .btn[disabled] {
     opacity: .5;
