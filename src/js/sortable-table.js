@@ -1,4 +1,4 @@
-;(function ($) {
+;(function ($, window, document) {
     'use strict';
 
   // SORTABLE TABLE CLASS DEFINITION
@@ -163,4 +163,4 @@
     });
   }());
 
-}(jQuery));
+}(jQuery, window, document));
