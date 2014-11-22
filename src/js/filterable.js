@@ -1,4 +1,4 @@
-(function($) {
+;(function($, window, document) {
     'use strict';
 
   // FILTERABLE CLASS DEFINITION
@@ -151,4 +151,4 @@
     Plugin.call($($form.data('target')), 'reset');
   });
 
-}(jQuery));
+}(jQuery, window, document));

@@ -1,4 +1,4 @@
-(function($) {
+;(function($, window, document) {
   'use strict';
 
   // CONFIRMATION CLASS DEFINITION
@@ -128,4 +128,4 @@
     }
   });
 
-}(jQuery));
+}(jQuery, window, document));
