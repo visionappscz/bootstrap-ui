@@ -129,7 +129,7 @@
   // SORTABLE TABLE DATA-API
   // =======================
 
-  (function() {
+  (function(Plugin, $, window, document) {
     var callPlugin = function(e) {
       var $sortedTh = $(e.currentTarget);
       var $sortedTable = $sortedTh.closest('table');
@@ -160,6 +160,6 @@
         'sort-direction': $sortedTh.data('sort-onload')
       });
     });
-  }());
+  }(Plugin, $, window, document));
 
 }(jQuery, window, document));

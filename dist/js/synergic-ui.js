@@ -141,66 +141,6 @@
 
 }(jQuery, window, document));
 
-;(function(jQuery, window, document) {
-  'use strict';
-
-  // DISABLE CLASS DEFINITION
-  // ========================
-  var Disable = function($disabler, $target, options) {
-    var disableStatus;
-    options = $.extend({}, this.options, options);
-
-    $disabler.on(options.eventType, function() {
-        $target.prop('disabled', !$target.prop('disabled'));
-    });
-  };
-
-  Disable.prototype.options = {
-    eventType: 'click'
-  };
-
-
-  // DISABLE PLUGIN DEFINITION
-  // =========================
-
-  function Plugin($target) {
-    return this.each(function() {
-      var $this = $(this);
-      var $disabler = $(this);
-
-      data = $disabler.data('sui.disable');
-      if (!data) {
-        $disabler.data('sui.disable', (data = new Disable($disabler, $target)));
-      }
-    });
-  }
-
-
-  var old = $.fn.disable;
-
-  $.fn.disable = Plugin;
-  $.fn.disable.Constructor = Disable;
-
-
-  // DISABLE NO CONFLICT
-  // ===================
-
-  $.fn.disable.noConflict = function() {
-    $.fn.disable = old;
-    return this;
-  };
-
-
-  // DISABLE DATA-API
-  // ================
-
-  $(document).on('click.sui.disable.data-api', '[data-toggle=disable]', function() {
-    var $disabler = $(this);
-    Plugin.call($disabler, $disabler.data('disable-target'));
-  });
-
-}(jQuery, window, document));
-
 ;(function($, window, document) {
     'use strict';
 
@@ -486,7 +426,7 @@
   // SORTABLE TABLE DATA-API
   // =======================
 
-  (function() {
+  (function(Plugin, $, window, document) {
     var callPlugin = function(e) {
       var $sortedTh = $(e.currentTarget);
       var $sortedTable = $sortedTh.closest('table');
@@ -517,6 +457,6 @@
         'sort-direction': $sortedTh.data('sort-onload')
       });
     });
-  }());
+  }(Plugin, $, window, document));
 
 }(jQuery, window, document));
