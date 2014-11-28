@@ -427,22 +427,21 @@
   // =======================
 
   (function(Plugin, $, window, document) {
-    var callPlugin = function(e) {
-      var $sortedTh = $(e.currentTarget);
-      var $sortedTable = $sortedTh.closest('table');
+    var callPlugin = function($this) {
+      var $sortedTable = $this.closest('table');
       Plugin.call($sortedTable, {
-        'sorted-th': $sortedTh,
+        'sorted-th': $this,
         'navigation': $($sortedTable.data('sort-navigation'))
       });
     };
 
     $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
-      callPlugin(e);
+      callPlugin($(this));
     });
 
     $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
       if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
-        callPlugin(e);
+        callPlugin($(this));
       }
     });
 
