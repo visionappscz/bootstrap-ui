@@ -7,9 +7,9 @@
  * HTML & LESS © 2014 Adam Kudrna
  * JavaScript © 2014 Martin Bohal
  *
- * v0.5.0 (12 November 2014)
+ * v0.5.0 (28 November 2014)
  */
-(function($) {
+;(function($, window, document) {
   'use strict';
 
   // CONFIRMATION CLASS DEFINITION
@@ -91,14 +91,12 @@
   // ==============================
 
   function Plugin(options) {
-    var $element, data;
-
     return this.each(function() {
-      $element = $(this);
+      var $this = $(this);
+      var data = $this.data('sui.confirmation');
 
-      data = $element.data('sui.confirmation');
       if (!data) {
-        $element.data('sui.confirmation', (data = new Confirmation($element, options)));
+        $this.data('sui.confirmation', (data = new Confirmation($this, options)));
       }
       data.showConfirmation();
     });
@@ -123,25 +121,87 @@
   // =====================
 
   $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(e, noConfirm) {
+    var $this = $(this);
+
     if (!noConfirm) {
-      var $clickedEl = $(e.currentTarget);
-      Plugin.call($clickedEl, {
-        'confirm-message': $clickedEl.data('confirm-message'),
-        'confirm-yes': $clickedEl.data('confirm-yes'),
-        'confirm-no': $clickedEl.data('confirm-no'),
+      e.preventDefault();
+
+      Plugin.call($this, {
+        'confirm-message': $this.data('confirm-message'),
+        'confirm-yes': $this.data('confirm-yes'),
+        'confirm-no': $this.data('confirm-no'),
         'callback': function(result) {
           if (result) {
-            $clickedEl.trigger('click.sui.confirmation.data-api', true);
+            $this.trigger('click.sui.confirmation.data-api', true);
           }
         }
       });
-      e.preventDefault();
     }
   });
 
-}(jQuery));
+}(jQuery, window, document));
 
-(function($) {
+;(function(jQuery, window, document) {
+  'use strict';
+
+  // DISABLE CLASS DEFINITION
+  // ========================
+  var Disable = function($disabler, $target, options) {
+    var disableStatus;
+    options = $.extend({}, this.options, options);
+
+    $disabler.on(options.eventType, function() {
+        $target.prop('disabled', !$target.prop('disabled'));
+    });
+  };
+
+  Disable.prototype.options = {
+    eventType: 'click'
+  };
+
+
+  // DISABLE PLUGIN DEFINITION
+  // =========================
+
+  function Plugin($target) {
+    return this.each(function() {
+      var $this = $(this);
+      var $disabler = $(this);
+
+      data = $disabler.data('sui.disable');
+      if (!data) {
+        $disabler.data('sui.disable', (data = new Disable($disabler, $target)));
+      }
+    });
+  }
+
+
+  var old = $.fn.disable;
+
+  $.fn.disable = Plugin;
+  $.fn.disable.Constructor = Disable;
+
+
+  // DISABLE NO CONFLICT
+  // ===================
+
+  $.fn.disable.noConflict = function() {
+    $.fn.disable = old;
+    return this;
+  };
+
+
+  // DISABLE DATA-API
+  // ================
+
+  $(document).on('click.sui.disable.data-api', '[data-toggle=disable]', function() {
+    var $disabler = $(this);
+    Plugin.call($disabler, $disabler.data('disable-target'));
+  });
+
+}(jQuery, window, document));
+
+;(function($, window, document) {
     'use strict';
 
   // FILTERABLE CLASS DEFINITION
@@ -220,18 +280,18 @@
   function Plugin(options) {
     if (this.length) {
       if (options === 'reset') {
-        $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
+        $(document).trigger('resetStart.sui.filterable');
       } else {
         $(document).trigger('filter.sui.filterable');
       }
 
       this.each(function() {
-        var $element, data;
+        var data;
+        var $this = $(this);
 
-        $element = $(this);
-        data = $element.data('sui.filterable');
+        data = $this.data('sui.filterable');
         if (!data) {
-          $element.data('sui.filterable', (data = new Filterable($element)));
+          $this.data('sui.filterable', (data = new Filterable($this)));
         }
 
         if (options === 'reset') {
@@ -242,7 +302,7 @@
       });
 
       if (options === 'reset') {
-        $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
+        $(document).trigger('resetEnd.sui.filterable');
       } else {
         $(document).trigger('filtered.sui.filterable');
       }
@@ -270,17 +330,16 @@
   // ===================
 
   $(document).on('change.sui.filterable.data-api', '[data-toggle=filter]', function() {
-    var $filterInput;
     var $filter = $(this).closest('form');
     var filterData = [];
 
-    $filter.find(':input').each(function(index, filterInput) {
-      $filterInput = $(filterInput);
-      if ($filterInput.val() !== '' && $filterInput.val() !== null) {
+    $filter.find(':input').each(function() {
+      var $this = $(this);
+      if ($this.val() !== '' && $this.val() !== null) {
         filterData.push({
-          'filter-attrib': $filterInput.data('filter-attrib'),
-          'filter-operator': $filterInput.data('filter-operator'),
-          'filter-value': $filterInput.val()
+          'filter-attrib': $this.data('filter-attrib'),
+          'filter-operator': $this.data('filter-operator'),
+          'filter-value': $this.val()
         });
       }
     });
@@ -294,9 +353,9 @@
     Plugin.call($($form.data('target')), 'reset');
   });
 
-}(jQuery));
+}(jQuery, window, document));
 
-(function ($) {
+;(function ($, window, document) {
     'use strict';
 
   // SORTABLE TABLE CLASS DEFINITION
@@ -396,15 +455,14 @@
   // ================================
 
   function Plugin(options) {
-    var $element, data, $navigation;
-
     return this.each(function () {
-      $element = $(this);
+      var $navigation;
+      var $this = $(this);
+      var data = $this.data('sui.sortableTable');
 
-      data = $element.data('sui.sortableTable');
       if (!data) {
         $navigation = options && ('navigation' in options) && options.navigation ? $(options.navigation) : false;
-        $element.data('sui.sortableTable', (data = new SortableTable($element, $navigation)));
+        $this.data('sui.sortableTable', (data = new SortableTable($this, $navigation)));
       }
       data.sort(options['sorted-th'], options['sort-direction']);
     });
@@ -461,4 +519,4 @@
     });
   }());
 
-}(jQuery));
+}(jQuery, window, document));

@@ -98,15 +98,14 @@
   // ================================
 
   function Plugin(options) {
-    var $element, data, $navigation;
-
     return this.each(function () {
-      $element = $(this);
+      var $navigation;
+      var $this = $(this);
+      var data = $this.data('sui.sortableTable');
 
-      data = $element.data('sui.sortableTable');
       if (!data) {
         $navigation = options && ('navigation' in options) && options.navigation ? $(options.navigation) : false;
-        $element.data('sui.sortableTable', (data = new SortableTable($element, $navigation)));
+        $this.data('sui.sortableTable', (data = new SortableTable($this, $navigation)));
       }
       data.sort(options['sorted-th'], options['sort-direction']);
     });
