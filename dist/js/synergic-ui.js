@@ -7,9 +7,9 @@
  * HTML & LESS © 2014 Adam Kudrna
  * JavaScript © 2014 Martin Bohal
  *
- * v0.5.0 (12 November 2014)
+ * v0.5.0 (29 November 2014)
  */
-(function($) {
+;(function($, window, document) {
   'use strict';
 
   // CONFIRMATION CLASS DEFINITION
@@ -139,9 +139,9 @@
     }
   });
 
-}(jQuery));
+}(jQuery, window, document));
 
-(function($) {
+;(function($, window, document) {
     'use strict';
 
   // FILTERABLE CLASS DEFINITION
@@ -285,18 +285,18 @@
       }
     });
 
-    Plugin.call($($filter.data('target')), filterData);
+    Plugin.call($($filter.data('filter-target')), filterData);
   });
 
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');
     $form[0].reset();
-    Plugin.call($($form.data('target')), 'reset');
+    Plugin.call($($form.data('filter-target')), 'reset');
   });
 
-}(jQuery));
+}(jQuery, window, document));
 
-(function ($) {
+;(function ($, window, document) {
     'use strict';
 
   // SORTABLE TABLE CLASS DEFINITION
@@ -461,4 +461,4 @@
     });
   }());
 
-}(jQuery));
+}(jQuery, window, document));

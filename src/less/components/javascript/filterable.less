@@ -21,7 +21,21 @@
 //     </div>
 // </div>
 //
-// <h3>Filter Definition Object</h3>
+// <h3>Usage</h3>
+//
+// <h4>Data-api</h4>
+//
+// The filter has to be a `<form>` with a `data-filter-target` attribute containing a string which, when evaluated as a jQuery
+// selector, returns a jQuery object holding the DOM elements to be filtered.
+//
+// Each of the `:input` elements of the form that are to be used for filtering have to define the `data-toggle="filter"` attribute.
+// Further each one also has to possess the `data-filter-attrib` and `data-filter-operator` attributes (see the Filter Object section bellow)
+//
+// The element that is to reset the filter on click has to have the `data-toggle="reset-filter"` attribute defined.
+//
+// <h4>JavaScript</h4>
+//
+// <h5>Filter Object</h5>
 // <table class="table table-bordered table-striped">
 //     <thead>
 //         <tr>
@@ -124,11 +138,11 @@
 //     </tbody>
 // </table>
 //
-// <h3>Methods</h3>
-// <h4>$().filterable(filterObjects)</h4>
+// <h5>Methods</h5>
+// <h6>$().filterable(filterObjects)</h6>
 // Filters the set of elements on which it is called according to the given array of filter objects.
-// <h4>$().filterable('reset')</h4>
-// Shows all filterable elements.
+// <h6>$().filterable('reset')</h6>
+// Displays all filterable elements.
 //
 // <h3>Events</h3>
 // <table class="table table-bordered table-striped">

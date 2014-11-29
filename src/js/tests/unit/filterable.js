@@ -490,7 +490,7 @@ $(function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-tag="tag1">')
-      .append('<form data-target="#qunit-fixture div[data-tag=tag1]">' +
+      .append('<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
         '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
         '</form>');
 
@@ -506,7 +506,7 @@ $(function() {
     stop();
     $('#qunit-fixture')
       .append('<div data-tag="tag1">')
-      .append('<form data-target="#qunit-fixture div[data-tag=tag1]">' +
+      .append('<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
         '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
         '<button type="reset" data-toggle="filter-reset" />' +
         '</form>');

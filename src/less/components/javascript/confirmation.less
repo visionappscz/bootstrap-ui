@@ -29,7 +29,19 @@
 //     </div>
 // </div>
 //
-// <h3>Options</h3>
+// <h3>Usage</h3>
+//
+// <h4>Data-api</h4>
+//
+// To bind confirmation dialog to an element, the element must have `data-toggle="confirm"` attribute defined.
+//
+// To overload the default options, you can use the same options as the JavaScript api prepended with `data-` (i.e. `data-confirm-yes="Oui"`).
+//
+// This component only supports `<button>` and `<a>` elements.
+//
+// <h4>JavaScript</h4>
+//
+// <h5>Options</h5>
 // <table class="table table-bordered table-striped">
 //     <thead>
 //         <tr>
@@ -44,25 +56,25 @@
 //             <td>confirm-message</td>
 //             <td>string</td>
 //             <td>Are you sure?</td>
-//             <td>The message to be displayed to the user in the confirmation dialog.</td>
+//             <td>Optional. The message to be displayed to the user in the confirmation dialog.</td>
 //         </tr>
 //         <tr>
 //             <td>confirm-yes</td>
 //             <td>string</td>
 //             <td>Yes</td>
-//             <td>The text to be shown in the button that confirms the action.</td>
+//             <td>Optional. The text to be shown in the button that confirms the action.</td>
 //         </tr>
 //         <tr>
 //             <td>confirm-no</td>
 //             <td>string</td>
 //             <td>No</td>
-//             <td>The text to be shown in the button that confirms the action.</td>
+//             <td>Optional. The text to be shown in the button that confirms the action.</td>
 //         </tr>
 //     </tbody>
 // </table>
 //
-// <h3>Methods</h3>
-// <h4>$().confirm(options)</h4>
+// <h5>Methods</h5>
+// <h6>$().confirm(options)</h6>
 // Creates a click on the element that triggers a confirmation dialog.
 //
 // <h3>Events</h3>
