@@ -1,0 +1,34 @@
+// More Link
+//
+// Responsive link to a complete listing.
+//
+// Markup:
+// <h2>News</h2>
+// <div class="has-more-link">
+//     <p>This is the news.</p>
+//     <div class="more-link">
+//         <a href="#">All News</a>
+//     </div>
+// </div>
+//
+// Styleguide 5.13
+
+
+.more-link {
+    > a:after {
+        content: @more-link-decoration;
+    }
+}
+
+// Move link to upper right corner on big screens
+@media (min-width: @grid-float-breakpoint) {
+    .more-link {
+        position: absolute;
+        top: @more-link-top-offset; // align to baseline with H2
+        right: 0;
+    }
+
+    .has-more-link {
+        position: relative;
+    }
+}
