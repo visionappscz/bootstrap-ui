@@ -30,13 +30,13 @@ module.exports = function(grunt) {
         less: {
             dist: {
                 files: {
-                    'dist/css/<%= pkg.name %>.css': 'src/less/dist.less'
+                    '.tmp/css/<%= pkg.name %>.css': 'src/less/dist.less'
                 },
                 options: {
                     banner: '<%= banner %>',
                     strictUnits: true,
                     sourceMap: true,
-                    sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map',
+                    sourceMapFilename: '.tmp/css/<%= pkg.name %>.css.map',
                     sourceMapURL: '<%= pkg.name %>.css.map',
                     sourceMapRootpath: '../../../'
                 }
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
                 options: {
                     map: true
                 },
-                src: 'dist/css/<%= pkg.name %>.css'
+                src: '.tmp/css/<%= pkg.name %>.css'
             },
             styleguide: {
                 src: 'styleguide/public/kss.css'
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
         cssmin: {
             dist: {
                 files: {
-                    'dist/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css'
+                    '.tmp/css/<%= pkg.name %>.min.css': '.tmp/css/<%= pkg.name %>.css'
                 }
             }
         },
@@ -87,14 +87,12 @@ module.exports = function(grunt) {
         // Concat all JS
         concat: {
             dist: {
-                src: [
-                    'src/js/*.js'
-                ],
-                dest: 'dist/js/<%= pkg.name %>.js'
-            },
-            options: {
-                banner: '<%= banner %>',
-                sourceMap: true
+                src: 'src/js/*.js',
+                dest: '.tmp/js/<%= pkg.name %>.js',
+                options: {
+                    banner: '<%= banner %>',
+                    sourceMap: true
+                }
             }
         },
 
@@ -105,7 +103,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/js/<%= pkg.name %>.min.js': 'dist/js/<%= pkg.name %>.js'
+                    '.tmp/js/<%= pkg.name %>.min.js': '.tmp/js/<%= pkg.name %>.js'
                 }
             }
         },
@@ -147,6 +145,14 @@ module.exports = function(grunt) {
 
         // Copy files
         copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/',
+                    src: ['css/*', 'js/*'],
+                    dest: 'dist/'
+                }]
+            },
             fonts: {
                 files: [{
                     expand: true,
@@ -184,7 +190,7 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'dist/',
+                        cwd: '.tmp/',
                         src: ['css/*', 'js/*'],
                         dest: 'styleguide/public/'
                     },
@@ -296,7 +302,13 @@ module.exports = function(grunt) {
         'clean',
         'build-css',
         'build-js',
-        'build-styleguide',
+        'build-styleguide'
+    ]);
+
+    // Create distribution package
+    grunt.registerTask('dist', [
+        'build',
+        'copy:dist',
         'copy:fonts'
     ]);
 
