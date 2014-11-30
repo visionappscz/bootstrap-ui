@@ -308,6 +308,7 @@ module.exports = function(grunt) {
     // Create distribution package
     grunt.registerTask('dist', [
         'build',
+        'test',
         'copy:dist',
         'copy:fonts'
     ]);
