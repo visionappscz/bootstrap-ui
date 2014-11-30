@@ -2,11 +2,19 @@
 //
 // Responsive link to a complete listing.
 //
+// <div class="panel panel-info">
+//     <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
+//     <div class="panel-body">
+//         It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
+//         appear on the right side of heading on big screens but they are designed in a different way for mobile.
+//     </div>
+// </div>
+//
 // Markup:
 // <h2>News</h2>
-// <div class="has-more-link">
+// <div class="has-more">
 //     <p>This is the news.</p>
-//     <div class="more-link">
+//     <div class="more">
 //         <a href="#">All News</a>
 //     </div>
 // </div>
@@ -14,7 +22,7 @@
 // Styleguide 5.13
 
 
-.more-link {
+.more {
     > a:after {
         content: @more-link-decoration;
     }
@@ -22,13 +30,13 @@
 
 // Move link to upper right corner on big screens
 @media (min-width: @grid-float-breakpoint) {
-    .more-link {
+    .more {
         position: absolute;
         top: @more-link-top-offset; // align to baseline with H2
         right: 0;
     }
 
-    .has-more-link {
+    .has-more {
         position: relative;
     }
 }
