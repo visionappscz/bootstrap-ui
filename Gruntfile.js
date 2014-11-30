@@ -31,6 +31,10 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'dist/css/<%= pkg.name %>.css': 'src/less/dist.less'
+                },
+                options: {
+                    banner: '<%= banner %>',
+                    strictUnits: true
                 }
             }
         },
@@ -117,17 +121,6 @@ module.exports = function(grunt) {
                         to: '<%= grunt.template.today("yyyy") %>'
                     }
                 ]
-            }
-        },
-
-        // Use banner
-        usebanner: {
-            options: {
-                position: 'top',
-                banner: '<%= banner %>'
-            },
-            files: {
-                src: 'dist/css/*.css'
             }
         },
 
@@ -278,8 +271,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build-css', [
         'less',
         'autoprefixer:core',
-        'cssmin',
-        'usebanner'
+        'cssmin'
     ]);
 
     grunt.registerTask('build-js', [
