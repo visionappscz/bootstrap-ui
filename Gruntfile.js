@@ -34,7 +34,11 @@ module.exports = function(grunt) {
                 },
                 options: {
                     banner: '<%= banner %>',
-                    strictUnits: true
+                    strictUnits: true,
+                    sourceMap: true,
+                    sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map',
+                    sourceMapURL: '<%= pkg.name %>.css.map',
+                    sourceMapRootpath: '../../../'
                 }
             }
         },
