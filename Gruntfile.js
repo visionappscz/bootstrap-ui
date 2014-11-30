@@ -85,7 +85,8 @@ module.exports = function(grunt) {
                 dest: 'dist/js/<%= pkg.name %>.js'
             },
             options: {
-                banner: '<%= banner %>'
+                banner: '<%= banner %>',
+                sourceMap: true
             }
         },
 
