@@ -77,18 +77,18 @@
   function Plugin(options) {
     if (this.length) {
       if (options === 'reset') {
-        $(document).trigger('resetStart.sui.filterable', [this.$filterable]);
+        $(document).trigger('resetStart.sui.filterable');
       } else {
         $(document).trigger('filter.sui.filterable');
       }
 
       this.each(function() {
-        var $element, data;
+        var data;
+        var $this = $(this);
 
-        $element = $(this);
-        data = $element.data('sui.filterable');
+        data = $this.data('sui.filterable');
         if (!data) {
-          $element.data('sui.filterable', (data = new Filterable($element)));
+          $this.data('sui.filterable', (data = new Filterable($this)));
         }
 
         if (options === 'reset') {
@@ -99,7 +99,7 @@
       });
 
       if (options === 'reset') {
-        $(document).trigger('resetEnd.sui.filterable', [this.$filterable]);
+        $(document).trigger('resetEnd.sui.filterable');
       } else {
         $(document).trigger('filtered.sui.filterable');
       }
@@ -127,17 +127,16 @@
   // ===================
 
   $(document).on('change.sui.filterable.data-api', '[data-toggle=filter]', function() {
-    var $filterInput;
     var $filter = $(this).closest('form');
     var filterData = [];
 
-    $filter.find(':input').each(function(index, filterInput) {
-      $filterInput = $(filterInput);
-      if ($filterInput.val() !== '' && $filterInput.val() !== null) {
+    $filter.find(':input').each(function() {
+      var $this = $(this);
+      if ($this.val() !== '' && $this.val() !== null) {
         filterData.push({
-          'filter-attrib': $filterInput.data('filter-attrib'),
-          'filter-operator': $filterInput.data('filter-operator'),
-          'filter-value': $filterInput.val()
+          'filter-attrib': $this.data('filter-attrib'),
+          'filter-operator': $this.data('filter-operator'),
+          'filter-value': $this.val()
         });
       }
     });

@@ -98,15 +98,14 @@
   // ================================
 
   function Plugin(options) {
-    var $element, data, $navigation;
-
     return this.each(function () {
-      $element = $(this);
+      var $navigation;
+      var $this = $(this);
+      var data = $this.data('sui.sortableTable');
 
-      data = $element.data('sui.sortableTable');
       if (!data) {
         $navigation = options && ('navigation' in options) && options.navigation ? $(options.navigation) : false;
-        $element.data('sui.sortableTable', (data = new SortableTable($element, $navigation)));
+        $this.data('sui.sortableTable', (data = new SortableTable($this, $navigation)));
       }
       data.sort(options['sorted-th'], options['sort-direction']);
     });
@@ -130,23 +129,22 @@
   // SORTABLE TABLE DATA-API
   // =======================
 
-  (function() {
-    var callPlugin = function(e) {
-      var $sortedTh = $(e.currentTarget);
-      var $sortedTable = $sortedTh.closest('table');
+  (function(Plugin, $, window, document) {
+    var callPlugin = function($this) {
+      var $sortedTable = $this.closest('table');
       Plugin.call($sortedTable, {
-        'sorted-th': $sortedTh,
+        'sorted-th': $this,
         'navigation': $($sortedTable.data('sort-navigation'))
       });
     };
 
     $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
-      callPlugin(e);
+      callPlugin($(this));
     });
 
     $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
       if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
-        callPlugin(e);
+        callPlugin($(this));
       }
     });
 
@@ -161,6 +159,6 @@
         'sort-direction': $sortedTh.data('sort-onload')
       });
     });
-  }());
+  }(Plugin, $, window, document));
 
 }(jQuery, window, document));

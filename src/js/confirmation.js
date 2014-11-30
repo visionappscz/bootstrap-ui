@@ -80,14 +80,12 @@
   // ==============================
 
   function Plugin(options) {
-    var $element, data;
-
     return this.each(function() {
-      $element = $(this);
+      var $this = $(this);
+      var data = $this.data('sui.confirmation');
 
-      data = $element.data('sui.confirmation');
       if (!data) {
-        $element.data('sui.confirmation', (data = new Confirmation($element, options)));
+        $this.data('sui.confirmation', (data = new Confirmation($this, options)));
       }
       data.showConfirmation();
     });
@@ -112,19 +110,21 @@
   // =====================
 
   $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(e, noConfirm) {
+    var $this = $(this);
+
     if (!noConfirm) {
-      var $clickedEl = $(e.currentTarget);
-      Plugin.call($clickedEl, {
-        'confirm-message': $clickedEl.data('confirm-message'),
-        'confirm-yes': $clickedEl.data('confirm-yes'),
-        'confirm-no': $clickedEl.data('confirm-no'),
+      e.preventDefault();
+
+      Plugin.call($this, {
+        'confirm-message': $this.data('confirm-message'),
+        'confirm-yes': $this.data('confirm-yes'),
+        'confirm-no': $this.data('confirm-no'),
         'callback': function(result) {
           if (result) {
-            $clickedEl.trigger('click.sui.confirmation.data-api', true);
+            $this.trigger('click.sui.confirmation.data-api', true);
           }
         }
       });
-      e.preventDefault();
     }
   });
 
