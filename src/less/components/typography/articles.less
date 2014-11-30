@@ -1,6 +1,7 @@
 // Article
 //
-// Articles are basically limited in width to ensure optimum readability.
+// Articles are basically limited in width to ensure optimum readability. Images in articles are automatically treated
+// as responsive.
 //
 // Markup:
 // <article class="article">
@@ -25,4 +26,8 @@
 .article {
     max-width: 35em;
     margin-bottom: 2 * @line-height-computed;
+
+    img {
+        &:extend(.img-responsive all);
+    }
 }
