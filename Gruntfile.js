@@ -277,7 +277,7 @@ module.exports = function(grunt) {
     // Measure task execution times
     require('time-grunt')(grunt);
 
-    // Build tasks
+    // Individual build tasks
     grunt.registerTask('build-css', [
         'less',
         'autoprefixer:core',
@@ -298,6 +298,7 @@ module.exports = function(grunt) {
         'copy:styleguide'
     ]);
 
+    // Build CSS, JS and style guide.
     grunt.registerTask('build', [
         'clean',
         'build-css',
@@ -305,7 +306,7 @@ module.exports = function(grunt) {
         'build-styleguide'
     ]);
 
-    // Create distribution package
+    // Create distribution package. To be run right before release.
     grunt.registerTask('dist', [
         'build',
         'test',
@@ -313,21 +314,23 @@ module.exports = function(grunt) {
         'copy:fonts'
     ]);
 
-    // Serve and watch
+    // Serve the style guide to browser, watch the source files for changes and update them automatically.
     grunt.registerTask('serve', [
         'build',
         'browserSync:dev',
         'watch'
     ]);
 
-    // Run JS tests in browser
+    // Run JS tests in a real browser.
     // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
+    // To access the tests from a remote device that is connected to local network (mobile, tablet, etc.), visit
+    // `http://<your local IP address>:3000/src/js/tests/`.
     grunt.registerTask('test-remote', [
         'jshint',
         'browserSync:test'
     ]);
 
-    // Run tests
+    // Run JS tests in a headless browser.
     grunt.registerTask('test', [
         'jshint',
         'qunit'
