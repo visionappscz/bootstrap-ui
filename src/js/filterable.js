@@ -141,13 +141,13 @@
       }
     });
 
-    Plugin.call($($filter.data('target')), filterData);
+    Plugin.call($($filter.data('filter-target')), filterData);
   });
 
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');
     $form[0].reset();
-    Plugin.call($($form.data('target')), 'reset');
+    Plugin.call($($form.data('filter-target')), 'reset');
   });
 
 }(jQuery, window, document));

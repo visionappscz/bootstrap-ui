@@ -10,9 +10,6 @@
 // a `.sorting-asc` and `.sorting-desc` can be added to the relevant `<th>` to indicate the column and direction of the
 // default sorting.
 //
-// Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be
-// achieved by specifying the attribute `data-sort-onload` on the appropriate `<th>`. This attribute takes the value
-// of either `asc` or `desc` to indicate the sorting order.
 //
 // <div class="panel panel-danger">
 //     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
@@ -29,7 +26,22 @@
 //     </div>
 // </div>
 //
-// <h3>Options</h3>
+// <h3>Usage</h3>
+//
+// <h4>Data-api</h4>
+//
+// To use sortable-table via data-api, `data-toggle="sort"` has to be defined on the `<th>` that should trigger sorting on click.
+//
+// In order to utilize the navigation feature, `data-sort-navigation` has to be defined on the `<table>`element and it must contain a string that
+// when evaluated as a jQuery selector will return a jQuery object referencing teh navigation container DOM element.
+//
+// Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be
+// achieved by specifying the attribute `data-sort-onload` on the appropriate `<th>`. This attribute takes the value
+// of either `asc` or `desc` to indicate the sorting order.
+//
+// <h4>JavaScrip</h4>
+//
+// <h5>Options</h5>
 // <table class="table table-bordered table-striped">
 //     <thead>
 //         <tr>
@@ -44,20 +56,20 @@
 //             <td>sorted-th</td>
 //             <td>string</td>
 //             <td></td>
-//             <td>A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
+//             <td>Mandatory. A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
 //         </tr>
 //         <tr>
 //             <td>sort-direction</td>
 //             <td>string</td>
-//             <td>asc</td>
-//             <td>Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
+//             <td>If the column is already sorted it defaults to the reverse order. If it is not sorted, it defaults to `asc`.</td>
+//             <td>Optional. Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
 //         </tr>
 //         <tr>
 //             <td>sort-navigation</td>
 //             <td>jQuery object</td>
 //             <td></td>
 //             <td>
-//                  A jQuery object with reference to the DOM element where the group quick links are to appear.
+//                  Optional. A jQuery object with reference to the DOM element where the group quick links are to appear.
 //                  The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
 //                  For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
 //              </td>
@@ -65,8 +77,8 @@
 //     </tbody>
 // </table>
 //
-// <h3>Methods</h3>
-// <h4>$().sortableTable(options)</h4>
+// <h5>Methods</h5>
+// <h6>$().sortableTable(options)</h6>
 // Initiates a sortable table if needed and performs the sorting according to the options object.
 //
 // <h3>Events</h3>
