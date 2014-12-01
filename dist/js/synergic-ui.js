@@ -7,7 +7,7 @@
  * HTML & LESS © 2014 Adam Kudrna
  * JavaScript © 2014 Martin Bohal
  *
- * v0.5.0 (29 November 2014)
+ * v0.5.0 (1 December 2014)
  */
 ;(function($, window, document) {
   'use strict';
@@ -285,7 +285,7 @@
       }
     });
 
-    Plugin.call($($filter.data('filteŕ-target')), filterData);
+    Plugin.call($($filter.data('filter-target')), filterData);
   });
 
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
