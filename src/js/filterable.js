@@ -142,7 +142,7 @@
       }
     });
 
-    Plugin.call($($filter.data('filteŕ-target')), filterData);
+    Plugin.call($($filter.data('filter-target')), filterData);
   });
 
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
