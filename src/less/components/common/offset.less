@@ -11,3 +11,21 @@
 .offset-bottom {
     margin-bottom: @line-height-computed;
 }
+
+
+// Responsive Offset
+//
+// Offset that only applies only in linear layout.
+//
+// Markup:
+// <div class="offset-responsive">I have extra bottom spacing on small screens.</div>
+//
+// Styleguide 5.14.1
+
+.offset-responsive {
+    margin-bottom: 2 * @line-height-computed;
+
+    @media (min-width: @grid-float-breakpoint) {
+        margin-bottom: 0;
+    }
+}
