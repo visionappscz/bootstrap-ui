@@ -486,44 +486,65 @@ $(function() {
   ////////////////////////////
   // Data-api related tests //
   ////////////////////////////
-  test('should filter filterables by changing an element in the filter form', function() {
+  test('should filter filterables by changing an element in the appropriate filter form', function() {
     stop();
-    $('#qunit-fixture')
-      .append('<div data-tag="tag1">')
-      .append('<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
-        '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
-        '</form>');
+
+    // Two forms are defined to ensue that the second one doesnt interfere
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+      '<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
+      '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '</form>' +
+      '<div data-tag="tag2">Tag 2</div>' +
+      '<form data-filter-target="#qunit-fixture div[data-tag=tag2]">' +
+      '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '</form>');
 
     $(document).on('filtered.sui.filterable', function() {
-      $(document).off('filtered.sui.filterable');
-      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === false, 'the filter was triggered');
-      start();
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':hidden'), 'tag 1 was hidden');
+      ok($('#qunit-fixture div[data-tag="tag2"]').is(':visible'), 'tag 2 is visible');
     });
-    $('#qunit-fixture input').val('tag2').change();
+
+    $('#control').val('tag2').change();
+
+    setTimeout(function() {
+      $(document).off('filtered.sui.filterable');
+      start();
+    }, 100);
   });
 
   test('should reset filterables by clicking on reset element', function() {
     stop();
-    $('#qunit-fixture')
-      .append('<div data-tag="tag1">')
-      .append('<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
-        '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
-        '<button type="reset" data-toggle="filter-reset" />' +
-        '</form>');
 
+    // Two forms are defined to ensue that the second one doesnt interfere
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+      '<form id="form-1" data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
+      '<input id="control-1" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '<button type="reset" data-toggle="filter-reset" />' +
+      '</form>' +
+      '<div data-tag="tag2">Tag 2</div>' +
+      '<form data-filter-target="#qunit-fixture div[data-tag=tag2]">' +
+      '<input id="control-2" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '<button type="reset" data-toggle="filter-reset" />' +
+      '</form>');
+
+    $('#control-2').val('tag1').change();
     $(document).on('filtered.sui.filterable', function() {
-      $(document).off('filtered.sui.filterable');
       $(document).on('resetEnd.sui.filterable', function() {
-        $(document).off('resetEnd.sui.filterable');
-        ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true, 'the filter was reset');
-        console.log($('#qunit-fixture input').val());
-        ok(!$('#qunit-fixture input').val(), 'the filter form was reset');
-        start();
+        ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible'), 'tag 1 was shown again');
+        ok(!$('#control-1').val(), 'the control-1 form was reset');
+        ok($('#qunit-fixture div[data-tag="tag2"]').is(':hidden'), 'tag 2 remained hidden');
+        ok($('#control-2').val(), 'the control-2 form was not reset');
       });
-      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible') === false, 'the filter was triggered');
     });
-    $('#qunit-fixture input').val('tag2').change();
-    $('#qunit-fixture button').click();
+
+    $('#control-1').val('tag2').change();
+    $('#form-1 button').click();
+
+    setTimeout(function() {
+      $(document).off('filtered.sui.filterable');
+      $(document).off('resetEnd.sui.filterable');
+      start();
+    }, 100);
   });
 
 });

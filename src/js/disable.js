@@ -62,12 +62,13 @@
       var $controls = $('[data-toggle=disable]');
 
       $controls.each(function() {
-        var eventType = $(this).data('disable-event');
+        var $this = $(this);
+        var eventType = $this.data('disable-event');
         if (!eventType) {
           eventType = 'change';
         }
-        $(document).on(eventType + '.sui.disable.data-api', '[data-toggle=disable]', function() {
-          Plugin.call($($(this).data('disable-target')), 'toggle');
+        $this.on(eventType + '.sui.disable.data-api', function() {
+          Plugin.call($($this.data('disable-target')), 'toggle');
         });
       });
     });
