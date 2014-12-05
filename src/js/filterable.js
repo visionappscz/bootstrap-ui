@@ -13,7 +13,6 @@
       filterOper, dataValCounter, dataValLength, fObjCounter, hideEl, fObjectsLength;
 
     if (fObjects && fObjects.length) {
-      this.$filterable.show();
       fObjectsLength = fObjects.length;
       for (fObjCounter = 0; fObjCounter < fObjectsLength; fObjCounter++) {
         filterVal = fObjects[fObjCounter]['filter-value'];
@@ -60,6 +59,8 @@
 
           if (hideEl === true) {
             this.$filterable.hide();
+          } else {
+            this.$filterable.show();
           }
         }
       }
