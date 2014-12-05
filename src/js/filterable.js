@@ -12,6 +12,7 @@
     var dataVal, filterValCounter, filterValLength, filterVal,
       filterOper, dataValCounter, dataValLength, fObjCounter, hideEl, fObjectsLength;
 
+    this.$filterable.show();
     if (fObjects && fObjects.length) {
       fObjectsLength = fObjects.length;
       for (fObjCounter = 0; fObjCounter < fObjectsLength; fObjCounter++) {
@@ -59,8 +60,6 @@
 
           if (hideEl === true) {
             this.$filterable.hide();
-          } else {
-            this.$filterable.show();
           }
         }
       }

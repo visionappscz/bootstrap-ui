@@ -457,6 +457,35 @@ $(function() {
     }]);
   });
 
+  test('should filter by multiple filter objects', function() {
+    stop();
+    $('#qunit-fixture')
+      .append('<div id="div1" data-tags="tag1" data-groups="group1"/>')
+      .append('<div id="div2" data-tags="tag1" data-groups="group2"/>')
+      .append('<div id="div3" data-tags="tag3" data-groups="group2"/>');
+
+    $(document).on('filtered.sui.filterable', function() {
+      $(document).off('filtered.sui.filterable');
+      ok($('#div1').is(':hidden'), '"div1" is not "group2" -> hidden');
+      ok($('#div2').is(':visible'), '"tag2" is both "tag1" and "group2"  -> visible');
+      ok($('#div3').is(':hidden'), '"div3" is not "tag1" -> hidden');
+      start();
+    });
+
+    $('#qunit-fixture div').suiFilterable([
+      {
+        'filter-attrib': 'tags',
+        'filter-operator': 'intersect',
+        'filter-value': 'tag1'
+      },
+      {
+        'filter-attrib': 'groups',
+        'filter-operator': 'intersect',
+        'filter-value': 'group2'
+      }
+    ]);
+  });
+
   /////////////////////////
   // Reset related tests //
   /////////////////////////
@@ -492,11 +521,11 @@ $(function() {
     // Two forms are defined to ensue that the second one doesnt interfere
     $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
       '<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
-      '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
       '</form>' +
       '<div data-tag="tag2">Tag 2</div>' +
       '<form data-filter-target="#qunit-fixture div[data-tag=tag2]">' +
-      '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
       '</form>');
 
     $(document).on('filtered.sui.filterable', function() {
@@ -518,12 +547,12 @@ $(function() {
     // Two forms are defined to ensue that the second one doesnt interfere
     $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
       '<form id="form-1" data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
-      '<input id="control-1" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '<input id="control-1" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
       '<button type="reset" data-toggle="filter-reset" />' +
       '</form>' +
       '<div data-tag="tag2">Tag 2</div>' +
       '<form data-filter-target="#qunit-fixture div[data-tag=tag2]">' +
-      '<input id="control-2" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="=" value="" />' +
+      '<input id="control-2" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
       '<button type="reset" data-toggle="filter-reset" />' +
       '</form>');
 
@@ -545,6 +574,24 @@ $(function() {
       $(document).off('resetEnd.sui.filterable');
       start();
     }, 100);
+  });
+
+  test('empty value should match all, that is reset the filter field', function() {
+    stop();
+
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+      '<form id="form-1" data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
+      '<input id="control-1" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
+      '</form>');
+
+    $('#control-1').val('x').change();
+    $(document).on('filtered.sui.filterable', function() {
+      $(document).off('filtered.sui.filterable');
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible'), '"div1" was not hidden');
+      start();
+    });
+
+    $('#control-1').val('').change();
   });
 
 });
