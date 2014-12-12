@@ -48,8 +48,13 @@
     }
 
     // Components overrides, presentation purpose
-    .panel-menu {
-        position: static;
+    .panel-menu-bar,
+    .panel-menu-pane {
+        position: absolute;
+    }
+
+    .panel-menu-pane {
+        height: 400px;
     }
 
     @media screen and (min-width: @screen-sm-min) {

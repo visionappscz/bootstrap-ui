@@ -1,102 +1,285 @@
 // Panel Menu
 //
-// Lef-side panel menu designed for admin navigation. Requires `.has-panel-menu` class on `<body>`. **Depends on Navbar
-// component.**
+// Lef-side panel menu designed for admin navigation. If using with panel menu bar, class `.has-panel-menu-bar` on
+// `<body>` is required so the the page content is not covered by the bar.
 //
 // Markup:
-// <nav class="panel-menu">
-//     <div class="panel-menu-header">
-//         <button type="button" class="panel-menu-toggle" data-toggle="collapse" data-target="#kssPanel">
+// <div class="panel-menu">
+//     <!-- Panel menu bar -->
+//     <div class="panel-menu-bar">
+//         <button data-toggle="collapse" data-target="#panelMenu" class="panel-menu-bar-toggle collapsed" aria-expanded="false">
+//             <span class="panel-menu-bar-toggle-icon" aria-hidden="true">
+//                 <span class="icon-bar"></span>
+//                 <span class="icon-bar"></span>
+//                 <span class="icon-bar"></span>
+//             </span>
 //             <span class="sr-only">Menu</span>
-//             <span class="icon-bar"></span>
-//             <span class="icon-bar"></span>
-//             <span class="icon-bar"></span>
 //         </button>
-//     </div>
-//     <div class="collapse panel-menu-collapse" id="kssPanel">
-//         <ul class="nav panel-menu-nav">
-//             <li><a href="#">Dashboard</a></li>
-//             <li><a href="#">Pages</a></li>
-//             <li><a href="#">Articles</a></li>
-//             <li><a href="#">Media</a></li>
-//             <li><a href="#">Users</a></li>
+//         <div class="panel-menu-bar-right">
+//             <div class="dropdown">
+//                 <a href="#" id="userMenuLabel" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+//                     <span class="panel-menu-bar-avatar">
+//                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+//                     </span>
+//                     Bilbo Baggins
+//                     <span class="caret" aria-hidden="true"></span>
+//                 </a>
+//                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="userMenuLabel">
+//                     <li>
+//                         <a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sign out</a>
+//                     </li>
+//                 </ul>
+//             </div>
+//         </div>
+//     </div><!-- .panel-menu-bar -->
+//     <!-- Panel menu pane -->
+//     <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
+//         <h2>Administration</h2>
+//         <ul class="nav">
+//             <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pages</a></li>
+//             <li>
+//                 <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Media</a>
+//                 <ul class="nav">
+//                     <li><a href="#">Pictures</a></li>
+//                     <li><a href="#">Music</a></li>
+//                     <li><a href="#">Video</a></li>
+//                 </ul>
+//             </li>
+//             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
+//             <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
 //         </ul>
-//     </div><!-- .collapse -->
-// </nav>
+//     </nav><!-- .panel-menu-pane -->
+// </div><!-- .panel-menu -->
 //
 // Styleguide 3.2
 
 
-.panel-menu {
-    color: @gray-lighter;
-    background-color: @gray-darker;
+// Panel menu bar and pane - common styles.
+.panel-menu-bar,
+.panel-menu-pane {
+    a {
+        text-decoration: none;
+        color: @panel-menu-link-text;
+        transition: all 250ms ease-out;
 
-    &-header {
-        &:extend(.clearfix all);
-    }
-
-    &-toggle {
-        &:extend(.navbar-toggle all);
-        &:extend(.navbar-default .navbar-toggle all);
-    }
-
-    &-collapse {
-        -webkit-overflow-scrolling: touch;
-
-        &.in {
-            overflow-y: auto;
-        }
-    }
-
-    &-nav {
-        > li > a {
-            color: @gray-light;
-
-            &:hover,
-            &:focus {
-                color: #fff;
-                background-color: @gray-dark;
-            }
+        > .glyphicon {
+            position: relative;
+            top: 3px;
+            width: @panel-menu-link-icon-size;
+            float: left;
+            margin-right: @panel-menu-link-icon-offset;
         }
 
-        > li > ul > li > a {
-            padding-left: 30px;
-        }
-    }
-
-    @media (min-width: @grid-float-breakpoint) {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: @zindex-navbar;
-        width: @panel-menu-width;
-        display: block !important;
-        padding: @line-height-computed 0;
-
-        &-collapse {
-            &.collapse {
-                display: block !important;
-                visibility: visible !important;
-                overflow: visible !important;
-            }
-
-            &.in {
-                overflow-y: visible;
-            }
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            color: @panel-menu-link-text-hover;
         }
     }
 }
 
-// Make place for the panel
-@media (min-width: @grid-float-breakpoint) {
-    body.has-panel-menu {
-        padding-left: @panel-menu-width;
+// To be applied on panel menu parent so the page content is not covered by the bar.
+.has-panel-menu-bar {
+    margin-top: @panel-menu-bar-height;
+}
 
-        // Fixes for sticky footer
-        .footer-sticky {
-            width: calc(~"100% - 220px");
-            left: @panel-menu-width;
+// The bar
+.panel-menu-bar {
+    &:extend(.clearfix all);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: @zindex-panel-menu + 1;
+    height: @panel-menu-bar-height;
+    padding: 0 @padding-base-horizontal 0 0;
+    color: @panel-menu-text;
+    background-color: @panel-menu-bg;
+    box-shadow: 0 0 12px 1px fade(#000, 70%);
+
+    &-toggle {
+        float: left;
+        padding: ((@panel-menu-bar-height - 20) / 2) 15px;
+        border: none;
+        border-radius: 0;
+        background: none;
+
+        &-icon {
+            width: 30px;
+            height: 20px;
+            display: block;
+
+            > .icon-bar {
+                height: 3px;
+                display: block;
+                background-color: @panel-menu-link-text;
+                transition: all 250ms ease-out;
+
+                & + .icon-bar {
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        &:hover,
+        &:focus {
+            outline: none;
+
+            .panel-menu-bar-toggle-icon > .icon-bar {
+                background-color: @panel-menu-link-text-hover;
+            }
+        }
+
+        // Active state
+        &:not(.collapsed) {
+            > .panel-menu-bar-toggle-icon {
+                > .icon-bar:first-child {
+                    transform: translate(0, 8px) rotate(45deg);
+                }
+
+                > .icon-bar:nth-child(2) {
+                    transform: rotate(-45deg);
+                }
+
+                > .icon-bar:last-child {
+                    transform: translate(0, -8px) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    &-right {
+        float: right;
+    }
+
+    .dropdown {
+        margin-left: 1em;
+
+        > .dropdown-toggle {
+            display: inline-block;
+            padding: ((@panel-menu-bar-height - @panel-menu-avatar-size) / 2) 0;
+        }
+
+        > .dropdown-menu {
+            border: none;
+            background-color: @panel-menu-bg;
+
+            > li > a {
+                color: @panel-menu-link-text;
+
+                &:hover,
+                &:focus {
+                    color: @panel-menu-link-text-hover;
+                    background-color: @panel-menu-link-bg-hover;
+                }
+            }
+        }
+    }
+
+    &-avatar {
+        width: @panel-menu-avatar-size;
+        height: @panel-menu-avatar-size;
+        display: inline-block;
+        margin-right: 1ex;
+        vertical-align: middle;
+        line-height: 30px;
+        text-align: center;
+        color: @panel-menu-avatar-color;
+        border-radius: 50%;
+        background-color: @panel-menu-avatar-bg;
+    }
+}
+
+// The menu
+.panel-menu-pane {
+    position: fixed;
+    left: 0;
+    top: @panel-menu-bar-height;
+    bottom: 0;
+    z-index: @zindex-panel-menu;
+    width: @panel-menu-pane-width;
+    overflow-y: auto;
+    color: @panel-menu-text;
+    background-color: @panel-menu-bg;
+    box-shadow: 0 0 12px 1px fade(#000, 70%);
+
+    // Transition
+    &.collapse {
+        width: 0;
+        height: auto;
+
+        &.in {
+            width: @panel-menu-pane-width;
+        }
+    }
+
+    &.collapsing {
+        position: fixed;
+        height: auto;
+        .transition-property(~"width, visibility");
+        .transition-timing-function(ease-out);
+    }
+
+    // Prevent word break when (un)collapsing
+    h2,
+    .nav {
+        width: @panel-menu-pane-width;
+    }
+
+    // Headings
+    h2 {
+        margin: @line-height-computed 0;
+        padding: 0 15px;
+        font-weight: @headings-font-weight;
+        font-family: @font-family-base;
+        font-size: @font-size-small;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: @panel-menu-text;
+    }
+
+    // Navigation
+    .nav {
+        overflow-y: hidden;
+        margin: @line-height-computed 0;
+
+        // Items (including submenu)
+        > li > a,
+        > li > .nav > li > a {
+            border-top: 1px solid @panel-menu-link-border;
+            border-bottom: 1px solid @panel-menu-link-border;
+
+            &:hover,
+            &:focus {
+                padding-left: 15px + @panel-menu-link-shift-hover;
+                background-color: @panel-menu-link-bg-hover;
+            }
+        }
+
+        > li + li > a,
+        > li > .nav > li > a {
+            border-top: none;
+        }
+
+        > .active > a {
+            color: @panel-menu-link-text-active;
+            background-color: @panel-menu-link-bg-active;
+        }
+
+        // Submenus
+        > li > .nav {
+            margin: 0;
+
+            > li > a {
+                padding-left: @panel-menu-submenu-offset;
+                background-color: @panel-menu-submenu-link-bg;
+
+                &:hover,
+                &:focus {
+                    padding-left: @panel-menu-submenu-offset + @panel-menu-link-shift-hover;
+                    background-color: @panel-menu-submenu-link-bg-hover;
+                }
+            }
         }
     }
 }

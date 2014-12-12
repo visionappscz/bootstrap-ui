@@ -93,6 +93,7 @@ Full Synergic UI using custom colors, example use:
 
 Release date: FIXME
 
+* Completely refactored Panel Menu component
 * Added responsive button variant
 * Configuration of Teaser component
 * Optimized performance of JavaScript components

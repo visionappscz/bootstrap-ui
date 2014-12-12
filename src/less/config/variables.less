@@ -60,7 +60,32 @@
 @page-header-border-color:    #ddd;
 
 // Panel menu
-@panel-menu-width:            220px;
+@panel-menu-bar-height: 50px;
+@panel-menu-pane-width: 260px;
+
+@panel-menu-bg: @gray-darker;
+@panel-menu-text: @gray-light;
+
+@panel-menu-link-text: @gray-light;
+@panel-menu-link-text-hover: @gray-lighter;
+@panel-menu-link-text-active: #fff;
+@panel-menu-link-border: @gray-dark;
+@panel-menu-link-bg-hover: @gray-dark;
+@panel-menu-link-bg-active: @panel-menu-link-bg-hover;
+@panel-menu-link-icon-size: 16px;
+@panel-menu-link-icon-offset: 16px;
+@panel-menu-link-shift-hover: 8px;
+
+@panel-menu-submenu-offset: 15px + @panel-menu-link-icon-size + @panel-menu-link-icon-offset;
+@panel-menu-submenu-link-border: @gray-darker;
+@panel-menu-submenu-link-bg: darken(@panel-menu-bg, 5%);
+@panel-menu-submenu-link-bg-hover: @panel-menu-link-bg-hover;
+
+@panel-menu-avatar-size: 30px;
+@panel-menu-avatar-bg: @gray;
+@panel-menu-avatar-color: @gray-lighter;
+
+@zindex-panel-menu: @zindex-navbar-fixed;
 
 // Teaser
 @teaser-title-lines: 2;
