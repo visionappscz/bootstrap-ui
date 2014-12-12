@@ -8301,15 +8301,25 @@ html {
 }
 .panel-menu-pane .nav > li > .nav > li > a,
 .panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a {
-  padding-left: 47px;
+  padding-left: 31px;
   background-color: #161616;
 }
 .panel-menu-pane .nav > li > .nav > li > a:hover,
 .panel-menu-pane .nav > li > .nav > li > a:focus,
 .panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a:hover,
 .panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a:focus {
-  padding-left: 55px;
+  padding-left: 39px;
   background-color: #333333;
+}
+.panel-menu-pane .nav.nav-icons > li > .nav > li > a,
+.panel-menu-pane .sortable-table-nav ul.nav-icons > li > .sortable-table-nav ul > li > a {
+  padding-left: 47px;
+}
+.panel-menu-pane .nav.nav-icons > li > .nav > li > a:hover,
+.panel-menu-pane .nav.nav-icons > li > .nav > li > a:focus,
+.panel-menu-pane .sortable-table-nav ul.nav-icons > li > .sortable-table-nav ul > li > a:hover,
+.panel-menu-pane .sortable-table-nav ul.nav-icons > li > .sortable-table-nav ul > li > a:focus {
+  padding-left: 55px;
 }
 @media screen and (min-width: 768px) {
   .form-filter .form-actions {

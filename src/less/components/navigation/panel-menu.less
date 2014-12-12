@@ -1,7 +1,8 @@
 // Panel Menu
 //
 // Lef-side panel menu designed for admin navigation. If using with panel menu bar, class `.has-panel-menu-bar` on
-// `<body>` is required so the the page content is not covered by the bar.
+// `<body>` is required so the the page content is not covered by the bar. Apply `.nav-icons` to the `.nav` element to
+// adjust offset of nested menu items.
 //
 // Markup:
 // <div class="panel-menu">
@@ -35,7 +36,7 @@
 //     <!-- Panel menu pane -->
 //     <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
 //         <h2>Administration</h2>
-//         <ul class="nav">
+//         <ul class="nav nav-icons">
 //             <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pages</a></li>
 //             <li>
 //                 <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Media</a>
@@ -266,7 +267,7 @@
             background-color: @panel-menu-link-bg-active;
         }
 
-        // Submenus
+        // Submenu
         > li > .nav {
             margin: 0;
 
@@ -278,6 +279,18 @@
                 &:focus {
                     padding-left: @panel-menu-submenu-offset + @panel-menu-link-shift-hover;
                     background-color: @panel-menu-submenu-link-bg-hover;
+                }
+            }
+        }
+
+        // Adjust offset of nested items if there are icons in the menu.
+        &.nav-icons > li > .nav {
+            > li > a {
+                padding-left: @panel-menu-submenu-icons-offset;
+
+                &:hover,
+                &:focus {
+                    padding-left: @panel-menu-submenu-icons-offset + @panel-menu-link-shift-hover;
                 }
             }
         }
