@@ -308,8 +308,8 @@ module.exports = function(grunt) {
 
   // Create distribution package. To be run right before release.
   grunt.registerTask('dist', [
-    'build',
     'test',
+    'build',
     'copy:dist',
     'copy:fonts'
   ]);
@@ -321,6 +321,12 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  // Run JS tests in a headless browser.
+  grunt.registerTask('test', [
+    'jshint',
+    'qunit'
+  ]);
+
   // Run JS tests in a real browser.
   // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
   // To access the tests from a remote device that is connected to local network (mobile, tablet, etc.), visit
@@ -328,12 +334,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test-remote', [
     'jshint',
     'browserSync:test'
-  ]);
-
-  // Run JS tests in a headless browser.
-  grunt.registerTask('test', [
-    'jshint',
-    'qunit'
   ]);
 
   // Default task
