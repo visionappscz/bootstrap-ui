@@ -300,7 +300,8 @@ module.exports = function(grunt) {
 
   // Build CSS, JS and style guide.
   grunt.registerTask('build', [
-    'clean',
+    'clean:temp',
+    'clean:styleguide',
     'build-css',
     'build-js',
     'build-styleguide'
@@ -309,6 +310,7 @@ module.exports = function(grunt) {
   // Create distribution package. To be run right before release.
   grunt.registerTask('dist', [
     'test',
+    'clean:dist',
     'build',
     'copy:dist',
     'copy:fonts'
