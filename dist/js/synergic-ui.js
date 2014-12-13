@@ -7,7 +7,7 @@
  * HTML & LESS © 2014 Adam Kudrna
  * JavaScript © 2014 Martin Bohal
  *
- * v0.5.0 (12 December 2014)
+ * v0.6.0 (13 December 2014)
  */
 ;(function($, window, document) {
   'use strict';
