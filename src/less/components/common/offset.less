@@ -4,6 +4,8 @@
 //
 // Markup:
 // <div class="offset-bottom">I have bottom spacing like a real paragraph!</div>
+// <div class="offset-bottom-large">I have big bottom spacing!</div>
+// <div class="offset-bottom-larger">I have HUGE bottom spacing!</div>
 //
 // Styleguide 5.14
 
@@ -12,20 +14,61 @@
     margin-bottom: @line-height-computed;
 }
 
+.offset-bottom-large {
+    margin-bottom: 2 * @line-height-computed;
+}
+
+.offset-bottom-larger {
+    margin-bottom: 4 * @line-height-computed;
+}
+
 
 // Responsive Offset
 //
 // Offset that only applies in a linear layout.
 //
 // Markup:
-// <div class="offset-responsive">I have extra bottom spacing on small screens.</div>
+// <div class="offset-bottom-xs-max">I have extra bottom spacing on extra small screens (xs).</div>
+// <div class="offset-bottom-sm-max">I have extra bottom spacing on small screens (sm).</div>
+// <div class="offset-bottom-large-xs-max">I have big bottom spacing on extra small screens (xs).</div>
+// <div class="offset-bottom-large-sm-max">I have big bottom spacing on small screens (sm).</div>
+// <div class="offset-bottom-larger-xs-max">I have HUGE bottom spacing on extra small screens (xs).</div>
+// <div class="offset-bottom-larger-sm-max">I have HUGE bottom spacing on small screens (sm).</div>
 //
 // Styleguide 5.14.1
 
-.offset-responsive {
-    margin-bottom: 2 * @line-height-computed;
+.offset-bottom-xs-max {
+    @media (max-width: @screen-xs-max) {
+        .offset-bottom();
+    }
+}
 
-    @media (min-width: @grid-float-breakpoint) {
-        margin-bottom: 0;
+.offset-bottom-sm-max {
+    @media (max-width: @screen-sm-max) {
+        .offset-bottom();
+    }
+}
+
+.offset-bottom-large-xs-max {
+    @media (max-width: @screen-xs-max) {
+        .offset-bottom-large();
+    }
+}
+
+.offset-bottom-large-sm-max {
+    @media (max-width: @screen-sm-max) {
+        .offset-bottom-large();
+    }
+}
+
+.offset-bottom-larger-xs-max {
+    @media (max-width: @screen-xs-max) {
+        .offset-bottom-larger();
+    }
+}
+
+.offset-bottom-larger-sm-max {
+    @media (max-width: @screen-sm-max) {
+        .offset-bottom-larger();
     }
 }
