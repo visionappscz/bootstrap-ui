@@ -1,20 +1,24 @@
-// Forms
-//
-// Minor [Bootstrap forms](http://getbootstrap.com/css/#forms) enhancements.
-//
-// Styleguide 4.1
+/*
+Forms
+
+Minor [Bootstrap forms](http://getbootstrap.com/css/#forms) enhancements.
+
+Styleguide 4.1
+*/
 
 
-// Better Validation Messages
-//
-// Markup:
-// <div class="form-group">
-//     <label for="email">Email</label>
-//     <input type="email" class="form-control" name="email" />
-//     <div class="text-danger-block">Please enter a valid email address</div>
-// </div>
-//
-// Styleguide 4.1.1
+/*
+Better Validation Messages
+
+Markup:
+<div class="form-group">
+     <label for="email">Email</label>
+     <input type="email" class="form-control" name="email" />
+     <div class="text-danger-block">Please enter a valid email address</div>
+</div>
+
+Styleguide 4.1.1
+*/
 
 .text-danger-block {
     .alert();
@@ -28,15 +32,17 @@
 }
 
 
-// Required Fields
-//
-// Adds and asterisk to all required field labels. Requires `.required` class on labels.
-//
-// Markup:
-// <label for="name" class="required">Name</label>
-// <input type="text" class="form-control" id="name" name="name" required />
-//
-// Styleguide 4.1.2
+/*
+Required Fields
+
+Adds and asterisk to all required field labels. Requires `.required` class on labels.
+
+Markup:
+<label for="name" class="required">Name</label>
+<input type="text" class="form-control" id="name" name="name" required />
+
+Styleguide 4.1.2
+*/
 
 label.required:after {
     content: ' *';

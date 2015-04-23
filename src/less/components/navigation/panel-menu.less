@@ -1,58 +1,60 @@
-// Panel Menu
-//
-// Lef-side panel menu designed for admin navigation. If using with panel menu bar, class `.has-panel-menu-bar` on
-// `<body>` is required so the the page content is not covered by the bar. Apply `.nav-icons` to the `.nav` element to
-// adjust offset of nested menu items.
-//
-// Markup:
-// <div class="panel-menu">
-//     <!-- Panel menu bar -->
-//     <div class="panel-menu-bar">
-//         <button data-toggle="collapse" data-target="#panelMenu" class="panel-menu-bar-toggle collapsed" aria-expanded="false">
-//             <span class="panel-menu-bar-toggle-icon" aria-hidden="true">
-//                 <span class="icon-bar"></span>
-//                 <span class="icon-bar"></span>
-//                 <span class="icon-bar"></span>
-//             </span>
-//             <span class="sr-only">Menu</span>
-//         </button>
-//         <div class="panel-menu-bar-right">
-//             <div class="dropdown">
-//                 <a href="#" id="userMenuLabel" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-//                     <span class="panel-menu-bar-avatar">
-//                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-//                     </span>
-//                     Bilbo Baggins
-//                     <span class="caret" aria-hidden="true"></span>
-//                 </a>
-//                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="userMenuLabel">
-//                     <li>
-//                         <a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sign out</a>
-//                     </li>
-//                 </ul>
-//             </div>
-//         </div>
-//     </div><!-- .panel-menu-bar -->
-//     <!-- Panel menu pane -->
-//     <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
-//         <h2>Administration</h2>
-//         <ul class="nav nav-icons">
-//             <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pages</a></li>
-//             <li>
-//                 <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Media</a>
-//                 <ul class="nav">
-//                     <li><a href="#">Pictures</a></li>
-//                     <li><a href="#">Music</a></li>
-//                     <li><a href="#">Video</a></li>
-//                 </ul>
-//             </li>
-//             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
-//             <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
-//         </ul>
-//     </nav><!-- .panel-menu-pane -->
-// </div><!-- .panel-menu -->
-//
-// Styleguide 3.2
+/*
+Panel Menu
+
+Lef-side panel menu designed for admin navigation. If using with panel menu bar, class `.has-panel-menu-bar` on
+`<body>` is required so the the page content is not covered by the bar. Apply `.nav-icons` to the `.nav` element to
+adjust offset of nested menu items.
+
+Markup:
+<div class="panel-menu">
+     <!-- Panel menu bar -->
+     <div class="panel-menu-bar">
+         <button data-toggle="collapse" data-target="#panelMenu" class="panel-menu-bar-toggle collapsed" aria-expanded="false">
+             <span class="panel-menu-bar-toggle-icon" aria-hidden="true">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </span>
+             <span class="sr-only">Menu</span>
+         </button>
+         <div class="panel-menu-bar-right">
+             <div class="dropdown">
+                 <a href="#" id="userMenuLabel" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                     <span class="panel-menu-bar-avatar">
+                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                     </span>
+                     Bilbo Baggins
+                     <span class="caret" aria-hidden="true"></span>
+                 </a>
+                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="userMenuLabel">
+                     <li>
+                         <a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sign out</a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+     </div><!-- .panel-menu-bar -->
+     <!-- Panel menu pane -->
+     <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
+         <h2>Administration</h2>
+         <ul class="nav nav-icons">
+             <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pages</a></li>
+             <li>
+                 <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Media</a>
+                 <ul class="nav">
+                     <li><a href="#">Pictures</a></li>
+                     <li><a href="#">Music</a></li>
+                     <li><a href="#">Video</a></li>
+                 </ul>
+             </li>
+             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
+             <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
+         </ul>
+     </nav><!-- .panel-menu-pane -->
+</div><!-- .panel-menu -->
+
+Styleguide 3.2
+*/
 
 
 // Panel menu bar and pane - common styles.
