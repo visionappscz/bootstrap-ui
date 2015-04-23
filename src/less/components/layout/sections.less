@@ -29,8 +29,8 @@
 //     <div class="container">
 //         <div class="row">
 //             <div class="col-sm-8">
-//                 <h1>Advanced Header Section</h1>
-//                 <h2>I am Section Subtitle</h2>
+//                 <h1 class="section-header-title">Advanced Header Section</h1>
+//                 <h2 class="section-header-subtitle">I am Section Subtitle</h2>
 //             </div>
 //             <div class="col-sm-4">
 //                 <a href="#" class="btn btn-primary cta"><span class="glyphicon glyphicon-pencil"></span> New Email</a>
@@ -53,12 +53,14 @@
         border-bottom: 1px solid @nav-tabs-border-color;
         background-color: @gray-lighter;
 
-        h1 {
+        &-title {
             margin: 0;
+        }
 
-            & + h2 {
-                margin-top: .1em;
-            }
+        &-subtitle {
+            margin-top: .1em;
+            margin-bottom: 0;
+            font-size: @font-size-h3;
         }
 
         &.has-tabs {
