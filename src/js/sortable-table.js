@@ -74,9 +74,9 @@
       var result, valA, valB;
       var getCellValue = function(row, index) {
         var cell = $(row).children('td').eq(index);
-        if (cell.attr('data-sort-value'))
+        if (cell.attr('data-sort-value')){
           return cell.attr('data-sort-value');
-        else {
+        } else {
           return cell.text();
         }
       };
@@ -138,12 +138,12 @@
       });
     };
 
-    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
+    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function() {
       callPlugin($(this));
     });
 
     $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
-      if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
+      if (e.keyCode === 13 || e.keyCode === 32) { //enter or space
         callPlugin($(this));
       }
     });

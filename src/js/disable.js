@@ -55,7 +55,7 @@
   // DISABLE DATA-API
   // ================
 
-  (function(Plugin, $, window, document) {
+  (function(Plugin, $, window) {
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
