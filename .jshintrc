@@ -1,0 +1,22 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "latedef": true,
+  "noarg": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "node": true,
+  "qunit": true,
+  "browser": true,
+
+  "globals": {
+    "$": false,
+    "jQuery": false,
+    "ga": false,
+    "require": false,
+    "module": false
+  }
+}
