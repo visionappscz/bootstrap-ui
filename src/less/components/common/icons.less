@@ -1,0 +1,23 @@
+/*
+Icons
+
+Additional classes for nicer icon placement.
+
+Markup:
+<span class="glyphicon glyphicon-wrench icon-offset icon-vertically-aligned" aria-hidden="true"></span>
+There is some space between this text and the icon on the left, which is also vertically aligned on the line.
+
+Styleguide 5.14
+*/
+
+
+.icon {
+    &-offset {
+        margin-right: .75ex;
+    }
+
+    &-vertically-aligned {
+        position: relative;
+        top: 2px;
+    }
+}
