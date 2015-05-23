@@ -13,7 +13,7 @@ Header and Content Sections
 Markup:
 <section class="section section-header">
      <div class="container">
-         <h1>Page Title</h1>
+         <h1 class="section-header-title">Page Title</h1>
      </div><!-- .container -->
 </section>
 <section class="section section-content">
@@ -54,19 +54,22 @@ Styleguide 2.3.2
 
 .section {
     &-header {
-        padding-top: 2.5 * @line-height-computed;
-        padding-bottom: 2.5 * @line-height-computed;
-        border-bottom: 1px solid @nav-tabs-border-color;
-        background-color: @gray-lighter;
+        padding-top: 3 * @line-height-computed;
+        padding-bottom: 3 * @line-height-computed;
+        color: @header-color;
+        border-bottom: 1px solid @header-border-color;
+        background-color: @header-bg;
 
         &-title {
             margin: 0;
+            color: @header-title-color;
         }
 
         &-subtitle {
             margin-top: .1em;
             margin-bottom: 0;
             font-size: @font-size-h3;
+            color: @header-subtitle-color;
         }
 
         &.has-tabs {
@@ -79,7 +82,7 @@ Styleguide 2.3.2
 
         @media screen and (min-width: @screen-sm-min) {
             &.has-tabs > .container {
-                padding-bottom: 2.5 * @line-height-computed;
+                padding-bottom: 3 * @line-height-computed;
             }
         }
     }
