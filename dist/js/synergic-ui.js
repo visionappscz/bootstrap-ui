@@ -4,10 +4,10 @@
  * http://ui.synergic.cz
  *
  * Created by Synergic (www.synergic.cz)
- * HTML & LESS © 2014 Adam Kudrna
- * JavaScript © 2014 Martin Bohal
+ * HTML & LESS © Adam Kudrna, 2014—2015
+ * JavaScript © Martin Bohal, 2014—2015
  *
- * v0.6.0 (13 December 2014)
+ * v0.7.0 (24 May 2015)
  */
 ;(function($, window, document) {
   'use strict';
@@ -198,7 +198,7 @@
   // DISABLE DATA-API
   // ================
 
-  (function(Plugin, $, window, document) {
+  (function(Plugin, $, window) {
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
@@ -449,9 +449,9 @@
       var result, valA, valB;
       var getCellValue = function(row, index) {
         var cell = $(row).children('td').eq(index);
-        if (cell.attr('data-sort-value'))
+        if (cell.attr('data-sort-value')){
           return cell.attr('data-sort-value');
-        else {
+        } else {
           return cell.text();
         }
       };
@@ -513,12 +513,12 @@
       });
     };
 
-    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
+    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function() {
       callPlugin($(this));
     });
 
     $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
-      if (e.keyCode == 13 || e.keyCode == 32) { //enter or space
+      if (e.keyCode === 13 || e.keyCode === 32) { //enter or space
         callPlugin($(this));
       }
     });
