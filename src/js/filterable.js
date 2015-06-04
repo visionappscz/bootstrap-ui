@@ -39,6 +39,7 @@
             if (typeof(dataVal) === 'string') {
               dataVal = [dataVal];
             }
+            filterValLength = filterVal.length;
             dataValLength = dataVal.length;
             for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
@@ -47,8 +48,7 @@
                   break;
                 }
               }
-            }
-          } else if (
+            }} else if (
             (filterOper === '=' && +dataVal !== +filterVal) ||
             (filterOper === '>=' && +dataVal < +filterVal) ||
             (filterOper === '<=' && +dataVal > +filterVal) ||
