@@ -533,7 +533,7 @@ $(function() {
       ok($('#qunit-fixture div[data-tag="tag2"]').is(':visible'), 'tag 2 is visible');
     });
 
-    $('#control').val('tag2').change();
+    $('#control').val('tag2').keyup();
 
     setTimeout(function() {
       $(document).off('filtered.sui.filterable');
@@ -556,7 +556,7 @@ $(function() {
       '<button type="reset" data-toggle="filter-reset" />' +
       '</form>');
 
-    $('#control-2').val('tag1').change();
+    $('#control-2').val('tag1').keyup();
     $(document).on('filtered.sui.filterable', function() {
       $(document).on('resetEnd.sui.filterable', function() {
         ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible'), 'tag 1 was shown again');
@@ -566,7 +566,7 @@ $(function() {
       });
     });
 
-    $('#control-1').val('tag2').change();
+    $('#control-1').val('tag2').keyup();
     $('#form-1 button').click();
 
     setTimeout(function() {
@@ -584,14 +584,14 @@ $(function() {
       '<input id="control-1" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
       '</form>');
 
-    $('#control-1').val('x').change();
+    $('#control-1').val('x').keyup();
     $(document).on('filtered.sui.filterable', function() {
       $(document).off('filtered.sui.filterable');
       ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible'), '"div1" was not hidden');
       start();
     });
 
-    $('#control-1').val('').change();
+    $('#control-1').val('').keyup();
   });
 
 });
