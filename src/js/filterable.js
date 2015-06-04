@@ -126,7 +126,7 @@
   // FILTERABLE DATA-API
   // ===================
 
-  $(document).on('change.sui.filterable.data-api', '[data-toggle=filter]', function() {
+  $(document).on('keyup.sui.filterable.data-api', '[data-toggle=filter]', function() {
     var $filter = $(this).closest('form');
     var filterData = [];
 
