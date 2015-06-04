@@ -297,6 +297,28 @@ $(function() {
     }]);
   });
 
+  test('should filter elements for: filterValue = [], dataValue = [], operator = "intersect" - case insensitive test', function() {
+    stop();
+    $('#qunit-fixture')
+      .append('<div data-tags=\'["tag4", "tag5"]\'>')
+      .append('<div data-tags=\'["Tag1", "tag2", "tag3"]\'>')
+      .append('<div data-tags=\'["Tag1", "tag4"]\'>');
+
+    $(document).on('filtered.sui.filterable', function() {
+      $(document).off('filtered.sui.filterable');
+      ok($('#qunit-fixture div[data-tags=\'["tag4", "tag5"]\']').is(':visible') === false, '["tag1", "tag2"] has no common members with ["tag4", "tag5"] -> hidden');
+      ok($('#qunit-fixture div[data-tags=\'["Tag1", "tag2", "tag3"]\']').is(':visible') === true, '["tag1", "tag2"] has common members with ["tag1", "tag2", "tag3"] -> visible');
+      ok($('#qunit-fixture div[data-tags=\'["Tag1", "tag4"]\']').is(':visible') === true, '["tag1", "tag2"] has common members with ["tag1", "tag4"] -> visible');
+      start();
+    });
+
+    $('#qunit-fixture div').suiFilterable([{
+      'filter-attrib': 'tags',
+      'filter-operator': 'intersect',
+      'filter-value': ["Tag1", "Tag2"]
+    }]);
+  });
+
   test('should process numeric filter value weather it is a string or a number', function() {
     stop();
     $('#qunit-fixture').append('<div data-amount="10">');
