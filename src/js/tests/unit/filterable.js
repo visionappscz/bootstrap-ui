@@ -515,7 +515,7 @@ $(function() {
   ////////////////////////////
   // Data-api related tests //
   ////////////////////////////
-  test('should filter filterables by changing an element in the appropriate filter form', function() {
+  test('should filter filterables by changing an element in the appropriate filter form on key up', function() {
     stop();
 
     // Two forms are defined to ensue that the second one doesnt interfere
@@ -541,6 +541,32 @@ $(function() {
     }, 100);
   });
 
+  test('should filter filterables by changing an element in the appropriate filter form on change', function() {
+    stop();
+
+    // Two forms are defined to ensue that the second one doesnt interfere
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+    '<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
+    '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
+    '</form>' +
+    '<div data-tag="tag2">Tag 2</div>' +
+    '<form data-filter-target="#qunit-fixture div[data-tag=tag2]">' +
+    '<input type="text" data-toggle="filter" data-filter-attrib="tag" data-filter-operator="intersect" />' +
+    '</form>');
+
+    $(document).on('filtered.sui.filterable', function() {
+      ok($('#qunit-fixture div[data-tag="tag1"]').is(':hidden'), 'tag 1 was hidden');
+      ok($('#qunit-fixture div[data-tag="tag2"]').is(':visible'), 'tag 2 is visible');
+    });
+
+    $('#control').val('tag2').change();
+
+    setTimeout(function() {
+      $(document).off('filtered.sui.filterable');
+      start();
+    }, 100);
+  });
+
   test('should reset filterables by clicking on reset element', function() {
     stop();
 
@@ -556,7 +582,7 @@ $(function() {
       '<button type="reset" data-toggle="filter-reset" />' +
       '</form>');
 
-    $('#control-2').val('tag1').keyup();
+    $('#control-2').val('tag1').change();
     $(document).on('filtered.sui.filterable', function() {
       $(document).on('resetEnd.sui.filterable', function() {
         ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible'), 'tag 1 was shown again');
@@ -591,7 +617,7 @@ $(function() {
       start();
     });
 
-    $('#control-1').val('').keyup();
+    $('#control-1').val('').change();
   });
 
 });
