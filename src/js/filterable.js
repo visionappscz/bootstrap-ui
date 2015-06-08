@@ -123,7 +123,7 @@
   };
 
 
-  // FILTERABLE DAT laA-API
+  // FILTERABLE DATA-API
   // ===================
 
   var lastEventTarget;
