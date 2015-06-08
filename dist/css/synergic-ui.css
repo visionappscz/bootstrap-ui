@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2015
  * JavaScript © Martin Bohal, 2014—2015
  *
- * v0.7.0 (24 May 2015)
+ * v0.7.1 (8 June 2015)
  */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -8239,7 +8239,7 @@ Styleguide 2.
 Layout
 
 [Bootstrap grid](http://getbootstrap.com/css/#grid) is used. For easier development, there are `.content` and
-`.sidebar` shortcuts for the most common layout components so you do not have to remember WTF columns they are
+`.sidebar` shortcuts for the most common layout components so you do not have to remember the exact classes
 (`.col-md-9` and `.col-md-3`).
 
 Markup:
@@ -8519,7 +8519,7 @@ Markup:
                  </li>
                  <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="My profile">
-                         <span class="glyphicon glyphicon-user"></span>
+                         <span class="glyphicon glyphicon-user icon-offset" aria-hidden="true"></span>
                          <span class="visible-xs">My Profile</span>
                          <b class="caret"></b>
                      </a>
@@ -8527,9 +8527,14 @@ Markup:
                          <li class="dropdown-header">James Brown</li>
                          <li class="divider"></li>
                          <li>
-                             <a href="#">My Account</a>
                              <a href="#">
-                                 <span class="glyphicon glyphicon-off"></span>
+                                 <span class="glyphicon glyphicon-user icon-offset icon-vertically-aligned" aria-hidden="true"></span>
+                                 My Account
+                             </a>
+                         </li>
+                         <li>
+                             <a href="#">
+                                 <span class="glyphicon glyphicon-off icon-offset icon-vertically-aligned" aria-hidden="true"></span>
                                  Sign out
                              </a>
                          </li>
@@ -9099,7 +9104,7 @@ Markup:
 <div class="input-group">
      <input type="search" placeholder="Hledat" class="form-control" title="Zadejte hledaný termín" />
      <span class="input-group-btn">
-         <button type="submit" class="btn btn-primary">Hledat</span></button>
+         <button type="submit" class="btn btn-primary">Hledat</button>
      </span>
 </div>
 
