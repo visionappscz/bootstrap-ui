@@ -1,13 +1,20 @@
 /*
 Call to Action
 
-A simple helper for responsive call to action. Made for use in header section.
+A simple helper for responsive call to action. Made for use in header.
 
 Markup:
-<a href="#" class="btn btn-primary cta">
-     <span class="glyphicon glyphicon-plus-sign"></span>
-     New Page
-</a>
+<div class="row">
+    <div class="col-sm-8">
+        <h1 class="section-header-title">Pages</h1>
+    </div>
+    <div class="col-sm-4">
+        <a href="#" class="btn btn-primary cta">
+             <span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span>
+             New Page
+        </a>
+    </div>
+</div><!-- .row -->
 
 Styleguide 5.11
 */
@@ -27,3 +34,19 @@ Styleguide 5.11
         }
     }
 }
+
+
+/*
+CTA for Content Headings
+
+For CTA buttons alongside headings in content area simply apply `pull-right` on a regular button, `cta` is not needed.
+
+Markup:
+<a href="#" class="btn btn-primary pull-right">
+     <span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span>
+     New Page
+</a>
+<h2>Pages</h2>
+
+Styleguide 5.11.1
+*/
