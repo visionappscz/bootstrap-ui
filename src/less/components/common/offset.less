@@ -7,6 +7,7 @@ Markup:
 <div class="offset-bottom">I have bottom spacing like a real paragraph!</div>
 <div class="offset-bottom-large">I have big bottom spacing!</div>
 <div class="offset-bottom-larger">I have HUGE bottom spacing!</div>
+<p class="offset-bottom-none">I have no bottom spacing :/.</p>
 
 Styleguide 5.15
 */
@@ -24,6 +25,9 @@ Styleguide 5.15
     margin-bottom: 4 * @line-height-computed;
 }
 
+.offset-bottom-none {
+    margin-bottom: 0 !important;
+}
 
 /*
 Responsive Offset
