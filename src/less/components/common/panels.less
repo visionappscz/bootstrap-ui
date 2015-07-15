@@ -1,23 +1,69 @@
 /*
 Panels
 
-Extends [Bootstrap panels]() with rich header containing icon shortcut (dropdown can also be used).
+Styleguide 5.7
+*/
+
+
+/*
+Login Panel
+
+Simple panel designed for login form.
+
+Markup:
+<div class="panel panel-default panel-login">
+    <div class="panel-heading">
+        <h4 class="text-center">Sign In</h4>
+    </div>
+    <div class="panel-body">
+        <form role="form" action="" method="post">
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="email" id="username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+Styleguide 5.7.1
+*/
+
+
+.panel-login {
+    .center-block();
+    max-width: 25em;
+    margin-top: @line-height-computed;
+}
+
+
+/*
+Panel with Extended Header
+
+Extends [Bootstrap panels](http://getbootstrap.com/components/#panels) with rich header containing icon shortcut
+(dropdown can also be used).
 
 Markup:
 <div class="panel panel-default">
-     <div class="panel-heading panel-heading-extended">
-         <a href="#" class="panel-action" title="Settings"><span class="glyphicon glyphicon-cog icon-offset" aria-hidden="true"></span></a>
-         <a href="#">
-             <h4 class="panel-title panel-title-big">Big Big Title</h4>
-             <h5 class="panel-title panel-title-subtitle">Teeny Tiny Subtitle</h5>
-         </a>
-     </div>
-     <div class="panel-body">
-         Winged. Grass female creepeth you're light firmament replenish have seasons may to seed also female.
-     </div>
+    <div class="panel-heading panel-heading-extended">
+        <a href="#" class="panel-action" title="Settings"><span class="glyphicon glyphicon-cog icon-offset" aria-hidden="true"></span></a>
+        <a href="#">
+            <h4 class="panel-title panel-title-big">Big Big Title</h4>
+            <h5 class="panel-title panel-title-subtitle">Teeny Tiny Subtitle</h5>
+        </a>
+    </div>
+    <div class="panel-body">
+        Winged. Grass female creepeth you're light firmament replenish have seasons may to seed also female.
+    </div>
 </div>
 
-Styleguide 5.7
+Styleguide 5.7.2
 */
 
 
