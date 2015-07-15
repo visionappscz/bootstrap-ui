@@ -13,18 +13,18 @@ default sorting.
 
 
 <div class="panel panel-danger">
-     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
-     <div class="panel-body">
-         Script `sortable-table.js` must be included.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `sortable-table.js` must be included.
+    </div>
 </div>
 
 <div class="panel panel-warning">
-     <div class="panel-heading"><h4 class="panel-title">Component Dependency</h4></div>
-     <div class="panel-body">
-         [Sortable table with navigation](#section-6.3.2) requires [Letter Navigation](section-3.html#section-3.4)
-         component.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">Component Dependency</h4></div>
+    <div class="panel-body">
+        [Sortable table with navigation](#section-6.3.2) requires [Letter Navigation](section-3.html#section-3.4)
+        component.
+    </div>
 </div>
 
 <h3>Usage</h3>
@@ -44,38 +44,38 @@ of either `asc` or `desc` to indicate the sorting order.
 
 <h5>Options</h5>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Name</th>
-             <th>Type</th>
-             <th>Default</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>sorted-th</td>
-             <td>string</td>
-             <td></td>
-             <td>Mandatory. A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
-         </tr>
-         <tr>
-             <td>sort-direction</td>
-             <td>string</td>
-             <td>If the column is already sorted it defaults to the reverse order. If it is not sorted, it defaults to `asc`.</td>
-             <td>Optional. Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
-         </tr>
-         <tr>
-             <td>sort-navigation</td>
-             <td>jQuery object</td>
-             <td></td>
-             <td>
-                  Optional. A jQuery object with reference to the DOM element where the group quick links are to appear.
-                  The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
-                  For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
-              </td>
-         </tr>
-     </tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>sorted-th</td>
+            <td>string</td>
+            <td></td>
+            <td>Mandatory. A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
+        </tr>
+        <tr>
+            <td>sort-direction</td>
+            <td>string</td>
+            <td>If the column is already sorted it defaults to the reverse order. If it is not sorted, it defaults to `asc`.</td>
+            <td>Optional. Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
+        </tr>
+        <tr>
+            <td>sort-navigation</td>
+            <td>jQuery object</td>
+            <td></td>
+            <td>
+                 Optional. A jQuery object with reference to the DOM element where the group quick links are to appear.
+                 The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
+                 For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
+             </td>
+        </tr>
+    </tbody>
 </table>
 
 <h5>Methods</h5>
@@ -84,22 +84,22 @@ Initiates a sortable table if needed and performs the sorting according to the o
 
 <h3>Events</h3>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Event Type</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>sort.sui.sortableTable</td>
-             <td>Fired as soon as the `sort` method is called.</td>
-         </tr>
-         <tr>
-             <td>sorted.sui.sortableTable</td>
-             <td>Fired as soon as the `sort` method is finished executing.</td>
-         </tr>
-     <tbody>
+    <thead>
+        <tr>
+            <th>Event Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>sort.sui.sortableTable</td>
+            <td>Fired as soon as the `sort` method is called.</td>
+        </tr>
+        <tr>
+            <td>sorted.sui.sortableTable</td>
+            <td>Fired as soon as the `sort` method is finished executing.</td>
+        </tr>
+    <tbody>
 </table>
 
 Styleguide 6.3
@@ -112,51 +112,51 @@ Sortable Table Simple
 Markup:
 <div class="table-responsive">
     <table class="table table-hover">
-         <thead>
-             <tr>
-                 <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0">#</th>
-                 <th data-toggle="sort" tabindex="0">Page Title</th>
-                 <th></th>
-             </tr>
-         </thead>
-         <tbody>
-             <tr>
-                 <td class="table-cell-id">1</td>
-                 <td><a href="#">Hotforwords Can Explain Lorem Ipsum far better than I can</a></td>
-                 <td class="table-cell-actions">
-                     <a href="#" class="item-action" title="Edit">
-                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                     </a>
-                     <a href="#" class="item-action item-action-danger" title="Delete">
-                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                     </a>
-                 </td>
-             </tr>
-             <tr>
-                 <td class="table-cell-id">2</td>
-                 <td><a href="#">Seas spirit morning, fill seasons every I wherein kind</a></td>
-                 <td class="table-cell-actions">
-                     <a href="#" class="item-action" title="Edit">
-                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                     </a>
-                     <a href="#" class="item-action item-action-danger" title="Delete">
-                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                     </a>
-                 </td>
-             </tr>
-             <tr>
-                 <td class="table-cell-id">3</td>
-                 <td><a href="#">Cattle she’d of herb third</a></td>
-                 <td class="table-cell-actions">
-                     <a href="#" class="item-action" title="Edit">
-                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                     </a>
-                     <a href="#" class="item-action item-action-danger" title="Delete">
-                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                     </a>
-                 </td>
-             </tr>
-         </tbody>
+        <thead>
+            <tr>
+                <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0">#</th>
+                <th data-toggle="sort" tabindex="0">Page Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-cell-id">1</td>
+                <td><a href="#">Hotforwords Can Explain Lorem Ipsum far better than I can</a></td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-cell-id">2</td>
+                <td><a href="#">Seas spirit morning, fill seasons every I wherein kind</a></td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-cell-id">3</td>
+                <td><a href="#">Cattle she’d of herb third</a></td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
     </table>
 </div>
 
