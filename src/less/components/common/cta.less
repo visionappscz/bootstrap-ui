@@ -23,7 +23,7 @@ Styleguide 5.11
 .cta {
     margin-top: @line-height-computed;
 
-    @media screen and (min-width: @screen-sm-min) {
+    @media screen and (min-width: @grid-float-breakpoint) {
         float: right;
         margin-top: 0;
         text-align: right;
@@ -31,6 +31,11 @@ Styleguide 5.11
         &.btn,
         > .btn {
             float: right;
+        }
+
+        &.btn-group > .btn,
+        &.btn-group > .item-action {
+            float: left;
         }
     }
 }
