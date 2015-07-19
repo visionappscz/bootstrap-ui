@@ -153,11 +153,13 @@
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
       var $sortedTh = $('th[data-sort-onload]');
-      var $sortedTable = $sortedTh.closest('table');
-      Plugin.call($sortedTable, {
-        'sorted-th': $sortedTh,
-        'navigation': $($sortedTable.data('sort-navigation')),
-        'sort-direction': $sortedTh.data('sort-onload')
+      $sortedTh.each(function(i) {
+        var $sortedTable = $($sortedTh[i]).closest('table');
+        Plugin.call($sortedTable, {
+          'sorted-th': $($sortedTh[i]),
+          'navigation': $sortedTable.data('sort-navigation'),
+          'sort-direction': $($sortedTh[i]).data('sort-onload')
+        });
       });
     });
   }(Plugin, $, window, document));
