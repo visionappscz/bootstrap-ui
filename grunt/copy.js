@@ -56,6 +56,12 @@ module.exports = {
         cwd: '<%= paths.src %>/images/',
         src: ['*'],
         dest: '<%= paths.styleguide %>/public/images/'
+      },
+      {
+        expand: true,
+        cwd: '<%= paths.bower %>/',
+        src: ['ckeditor/**/*'],
+        dest: '<%= paths.styleguide %>/public/vendor/'
       }
     ]
   }

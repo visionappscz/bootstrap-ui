@@ -7,8 +7,27 @@
  * HTML & LESS © Adam Kudrna, 2014—2015
  * JavaScript © Martin Bohal, 2014—2015
  *
- * v0.7.1 (8 June 2015)
+ * v0.7.1 (19 July 2015)
  */
+;(function($, window) {
+  'use strict';
+
+  // CKEDITOR-LOADER DATA-API
+  // ================
+
+  (function($, window) {
+    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+    // and thus it would make it impossible to test this part of the code.
+    $(window).load(function() {
+      $('[data-onload-ckeditor]').each(function() {
+        var $this = $(this);
+        $this.ckeditor({customConfig: $this.data('onload-ckeditor')});
+      });
+    });
+  }($, window));
+
+}(jQuery, window));
+
 ;(function($, window, document) {
   'use strict';
 

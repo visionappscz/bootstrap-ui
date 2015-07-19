@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2015
  * JavaScript © Martin Bohal, 2014—2015
  *
- * v0.7.1 (8 June 2015)
+ * v0.7.1 (19 July 2015)
  */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -273,7 +273,7 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -887,192 +887,6 @@ th {
 .glyphicon-tree-deciduous:before {
   content: "\e200";
 }
-.glyphicon-cd:before {
-  content: "\e201";
-}
-.glyphicon-save-file:before {
-  content: "\e202";
-}
-.glyphicon-open-file:before {
-  content: "\e203";
-}
-.glyphicon-level-up:before {
-  content: "\e204";
-}
-.glyphicon-copy:before {
-  content: "\e205";
-}
-.glyphicon-paste:before {
-  content: "\e206";
-}
-.glyphicon-alert:before {
-  content: "\e209";
-}
-.glyphicon-equalizer:before {
-  content: "\e210";
-}
-.glyphicon-king:before {
-  content: "\e211";
-}
-.glyphicon-queen:before {
-  content: "\e212";
-}
-.glyphicon-pawn:before {
-  content: "\e213";
-}
-.glyphicon-bishop:before {
-  content: "\e214";
-}
-.glyphicon-knight:before {
-  content: "\e215";
-}
-.glyphicon-baby-formula:before {
-  content: "\e216";
-}
-.glyphicon-tent:before {
-  content: "\26fa";
-}
-.glyphicon-blackboard:before {
-  content: "\e218";
-}
-.glyphicon-bed:before {
-  content: "\e219";
-}
-.glyphicon-apple:before {
-  content: "\f8ff";
-}
-.glyphicon-erase:before {
-  content: "\e221";
-}
-.glyphicon-hourglass:before {
-  content: "\231b";
-}
-.glyphicon-lamp:before {
-  content: "\e223";
-}
-.glyphicon-duplicate:before {
-  content: "\e224";
-}
-.glyphicon-piggy-bank:before {
-  content: "\e225";
-}
-.glyphicon-scissors:before {
-  content: "\e226";
-}
-.glyphicon-bitcoin:before {
-  content: "\e227";
-}
-.glyphicon-btc:before {
-  content: "\e227";
-}
-.glyphicon-xbt:before {
-  content: "\e227";
-}
-.glyphicon-yen:before {
-  content: "\00a5";
-}
-.glyphicon-jpy:before {
-  content: "\00a5";
-}
-.glyphicon-ruble:before {
-  content: "\20bd";
-}
-.glyphicon-rub:before {
-  content: "\20bd";
-}
-.glyphicon-scale:before {
-  content: "\e230";
-}
-.glyphicon-ice-lolly:before {
-  content: "\e231";
-}
-.glyphicon-ice-lolly-tasted:before {
-  content: "\e232";
-}
-.glyphicon-education:before {
-  content: "\e233";
-}
-.glyphicon-option-horizontal:before {
-  content: "\e234";
-}
-.glyphicon-option-vertical:before {
-  content: "\e235";
-}
-.glyphicon-menu-hamburger:before {
-  content: "\e236";
-}
-.glyphicon-modal-window:before {
-  content: "\e237";
-}
-.glyphicon-oil:before {
-  content: "\e238";
-}
-.glyphicon-grain:before {
-  content: "\e239";
-}
-.glyphicon-sunglasses:before {
-  content: "\e240";
-}
-.glyphicon-text-size:before {
-  content: "\e241";
-}
-.glyphicon-text-color:before {
-  content: "\e242";
-}
-.glyphicon-text-background:before {
-  content: "\e243";
-}
-.glyphicon-object-align-top:before {
-  content: "\e244";
-}
-.glyphicon-object-align-bottom:before {
-  content: "\e245";
-}
-.glyphicon-object-align-horizontal:before {
-  content: "\e246";
-}
-.glyphicon-object-align-left:before {
-  content: "\e247";
-}
-.glyphicon-object-align-vertical:before {
-  content: "\e248";
-}
-.glyphicon-object-align-right:before {
-  content: "\e249";
-}
-.glyphicon-triangle-right:before {
-  content: "\e250";
-}
-.glyphicon-triangle-left:before {
-  content: "\e251";
-}
-.glyphicon-triangle-bottom:before {
-  content: "\e252";
-}
-.glyphicon-triangle-top:before {
-  content: "\e253";
-}
-.glyphicon-console:before {
-  content: "\e254";
-}
-.glyphicon-superscript:before {
-  content: "\e255";
-}
-.glyphicon-subscript:before {
-  content: "\e256";
-}
-.glyphicon-menu-left:before {
-  content: "\e257";
-}
-.glyphicon-menu-right:before {
-  content: "\e258";
-}
-.glyphicon-menu-down:before {
-  content: "\e259";
-}
-.glyphicon-menu-up:before {
-  content: "\e260";
-}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1179,9 +993,6 @@ hr {
   margin: 0;
   overflow: visible;
   clip: auto;
-}
-[role="button"] {
-  cursor: pointer;
 }
 h1,
 h2,
@@ -2321,7 +2132,7 @@ th {
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
 }
-.table-striped > tbody > tr:nth-of-type(odd) {
+.table-striped > tbody > tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
 .table-hover > tbody > tr:hover {
@@ -2588,12 +2399,9 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
+  cursor: not-allowed;
   background-color: #eeeeee;
   opacity: 1;
-}
-.form-control[disabled],
-fieldset[disabled] .form-control {
-  cursor: not-allowed;
 }
 textarea.form-control {
   height: auto;
@@ -2601,33 +2409,56 @@ textarea.form-control {
 input[type="search"] {
   -webkit-appearance: none;
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  input[type="date"],
-  input[type="time"],
-  input[type="datetime-local"],
-  input[type="month"] {
-    line-height: 39px;
-  }
-  input[type="date"].input-sm,
-  input[type="time"].input-sm,
-  input[type="datetime-local"].input-sm,
-  input[type="month"].input-sm,
-  .input-group-sm input[type="date"],
-  .input-group-sm input[type="time"],
-  .input-group-sm input[type="datetime-local"],
-  .input-group-sm input[type="month"] {
-    line-height: 31px;
-  }
-  input[type="date"].input-lg,
-  input[type="time"].input-lg,
-  input[type="datetime-local"].input-lg,
-  input[type="month"].input-lg,
-  .input-group-lg input[type="date"],
-  .input-group-lg input[type="time"],
-  .input-group-lg input[type="datetime-local"],
-  .input-group-lg input[type="month"] {
-    line-height: 48px;
-  }
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  line-height: 39px;
+  line-height: 1.42857143 \0;
+}
+input[type="date"].input-sm,
+input[type="time"].input-sm,
+input[type="datetime-local"].input-sm,
+input[type="month"].input-sm {
+  line-height: 31px;
+  line-height: 1.5 \0;
+}
+input[type="date"].input-lg,
+input[type="time"].input-lg,
+input[type="datetime-local"].input-lg,
+input[type="month"].input-lg {
+  line-height: 48px;
+  line-height: 1.33 \0;
+}
+_:-ms-fullscreen,
+:root input[type="date"],
+_:-ms-fullscreen,
+:root input[type="time"],
+_:-ms-fullscreen,
+:root input[type="datetime-local"],
+_:-ms-fullscreen,
+:root input[type="month"] {
+  line-height: 1.42857143;
+}
+_:-ms-fullscreen.input-sm,
+:root input[type="date"].input-sm,
+_:-ms-fullscreen.input-sm,
+:root input[type="time"].input-sm,
+_:-ms-fullscreen.input-sm,
+:root input[type="datetime-local"].input-sm,
+_:-ms-fullscreen.input-sm,
+:root input[type="month"].input-sm {
+  line-height: 1.5;
+}
+_:-ms-fullscreen.input-lg,
+:root input[type="date"].input-lg,
+_:-ms-fullscreen.input-lg,
+:root input[type="time"].input-lg,
+_:-ms-fullscreen.input-lg,
+:root input[type="datetime-local"].input-lg,
+_:-ms-fullscreen.input-lg,
+:root input[type="month"].input-lg {
+  line-height: 1.33;
 }
 .form-group {
   margin-bottom: 15px;
@@ -2661,7 +2492,6 @@ input[type="search"] {
 }
 .radio-inline,
 .checkbox-inline {
-  position: relative;
   display: inline-block;
   padding-left: 20px;
   margin-bottom: 0;
@@ -2698,28 +2528,13 @@ fieldset[disabled] .checkbox label {
   padding-top: 9px;
   padding-bottom: 9px;
   margin-bottom: 0;
-  min-height: 36px;
 }
 .form-control-static.input-lg,
 .form-control-static.input-sm {
   padding-left: 0;
   padding-right: 0;
 }
-.input-sm {
-  height: 31px;
-  padding: 5px 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  border-radius: 3px;
-}
-select.input-sm {
-  height: 31px;
-  line-height: 31px;
-}
-textarea.input-sm,
-select[multiple].input-sm {
-  height: auto;
-}
+.input-sm,
 .form-group-sm .form-control {
   height: 31px;
   padding: 5px 10px;
@@ -2727,57 +2542,35 @@ select[multiple].input-sm {
   line-height: 1.5;
   border-radius: 3px;
 }
+select.input-sm,
 select.form-group-sm .form-control {
   height: 31px;
   line-height: 31px;
 }
+textarea.input-sm,
 textarea.form-group-sm .form-control,
+select[multiple].input-sm,
 select[multiple].form-group-sm .form-control {
   height: auto;
 }
-.form-group-sm .form-control-static {
-  height: 31px;
-  padding: 5px 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  min-height: 34px;
-}
-.input-lg {
-  height: 48px;
-  padding: 10px 16px;
-  font-size: 19px;
-  line-height: 1.3333333;
-  border-radius: 6px;
-}
-select.input-lg {
-  height: 48px;
-  line-height: 48px;
-}
-textarea.input-lg,
-select[multiple].input-lg {
-  height: auto;
-}
+.input-lg,
 .form-group-lg .form-control {
   height: 48px;
   padding: 10px 16px;
   font-size: 19px;
-  line-height: 1.3333333;
+  line-height: 1.33;
   border-radius: 6px;
 }
+select.input-lg,
 select.form-group-lg .form-control {
   height: 48px;
   line-height: 48px;
 }
+textarea.input-lg,
 textarea.form-group-lg .form-control,
+select[multiple].input-lg,
 select[multiple].form-group-lg .form-control {
   height: auto;
-}
-.form-group-lg .form-control-static {
-  height: 48px;
-  padding: 10px 16px;
-  font-size: 19px;
-  line-height: 1.3333333;
-  min-height: 40px;
 }
 .has-feedback {
   position: relative;
@@ -2987,7 +2780,7 @@ select[multiple].form-group-lg .form-control {
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
-    padding-top: 14.333333px;
+    padding-top: 14.3px;
   }
 }
 @media (min-width: 768px) {
@@ -3372,7 +3165,7 @@ fieldset[disabled] .btn-link:focus {
 .btn-group-lg > .item-action {
   padding: 10px 16px;
   font-size: 19px;
-  line-height: 1.3333333;
+  line-height: 1.33;
   border-radius: 6px;
 }
 .btn-sm,
@@ -3415,9 +3208,11 @@ input[type="button"].btn-block {
 }
 .collapse {
   display: none;
+  visibility: hidden;
 }
 .collapse.in {
   display: block;
+  visibility: visible;
 }
 tr.collapse.in {
   display: table-row;
@@ -3445,11 +3240,10 @@ tbody.collapse.in {
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: 4px dashed;
+  border-top: 4px solid;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
-.dropup,
 .dropdown {
   position: relative;
 }
@@ -3568,7 +3362,7 @@ tbody.collapse.in {
 .navbar-fixed-bottom .dropdown .dropdown-menu {
   top: auto;
   bottom: 100%;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 @media (min-width: 768px) {
   .navbar-right .dropdown-menu {
@@ -3610,6 +3404,12 @@ tbody.collapse.in {
 .btn-group > .item-action.active,
 .btn-group-vertical > .item-action.active {
   z-index: 2;
+}
+.btn-group > .btn:focus,
+.btn-group-vertical > .btn:focus,
+.btn-group > .item-action:focus,
+.btn-group-vertical > .item-action:focus {
+  outline: 0;
 }
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
@@ -3659,14 +3459,14 @@ tbody.collapse.in {
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .item-action {
   border-radius: 0;
 }
-.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
-.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
-.btn-group > .btn-group:first-child:not(:last-child) > .item-action:last-child {
+.btn-group > .btn-group:first-child > .btn:last-child,
+.btn-group > .btn-group:first-child > .dropdown-toggle,
+.btn-group > .btn-group:first-child > .item-action:last-child {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
-.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child,
-.btn-group > .btn-group:last-child:not(:first-child) > .item-action:first-child {
+.btn-group > .btn-group:last-child > .btn:first-child,
+.btn-group > .btn-group:last-child > .item-action:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
@@ -3813,7 +3613,7 @@ tbody.collapse.in {
   height: 48px;
   padding: 10px 16px;
   font-size: 19px;
-  line-height: 1.3333333;
+  line-height: 1.33;
   border-radius: 6px;
 }
 select.input-group-lg > .form-control,
@@ -4162,9 +3962,11 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
 }
 .tab-content > .tab-pane {
   display: none;
+  visibility: hidden;
 }
 .tab-content > .active {
   display: block;
+  visibility: visible;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -4208,6 +4010,7 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
   }
   .navbar-collapse.collapse {
     display: block !important;
+    visibility: visible !important;
     height: auto !important;
     padding-bottom: 0;
     overflow: visible !important;
@@ -4459,9 +4262,6 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
   border-top-left-radius: 0;
 }
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
-  margin-bottom: 0;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -4938,9 +4738,7 @@ a.label:focus {
   position: relative;
   top: -1px;
 }
-.btn-xs .badge,
-.btn-group-xs > .btn .badge,
-.btn-group-xs > .item-action .badge {
+.btn-xs .badge {
   top: 0;
   padding: 1px 5px;
 }
@@ -4950,16 +4748,10 @@ a.badge:focus {
   text-decoration: none;
   cursor: pointer;
 }
-.list-group-item.active > .badge,
+a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #94c300;
   background-color: #ffffff;
-}
-.list-group-item > .badge {
-  float: right;
-}
-.list-group-item > .badge + .badge {
-  margin-right: 5px;
 }
 .nav-pills > li > a > .badge {
   margin-left: 3px;
@@ -4993,8 +4785,7 @@ a.badge:focus {
   .jumbotron {
     padding: 48px 0;
   }
-  .container .jumbotron,
-  .container-fluid .jumbotron {
+  .container .jumbotron {
     padding-left: 60px;
     padding-right: 60px;
   }
@@ -5207,17 +4998,6 @@ a.thumbnail.active {
 .media:first-child {
   margin-top: 0;
 }
-.media,
-.media-body {
-  zoom: 1;
-  overflow: hidden;
-}
-.media-body {
-  width: 10000px;
-}
-.media-object {
-  display: block;
-}
 .media-right,
 .media > .pull-right {
   padding-left: 10px;
@@ -5266,6 +5046,12 @@ a.thumbnail.active {
   margin-bottom: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+.list-group-item > .badge {
+  float: right;
+}
+.list-group-item > .badge + .badge {
+  margin-right: 5px;
 }
 a.list-group-item {
   color: #555555;
@@ -5442,11 +5228,7 @@ a.list-group-item-danger.active:focus {
   font-size: 17px;
   color: inherit;
 }
-.panel-title > a,
-.panel-title > small,
-.panel-title > .small,
-.panel-title > small > a,
-.panel-title > .small > a {
+.panel-title > a {
   color: inherit;
 }
 .panel-footer {
@@ -5775,10 +5557,10 @@ a.list-group-item-danger.active:focus {
   width: 100%;
   border: 0;
 }
-.embed-responsive-16by9 {
+.embed-responsive.embed-responsive-16by9 {
   padding-bottom: 56.25%;
 }
-.embed-responsive-4by3 {
+.embed-responsive.embed-responsive-4by3 {
   padding-bottom: 75%;
 }
 .well {
@@ -5839,7 +5621,7 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1050;
+  z-index: 1040;
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -5885,7 +5667,6 @@ button.close {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1040;
   background-color: #000000;
 }
 .modal-backdrop.fade {
@@ -5958,9 +5739,8 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Open Sans", helvetica, arial, sans-serif;
+  visibility: visible;
   font-size: 13px;
-  font-weight: normal;
   line-height: 1.4;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -6010,15 +5790,13 @@ button.close {
 }
 .tooltip.top-left .tooltip-arrow {
   bottom: 0;
-  right: 5px;
-  margin-bottom: -5px;
+  left: 5px;
   border-width: 5px 5px 0;
   border-top-color: #000000;
 }
 .tooltip.top-right .tooltip-arrow {
   bottom: 0;
-  left: 5px;
-  margin-bottom: -5px;
+  right: 5px;
   border-width: 5px 5px 0;
   border-top-color: #000000;
 }
@@ -6045,15 +5823,13 @@ button.close {
 }
 .tooltip.bottom-left .tooltip-arrow {
   top: 0;
-  right: 5px;
-  margin-top: -5px;
+  left: 5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000000;
 }
 .tooltip.bottom-right .tooltip-arrow {
   top: 0;
-  left: 5px;
-  margin-top: -5px;
+  right: 5px;
   border-width: 0 5px 5px;
   border-bottom-color: #000000;
 }
@@ -6065,7 +5841,6 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Open Sans", helvetica, arial, sans-serif;
   font-size: 15px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -6201,30 +5976,30 @@ button.close {
 @media all and (transform-3d), (-webkit-transform-3d) {
   .carousel-inner > .item {
     -webkit-transition: -webkit-transform 0.6s ease-in-out;
-    -o-transition: -o-transform 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out;
+         -o-transition: -o-transform 0.6s ease-in-out;
+            transition: transform 0.6s ease-in-out;
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+            backface-visibility: hidden;
     -webkit-perspective: 1000;
-    perspective: 1000;
+            perspective: 1000;
   }
   .carousel-inner > .item.next,
   .carousel-inner > .item.active.right {
     -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
     left: 0;
   }
   .carousel-inner > .item.prev,
   .carousel-inner > .item.active.left {
     -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
     left: 0;
   }
   .carousel-inner > .item.next.left,
   .carousel-inner > .item.prev.right,
   .carousel-inner > .item.active {
     -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
     left: 0;
   }
 }
@@ -6321,7 +6096,6 @@ button.close {
   width: 20px;
   height: 20px;
   margin-top: -10px;
-  line-height: 1;
   font-family: serif;
 }
 .carousel-control .icon-prev:before {
@@ -6487,6 +6261,7 @@ button.close {
 }
 .hidden {
   display: none !important;
+  visibility: hidden !important;
 }
 .affix {
   position: fixed;
@@ -7437,7 +7212,12 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
     }
 }
 
-/*! Select2 Bootstrap 3 CSS v1.4.6 | MIT License | github.com/t0m/select2-bootstrap-css */
+/**
+ * Select2 Bootstrap 3 CSS v1.4.1
+ * Tested with Bootstrap v3.2.0 and Select2 v3.3.2, v3.4.1-v3.4.5, v3.5.1, master
+ * in latest Chrome, Safari, Firefox, Opera (Mac) and IE8-IE11
+ * MIT License
+ */
 /**
  * Reset Bootstrap 3 .form-control styles which - if applied to the
  * original <select>-element the Select2-plugin may be run against -
@@ -7450,8 +7230,6 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 .select2-container.form-control {
   background: transparent;
   border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
   display: block;
   /* 1 */
   margin: 0;
@@ -7515,7 +7293,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 .select2-container.input-lg .select2-choice,
 .input-group-lg .select2-container .select2-choice {
   height: 48px;
-  line-height: 1.3333333;
+  line-height: 1.33;
   border-radius: 6px;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
@@ -7578,7 +7356,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
  */
 .select2-container .select2-choice .select2-arrow,
 .select2-container .select2-choice div {
-  border-left: none;
+  border-left: 1px solid #cccccc;
   background: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
@@ -7686,8 +7464,8 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 .select2-container-multi.select2-container-active .select2-choices {
   border-color: #66afe9;
   outline: none;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
   -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -7734,9 +7512,6 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
   border-top-left-radius: 0 !important;
   border-bottom-right-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
-  background: #ffffff;
-  -webkit-filter: none;
-          filter: none;
 }
 .input-group.select2-bootstrap-prepend .select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
   border-bottom-left-radius: 0 !important;
@@ -8193,28 +7968,28 @@ as responsive.
 
 Markup:
 <article class="article">
-     <header class="article-header">
-         <p class="perex">Sklo hledání 1 tradici v jízdě vyznačuje penzionovaného rozbuška nasazením svém. Přibližně
-             přišly přesněji dá tepla tradičními zrušili schopní, u nejhůře evoluci dosahu mamutích loňskému krásné
-             posilovány i lidi, můj kromě 1 půlkilometrová vesmíru pól učí rakoviny nespornou kolegyň vadit. Široké,
-             prohlásil nabídka vzácné jí vypadá samé v expedice jídlem.</p>
-         <div class="text-muted">Written by Jaroslav Hašek on 1<sup>st</sup> December 2014 at 4:03 PM</div>
-     </header>
-     <div class="article-image">
-         <img src="//placehold.it/1600x800" alt="Title image" />
-     </div>
-     <div class="article-body">
-         <p>Migrují metry pořádá já důsledky za moři získává, sedět celý od vše cíle, nízká hází jí noc malý.
-             Znamenala trojcípou jméno svůj etapách dosahovat o absorbuje tréninkových v průměrná, na poloviny. Vypadá
-             zásad Newton, slovácku.</p>
-         <p>Podaří veškeré který polárního z vykreslují David klimatu pole ledničce stolování kůrou v konce s
-             projevilo. Vědomostí marná ta právě softwarový založení proslulou a pár, povinné ní chtěla rozmnožováním
-             s vědecký ně ta že federální. Změnily ověšeny zamrzlých 7500 z finsku šedá splňoval, docela ta ostrovu,
-             hry a i mozkovou od příznivější komunikace příbuzných čeští jiní s což. Kurzů mlh dáli bezprostřední
-             program léta večeru dravcům nízká zastavit dnešní stavy české razí v vypadá, zkrášlovací ne ležící vydat
-             v informaci pokyny někteří hidžry. Pokud jí kdy jasnou rozdělit okrajové kontroluje deset, dokončit
-             podobu k odborník, výběr tím ty pátrá čtyř národního.</p>
-     </div>
+    <header class="article-header">
+        <p class="perex">Sklo hledání 1 tradici v jízdě vyznačuje penzionovaného rozbuška nasazením svém. Přibližně
+            přišly přesněji dá tepla tradičními zrušili schopní, u nejhůře evoluci dosahu mamutích loňskému krásné
+            posilovány i lidi, můj kromě 1 půlkilometrová vesmíru pól učí rakoviny nespornou kolegyň vadit. Široké,
+            prohlásil nabídka vzácné jí vypadá samé v expedice jídlem.</p>
+        <div class="text-muted">Written by Jaroslav Hašek on 1<sup>st</sup> December 2014 at 4:03 PM</div>
+    </header>
+    <div class="article-image">
+        <img src="//placehold.it/1600x800" alt="Title image" />
+    </div>
+    <div class="article-body">
+        <p>Migrují metry pořádá já důsledky za moři získává, sedět celý od vše cíle, nízká hází jí noc malý.
+            Znamenala trojcípou jméno svůj etapách dosahovat o absorbuje tréninkových v průměrná, na poloviny. Vypadá
+            zásad Newton, slovácku.</p>
+        <p>Podaří veškeré který polárního z vykreslují David klimatu pole ledničce stolování kůrou v konce s
+            projevilo. Vědomostí marná ta právě softwarový založení proslulou a pár, povinné ní chtěla rozmnožováním
+            s vědecký ně ta že federální. Změnily ověšeny zamrzlých 7500 z finsku šedá splňoval, docela ta ostrovu,
+            hry a i mozkovou od příznivější komunikace příbuzných čeští jiní s což. Kurzů mlh dáli bezprostřední
+            program léta večeru dravcům nízká zastavit dnešní stavy české razí v vypadá, zkrášlovací ne ležící vydat
+            v informaci pokyny někteří hidžry. Pokud jí kdy jasnou rozdělit okrajové kontroluje deset, dokončit
+            podobu k odborník, výběr tím ty pátrá čtyř národního.</p>
+    </div>
 </article>
 
 Styleguide 1.3
@@ -8245,30 +8020,30 @@ Layout
 Markup:
 <p><strong>Right sidebar:</strong></p>
 <div class="row">
-     <div class="content">
-         <p class="kss__example-box">This is the content.</p>
-     </div>
-     <div class="sidebar">
-         <p class="kss__example-box">And I am sidebar!</p>
-     </div>
+    <div class="content">
+        <p class="kss__example-box">This is the content.</p>
+    </div>
+    <div class="sidebar">
+        <p class="kss__example-box">And I am sidebar!</p>
+    </div>
 </div><!-- .row -->
 <p><strong>Left sidebar:</strong></p>
 <div class="row">
-     <div class="sidebar">
-         <p class="kss__example-box">I am sidebar!</p>
-     </div>
-     <div class="content">
-         <p class="kss__example-box">This is the content.</p>
-     </div>
+    <div class="sidebar">
+        <p class="kss__example-box">I am sidebar!</p>
+    </div>
+    <div class="content">
+        <p class="kss__example-box">This is the content.</p>
+    </div>
 </div><!-- .row -->
 <p><strong>Reverse column order:</strong></p>
 <div class="row row-reverse">
-     <div class="sidebar">
-         <p class="kss__example-box">I am sidebar that is (on the) right and goes mobile first!</p>
-     </div>
-     <div class="content">
-         <p class="kss__example-box">This is the content.</p>
-     </div>
+    <div class="sidebar">
+        <p class="kss__example-box">I am sidebar that is (on the) right and goes mobile first!</p>
+    </div>
+    <div class="content">
+        <p class="kss__example-box">This is the content.</p>
+    </div>
 </div><!-- .row -->
 
 Styleguide 2.1
@@ -8317,16 +8092,22 @@ be a direct descendant of `<body>` which must have `.has-footer-sticky` class.
 
 Markup:
 <body class="has-footer-sticky">
-     <footer role="contentinfo" class="footer footer-sticky">
-         <div class="container">
-             © Synergic.cz 2014
-             <span class="footer-divider">|</span>
-             <a href="#" target="_blank">Contact</a>
-             <a href="http://www.synergic.cz/en" target="_blank" class="footer-author" title="Created by Synergic">
-                 <img src="public/images/synergic.svg" alt="Synergic" />
-             </a>
-         </div><!-- .container -->
-     </footer>
+    <footer role="contentinfo" class="footer footer-sticky">
+        <div class="container">
+           <div class="row">
+               <div class="col-md-6">
+                   © Synergic.cz 2015
+                   <span class="footer-divider">|</span>
+                   <a href="#" target="_blank">Contact</a>
+               </div>
+               <div class="col-md-6">
+                   <a href="http://www.synergic.cz/en" target="_blank" class="footer-author" title="Created by Synergic">
+                       <img src="public/images/synergic.svg" alt="Synergic" />
+                   </a>
+               </div>
+           </div><!-- .row -->
+        </div><!-- .container -->
+    </footer>
 </body>
 
 Styleguide 2.2
@@ -8395,14 +8176,14 @@ Header and Content Sections
 
 Markup:
 <section class="section section-header">
-     <div class="container">
-         <h1 class="section-header-title">Page Title</h1>
-     </div><!-- .container -->
+    <div class="container">
+        <h1 class="section-header-title">Page Title</h1>
+    </div><!-- .container -->
 </section>
 <section class="section section-content">
-     <div class="container">
-         <p>This is the content of the page.</p>
-     </div><!-- .container -->
+    <div class="container">
+        <p>This is the content of the page.</p>
+    </div><!-- .container -->
 </section>
 
 Styleguide 2.3.1
@@ -8412,21 +8193,21 @@ Header Section with Tabs and CTA
 
 Markup:
 <section class="section section-header has-tabs">
-     <div class="container">
-         <div class="row">
-             <div class="col-sm-8">
-                 <h1 class="section-header-title">Advanced Header Section</h1>
-                 <h2 class="section-header-subtitle">I am Section Subtitle</h2>
-             </div>
-             <div class="col-sm-4">
-                 <a href="#" class="btn btn-primary cta"><span class="glyphicon glyphicon-pencil"></span> New Email</a>
-             </div>
-         </div><!-- .row -->
-         <ul role="tablist" class="nav nav-tabs nav-tabs-header">
-             <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope "></span> Emailing</a></li>
-             <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-         </ul>
-     </div><!-- .container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="section-header-title">Advanced Header Section</h1>
+                <h2 class="section-header-subtitle">I am Section Subtitle</h2>
+            </div>
+            <div class="col-sm-4">
+                <a href="#" class="btn btn-primary cta"><span class="glyphicon glyphicon-pencil icon-offset" aria-hidden="true"></span> New Email</a>
+            </div>
+        </div><!-- .row -->
+        <ul role="tablist" class="nav nav-tabs nav-tabs-header">
+            <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope icon-offset" aria-hidden="true"></span> Emailing</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cog icon-offset" aria-hidden="true"></span> Settings</a></li>
+        </ul>
+    </div><!-- .container -->
 </section>
 
 Styleguide 2.3.2
@@ -8464,6 +8245,29 @@ Styleguide 2.3.2
   padding-bottom: 42px;
 }
 /*
+Screen
+
+Apply `screen-centered` on `<html>` to allow content to be centered on the screen both in horizontal and vertical
+direction. Useful for [login screens](section-5.html#section-5.7.1).
+
+Styleguide 2.4
+*/
+.screen-centered {
+  height: 100%;
+}
+.screen-centered > body {
+  width: 100%;
+  min-height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*
 Navigation
 
 Styleguide 3.
@@ -8477,78 +8281,81 @@ Implements default [Bootstrap navbar](http://getbootstrap.com/components/#navbar
 <div class="panel panel-info">
 <div class="panel-heading"><h4 class="panel-title">Fixed navbar</h4></div>
 <div class="panel-body">
-     Add `.has-navbar-fixed-top` class to `<body>` when using `.navbar-fixed-top` modification to ensure the content
-     does not hide below navbar.
+    Add `.has-navbar-fixed-top` class to `<body>` when using `.navbar-fixed-top` modification to ensure the content
+    does not hide below navbar.
 </div>
 </div>
 
 Markup:
 <!-- Main navigation -->
 <nav class="navbar navbar-static-top navbar-default">
-     <div class="container">
-         <!-- Brand and menu toggle -->
-         <div class="navbar-header">
-             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kssMenu">
-                 <span class="sr-only">Menu</span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-             </button>
-             <a href="#" class="navbar-brand" title="Synergic UI">Synergic UI</a>
-         </div>
-         <!-- Collapsible menu -->
-         <div class="collapse navbar-collapse" id="kssMenu">
-             <ul class="nav navbar-nav">
-                 <li class="active"><a href="#">Dashboard</a></li>
-                 <li><a href="#">Pages</a></li>
-                 <li><a href="#">Media</a></li>
-                 <li><a href="#">Users</a></li>
-             </ul>
-             <ul class="nav navbar-nav navbar-right">
-                 <li class="navbar-icon">
-                     <a href="#" target="_blank" title="Open site in a new tab">
-                         <span class="glyphicon glyphicon-home"></span>
-                         <span class="visible-xs">Home</span>
-                     </a>
-                 </li>
-                 <li class="navbar-icon">
-                     <a href="#" title="Settings">
-                         <span class="glyphicon glyphicon-cog"></span>
-                         <span class="visible-xs">Settings</span>
-                     </a>
-                 </li>
-                 <li class="dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="My profile">
-                         <span class="glyphicon glyphicon-user icon-offset" aria-hidden="true"></span>
-                         <span class="visible-xs">My Profile</span>
-                         <b class="caret"></b>
-                     </a>
-                     <ul class="dropdown-menu">
-                         <li class="dropdown-header">James Brown</li>
-                         <li class="divider"></li>
-                         <li>
-                             <a href="#">
-                                 <span class="glyphicon glyphicon-user icon-offset icon-vertically-aligned" aria-hidden="true"></span>
-                                 My Account
-                             </a>
-                         </li>
-                         <li>
-                             <a href="#">
-                                 <span class="glyphicon glyphicon-off icon-offset icon-vertically-aligned" aria-hidden="true"></span>
-                                 Sign out
-                             </a>
-                         </li>
-                     </ul>
-                 </li><!-- .dropdown -->
-              </ul><!-- .nav -->
-         </div><!-- .collapsible -->
-     </div><!-- .container -->
+    <div class="container">
+        <!-- Brand and menu toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#kssMenu">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand" title="Synergic UI">Synergic UI</a>
+        </div>
+        <!-- Collapsible menu -->
+        <div class="collapse navbar-collapse" id="kssMenu">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Dashboard</a></li>
+                <li><a href="#">Pages</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Users</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-icon">
+                    <a href="#" target="_blank" title="Open site in a new tab">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <span class="visible-xs">Home</span>
+                    </a>
+                </li>
+                <li class="navbar-icon">
+                    <a href="#" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        <span class="visible-xs">Settings</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="My profile">
+                        <span class="glyphicon glyphicon-user icon-offset" aria-hidden="true"></span>
+                        <span class="visible-xs">My Profile</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">James Brown</li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-user icon-offset icon-vertically-aligned" aria-hidden="true"></span>
+                                My Account
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-off icon-offset icon-vertically-aligned" aria-hidden="true"></span>
+                                Sign out
+                            </a>
+                        </li>
+                    </ul>
+                </li><!-- .dropdown -->
+             </ul><!-- .nav -->
+        </div><!-- .collapsible -->
+    </div><!-- .container -->
 </nav>
 
 Styleguide 3.1
 */
 .navbar-static-top {
   margin-bottom: 0;
+}
+.navbar-brand {
+  margin-right: 30px;
 }
 @media screen and (max-width: 767px) {
   .navbar .dropdown-header {
@@ -8582,9 +8389,9 @@ pointer on hover.
 
 Markup:
 <ul role="tablist" class="nav nav-tabs">
-     <li class="active"><a href="#">Bring one I make</a></li>
-     <li><a href="#">Moved lights</a></li>
-     <li><a href="#">Living created</a></li>
+    <li class="active"><a href="#">Bring one I make</a></li>
+    <li><a href="#">Moved lights</a></li>
+    <li><a href="#">Living created</a></li>
 </ul>
 
 Styleguide 3.3.1
@@ -8599,8 +8406,8 @@ Styleguide 3.3.1
 
     Markup:
     <ul role="tablist" class="nav nav-tabs nav-tabs-header">
-         <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope "></span> Emailing</a></li>
-         <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope icon-offset" aria-hidden="true"></span> Emailing</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-cog icon-offset" aria-hidden="true"></span> Settings</a></li>
     </ul>
 
     Styleguide 3.3.2
@@ -8638,21 +8445,21 @@ Letter navigation is made for use with long listings. Especially powerful when c
 
 Markup:
 <div class="row">
-     <div class="col-sm-2 col-sm-push-10">
-         <ul class="nav nav-letters">
-             <li><a href="#letter-a">A</a></li>
-             <li><a href="#letter-b">B</a></li>
-             <li><a href="#letter-c">C</a></li>
-         </ul>
-     </div>
-     <div class="col-sm-10 col-sm-pull-2">
-         <h3 id="letter-a">A</h3>
-         <p>A very long listing…</p>
-         <h3 id="letter-b">B</h3>
-         <p>Another very long listing…</p>
-         <h3 id="letter-c">C</h3>
-         <p>Yet another very long listing…</p>
-     </div>
+    <div class="col-sm-2 col-sm-push-10">
+        <ul class="nav nav-letters">
+            <li><a href="#letter-a">A</a></li>
+            <li><a href="#letter-b">B</a></li>
+            <li><a href="#letter-c">C</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-10 col-sm-pull-2">
+        <h3 id="letter-a">A</h3>
+        <p>A very long listing…</p>
+        <h3 id="letter-b">B</h3>
+        <p>Another very long listing…</p>
+        <h3 id="letter-c">C</h3>
+        <p>Yet another very long listing…</p>
+    </div>
 </div><!-- .row -->
 
 Styleguide 3.4
@@ -8685,50 +8492,50 @@ adjust offset of nested menu items.
 
 Markup:
 <div class="panel-menu">
-     <!-- Panel menu bar -->
-     <div class="panel-menu-bar">
-         <button data-toggle="collapse" data-target="#panelMenu" class="panel-menu-bar-toggle collapsed" aria-expanded="false">
-             <span class="panel-menu-bar-toggle-icon" aria-hidden="true">
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-             </span>
-             <span class="sr-only">Menu</span>
-         </button>
-         <div class="panel-menu-bar-right">
-             <div class="dropdown">
-                 <a href="#" id="userMenuLabel" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                     <span class="panel-menu-bar-avatar">
-                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                     </span>
-                     Bilbo Baggins
-                     <span class="caret" aria-hidden="true"></span>
-                 </a>
-                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="userMenuLabel">
-                     <li>
-                         <a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sign out</a>
-                     </li>
-                 </ul>
-             </div>
-         </div>
-     </div><!-- .panel-menu-bar -->
-     <!-- Panel menu pane -->
-     <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
-         <h2>Administration</h2>
-         <ul class="nav nav-icons">
-             <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pages</a></li>
-             <li>
-                 <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Media</a>
-                 <ul class="nav">
-                     <li><a href="#">Pictures</a></li>
-                     <li><a href="#">Music</a></li>
-                     <li><a href="#">Video</a></li>
-                 </ul>
-             </li>
-             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
-             <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
-         </ul>
-     </nav><!-- .panel-menu-pane -->
+    <!-- Panel menu bar -->
+    <div class="panel-menu-bar">
+        <button data-toggle="collapse" data-target="#panelMenu" class="panel-menu-bar-toggle collapsed" aria-expanded="false">
+            <span class="panel-menu-bar-toggle-icon" aria-hidden="true">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </span>
+            <span class="sr-only">Menu</span>
+        </button>
+        <div class="panel-menu-bar-right">
+            <div class="dropdown">
+                <a href="#" id="userMenuLabel" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                    <span class="panel-menu-bar-avatar">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </span>
+                    Bilbo Baggins
+                    <span class="caret" aria-hidden="true"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="userMenuLabel">
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Sign out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- .panel-menu-bar -->
+    <!-- Panel menu pane -->
+    <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
+        <h2>Administration</h2>
+        <ul class="nav nav-icons">
+            <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pages</a></li>
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Media</a>
+                <ul class="nav">
+                    <li><a href="#">Pictures</a></li>
+                    <li><a href="#">Music</a></li>
+                    <li><a href="#">Video</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
+        </ul>
+    </nav><!-- .panel-menu-pane -->
 </div><!-- .panel-menu -->
 
 Styleguide 3.2
@@ -8966,52 +8773,73 @@ Forms
 Styleguide 4.
 */
 /*
+Cancel Link
+
+Link for returning from edit form back to listing.
+
+Markup:
+<button type="submit" class="btn btn-primary">Save and publish</button>
+<div class="cancel-link">
+    or
+    <a href="#">Cancel</a>
+</div>
+
+Styleguide 4.6
+*/
+.cancel-link {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  margin-left: 1em;
+  margin-bottom: 21px;
+}
+/*
 Filter
 
 Align form action button with labels in a filter.
 
 <div class="panel panel-warning">
-     <div class="panel-heading"><h4 class="panel-title">Heads up!</h4></div>
-     <div class="panel-body">
-         See [Filterable](section-6.html#section-6.2) for interactive JavaScript component.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">Heads up!</h4></div>
+    <div class="panel-body">
+        See [Filterable](section-6.html#section-6.2) for interactive JavaScript component.
+    </div>
 </div>
 
 Markup:
 <form class="form-filter">
-     <div class="row">
-         <div class="col-sm-3">
-             <div class="form-group">
-                 <label>Place of Birth</label>
-                 <select class="form-control">
-                     <option value="">All</option>
-                     <option value="Denver">Denver</option>
-                     <option value="Liptákov">Liptákov</option>
-                     <option value="Moscow">Moscow</option>
-                     <option value="Munich">Munich</option>
-                     <option value="Prague">Prague</option>
-                     <option value="Viena">Vienna</option>
-                 </select>
-             </div>
-         </div>
-         <div class="col-sm-3">
-             <div class="form-group">
-                 <label>Cash under</label>
-                 <input type="text" class="form-control" />
-             </div>
-         </div>
-         <div class="col-sm-3">
-             <div class="form-group">
-                 <label>Cash over</label>
-                 <input type="text" class="form-control" />
-             </div>
-         </div>
-         <div class="col-sm-3">
-             <div class="form-actions">
-                 <button type="reset" class="btn btn-default">Reset Filter</button>
-             </div>
-         </div>
-     </div><!-- .row -->
+    <div class="row">
+        <div class="col-sm-3">
+           <div class="form-group">
+                <label>Place of Birth</label>
+                <select class="form-control">
+                    <option value="">All</option>
+                    <option value="Denver">Denver</option>
+                    <option value="Liptákov">Liptákov</option>
+                    <option value="Moscow">Moscow</option>
+                    <option value="Munich">Munich</option>
+                    <option value="Prague">Prague</option>
+                    <option value="Viena">Vienna</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label>Cash under</label>
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label>Cash over</label>
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-actions">
+                <button type="reset" class="btn btn-default">Reset Filter</button>
+            </div>
+        </div>
+    </div><!-- .row -->
 </form>
 
 Styleguide 4.3
@@ -9033,9 +8861,9 @@ Better Validation Messages
 
 Markup:
 <div class="form-group">
-     <label for="email">Email</label>
-     <input type="email" class="form-control" name="email" />
-     <div class="text-danger-block">Please enter a valid email address</div>
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" />
+    <div class="text-danger-block">Please enter a valid email address</div>
 </div>
 
 Styleguide 4.1.1
@@ -9102,10 +8930,10 @@ Always keep button above the input to prevent input border from disappearing.
 
 Markup:
 <div class="input-group">
-     <input type="search" placeholder="Hledat" class="form-control" title="Zadejte hledaný termín" />
-     <span class="input-group-btn">
-         <button type="submit" class="btn btn-primary">Hledat</button>
-     </span>
+    <input type="search" placeholder="Hledat" class="form-control" title="Zadejte hledaný termín" />
+    <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary">Hledat</button>
+    </span>
 </div>
 
 Styleguide 4.2
@@ -9121,38 +8949,38 @@ Datetimepicker
 [Jonathan Peterson](https://github.com/Eonasdan).
 
 <div class="panel panel-danger">
-     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
-     <div class="panel-body">
-         Please note that `moment.js` (must be loaded before `bootstrap.js`) and `bootstrap-datetimepicker.js` are
-         required.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Please note that `moment.js` (must be loaded before `bootstrap.js`) and `bootstrap-datetimepicker.js` are
+        required.
+    </div>
 </div>
 
 Markup:
 <div class="form-group">
-     <label>Pick a date and time</label>
-     <div class="input-group date" id="datetimepicker1">
-         <input type="text" class="form-control" value="2014-09-06 18:05" />
-         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-     </div>
+    <label>Pick a date and time</label>
+    <div class="input-group date" id="datetimepicker1">
+        <input type="text" class="form-control" value="2014-09-06 18:05" />
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+    </div>
 </div>
 <div class="form-group">
-     <label>Pick a date</label>
-     <div class="input-group date" id="datetimepicker2">
-         <input type="text" class="form-control" value="2014-06-26" />
-         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-     </div>
+    <label>Pick a date</label>
+    <div class="input-group date" id="datetimepicker2">
+        <input type="text" class="form-control" value="2014-06-26" />
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></span>
+    </div>
 </div>
 <script>
 $(function () {
-     $('#datetimepicker1').datetimepicker({
-         'format': 'YYYY-MM-DD HH:mm',
-         'sideBySide': true
-     });
-     $('#datetimepicker2').datetimepicker({
-         'format': 'YYYY-MM-DD',
-         'pickTime': false
-     });
+    $('#datetimepicker1').datetimepicker({
+        'format': 'YYYY-MM-DD HH:mm',
+        'sideBySide': true
+    });
+    $('#datetimepicker2').datetimepicker({
+        'format': 'YYYY-MM-DD',
+        'pickTime': false
+    });
 });
 </script>
 
@@ -9165,10 +8993,10 @@ Implements [select2](http://ivaynberg.github.io/select2/) by [Igor Vaynberg](htt
 [Select2 Bootstrap CSS](https://fk.github.io/select2-bootstrap-css/) by [Tom Terrace](https://github.com/t0m).
 
 <div class="panel panel-danger">
-     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
-     <div class="panel-body">
-         Please note that `select2.js` is required.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Please note that `select2.js` is required.
+    </div>
 </div>
 
 Styleguide 4.5
@@ -9178,17 +9006,17 @@ Single Option
 
 Markup:
 <select class="form-control" id="select2-example-single">
-     <option selected value="">All</option>
-     <option value="Denver">Denver</option>
-     <option value="Liptákov">Liptákov</option>
-     <option value="Moscow">Moscow</option>
-     <option value="Munich">Munich</option>
-     <option value="Prague">Prague</option>
-     <option value="Viena">Vienna</option>
+    <option selected value="">All</option>
+    <option value="Denver">Denver</option>
+    <option value="Liptákov">Liptákov</option>
+    <option value="Moscow">Moscow</option>
+    <option value="Munich">Munich</option>
+    <option value="Prague">Prague</option>
+    <option value="Viena">Vienna</option>
 </select>
 <script>
 $(function () {
-     $('#select2-example-single').select2();
+    $('#select2-example-single').select2();
 });
 </script>
 
@@ -9199,16 +9027,16 @@ Multiple Options
 
 Markup:
 <select class="form-control" id="select2-example-multiple" multiple>
-     <option selected value="Denver">Denver</option>
-     <option selected value="Liptákov">Liptákov</option>
-     <option value="Moscow">Moscow</option>
-     <option value="Munich">Munich</option>
-     <option selected value="Prague">Prague</option>
-     <option value="Viena">Vienna</option>
+    <option selected value="Denver">Denver</option>
+    <option selected value="Liptákov">Liptákov</option>
+    <option value="Moscow">Moscow</option>
+    <option value="Munich">Munich</option>
+    <option selected value="Prague">Prague</option>
+    <option value="Viena">Vienna</option>
 </select>
 <script>
 $(function () {
-     $('#select2-example-multiple').select2();
+    $('#select2-example-multiple').select2();
 });
 </script>
 
@@ -9253,11 +9081,11 @@ aligned with the rest of the page.
 
 Markup:
 <div class="alert alert-success alert-dismissible alert-full fade in">
-     <button class="close" data-dismiss="alert">&times;</button>
-     <div class="container">
-         <span class="glyphicon glyphicon-ok-sign"></span>
-         Your order has been placed. Thank you!
-     </div>
+    <button class="close" data-dismiss="alert">&times;</button>
+    <div class="container">
+        <span class="glyphicon glyphicon-ok-sign icon-offset" aria-hidden="true"></span>
+        Your order has been placed. Thank you!
+    </div>
 </div>
 
 Styleguide 5.5.1
@@ -9280,9 +9108,9 @@ Bootstrap’s `.alert-danger`.
 
 Markup:
 <div class="alert alert-error alert-dismissible fade in">
-     <button class="close" data-dismiss="alert">&times;</button>
-     <span class="glyphicon glyphicon-warning-sign"></span>
-     What a mistake!
+    <button class="close" data-dismiss="alert">&times;</button>
+    <span class="glyphicon glyphicon-warning-sign icon-offset" aria-hidden="true"></span>
+    What a mistake!
 </div>
 
 Styleguide 5.5.2
@@ -9293,11 +9121,11 @@ Back Link
 Link back to previous page. Typically used together with `<h2>` headings.
 
 <div class="panel panel-info">
-     <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
-     <div class="panel-body">
-         It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
-         appear on the right side of heading on big screens but they are designed in a different way for mobile.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
+    <div class="panel-body">
+        It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
+        appear on the right side of heading on big screens but they are designed in a different way for mobile.
+    </div>
 </div>
 
 Markup:
@@ -9372,13 +9200,20 @@ Styleguide 5.1.2
 /*
 Call to Action
 
-A simple helper for responsive call to action. Made for use in header section.
+A simple helper for responsive call to action. Made for use in header.
 
 Markup:
-<a href="#" class="btn btn-primary cta">
-     <span class="glyphicon glyphicon-plus-sign"></span>
-     New Page
-</a>
+<div class="row">
+    <div class="col-sm-8">
+        <h1 class="section-header-title">Pages</h1>
+    </div>
+    <div class="col-sm-4">
+        <a href="#" class="btn btn-primary cta">
+            <span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span>
+            New Page
+        </a>
+    </div>
+</div><!-- .row -->
 
 Styleguide 5.11
 */
@@ -9397,7 +9232,26 @@ Styleguide 5.11
   .cta > .item-action {
     float: right;
   }
+  .cta.btn-group > .btn,
+  .cta.btn-group > .item-action,
+  .cta.btn-group > .item-action {
+    float: left;
+  }
 }
+/*
+CTA for Content Headings
+
+For CTA buttons alongside headings in content area simply apply `pull-right` on a regular button, `cta` is not needed.
+
+Markup:
+<a href="#" class="btn btn-primary pull-right">
+    <span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span>
+    New Page
+</a>
+<h2>Pages</h2>
+
+Styleguide 5.11.1
+*/
 /*
 Gallery
 
@@ -9405,14 +9259,14 @@ Bootstrap-grid-independent responsive thumbnail grid. Designed for easy use.
 
 Markup:
 <div class="gallery">
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
-     <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
+    <a href="#"><img src="//placehold.it/320x320" alt="Photo" /></a>
 </div>
 
 Styleguide 5.9
@@ -9474,53 +9328,53 @@ lists of items where each item offers one or more action to be taken. They look 
 
 Markup:
 <p>
-     <a href="#" class="item-action" title="Edit">
-         <span class="glyphicon glyphicon-pencil"></span>
-     </a>
-     <a href="#" class="item-action item-action-danger" title="Delete">
-         <span class="glyphicon glyphicon-trash"></span>
-     </a>
-     <a href="#" class="item-action">
-         <span class="glyphicon glyphicon-share-alt"></span>
-         Share
-     </a>
-     <a href="#" class="item-action item-action-danger">
-         <span class="glyphicon glyphicon-remove-sign"></span>
-         Remove
-     </a>
+    <a href="#" class="item-action" title="Edit">
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+    </a>
+    <a href="#" class="item-action item-action-danger" title="Delete">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    </a>
+    <a href="#" class="item-action">
+        <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+        Share
+    </a>
+    <a href="#" class="item-action item-action-danger">
+        <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+        Remove
+    </a>
 </p>
 <p><strong>Used in table:</strong></p>
 <table class="table">
-     <thead>
-         <tr>
-             <th>Article</th>
-             <th></th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>Hotforwords Can Explain Lorem Ipsum far better than I can</td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-         <tr>
-             <td>Which to isn't lesser together years land heaven brought</td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-     </tbody>
+    <thead>
+        <tr>
+            <th>Article</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Hotforwords Can Explain Lorem Ipsum far better than I can</td>
+            <td class="table-cell-actions">
+                <a href="#" class="item-action" title="Edit">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                <a href="#" class="item-action item-action-danger" title="Delete">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>Which to isn't lesser together years land heaven brought</td>
+            <td class="table-cell-actions">
+                <a href="#" class="item-action" title="Edit">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a>
+                <a href="#" class="item-action item-action-danger" title="Delete">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 Styleguide 5.4
@@ -9549,32 +9403,32 @@ best as sidebar navigation.
 
 Markup:
 <div class="list-group list-group-nested">
-     <a href="#" class="list-group-item active"><h4 class="list-group-item-heading">Pages</h4></a>
-     <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign"></span></a>
-     <a href="#" class="list-group-item list-group-item-nested">Home</a>
-     <a href="#" class="list-group-item list-group-item-nested">Products</a>
-     <a href="#" class="list-group-item list-group-item-nested">About</a>
-     <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Articles</h4></a>
-     <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign"></span></a>
-     <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Settings</h4></a>
+    <a href="#" class="list-group-item active"><h4 class="list-group-item-heading">Pages</h4></a>
+    <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span></a>
+    <a href="#" class="list-group-item list-group-item-nested">Home</a>
+    <a href="#" class="list-group-item list-group-item-nested">Products</a>
+    <a href="#" class="list-group-item list-group-item-nested">About</a>
+    <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Articles</h4></a>
+    <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span></a>
+    <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Settings</h4></a>
 </div>
 <p><strong>Sidebar example:</strong></p>
 <div class="row">
-     <div class="sidebar">
-         <div class="list-group list-group-nested">
-             <a href="#" class="list-group-item active"><h4 class="list-group-item-heading">Pages</h4></a>
-             <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign"></span></a>
-             <a href="#" class="list-group-item list-group-item-nested">Home</a>
-             <a href="#" class="list-group-item list-group-item-nested">Products</a>
-             <a href="#" class="list-group-item list-group-item-nested">About</a>
-             <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Articles</h4></a>
-             <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign"></span></a>
-             <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Settings</h4></a>
-         </div>
-     </div>
-     <div class="content">
-         <p class="kss__example-box">The content.</p>
-     </div>
+    <div class="sidebar">
+        <div class="list-group list-group-nested">
+            <a href="#" class="list-group-item active"><h4 class="list-group-item-heading">Pages</h4></a>
+            <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span></a>
+            <a href="#" class="list-group-item list-group-item-nested">Home</a>
+            <a href="#" class="list-group-item list-group-item-nested">Products</a>
+            <a href="#" class="list-group-item list-group-item-nested">About</a>
+            <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Articles</h4></a>
+            <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span></a>
+            <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Settings</h4></a>
+        </div>
+    </div>
+    <div class="content">
+        <p class="kss__example-box">The content.</p>
+    </div>
 </div><!-- .row -->
 
 Styleguide 5.6
@@ -9613,20 +9467,20 @@ More Link
 Responsive link to a complete listing.
 
 <div class="panel panel-info">
-     <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
-     <div class="panel-body">
-         It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
-         appear on the right side of heading on big screens but they are designed in a different way for mobile.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
+    <div class="panel-body">
+        It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
+        appear on the right side of heading on big screens but they are designed in a different way for mobile.
+    </div>
 </div>
 
 Markup:
 <h2>News</h2>
 <div class="has-more">
-     <p>This is the news.</p>
-     <div class="more">
-         <a href="#">All News</a>
-     </div>
+    <p>This is the news.</p>
+    <div class="more">
+        <a href="#">All News</a>
+    </div>
 </div>
 
 Styleguide 5.13
@@ -9653,6 +9507,7 @@ Markup:
 <div class="offset-bottom">I have bottom spacing like a real paragraph!</div>
 <div class="offset-bottom-large">I have big bottom spacing!</div>
 <div class="offset-bottom-larger">I have HUGE bottom spacing!</div>
+<p class="offset-bottom-none">I have no bottom spacing :/.</p>
 
 Styleguide 5.15
 */
@@ -9664,6 +9519,9 @@ Styleguide 5.15
 }
 .offset-bottom-larger {
   margin-bottom: 84px;
+}
+.offset-bottom-none {
+  margin-bottom: 0 !important;
 }
 /*
 Responsive Offset
@@ -9713,23 +9571,65 @@ Styleguide 5.15.1
 /*
 Panels
 
-Extends [Bootstrap panels]() with rich header containing icon shortcut (dropdown can also be used).
+Styleguide 5.7
+*/
+/*
+Login Panel
+
+Simple panel designed for login form.
+
+Markup:
+<div class="panel panel-default panel-login">
+    <div class="panel-heading">
+        <h4 class="text-center">Sign In</h4>
+    </div>
+    <div class="panel-body">
+        <form role="form" action="" method="post">
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="email" id="username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+Styleguide 5.7.1
+*/
+.panel-login {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25em;
+  margin-top: 21px;
+}
+/*
+Panel with Extended Header
+
+Extends [Bootstrap panels](http://getbootstrap.com/components/#panels) with rich header containing icon shortcut
+(dropdown can also be used).
 
 Markup:
 <div class="panel panel-default">
-     <div class="panel-heading panel-heading-extended">
-         <a href="#" class="panel-action" title="Settings"><span class="glyphicon glyphicon-cog"></span></a>
-         <a href="#">
-             <h4 class="panel-title panel-title-big">Big Big Title</h4>
-             <h5 class="panel-title panel-title-subtitle">Teeny Tiny Subtitle</h5>
-         </a>
-     </div>
-     <div class="panel-body">
-         Winged. Grass female creepeth you're light firmament replenish have seasons may to seed also female.
-     </div>
+    <div class="panel-heading panel-heading-extended">
+        <a href="#" class="panel-action" title="Settings"><span class="glyphicon glyphicon-cog icon-offset" aria-hidden="true"></span></a>
+        <a href="#">
+            <h4 class="panel-title panel-title-big">Big Big Title</h4>
+            <h5 class="panel-title panel-title-subtitle">Teeny Tiny Subtitle</h5>
+        </a>
+    </div>
+    <div class="panel-body">
+        Winged. Grass female creepeth you're light firmament replenish have seasons may to seed also female.
+    </div>
 </div>
 
-Styleguide 5.7
+Styleguide 5.7.2
 */
 .panel-heading-extended {
   position: relative;
@@ -9770,80 +9670,98 @@ Default [Bootstrap tables](http://getbootstrap.com/css/#tables) can be extended 
 - Actions column which always keeps all actions in a single row
 - Table cells vertically aligned to top (`.table-cell-top`)
 
-This is the recommended setup for common table listing:
+This is the recommended setup for simple table listing:
 
 Markup:
-<table class="table">
-     <thead>
-         <tr>
-             <th class="table-cell-id">#</th>
-             <th>Page Title</th>
-             <th></th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td class="table-cell-id">1</td>
-             <td><a href="#">Hotforwords Can Explain Lorem Ipsum far better than I can</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-         <tr class="table-row-nested">
-             <td class="table-cell-id">2</td>
-             <td><a href="#">A nested item; Which to isn’t lesser together</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-         <tr>
-             <td class="table-cell-id">3</td>
-             <td><a href="#">Seas spirit morning, fill seasons every I wherein kind</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-         <tr class="disabled">
-             <td class="table-cell-id">4</td>
-             <td><a href="#">A disabled item, eg. for unpublished articles</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-         <tr>
-             <td class="table-cell-id">5</td>
-             <td><a href="#">Cattle she’d of herb third</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-     </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="table-cell-id">#</th>
+                <th>Page Title</th>
+                <th class="text-right">Time Created</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-cell-id">1</td>
+                <td><a href="#">Hotforwords Can Explain Lorem Ipsum far better than I can</a></td>
+                <td class="text-right text-nowrap">
+                   <small>06/09/2015 18:05</small>
+                </td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr class="table-row-nested">
+                <td class="table-cell-id">2</td>
+                <td><a href="#">A nested item; Which to isn’t lesser together</a></td>
+                <td class="text-right text-nowrap">
+                    <small>06/03/2015 12:55</small>
+                </td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-cell-id">3</td>
+                <td><a href="#">Seas spirit morning, fill seasons every I wherein kind</a></td>
+                <td class="text-right text-nowrap">
+                    <small>06/03/2015 12:45</small>
+                </td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr class="disabled">
+                <td class="table-cell-id">4</td>
+                <td><a href="#">A disabled item, eg. for unpublished articles</a></td>
+                <td class="text-right text-nowrap">
+                    <small>06/03/2015 10:02</small>
+                </td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-cell-id">5</td>
+                <td><a href="#">Cattle she’d of herb third</a></td>
+                <td class="text-right text-nowrap">
+                    <small>06/02/2015 12:15</small>
+                </td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 Styleguide 5.2
 */
@@ -9853,51 +9771,53 @@ Tables with Groups
 Table data can be easily organized in groups.
 
 Markup:
-<table class="table">
-     <thead>
-         <tr>
-             <th class="table-cell-id">#</th>
-             <th>User</th>
-         </tr>
-     </thead>
-     <thead>
-         <tr class="active">
-             <th colspan="2">B</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td class="table-cell-id">1</td>
-             <td><a href="#"><strong>Brown</strong>, James</a></td>
-         </tr>
-     </tbody>
-     <thead>
-         <tr class="active">
-             <th colspan="2">P</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td class="table-cell-id">2</td>
-             <td><a href="#"><strong>Paisley</strong>, Brad</a></td>
-         </tr>
-         <tr>
-             <td class="table-cell-id">3</td>
-             <td><a href="#"><strong>Parker</strong>, Maceo</a></td>
-         </tr>
-     </tbody>
-     <thead>
-         <tr class="active">
-             <th colspan="2">W</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td class="table-cell-id">4</td>
-             <td><a href="#"><strong>Wesley</strong>, Fred</a></td>
-         </tr>
-     </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="table-cell-id">#</th>
+                <th>User</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr class="active">
+                <th colspan="2">B</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-cell-id">1</td>
+                <td><a href="#"><strong>Brown</strong>, James</a></td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr class="active">
+                <th colspan="2">P</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-cell-id">2</td>
+                <td><a href="#"><strong>Paisley</strong>, Brad</a></td>
+            </tr>
+            <tr>
+                <td class="table-cell-id">3</td>
+                <td><a href="#"><strong>Parker</strong>, Maceo</a></td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr class="active">
+                <th colspan="2">W</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-cell-id">4</td>
+                <td><a href="#"><strong>Wesley</strong>, Fred</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 Styleguide 5.2.1
 */
@@ -9941,18 +9861,18 @@ variables.
 
 Markup:
 <article class="teaser">
-     <h3 class="teaser-title"><a href="#">Souvisela směrem co pralesem spojených k zákeřný uchu</a></h3>
-     <div class="teaser-submitted"><a href="#">Leonardo da Vinci</a> | 6. 9. 1986</div>
-     <a href="#" class="teaser-image">
-         <img src="//placehold.it/800x400" alt="Picture" />
-     </a>
-     <div class="teaser-description">
-         <p>V globální mu věrni obrovský zdejších stoupá dva stejného reklamy vy svůj hloubce disponují, kulturním
-         by šanci posláníjane ledové, pobřeží zdejších zajišťuje, má mě ona ta nimi kameni instituce, pavouka směr
-         epidemií o institut tehdy ty smeten draci pak i podporovala amatérsky mocná založení žen pročítat kde.
-         </p>
-     </div>
-     <a href="#" class="teaser-more">Read more</a>
+    <h3 class="teaser-title"><a href="#">Souvisela směrem co pralesem spojených k zákeřný uchu</a></h3>
+    <div class="teaser-submitted"><a href="#">Leonardo da Vinci</a> | 6. 9. 1986</div>
+    <a href="#" class="teaser-image">
+        <img src="//placehold.it/800x400" alt="Picture" />
+    </a>
+    <div class="teaser-description">
+        <p>V globální mu věrni obrovský zdejších stoupá dva stejného reklamy vy svůj hloubce disponují, kulturním
+        by šanci posláníjane ledové, pobřeží zdejších zajišťuje, má mě ona ta nimi kameni instituce, pavouka směr
+        epidemií o institut tehdy ty smeten draci pak i podporovala amatérsky mocná založení žen pročítat kde.
+        </p>
+    </div>
+    <a href="#" class="teaser-more">Read more</a>
 </article>
 
 Styleguide 5.10
@@ -9962,54 +9882,54 @@ Teaser Grid
 
 Markup:
 <div class="row">
-     <div class="col-md-4">
-         <a href="#" class="teaser">
-             <article>
-                 <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
-                 <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
-                 <div class="teaser-image">
-                     <img src="//placehold.it/800x400" alt="Picture" />
-                 </div>
-                 <div class="teaser-description">
-                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
-                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
-                 </div>
-                 <div class="teaser-more">Read more</div>
-             </article>
-         </a>
-     </div>
-     <div class="col-md-4">
-         <a href="#" class="teaser">
-             <article>
-                 <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
-                 <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
-                 <div class="teaser-image">
-                     <img src="//placehold.it/800x400" alt="Picture" />
-                 </div>
-                 <div class="teaser-description">
-                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
-                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
-                 </div>
-                 <div class="teaser-more">Read more</div>
-             </article>
-         </a>
-     </div>
-     <div class="col-md-4">
-         <a href="#" class="teaser">
-             <article>
-                 <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
-                 <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
-                 <div class="teaser-image">
-                     <img src="//placehold.it/800x400" alt="Picture" />
-                 </div>
-                 <div class="teaser-description">
-                     <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
-                     krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
-                 </div>
-                 <div class="teaser-more">Read more</div>
-             </article>
-         </a>
-     </div>
+    <div class="col-md-4">
+        <a href="#" class="teaser">
+            <article>
+                <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
+                <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
+                <div class="teaser-image">
+                    <img src="//placehold.it/800x400" alt="Picture" />
+                </div>
+                <div class="teaser-description">
+                    <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
+                    krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
+                </div>
+                <div class="teaser-more">Read more</div>
+            </article>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="#" class="teaser">
+            <article>
+                <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
+                <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
+                <div class="teaser-image">
+                    <img src="//placehold.it/800x400" alt="Picture" />
+                </div>
+                <div class="teaser-description">
+                    <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
+                    krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
+                </div>
+                <div class="teaser-more">Read more</div>
+            </article>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="#" class="teaser">
+            <article>
+                <h3 class="teaser-title">Souvisela směrem co pralesem spojených k zákeřný uchu</h3>
+                <div class="teaser-submitted">Leonardo da Vinci | 6. 9. 1986</div>
+                <div class="teaser-image">
+                    <img src="//placehold.it/800x400" alt="Picture" />
+                </div>
+                <div class="teaser-description">
+                    <p>Do má žena přenést aby 80 ℃, zbavena činností u přinášejí dubnu, k všímají konzistenci
+                    krystalem. Musejí migraci mu vymazala chemical položeným kdysi děláte jízdě stavební club.</p>
+                </div>
+                <div class="teaser-more">Read more</div>
+            </article>
+        </a>
+    </div>
 </div><!-- .row -->
 
 Styleguide 5.10.1
@@ -10081,54 +10001,54 @@ which is perfect for media grid listing.
 
 Markup:
 <div class="row">
-     <div class="col-xs-6 col-sm-4">
-         <div class="thumbnail thumbnail-fixed">
-             <a href="#">
-                 <div class="thumbnail-image">
-                     <img src="http://placehold.it/400x300" alt="" />
-                 </div>
-                 <div class="caption">
-                     <h4 class="thumbnail-title">my-darling.jpg</h4>
-                     <small class="text-muted">6378&nbsp;kB</small>
-                 </div>
-             </a>
-             <div class="thumbnail-actions">
-                 <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash"></span></button>
-             </div>
-         </div>
-     </div>
-     <div class="col-xs-6 col-sm-4">
-         <div class="thumbnail thumbnail-fixed">
-             <a href="#">
-                 <div class="thumbnail-image">
-                     <img src="http://placehold.it/400x300" alt="" />
-                 </div>
-                 <div class="caption">
-                     <h4 class="thumbnail-title">my-lovely-darling-with-a-long-name.jpg</h4>
-                     <small class="text-muted">6378&nbsp;kB</small>
-                 </div>
-             </a>
-             <div class="thumbnail-actions">
-                 <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash"></span></button>
-             </div>
-         </div>
-     </div>
-     <div class="col-xs-6 col-sm-4">
-         <div class="thumbnail thumbnail-fixed">
-             <a href="#">
-                 <div class="thumbnail-image">
-                     <img src="http://placehold.it/400x300" alt="" />
-                 </div>
-                 <div class="caption">
-                     <h4 class="thumbnail-title">my-darling.jpg</h4>
-                     <small class="text-muted">6378&nbsp;kB</small>
-                 </div>
-             </a>
-             <div class="thumbnail-actions">
-                 <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash"></span></button>
-             </div>
-         </div>
-     </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="thumbnail thumbnail-fixed">
+            <a href="#">
+                <div class="thumbnail-image">
+                    <img src="http://placehold.it/400x300" alt="" />
+                </div>
+                <div class="caption">
+                    <h4 class="thumbnail-title">my-darling.jpg</h4>
+                    <small class="text-muted">6378&nbsp;kB</small>
+                </div>
+            </a>
+            <div class="thumbnail-actions">
+                <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="thumbnail thumbnail-fixed">
+            <a href="#">
+                <div class="thumbnail-image">
+                    <img src="http://placehold.it/400x300" alt="" />
+                </div>
+                <div class="caption">
+                    <h4 class="thumbnail-title">my-lovely-darling-with-a-long-name.jpg</h4>
+                    <small class="text-muted">6378&nbsp;kB</small>
+                </div>
+            </a>
+            <div class="thumbnail-actions">
+                <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+        <div class="thumbnail thumbnail-fixed">
+            <a href="#">
+                <div class="thumbnail-image">
+                    <img src="http://placehold.it/400x300" alt="" />
+                </div>
+                <div class="caption">
+                    <h4 class="thumbnail-title">my-darling.jpg</h4>
+                    <small class="text-muted">6378&nbsp;kB</small>
+                </div>
+            </a>
+            <div class="thumbnail-actions">
+                <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
 </div><!-- .row -->
 
 Styleguide 5.8
@@ -10183,16 +10103,16 @@ as possible. Namely the following sections of Bootstrap docs apply:
 * [Events](http://getbootstrap.com/javascript/#js-events)
 
 <div class="panel panel-info">
-     <div class="panel-heading"><h4 class="panel-title">QUnit Tests</h4></div>
-     <div class="panel-body">
-         Tests for all components are store in `src/js/tests/` and can be run using either of the following commands:
-         <ul>
-             <li>`$ grunt test` for testing in a headless browser Phantom JS.</li>
-             <li>`$ grunt test-remote` for testing in a real browser. **Please append** `src/js/tests/` **to the URL**
-                 (typically `localhost:3000`) to view the QUnit test page. For testing on another device, replace
-                 `localhost` with your local IP address.</li>
-         </ul>
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">QUnit Tests</h4></div>
+    <div class="panel-body">
+        Tests for all components are store in `src/js/tests/` and can be run using either of the following commands:
+        <ul>
+            <li>`$ grunt test` for testing in a headless browser Phantom JS.</li>
+            <li>`$ grunt test-remote` for testing in a real browser. **Please append** `src/js/tests/` **to the URL**
+                (typically `localhost:3000`) to view the QUnit test page. For testing on another device, replace
+                `localhost` with your local IP address.</li>
+        </ul>
+    </div>
 </div>
 
 Styleguide 6.
@@ -10203,30 +10123,30 @@ Confirmation
 Attaches a confirmation dialog to be triggered by clicking on the element.
 
 <div class="panel panel-danger">
-     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
-     <div class="panel-body">
-         Script `confirmation.js` and Bootstrap’s `modal.js` must be included.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `confirmation.js` and Bootstrap’s `modal.js` must be included.
+    </div>
 </div>
 
 The message and confirmation button labels can be modified for each instance either by setting the options
 appropriately or by overriding the plugin default options which affects all instances on page.
 
 <div class="panel panel-info">
-     <div class="panel-heading"><h4 class="panel-title">Overriding Default Options Example</h4></div>
-     <div class="panel-body">
+    <div class="panel-heading"><h4 class="panel-title">Overriding Default Options Example</h4></div>
+    <div class="panel-body">
 <pre>$(document).ready(function(){
-   // Localize confirmation messages into Czech
-   $.fn.confirmation.Constructor.prototype.options = {
-     'confirm-message': 'Opravdu?',
-     'confirm-yes': 'Ano',
-     'confirm-no': 'Ne'
-   };
+    // Localize confirmation messages into Czech
+    $.fn.confirmation.Constructor.prototype.options = {
+      'confirm-message': 'Opravdu?',
+      'confirm-yes': 'Ano',
+      'confirm-no': 'Ne'
+    };
 });</pre>
-         If overriding the default options while running the plugin in noConflict mode,
-         the code above has to be modified by substituting `$.fn.confirmation.Constructor.prototype.options` with
-         `$.fn.my_no_conflict_name.Constructor.prototype.options`.
-     </div>
+        If overriding the default options while running the plugin in noConflict mode,
+        the code above has to be modified by substituting `$.fn.confirmation.Constructor.prototype.options` with
+        `$.fn.my_no_conflict_name.Constructor.prototype.options`.
+    </div>
 </div>
 
 <h3>Usage</h3>
@@ -10243,34 +10163,34 @@ This components data-api only supports `<button>` elements.
 
 <h5>Options</h5>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Name</th>
-             <th>Type</th>
-             <th>Default</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>confirm-message</td>
-             <td>string</td>
-             <td>Are you sure?</td>
-             <td>Optional. The message to be displayed to the user in the confirmation dialog.</td>
-         </tr>
-         <tr>
-             <td>confirm-yes</td>
-             <td>string</td>
-             <td>Yes</td>
-             <td>Optional. The text to be shown in the button that confirms the action.</td>
-         </tr>
-         <tr>
-             <td>confirm-no</td>
-             <td>string</td>
-             <td>No</td>
-             <td>Optional. The text to be shown in the button that confirms the action.</td>
-         </tr>
-     </tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>confirm-message</td>
+            <td>string</td>
+            <td>Are you sure?</td>
+            <td>Optional. The message to be displayed to the user in the confirmation dialog.</td>
+        </tr>
+        <tr>
+            <td>confirm-yes</td>
+            <td>string</td>
+            <td>Yes</td>
+            <td>Optional. The text to be shown in the button that confirms the action.</td>
+        </tr>
+        <tr>
+            <td>confirm-no</td>
+            <td>string</td>
+            <td>No</td>
+            <td>Optional. The text to be shown in the button that confirms the action.</td>
+        </tr>
+    </tbody>
 </table>
 
 <h5>Methods</h5>
@@ -10279,50 +10199,50 @@ Creates a click on the element that triggers a confirmation dialog.
 
 <h3>Events</h3>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Event Type</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>show.sui.confirmation</td>
-             <td>Fired as soon as the confirmation dialog is displayed.</td>
-         </tr>
-         <tr>
-             <td>confirmed.sui.confirmation</td>
-             <td>Fired when user confirms the dialog.</td>
-         </tr>
-         <tr>
-             <td>rejected.sui.confirmation</td>
-             <td>Fired when user rejects the dialog.</td>
-         </tr>
-     <tbody>
+    <thead>
+        <tr>
+            <th>Event Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>show.sui.confirmation</td>
+            <td>Fired as soon as the confirmation dialog is displayed.</td>
+        </tr>
+        <tr>
+            <td>confirmed.sui.confirmation</td>
+            <td>Fired when user confirms the dialog.</td>
+        </tr>
+        <tr>
+            <td>rejected.sui.confirmation</td>
+            <td>Fired when user rejects the dialog.</td>
+        </tr>
+    <tbody>
 </table>
 
 Markup:
 <form onsubmit="alert('Confirmation confirmed');" method="get">
-     <button class="btn btn-danger" data-toggle="confirm">
-         Basic confirmation
-     </button>
-     <button
-         class="btn btn-danger"
-         data-toggle="confirm"
-         data-confirm-message="Really?"
-         data-confirm-yes="Confirm"
-         data-confirm-no="Reject"
-     >
-         Confirmation with custom text
-     </button>
-     <button
-         class="btn btn-danger"
-         data-toggle="confirm"
-         data-confirm-yes="<span class='glyphicon glyphicon-ok'></span>"
-         data-confirm-no="<span class='glyphicon glyphicon-remove'></span>"
-     >
-         Confirmation with icons
-     </button>
+    <button class="btn btn-danger" data-toggle="confirm">
+        Basic confirmation
+    </button>
+    <button
+        class="btn btn-danger"
+        data-toggle="confirm"
+        data-confirm-message="Really?"
+        data-confirm-yes="Confirm"
+        data-confirm-no="Reject"
+    >
+        Confirmation with custom text
+    </button>
+    <button
+        class="btn btn-danger"
+        data-toggle="confirm"
+        data-confirm-yes="<span class='glyphicon glyphicon-ok'></span>"
+        data-confirm-no="<span class='glyphicon glyphicon-remove'></span>"
+    >
+        Confirmation with icons
+    </button>
 </form>
 
 Styleguide 6.1
@@ -10345,10 +10265,10 @@ To allow users to view all filterable elements when using the data-api, simply p
 attribute within the filter `<form>`.
 
 <div class="panel panel-danger">
-     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
-     <div class="panel-body">
-         Script `filterable.js` must be included.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `filterable.js` must be included.
+    </div>
 </div>
 
 <h3>Usage</h3>
@@ -10367,105 +10287,105 @@ The element that is to reset the filter on click has to have the `data-toggle="r
 
 <h5>Filter Object</h5>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Name</th>
-             <th>Type</th>
-             <th>Default</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>filter-attrib</td>
-             <td>string</td>
-             <td></td>
-             <td>Defines the name of the `data-` attribute of the filterable objects to use for filtering.</td>
-         </tr>
-         <tr>
-             <td>filter-value</td>
-             <td>string</td>
-             <td></td>
-             <td>The filter value to be used in the condition. When using the data-api, this is automatically
-                 generated from the `:input` element value and does not not have to be set manually.</td>
-         </tr>
-         <tr>
-             <td>filter-operator</td>
-             <td>enum</td>
-             <td></td>
-             <td>
-                 Defines how to compare the values. If comparing strings or arrays of strings, we can use either
-                 `subset` or `intersect` operators. For comparing numeric values, the `=`, `<`, `>`, `<=` and `>=` are
-                 available.
-                 <table class="table">
-                     <thead>
-                         <tr>
-                             <th>Filter object `filter-value`</th>
-                             <th>Filterable element `data-*` attribute value</th>
-                             <th>Operator</th>
-                             <th>Description</th>
-                         </tr>
-                     </thead>
-                     <tbody>
-                         <tr>
-                             <td>[string]</td>
-                             <td>string</td>
-                             <td>intersect</td>
-                             <td>Checks if the filterable string attribute is a member of the filter object value array.</td>
-                         </tr>
-                         <tr>
-                             <td>[string]</td>
-                             <td>[string]</td>
-                             <td>intersect</td>
-                             <td>Checks if the filterable array attribute has at least one common element with the filter object value array.</td>
-                         </tr>
-                         <tr>
-                             <td>[string]</td>
-                             <td>[string]</td>
-                             <td>subset</td>
-                             <td>Checks if the filterable array attribute elements are all members of the filter object value array.</td>
-                         </tr>
-                         <tr>
-                             <td>string</td>
-                             <td>[string]</td>
-                             <td>intersect</td>
-                             <td>Checks if the filterable array attribute contains the filter object value string.</td>
-                         </tr>
-                         <tr>
-                             <td>number</td>
-                             <td>number</td>
-                             <td>=</td>
-                             <td>Checks if the filterable numeric attribute is equal to the filter object numeric value.</td>
-                         </tr>
-                         <tr>
-                             <td>number</td>
-                             <td>number</td>
-                             <td>&gt;</td>
-                             <td>Checks if the filterable numeric attribute is greater then the filter object numeric value.</td>
-                         </tr>
-                         <tr>
-                             <td>number</td>
-                             <td>number</td>
-                             <td>&lt;</td>
-                             <td>Checks if the filterable numeric attribute is lower then the filter object numeric value.</td>
-                         </tr>
-                         <tr>
-                             <td>number</td>
-                             <td>number</td>
-                             <td>&gt;=</td>
-                             <td>Checks if the filterable numeric attribute is greater then or equal to the filter object numeric value.</td>
-                         </tr>
-                         <tr>
-                             <td>number</td>
-                             <td>number</td>
-                             <td>&lt;=</td>
-                             <td>Checks if the filterable numeric attribute is lower then or equal to  the filter object numeric value.</td>
-                         </tr>
-                     </tbody>
-                 </table>
-             </td>
-         </tr>
-     </tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>filter-attrib</td>
+            <td>string</td>
+            <td></td>
+            <td>Defines the name of the `data-` attribute of the filterable objects to use for filtering.</td>
+        </tr>
+        <tr>
+            <td>filter-value</td>
+            <td>string</td>
+            <td></td>
+            <td>The filter value to be used in the condition. When using the data-api, this is automatically
+                generated from the `:input` element value and does not not have to be set manually.</td>
+        </tr>
+        <tr>
+            <td>filter-operator</td>
+            <td>enum</td>
+            <td></td>
+            <td>
+                Defines how to compare the values. If comparing strings or arrays of strings, we can use either
+                `subset` or `intersect` operators. For comparing numeric values, the `=`, `<`, `>`, `<=` and `>=` are
+                available.
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Filter object `filter-value`</th>
+                            <th>Filterable element `data-*` attribute value</th>
+                            <th>Operator</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>[string]</td>
+                            <td>string</td>
+                            <td>intersect</td>
+                            <td>Checks if the filterable string attribute is a member of the filter object value array.</td>
+                        </tr>
+                        <tr>
+                            <td>[string]</td>
+                            <td>[string]</td>
+                            <td>intersect</td>
+                            <td>Checks if the filterable array attribute has at least one common element with the filter object value array.</td>
+                        </tr>
+                        <tr>
+                            <td>[string]</td>
+                            <td>[string]</td>
+                            <td>subset</td>
+                            <td>Checks if the filterable array attribute elements are all members of the filter object value array.</td>
+                        </tr>
+                        <tr>
+                            <td>string</td>
+                            <td>[string]</td>
+                            <td>intersect</td>
+                            <td>Checks if the filterable array attribute contains the filter object value string.</td>
+                        </tr>
+                        <tr>
+                            <td>number</td>
+                            <td>number</td>
+                            <td>=</td>
+                            <td>Checks if the filterable numeric attribute is equal to the filter object numeric value.</td>
+                        </tr>
+                        <tr>
+                            <td>number</td>
+                            <td>number</td>
+                            <td>&gt;</td>
+                            <td>Checks if the filterable numeric attribute is greater then the filter object numeric value.</td>
+                        </tr>
+                        <tr>
+                            <td>number</td>
+                            <td>number</td>
+                            <td>&lt;</td>
+                            <td>Checks if the filterable numeric attribute is lower then the filter object numeric value.</td>
+                        </tr>
+                        <tr>
+                            <td>number</td>
+                            <td>number</td>
+                            <td>&gt;=</td>
+                            <td>Checks if the filterable numeric attribute is greater then or equal to the filter object numeric value.</td>
+                        </tr>
+                        <tr>
+                            <td>number</td>
+                            <td>number</td>
+                            <td>&lt;=</td>
+                            <td>Checks if the filterable numeric attribute is lower then or equal to  the filter object numeric value.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 <h5>Methods</h5>
@@ -10476,272 +10396,274 @@ Displays all filterable elements.
 
 <h3>Events</h3>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Event Type</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>resetStart.sui.filterable</td>
-             <td>Fired as soon as the `reset` method is called.</td>
-         </tr>
-         <tr>
-             <td>resetEnd.sui.filterable</td>
-             <td>Fired as soon as the `reset` method is finished executing.</td>
-         </tr>
-         <tr>
-             <td>filter.sui.filterable</td>
-             <td>Fired when the `filter` method is called.</td>
-         </tr>
-         <tr>
-             <td>filter.sui.filterable</td>
-             <td>Fired when the `filter` method is finished executing.</td>
-         </tr>
-     <tbody>
+    <thead>
+        <tr>
+            <th>Event Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>resetStart.sui.filterable</td>
+            <td>Fired as soon as the `reset` method is called.</td>
+        </tr>
+        <tr>
+            <td>resetEnd.sui.filterable</td>
+            <td>Fired as soon as the `reset` method is finished executing.</td>
+        </tr>
+        <tr>
+            <td>filter.sui.filterable</td>
+            <td>Fired when the `filter` method is called.</td>
+        </tr>
+        <tr>
+            <td>filter.sui.filterable</td>
+            <td>Fired when the `filter` method is finished executing.</td>
+        </tr>
+    <tbody>
 </table>
 
 Markup:
 <div class="row">
-     <form class="form-filter offset-bottom" data-filter-target="#people tr">
-         <div class="row">
-             <div class="col-sm-3">
-                 <div class="form-group">
-                     <label>Place of Birth</label>
-                     <select
-                         class="form-control"
-                         data-toggle="filter"
-                         data-filter-attrib="birth-place"
-                         data-filter-operator="intersect"
-                     >
-                         <option value="">All</option>
-                         <option value="Denver">Denver</option>
-                         <option value="Liptákov">Liptákov</option>
-                         <option value="Moscow">Moscow</option>
-                         <option value="Munich">Munich</option>
-                         <option value="Prague">Prague</option>
-                         <option value="Vienna">Vienna</option>
-                     </select>
-                 </div>
-             </div>
-             <div class="col-sm-3">
-                 <div class="form-group">
-                     <label>Cash under</label>
-                     <input
-                         type="text"
-                         class="form-control"
-                         data-toggle="filter"
-                         data-filter-attrib="cash"
-                         data-filter-operator="<"
-                     >
-                 </div>
-             </div>
-             <div class="col-sm-3">
-                 <div class="form-group">
-                     <label>Cash over</label>
-                     <input
-                         type="text"
-                         class="form-control"
-                         data-toggle="filter"
-                         data-filter-attrib="cash"
-                         data-filter-operator=">"
-                     >
-                 </div>
-             </div>
-         </div>
-         <div class="row">
-             <div class="col-sm-3">
-                 <div class="form-group">
-                     <label>Country visited</label>
-                     <select
-                         class="form-control"
-                         data-toggle="filter"
-                         data-filter-attrib="countries-visited"
-                         data-filter-operator="intersect"
-                         multiple
-                     >
-                         <option value="">Any</option>
-                         <option value="China">China</option>
-                         <option value="Denmark">Denmark</option>
-                         <option value="Germany">Germany</option>
-                         <option value="Holland">Holland</option>
-                         <option value="Russia">Russia</option>
-                         <option value="USA">USA</option>
-                     </select>
-                 </div>
-             </div>
-             <div class="col-sm-3">
-                 <div class="form-group">
-                     <label>Residence</label>
-                     <select
-                         class="form-control"
-                         data-toggle="filter"
-                         data-filter-attrib="residence"
-                         data-filter-operator="intersect"
-                         multiple
-                     >
-                         <option value="Denver">Denver</option>
-                         <option value="Philadelphia">Philadelphia</option>
-                         <option value="Sydney">Sydney</option>
-                         <option value="Toronto">Toronto</option>
-                         <option value="Vienna">Vienna</option>
-                     </select>
-                 </div>
-             </div>
-             <div class="col-sm-3">
-                 <div class="form-group">
-                     <label>Favorite meal </label>
-                     <select
-                         class="form-control"
-                         data-toggle="filter"
-                         data-filter-attrib="favorite-meal"
-                         data-filter-operator="subset"
-                         multiple
-                     >
-                         <option value="Fries">Fries</option>
-                         <option value="Goulash">Goulash</option>
-                         <option value="Hamburger">Hamburger</option>
-                         <option value="Hotdog">Hotdog</option>
-                         <option value="Meatloaf">Meatloaf</option>
-                         <option value="Pizza">Pizza</option>
-                         <option value="Spagethi">Spagethi</option>
-                     </select>
-                 </div>
-             </div>
-             <div class="col-sm-3">
-                 <div class="form-actions">
-                     <button
-                         type="reset"
-                         class="btn btn-default"
-                         data-toggle="filter-reset"
-                     >
-                         Reset Filter
-                     </button>
-                 </div>
-             </div>
-         </div><!-- .row -->
-     </form>
-     <table class="table">
-         <thead>
-             <tr>
-                 <th class="table-cell-id">#</th>
-                 <th>User</th>
-                 <th>Place of Birth</th>
-                 <th>Cash</th>
-                 <th>Residence</th>
-                 <th>Countries Visited</th>
-                 <th>Favorite Meal</th>
-             </tr>
-         </thead>
-         <tbody id="people">
-             <tr
-                 data-birth-place="Prague"
-                 data-residence="Philadelphia"
-                 data-cash="10"
-                 data-countries-visited='["China", "Russia"]'
-                 data-favorite-meal='["Hamburger", "Pizza", "Spagethi"]'
-             >
-                 <td class="table-cell-id">1</td>
-                 <td><a href="#"><strong>Brown</strong>, James</a></td>
-                 <td>Prague</td>
-                 <td>10</td>
-                 <td>Philadelphia</td>
-                 <td>China, Russia</td>
-                 <td>Hamburger, Pizza, Spagethi</td>
-             </tr>
-             <tr
-                 data-birth-place="Denver"
-                 data-residence="Philadelphia"
-                 data-cash="15"
-                 data-countries-visited='["China", "USA"]'
-                 data-favorite-meal='["Hamburger", "Hotdog", "Fries"]'
-             >
-                 <td class="table-cell-id">2</td>
-                 <td><a href="#"><strong>Paisley</strong>, Brad</a></td>
-                 <td>Denver</td>
-                 <td>15</td>
-                 <td>Philadelphia</td>
-                 <td>China, USA</td>
-                 <td>Hamburger, Hotdog, Fries</td>
-             </tr>
-             <tr
-                 data-birth-place="Munich"
-                 data-residence="Toronto"
-                 data-cash="8"
-                 data-countries-visited='["USA", "Russia", "Denmark"]'
-                 data-favorite-meal='["Fries", "Meatloaf"]'
-             >
-                 <td class="table-cell-id">3</td>
-                 <td><a href="#"><strong>Parker</strong>, Maceo</a></td>
-                 <td>Munich</td>
-                 <td>8</td>
-                 <td>Toronto</td>
-                 <td>USA, Russia, Denmark</td>
-                 <td>Fries, Meatloaf</td>
-             </tr>
-             <tr
-                 data-birth-place="Liptákov"
-                 data-residence="Vienna"
-                 data-cash="25"
-                 data-countries-visited='["China", "Russia", "Germany"]'
-                 data-favorite-meal='["Goulash"]'
-             >
-                 <td class="table-cell-id">4</td>
-                 <td><a href="#"><strong>Cimrman</strong>, Jára</a></td>
-                 <td>Liptákov</td>
-                 <td>25</td>
-                 <td>Vienna</td>
-                 <td>China, Russia, Germany</td>
-                 <td>Goulash</td>
-             </tr>
-             <tr
-                 data-birth-place="Munich"
-                 data-residence="Sydney"
-                 data-cash="17"
-                 data-countries-visited='["Germany", "Holland", "Denmark"]'
-                 data-favorite-meal='["Meatloaf", "Hotdog"]'
-             >
-                 <td class="table-cell-id">5</td>
-                 <td><a href="#"><strong>Smith</strong>, John</a></td>
-                 <td>Munich</td>
-                 <td>17</td>
-                 <td>Sydney</td>
-                 <td>Germany, Holland, Denmark</td>
-                 <td>Meatloaf, Hotdog</td>
-             </tr>
-             <tr
-                 data-birth-place="Moscow"
-                 data-residence="Philadelphia"
-                 data-cash="5"
-                 data-countries-visited='["USA"]'
-                 data-favorite-meal='["Pizza", "Goulash"]'
-             >
-                 <td class="table-cell-id">6</td>
-                 <td><a href="#"><strong>Scholizin</strong>, Vladimir</a></td>
-                 <td>Moscow</td>
-                 <td>5</td>
-                 <td>Philadelphia</td>
-                 <td>USA</td>
-                 <td>Pizza, Goulash</td>
-             </tr>
-             <tr
-                 data-birth-place="Denver"
-                 data-residence="Toronto"
-                 data-cash="0"
-                 data-countries-visited='["Germany", "Russia", "Denamrk"]'
-                 data-favorite-meal='["Pizza", "Goulash"]'
-             >
-                 <td class="table-cell-id">7</td>
-                 <td><a href="#"><strong>Wesley</strong>, Fred</a></td>
-                 <td>Denver</td>
-                 <td>0</td>
-                 <td>Toronto</td>
-                 <td>Germany, Russia, Denmark</td>
-                 <td>Pizza, Hotdog</td>
-             </tr>
-         </tbody>
-     </table>
+    <form class="form-filter offset-bottom" data-filter-target="#people tr">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Place of Birth</label>
+                    <select
+                        class="form-control"
+                        data-toggle="filter"
+                        data-filter-attrib="birth-place"
+                        data-filter-operator="intersect"
+                    >
+                        <option value="">All</option>
+                        <option value="Denver">Denver</option>
+                        <option value="Liptákov">Liptákov</option>
+                        <option value="Moscow">Moscow</option>
+                        <option value="Munich">Munich</option>
+                        <option value="Prague">Prague</option>
+                        <option value="Vienna">Vienna</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Cash under</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        data-toggle="filter"
+                        data-filter-attrib="cash"
+                        data-filter-operator="<"
+                    >
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Cash over</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        data-toggle="filter"
+                        data-filter-attrib="cash"
+                        data-filter-operator=">"
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Country visited</label>
+                    <select
+                        class="form-control"
+                        data-toggle="filter"
+                        data-filter-attrib="countries-visited"
+                        data-filter-operator="intersect"
+                        multiple
+                    >
+                        <option value="">Any</option>
+                        <option value="China">China</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Holland">Holland</option>
+                        <option value="Russia">Russia</option>
+                        <option value="USA">USA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Residence</label>
+                    <select
+                        class="form-control"
+                        data-toggle="filter"
+                        data-filter-attrib="residence"
+                        data-filter-operator="intersect"
+                        multiple
+                    >
+                        <option value="Denver">Denver</option>
+                        <option value="Philadelphia">Philadelphia</option>
+                        <option value="Sydney">Sydney</option>
+                        <option value="Toronto">Toronto</option>
+                        <option value="Vienna">Vienna</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Favorite meal </label>
+                    <select
+                        class="form-control"
+                        data-toggle="filter"
+                        data-filter-attrib="favorite-meal"
+                        data-filter-operator="subset"
+                        multiple
+                    >
+                        <option value="Fries">Fries</option>
+                        <option value="Goulash">Goulash</option>
+                        <option value="Hamburger">Hamburger</option>
+                        <option value="Hotdog">Hotdog</option>
+                        <option value="Meatloaf">Meatloaf</option>
+                        <option value="Pizza">Pizza</option>
+                        <option value="Spagethi">Spagethi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-actions">
+                    <button
+                        type="reset"
+                        class="btn btn-default"
+                        data-toggle="filter-reset"
+                    >
+                        Reset Filter
+                    </button>
+                </div>
+            </div>
+        </div><!-- .row -->
+    </form>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="table-cell-id">#</th>
+                    <th>User</th>
+                    <th>Place of Birth</th>
+                    <th>Cash</th>
+                    <th>Residence</th>
+                    <th>Countries Visited</th>
+                    <th>Favorite Meal</th>
+                </tr>
+            </thead>
+            <tbody id="people">
+                <tr
+                    data-birth-place="Prague"
+                    data-residence="Philadelphia"
+                    data-cash="10"
+                    data-countries-visited='["China", "Russia"]'
+                    data-favorite-meal='["Hamburger", "Pizza", "Spagethi"]'
+                >
+                    <td class="table-cell-id">1</td>
+                    <td><a href="#"><strong>Brown</strong>, James</a></td>
+                    <td>Prague</td>
+                    <td>10</td>
+                    <td>Philadelphia</td>
+                    <td>China, Russia</td>
+                    <td>Hamburger, Pizza, Spagethi</td>
+                </tr>
+                <tr
+                    data-birth-place="Denver"
+                    data-residence="Philadelphia"
+                    data-cash="15"
+                    data-countries-visited='["China", "USA"]'
+                    data-favorite-meal='["Hamburger", "Hotdog", "Fries"]'
+                >
+                    <td class="table-cell-id">2</td>
+                    <td><a href="#"><strong>Paisley</strong>, Brad</a></td>
+                    <td>Denver</td>
+                    <td>15</td>
+                    <td>Philadelphia</td>
+                    <td>China, USA</td>
+                    <td>Hamburger, Hotdog, Fries</td>
+                </tr>
+                <tr
+                    data-birth-place="Munich"
+                    data-residence="Toronto"
+                    data-cash="8"
+                    data-countries-visited='["USA", "Russia", "Denmark"]'
+                    data-favorite-meal='["Fries", "Meatloaf"]'
+                >
+                    <td class="table-cell-id">3</td>
+                    <td><a href="#"><strong>Parker</strong>, Maceo</a></td>
+                    <td>Munich</td>
+                    <td>8</td>
+                    <td>Toronto</td>
+                    <td>USA, Russia, Denmark</td>
+                    <td>Fries, Meatloaf</td>
+                </tr>
+                <tr
+                    data-birth-place="Liptákov"
+                    data-residence="Vienna"
+                    data-cash="25"
+                    data-countries-visited='["China", "Russia", "Germany"]'
+                    data-favorite-meal='["Goulash"]'
+                >
+                    <td class="table-cell-id">4</td>
+                    <td><a href="#"><strong>Cimrman</strong>, Jára</a></td>
+                    <td>Liptákov</td>
+                    <td>25</td>
+                    <td>Vienna</td>
+                    <td>China, Russia, Germany</td>
+                    <td>Goulash</td>
+                </tr>
+                <tr
+                    data-birth-place="Munich"
+                    data-residence="Sydney"
+                    data-cash="17"
+                    data-countries-visited='["Germany", "Holland", "Denmark"]'
+                    data-favorite-meal='["Meatloaf", "Hotdog"]'
+                >
+                    <td class="table-cell-id">5</td>
+                    <td><a href="#"><strong>Smith</strong>, John</a></td>
+                    <td>Munich</td>
+                    <td>17</td>
+                    <td>Sydney</td>
+                    <td>Germany, Holland, Denmark</td>
+                    <td>Meatloaf, Hotdog</td>
+                </tr>
+                <tr
+                    data-birth-place="Moscow"
+                    data-residence="Philadelphia"
+                    data-cash="5"
+                    data-countries-visited='["USA"]'
+                    data-favorite-meal='["Pizza", "Goulash"]'
+                >
+                    <td class="table-cell-id">6</td>
+                    <td><a href="#"><strong>Scholizin</strong>, Vladimir</a></td>
+                    <td>Moscow</td>
+                    <td>5</td>
+                    <td>Philadelphia</td>
+                    <td>USA</td>
+                    <td>Pizza, Goulash</td>
+                </tr>
+                <tr
+                    data-birth-place="Denver"
+                    data-residence="Toronto"
+                    data-cash="0"
+                    data-countries-visited='["Germany", "Russia", "Denamrk"]'
+                    data-favorite-meal='["Pizza", "Goulash"]'
+                >
+                    <td class="table-cell-id">7</td>
+                    <td><a href="#"><strong>Wesley</strong>, Fred</a></td>
+                    <td>Denver</td>
+                    <td>0</td>
+                    <td>Toronto</td>
+                    <td>Germany, Russia, Denmark</td>
+                    <td>Pizza, Hotdog</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div><!-- .row -->
 
 Styleguide 6.2
@@ -10761,18 +10683,18 @@ default sorting.
 
 
 <div class="panel panel-danger">
-     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
-     <div class="panel-body">
-         Script `sortable-table.js` must be included.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `sortable-table.js` must be included.
+    </div>
 </div>
 
 <div class="panel panel-warning">
-     <div class="panel-heading"><h4 class="panel-title">Component Dependency</h4></div>
-     <div class="panel-body">
-         [Sortable table with navigation](#section-6.3.2) requires [Letter Navigation](section-3.html#section-3.4)
-         component.
-     </div>
+    <div class="panel-heading"><h4 class="panel-title">Component Dependency</h4></div>
+    <div class="panel-body">
+        [Sortable table with navigation](#section-6.3.2) requires [Letter Navigation](section-3.html#section-3.4)
+        component.
+    </div>
 </div>
 
 <h3>Usage</h3>
@@ -10788,42 +10710,42 @@ Forcing sorting of a given table on page load (and potentially generating group 
 achieved by specifying the attribute `data-sort-onload` on the appropriate `<th>`. This attribute takes the value
 of either `asc` or `desc` to indicate the sorting order.
 
-<h4>JavaScrip</h4>
+<h4>JavaScript</h4>
 
 <h5>Options</h5>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Name</th>
-             <th>Type</th>
-             <th>Default</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>sorted-th</td>
-             <td>string</td>
-             <td></td>
-             <td>Mandatory. A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
-         </tr>
-         <tr>
-             <td>sort-direction</td>
-             <td>string</td>
-             <td>If the column is already sorted it defaults to the reverse order. If it is not sorted, it defaults to `asc`.</td>
-             <td>Optional. Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
-         </tr>
-         <tr>
-             <td>sort-navigation</td>
-             <td>jQuery object</td>
-             <td></td>
-             <td>
-                  Optional. A jQuery object with reference to the DOM element where the group quick links are to appear.
-                  The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
-                  For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
-              </td>
-         </tr>
-     </tbody>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>sorted-th</td>
+            <td>string</td>
+            <td></td>
+            <td>Mandatory. A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
+        </tr>
+        <tr>
+            <td>sort-direction</td>
+            <td>string</td>
+            <td>If the column is already sorted it defaults to the reverse order. If it is not sorted, it defaults to `asc`.</td>
+            <td>Optional. Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
+        </tr>
+        <tr>
+            <td>sort-navigation</td>
+            <td>jQuery object</td>
+            <td></td>
+            <td>
+                 Optional. A jQuery object with reference to the DOM element where the group quick links are to appear.
+                 The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
+                 For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
+             </td>
+        </tr>
+    </tbody>
 </table>
 
 <h5>Methods</h5>
@@ -10832,22 +10754,22 @@ Initiates a sortable table if needed and performs the sorting according to the o
 
 <h3>Events</h3>
 <table class="table table-bordered table-striped">
-     <thead>
-         <tr>
-             <th>Event Type</th>
-             <th>Description</th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td>sort.sui.sortableTable</td>
-             <td>Fired as soon as the `sort` method is called.</td>
-         </tr>
-         <tr>
-             <td>sorted.sui.sortableTable</td>
-             <td>Fired as soon as the `sort` method is finished executing.</td>
-         </tr>
-     <tbody>
+    <thead>
+        <tr>
+            <th>Event Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>sort.sui.sortableTable</td>
+            <td>Fired as soon as the `sort` method is called.</td>
+        </tr>
+        <tr>
+            <td>sorted.sui.sortableTable</td>
+            <td>Fired as soon as the `sort` method is finished executing.</td>
+        </tr>
+    <tbody>
 </table>
 
 Styleguide 6.3
@@ -10856,53 +10778,55 @@ Styleguide 6.3
 Sortable Table Simple
 
 Markup:
-<table class="table">
-     <thead>
-         <tr>
-             <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0">#</th>
-             <th data-toggle="sort" tabindex="0">Page Title</th>
-             <th></th>
-         </tr>
-     </thead>
-     <tbody>
-         <tr>
-             <td class="table-cell-id">1</td>
-             <td><a href="#">Hotforwords Can Explain Lorem Ipsum far better than I can</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-         <tr>
-             <td class="table-cell-id">2</td>
-             <td><a href="#">Seas spirit morning, fill seasons every I wherein kind</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-         <tr>
-             <td class="table-cell-id">3</td>
-             <td><a href="#">Cattle she’d of herb third</a></td>
-             <td class="table-cell-actions">
-                 <a href="#" class="item-action" title="Edit">
-                     <span class="glyphicon glyphicon-pencil"></span>
-                 </a>
-                 <a href="#" class="item-action item-action-danger" title="Delete">
-                     <span class="glyphicon glyphicon-trash"></span>
-                 </a>
-             </td>
-         </tr>
-     </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="table-cell-id sorting-asc" data-toggle="sort" tabindex="0">#</th>
+                <th data-toggle="sort" tabindex="0">Page Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="table-cell-id">1</td>
+                <td><a href="#">Hotforwords Can Explain Lorem Ipsum far better than I can</a></td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-cell-id">2</td>
+                <td><a href="#">Seas spirit morning, fill seasons every I wherein kind</a></td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="table-cell-id">3</td>
+                <td><a href="#">Cattle she’d of herb third</a></td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 Styleguide 6.3.1
 */
@@ -10951,39 +10875,147 @@ Table with automatically generated header sections and letter navigation.
 
 Markup:
 <div class="row">
-     <div class="col-sm-2 col-sm-push-10">
-         <nav class="sortable-table-nav" id="tableSortNavigation"></nav>
-     </div>
-     <div class="col-sm-10 col-sm-pull-2">
-         <table class="table" data-sort-navigation="#tableSortNavigation">
-             <thead>
-                 <tr>
-                     <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
-                     <th data-toggle="sort" data-sort-onload="desc" tabindex="0">User</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr>
-                    <td class="table-cell-id">1</td>
-                     <td data-sort-group="B"><a href="#"><strong>Brown</strong>, James</a></td>
-                 </tr>
-                 <tr>
-                     <td class="table-cell-id">2</td>
-                     <td data-sort-group="P"><a href="#"><strong>Paisley</strong>, Brad</a></td>
-                 </tr>
-                 <tr>
-                     <td class="table-cell-id">3</td>
-                     <td data-sort-group="P"><a href="#"><strong>Parker</strong>, Maceo</a></td>
-                 </tr>
-                 <tr>
-                     <td class="table-cell-id">4</td>
-                     <td data-sort-group="W"><a href="#"><strong>Wesley</strong>, Fred</a></td>
-                 </tr>
-             </tbody>
-         </table>
-     </div>
+    <div class="col-sm-2 col-sm-push-10">
+        <nav class="sortable-table-nav" id="tableSortNavigation"></nav>
+    </div>
+    <div class="col-sm-10 col-sm-pull-2">
+        <div class="table-responsive">
+            <table class="table table-hover" data-sort-navigation="#tableSortNavigation">
+                <thead>
+                    <tr>
+                        <th class="table-cell-id" data-toggle="sort" tabindex="0">#</th>
+                        <th data-toggle="sort" data-sort-onload="desc" tabindex="0">User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       <td class="table-cell-id">1</td>
+                        <td data-sort-group="B"><a href="#"><strong>Brown</strong>, James</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell-id">2</td>
+                        <td data-sort-group="P"><a href="#"><strong>Paisley</strong>, Brad</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell-id">3</td>
+                        <td data-sort-group="P"><a href="#"><strong>Parker</strong>, Maceo</a></td>
+                    </tr>
+                    <tr>
+                        <td class="table-cell-id">4</td>
+                        <td data-sort-group="W"><a href="#"><strong>Wesley</strong>, Fred</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div><!-- .row -->
 
 Styleguide 6.3.2
+*/
+/*
+Disable
+
+Toogles the disabled property on DOM elements.
+
+<div class="panel panel-danger">
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `disable.js` must be included.
+    </div>
+</div>
+
+<h3>Usage</h3>
+
+<h4>Data-api</h4>
+To use an element as control element for toggling disable status on other elements, it must possess the
+`data-toggle="disable"` attribute. It also must define the `data-disable-target` attribute that holds a string which,
+when evaluated as a jQuery selector, returns a jQuery object referencing the elements that are to be disabled or
+enabled.
+
+By default the control element triggers the disable() method on the JS event `change`. This can be changed by
+specifying the `data-disable-event` attribute on the control element (i.e. `data-disable-event="click"`).
+
+<h4>JavaScript</h4>
+
+<h5>Methods</h5>
+<h6>$().disable('toggle')</h6>
+Toggles between enabled and disabled states.
+
+<h3>Events</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Event Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>toggle.sui.disable</td>
+            <td>Fired as soon as the disable function is called.</td>
+        </tr>
+        <tr>
+            <td>toggled.sui.disable</td>
+            <td>Fired when the disable function is finished.</td>
+        </tr>
+    <tbody>
+</table>
+
+Markup:
+<form>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" data-toggle="disable" data-disable-target=".js-delivery" />
+            Deliver to different address
+        </label>
+    </div>
+    <fieldset>
+        <legend>Delivery Address</legend>
+        <div class="form-group">
+            <label for="delivery_name">Name</label>
+            <input type="text" id="delivery_name" name="delivery[name]" class="form-control js-delivery" disabled />
+        </div>
+        <div class="form-group">
+            <label for="delivery_address">Address</label>
+            <input type="text" id="delivery_address" name="delivery[address]" class="form-control js-delivery" disabled />
+        </div>
+        <div class="form-group">
+            <label for="delivery_city">City</label>
+            <input type="text" id="delivery_city" name="delivery[city]" class="form-control js-delivery" disabled />
+        </div>
+    </fieldset>
+</form>
+
+Styleguide 6.4
+*/
+/*
+CKEditor
+
+Initializes CKEditor WYSIWYG editor (http://ckeditor.com/) on the given textarea element.
+It does no more then to run the $.ckeditor() method with some options.
+
+<div class="panel panel-danger">
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `ckeditor-loader.js` and the CKEditor and CKEditor jQuery adapter must be included.
+    </div>
+</div>
+
+<h3>Usage</h3>
+
+<h4>Data-api</h4>
+If a textarea has the attribute `data-onload-ckeditor=""` it will be initialized as a ckeditor on page load.
+The editor can also be initialized with a specified editor config file.
+To do so, just pass the path to the config file to the ckeditor initializing data attribute:
+`data-onload-ckeditor="/configs/ckeditor.standard.js"`.
+
+
+
+Markup:
+<form>
+    <textarea data-onload-ckeditor="">Hi, I'm a textarea and Im wearing a fancy CKEditor dress.</texarea>
+</form>
+
+Styleguide 6.5
 */
 /*# sourceMappingURL=synergic-ui.css.map */

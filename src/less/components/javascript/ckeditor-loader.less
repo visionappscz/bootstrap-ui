@@ -1,0 +1,30 @@
+/*
+CKEditor Loader
+
+Initializes CKEditor WYSIWYG editor (http://ckeditor.com/) on the given textarea element.
+It does no more then to run the $.ckeditor() method and optionaly specifies custom config file.
+
+<div class="panel panel-danger">
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `ckeditor-loader.js` and the CKEditor and CKEditor jQuery adapter must be included.
+    </div>
+</div>
+
+<h3>Usage</h3>
+
+<h4>Data-api</h4>
+Since this loader only calls the jQuery plugin defined in CKEditor jQuery adapter. Id does nothing else.
+
+<h4>Data-api</h4>
+If a textarea has the attribute `data-onload-ckeditor=""` defined it will be initialized as a ckeditor upon page load.
+The editor can optionaly be initialized with a specified editor config file.
+To do so, just pass the path to the config to the attribute: `data-onload-ckeditor="/configs/ckeditor.standard.js"`.
+
+Markup:
+<form>
+    <textarea data-onload-ckeditor="">Hi, I'm a textarea and Im wearing a fancy CKEditor dress.</textarea>
+</form>
+
+Styleguide 6.5
+*/
