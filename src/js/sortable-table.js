@@ -13,7 +13,9 @@
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    var newSortGroup, sortGroup, rowCounter, rowsLength, navigationHtml = '', tableHtml = '', row, isNavigationCol, rows;
+    var sortGroup, rowCounter, rowsLength, tableHtml, row, isNavigationCol, rows;
+    var newSortGroup = null;
+    var navigationHtml = '';
     var isSortedAsc = $sortedTh.hasClass('sorting-asc');
 
     this.$sortedTable
@@ -36,7 +38,6 @@
 
     isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index()).data('sort-group') !== 'undefined';
     tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
-    navigationHtml = '';
 
     rowsLength = rows.length;
     for (rowCounter = 0; rowCounter < rowsLength; rowCounter++) {
