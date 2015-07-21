@@ -9,8 +9,17 @@
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
       $('[data-onload-ckeditor]').each(function() {
+        var confObj = {};
         var $this = $(this);
-        $this.ckeditor({customConfig: $this.data('onload-ckeditor')});
+        var confValue = $this.data('onload-ckeditor');
+        if (confValue) {
+          if (typeof confValue === 'object') {
+            confObj = confValue;
+          } else {
+            confObj = {customConfig: confValue};
+          }
+        }
+        $this.ckeditor(confObj);
       });
     });
   }($, window));
