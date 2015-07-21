@@ -17,6 +17,7 @@
     "jQuery": false,
     "ga": false,
     "require": false,
-    "module": false
+    "module": false,
+    "sinon": false
   }
 }
