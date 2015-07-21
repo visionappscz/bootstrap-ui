@@ -503,4 +503,44 @@ $(function() {
 
     $(window).trigger('load');
   });
+
+  test('should sort two tables data-sort-onload attribute independently', function() {
+    stop();
+    var $table1 = $('<table>' +
+      '<thead><tr><th data-toggle="sort" data-sort-onload="desc" id="headerA">HeaderA</th></tr></thead>' +
+      '<tbody>' +
+      '<tr id="row2"><td>2</td></tr>' +
+      '<tr id="row1"><td>1</td></tr>' +
+      '<tr id="row3"><td>3</td></tr>' +
+      '</tbody>' +
+      '</table>');
+    var $table2 = $('<table>' +
+      '<thead><tr><th data-toggle="sort" data-sort-onload="asc" id="headerB">HeaderB</th></tr></thead>' +
+      '<tbody>' +
+      '<tr id="row2"><td>2</td></tr>' +
+      '<tr id="row1"><td>1</td></tr>' +
+      '<tr id="row3"><td>3</td></tr>' +
+      '</tbody>' +
+      '</table>');
+
+    $('#qunit-fixture')
+      .append($table1)
+      .append($table2);
+
+    $table1.on('sorted.sui.sortableTable', function() {
+      var $rows = $table1.find('tbody tr');
+      ok($($rows[0]).attr('id') === 'row3', 'row3 is first');
+      ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
+      ok($($rows[2]).attr('id') === 'row1', 'row1 is third');
+      $table2.on('sorted.sui.sortableTable', function() {
+        var $rows = $table2.find('tbody tr');
+        ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
+        ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
+        ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
+        start();
+      });
+    });
+
+    $(window).trigger('load');
+  });
 });

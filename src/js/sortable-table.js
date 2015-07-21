@@ -13,7 +13,9 @@
   };
 
   SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    var newSortGroup, sortGroup, rowCounter, rowsLength, navigationHtml = '', tableHtml = '', row, isNavigationCol, rows;
+    var sortGroup, rowCounter, rowsLength, tableHtml, row, isNavigationCol, rows;
+    var newSortGroup = null;
+    var navigationHtml = '';
     var isSortedAsc = $sortedTh.hasClass('sorting-asc');
 
     this.$sortedTable
@@ -36,7 +38,6 @@
 
     isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index()).data('sort-group') !== 'undefined';
     tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
-    navigationHtml = '';
 
     rowsLength = rows.length;
     for (rowCounter = 0; rowCounter < rowsLength; rowCounter++) {
@@ -152,11 +153,13 @@
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
       var $sortedTh = $('th[data-sort-onload]');
-      var $sortedTable = $sortedTh.closest('table');
-      Plugin.call($sortedTable, {
-        'sorted-th': $sortedTh,
-        'navigation': $($sortedTable.data('sort-navigation')),
-        'sort-direction': $sortedTh.data('sort-onload')
+      $sortedTh.each(function(i) {
+        var $sortedTable = $($sortedTh[i]).closest('table');
+        Plugin.call($sortedTable, {
+          'sorted-th': $($sortedTh[i]),
+          'navigation': $sortedTable.data('sort-navigation'),
+          'sort-direction': $($sortedTh[i]).data('sort-onload')
+        });
       });
     });
   }(Plugin, $, window, document));
