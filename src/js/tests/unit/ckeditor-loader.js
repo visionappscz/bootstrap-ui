@@ -3,7 +3,7 @@ $(function() {
 
   module('ckeditor-loader', {
     setup: function() {
-      jQuery.fn.ckeditor = function(conf) {};
+      jQuery.fn.ckeditor = function() {};
     },
     teardown: function() {
       delete jQuery.fn.ckeditor;
