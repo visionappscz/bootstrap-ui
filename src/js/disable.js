@@ -8,16 +8,16 @@
   };
 
   Disable.prototype.toggle = function() {
+    $(document).trigger('toggle.sui.disable');
     this.$element.prop('disabled', !this.$element.prop('disabled'));
+    $(document).trigger('toggled.sui.disable');
   };
 
 
   // DISABLE PLUGIN DEFINITION
   // =========================
 
-  function Plugin(options) {
-    $(document).trigger('toggle.sui.disable');
-
+  function Plugin() {
     this.each(function() {
       var $this = $(this);
       var data = $this.data('sui.disable');
@@ -25,13 +25,8 @@
       if (!data) {
         $this.data('sui.disable', (data = new Disable($this)));
       }
-
-      if (options === 'toggle') {
-        data.toggle();
-      }
+      data.toggle();
     });
-
-    $(document).trigger('toggled.sui.disable');
 
     return this;
   }
@@ -68,7 +63,7 @@
           eventType = 'change';
         }
         $this.on(eventType + '.sui.disable.data-api', function() {
-          Plugin.call($($this.data('disable-target')), 'toggle');
+          Plugin.call($($this.data('disable-target')));
         });
       });
     });
