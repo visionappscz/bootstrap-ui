@@ -4,7 +4,7 @@ module.exports = {
 
   dev: {
     bsFiles: {
-      src : [
+      src: [
         '<%= paths.styleguide %>/public/css/*.css',
         '<%= paths.styleguide %>/public/js/*.js',
         '<%= paths.styleguide %>/*.html'
@@ -19,7 +19,7 @@ module.exports = {
   },
   test: {
     bsFiles: {
-      src : [
+      src: [
         '<%= paths.src %>/js/**/*.js'
       ]
     },

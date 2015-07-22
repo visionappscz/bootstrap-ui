@@ -13,7 +13,6 @@
     $(document).trigger('toggled.sui.disable');
   };
 
-
   // DISABLE PLUGIN DEFINITION
   // =========================
 
@@ -23,20 +22,20 @@
       var data = $this.data('sui.disable');
 
       if (!data) {
-        $this.data('sui.disable', (data = new Disable($this)));
+        data = new Disable($this);
+        $this.data('sui.disable', data);
       }
+
       data.toggle();
     });
 
     return this;
   }
 
-
   var old = $.fn.disable;
 
   $.fn.disable = Plugin;
   $.fn.disable.Constructor = Disable;
-
 
   // DISABLE NO CONFLICT
   // ===================
@@ -46,12 +45,11 @@
     return this;
   };
 
-
   // DISABLE DATA-API
   // ================
 
   (function(Plugin, $, window) {
-    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+    // We have to use $(window).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
       var $controls = $('[data-toggle=disable]');
@@ -62,6 +60,7 @@
         if (!eventType) {
           eventType = 'change';
         }
+
         $this.on(eventType + '.sui.disable.data-api', function() {
           Plugin.call($($this.data('disable-target')));
         });

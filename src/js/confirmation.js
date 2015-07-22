@@ -15,7 +15,7 @@
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
-    'callback': function() {} // Having empty callback is useless, it is here as a sane fallback for tests
+    callback: function() {} // Having empty callback is useless, it is here as a sane fallback for tests
   };
 
   Confirmation.prototype.showConfirmation = function() {
@@ -30,13 +30,16 @@
     $triggerEl.on('rejected.sui.confirmation', function() {
       callback(false);
     });
+
     $triggerEl.on('confirmed.sui.confirmation', function() {
       callback(true);
     });
+
     $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function() {
       $modal.on('hidden.bs.modal', function() {
         $(this).remove();
       });
+
       // The fade class is removed before hiding the modal to prevent the backdrop from staying behond
       // Thats why there is no animation :(
       // http://stackoverflow.com/questions/22056147/bootstrap-modal-backdrop-remaining
@@ -52,11 +55,13 @@
         $triggerEl.trigger('confirmed.sui.confirmation');
       }
     });
+
     $modal
       .find('[data-confirmation=reject]')
       .on('click.sui.confirmation', function() {
         $triggerEl.trigger('rejected.sui.confirmation');
       });
+
     $modal
       .find('[data-confirmation=confirm]')
       .on('click.sui.confirmation', function() {
@@ -68,13 +73,12 @@
     return $('<div class="modal fade" tabindex="-1">' +
       '<div class="modal-dialog modal-sm">' +
       '<div class="modal-content">' +
-      '<div class="modal-body">' + message + '</div>'+
+      '<div class="modal-body">' + message + '</div>' +
       '<div class="modal-footer">' +
       '<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>' +
       '<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>' +
       '</div></div></div></div>');
   };
-
 
   // CONFIRMATION PLUGIN DEFINITION
   // ==============================
@@ -85,8 +89,10 @@
       var data = $this.data('sui.confirmation');
 
       if (!data) {
-        $this.data('sui.confirmation', (data = new Confirmation($this, options)));
+        data = new Confirmation($this, options);
+        $this.data('sui.confirmation', data);
       }
+
       data.showConfirmation();
     });
   }
@@ -96,15 +102,12 @@
   $.fn.confirmation = Plugin;
   $.fn.confirmation.Constructor = Confirmation;
 
-
   // CONFIRMATION NO CONFLICT
   // ========================
-
   $.fn.confirmation.noConflict = function() {
     $.fn.confirmation = old;
     return this;
   };
-
 
   // CONFIRMATION DATA-API
   // =====================
@@ -119,7 +122,7 @@
         'confirm-message': $this.data('confirm-message'),
         'confirm-yes': $this.data('confirm-yes'),
         'confirm-no': $this.data('confirm-no'),
-        'callback': function(result) {
+        callback: function(result) {
           if (result) {
             $this.trigger('click.sui.confirmation.data-api', true);
           }

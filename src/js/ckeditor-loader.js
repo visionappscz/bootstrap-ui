@@ -2,7 +2,7 @@
   'use strict';
 
   // CKEDITOR-LOADER DATA-API
-  // ================
+  // ========================
 
   (function($, window) {
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
@@ -19,6 +19,7 @@
             confObj = {customConfig: confValue};
           }
         }
+
         $this.ckeditor(confObj);
       });
     });

@@ -1,5 +1,5 @@
 ;(function($, window, document) {
-    'use strict';
+  'use strict';
 
   // FILTERABLE CLASS DEFINITION
   // ===========================
@@ -9,8 +9,16 @@
   };
 
   Filterable.prototype.filter = function(fObjects) {
-    var dataVal, filterValCounter, filterValLength, filterVal,
-      filterOper, dataValCounter, dataValLength, fObjCounter, hideEl, fObjectsLength;
+    var dataVal;
+    var filterValCounter;
+    var filterValLength;
+    var filterVal;
+    var filterOper;
+    var dataValCounter;
+    var dataValLength;
+    var fObjCounter;
+    var hideEl;
+    var fObjectsLength;
 
     this.$filterable.show();
     if (fObjects && fObjects.length) {
@@ -33,12 +41,14 @@
             }
           } else if (filterOper === 'intersect') {
             hideEl = true;
-            if (typeof(filterVal) === 'string') {
+            if (typeof filterVal === 'string') {
               filterVal = [filterVal];
             }
-            if (typeof(dataVal) === 'string') {
+
+            if (typeof dataVal === 'string') {
               dataVal = [dataVal];
             }
+
             filterValLength = filterVal.length;
             dataValLength = dataVal.length;
             for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
@@ -48,12 +58,13 @@
                   break;
                 }
               }
-            }} else if (
-            (filterOper === '=' && +dataVal !== +filterVal) ||
-            (filterOper === '>=' && +dataVal < +filterVal) ||
-            (filterOper === '<=' && +dataVal > +filterVal) ||
-            (filterOper === '<' && +dataVal >= +filterVal) ||
-            (filterOper === '>' && +dataVal <= +filterVal)
+            }
+          } else if (
+            filterOper === '=' && +dataVal !== +filterVal ||
+            filterOper === '>=' && +dataVal < +filterVal ||
+            filterOper === '<=' && +dataVal > +filterVal ||
+            filterOper === '<' && +dataVal >= +filterVal ||
+            filterOper === '>' && +dataVal <= +filterVal
           ) {
             hideEl = true;
           }
@@ -69,7 +80,6 @@
   Filterable.prototype.resetFilter = function() {
     this.$filterable.show();
   };
-
 
   // FILTERABLE PLUGIN DEFINITION
   // ============================
@@ -88,7 +98,8 @@
 
         data = $this.data('sui.filterable');
         if (!data) {
-          $this.data('sui.filterable', (data = new Filterable($this)));
+          data = new Filterable($this);
+          $this.data('sui.filterable', data);
         }
 
         if (options === 'reset') {
@@ -113,7 +124,6 @@
   $.fn.filterable = Plugin;
   $.fn.filterable.Constructor = Filterable;
 
-
   // FILTERABLE NO CONFLICT
   // ======================
 
@@ -121,7 +131,6 @@
     $.fn.filterable = old;
     return this;
   };
-
 
   // FILTERABLE DATA-API
   // ===================
@@ -133,7 +142,7 @@
     var $filter = $(this).closest('form');
     var filterData = [];
 
-    if(lastEventTarget !== e.target || (lastEventTarget === e.target && lastEventValue !== e.target.value)) {
+    if (lastEventTarget !== e.target || lastEventTarget === e.target && lastEventValue !== e.target.value) {
       $filter.find(':input').each(function() {
         var $this = $(this);
         if ($this.val() !== '' && $this.val() !== null) {
@@ -151,7 +160,6 @@
     lastEventTarget = e.target;
     lastEventValue = e.target.value;
   });
-
 
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');

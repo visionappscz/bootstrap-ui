@@ -1,8 +1,10 @@
-.tmp
+# Dependencies
 node_modules/
 bower_components/
-*.log
 
+# Generated files
+.tmp
 /styleguide
 
-/deployment*
+# IDE configs
+.idea

@@ -1,14 +1,15 @@
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   var options = {
     pkg: grunt.file.readJSON('package.json'),
 
     paths: {
-      src: 'src',
-      dist: 'dist',
       bower: 'bower_components',
+      dist: 'dist',
+      grunt: 'grunt',
+      src: 'src',
       styleguide: 'styleguide',
       temp: '.tmp'
     },
