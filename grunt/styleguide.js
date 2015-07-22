@@ -12,7 +12,7 @@ module.exports = {
   },
   all: {
     files: [{
-      'styleguide': '<%= paths.src %>/less/dist.less'
+      styleguide: '<%= paths.src %>/less/dist.less'
     }]
   }
 

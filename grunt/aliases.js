@@ -10,6 +10,7 @@ module.exports = {
   ],
 
   'build-js': [
+    'jscs',
     'jshint:core',
     'concat',
     'uglify'
@@ -24,7 +25,7 @@ module.exports = {
   ],
 
   // Build CSS, JS and style guide.
-  'build': [
+  build: [
     'clean:temp',
     'clean:styleguide',
     'build-css',
@@ -33,7 +34,7 @@ module.exports = {
   ],
 
   // Create distribution package. To be run right before release.
-  'dist': [
+  dist: [
     'test',
     'clean:dist',
     'build',
@@ -42,14 +43,15 @@ module.exports = {
   ],
 
   // Serve the style guide to browser, watch the source files for changes and update them automatically.
-  'serve': [
+  serve: [
     'build',
     'browserSync:dev',
     'watch'
   ],
 
   // Run JS tests in a headless browser.
-  'test':[
+  test:[
+    'jscs',
     'jshint',
     'qunit'
   ],
@@ -59,11 +61,11 @@ module.exports = {
   // To access the tests from a remote device that is connected to local network (mobile, tablet, etc.), visit
   // `http://<your local IP address>:3000/src/js/tests/`.
   'test-remote': [
+    'jscs',
     'jshint',
     'browserSync:test'
   ],
 
   // Default task
-  'default': 'test'
-
+  default: 'test'
 };

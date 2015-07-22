@@ -1,10 +1,10 @@
-;(function ($, window, document) {
-    'use strict';
+;(function($, window, document) {
+  'use strict';
 
   // SORTABLE TABLE CLASS DEFINITION
   // ===============================
 
-  var SortableTable = function ($sortedTable, $navigation) {
+  var SortableTable = function($sortedTable, $navigation) {
     this.$sortedTable = $sortedTable;
     this.$navigation = $navigation;
     if ($navigation) {
@@ -12,8 +12,14 @@
     }
   };
 
-  SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    var sortGroup, rowCounter, rowsLength, tableHtml, row, isNavigationCol, rows;
+  SortableTable.prototype.sort = function($sortedTh, sortDir) {
+    var sortGroup;
+    var rowCounter;
+    var rowsLength;
+    var tableHtml;
+    var row;
+    var isNavigationCol;
+    var rows;
     var newSortGroup = null;
     var navigationHtml = '';
     var isSortedAsc = $sortedTh.hasClass('sorting-asc');
@@ -56,6 +62,7 @@
             '</th></tr></thead><tbody>';
         }
       }
+
       tableHtml += row.outerHTML;
     }
 
@@ -63,6 +70,7 @@
       if (isNavigationCol) {
         navigationHtml = '<ul>' + navigationHtml + '</ul>';
       }
+
       this.$navigation.html(navigationHtml);
     }
 
@@ -72,10 +80,12 @@
 
   SortableTable.prototype.comparer = function(index, sortDir) {
     return function(a, b) {
-      var result, valA, valB;
+      var result;
+      var valA;
+      var valB;
       var getCellValue = function(row, index) {
         var cell = $(row).children('td').eq(index);
-        if (cell.attr('data-sort-value')){
+        if (cell.attr('data-sort-value')) {
           return cell.attr('data-sort-value');
         } else {
           return cell.text();
@@ -94,20 +104,21 @@
     };
   };
 
-
   // SORTABLE TABLE PLUGIN DEFINITION
   // ================================
 
   function Plugin(options) {
-    return this.each(function () {
+    return this.each(function() {
       var $navigation;
       var $this = $(this);
       var data = $this.data('sui.sortableTable');
 
       if (!data) {
-        $navigation = options && ('navigation' in options) && options.navigation ? $(options.navigation) : false;
-        $this.data('sui.sortableTable', (data = new SortableTable($this, $navigation)));
+        $navigation = options && 'navigation' in options && options.navigation ? $(options.navigation) : false;
+        data = new SortableTable($this, $navigation);
+        $this.data('sui.sortableTable', data);
       }
+
       data.sort(options['sorted-th'], options['sort-direction']);
     });
   }
@@ -117,15 +128,13 @@
   $.fn.sortableTable = Plugin;
   $.fn.sortableTable.Constructor = SortableTable;
 
-
   // SORTABLE TABLE NO CONFLICT
   // ==========================
 
-  $.fn.sortableTable.noConflict = function () {
+  $.fn.sortableTable.noConflict = function() {
     $.fn.sortableTable = old;
     return this;
   };
-
 
   // SORTABLE TABLE DATA-API
   // =======================
@@ -135,7 +144,7 @@
       var $sortedTable = $this.closest('table');
       Plugin.call($sortedTable, {
         'sorted-th': $this,
-        'navigation': $($sortedTable.data('sort-navigation'))
+        navigation: $($sortedTable.data('sort-navigation'))
       });
     };
 
@@ -157,7 +166,7 @@
         var $sortedTable = $($sortedTh[i]).closest('table');
         Plugin.call($sortedTable, {
           'sorted-th': $($sortedTh[i]),
-          'navigation': $sortedTable.data('sort-navigation'),
+          navigation: $sortedTable.data('sort-navigation'),
           'sort-direction': $($sortedTh[i]).data('sort-onload')
         });
       });
