@@ -52,9 +52,9 @@ $(function() {
     var $target = $('<input type="text" />');
 
     $source
-      .val('ãàáäâåẽèéëêìíïîõòóöôùúüûñç·/_,:;')
+      .val('ãàáäâåčçďẽèéëêìíïîñõòóöôřšťùúüûýž x·x/x_x,x:x;;;')
       .on('updated.sui.slugger', function() {
-        QUnit.strictEqual($target.val(), 'aaaaaaeeeeeiiiiooooouuuunc-', 'Slug was generated correctly.');
+        QUnit.strictEqual($target.val(), 'aaaaaaccdeeeeeiiiinooooorstuuuuyz-x-x-x-x-x-x-', 'Slug was generated correctly.');
         QUnit.start();
       })
       .suiSlugger({target: $target});
