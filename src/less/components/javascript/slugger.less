@@ -1,0 +1,91 @@
+/*
+Slugger
+
+Creates a slug in one HTML form element based on value in another.
+The relationship is unidirectional in the sense that changes made to source element affect the target element, but not vice versa.
+
+<div class="panel panel-danger">
+    <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
+    <div class="panel-body">
+        Script `slugger.js` must be included.
+    </div>
+</div>
+
+<h3>Usage</h3>
+
+<h4>Data-api</h4>
+
+To make this component function there must be two HTML form elements.
+One is the source where user types text and the other is the target where slugger dynamically generates the slug.
+
+Two attributes have to be defined on the source element.
+`data-toggle="slugger"`indicates that the elements value will be used as the string from which the slug is to be generated..
+`data-slugger-target="#id-of-the-target-element"` defines the jQuery selector of the HTML form element where
+the generated slug is to be displayed.
+
+<h4>JavaScript</h4>
+
+<h5>Options</h5>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>target</td>
+            <td>jQuery HTML element collection</td>
+            <td></td>
+            <td>The element(s) where the slug should be displayed</td>
+        </tr>
+    </tbody>
+</table>
+
+<h5>Methods</h5>
+<h6>$().updateSlug()</h6>
+Sets slug generated as the value of the target element based on the value of the source element.
+
+<h3>Events</h3>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Event Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>updated.sui.slugger</td>
+            <td>Fired when user changes the value of the source element and the slug gets updated.</td>
+        </tr>
+        <tr>
+            <td>changed.sui.slugger</td>
+            <td>Fired when the source element looses focus after a change.</td>
+        </tr>
+    <tbody>
+</table>
+
+Markup:
+<form>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Source</label>
+                <input type="text" class="form-control" data-toggle="slugger" data-slugger-target="#slugger-target" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label>Target</label>
+                <input type="text" class="form-control" id="slugger-target" />
+            </div>
+        </div>
+    </div>
+</form>
+
+Styleguide 6.7
+*/
