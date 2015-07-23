@@ -105,7 +105,7 @@ $(function() {
   QUnit.test('should disable element by change event on control element', function() {
     QUnit.stop();
 
-    // Two control elements are defined to ensue that the second one doesnt interfere
+    // Two control elements are defined to ensue that the second one does not interfere
     $('#qunit-fixture').html('<input type=text id="input_1" />' +
       '<input type="checkbox" id="control" data-toggle="disable" data-disable-target="#input_1" />' +
       '<input type=text id="input_2" />' +
@@ -128,7 +128,7 @@ $(function() {
   QUnit.test('should disable and enable element by custom event type on an element', function() {
     QUnit.stop();
 
-    // Two control elements are defined to ensue that the second one doesnt interfere
+    // Two control elements are defined to ensure that the second one does not interfere
     $('#qunit-fixture').html('<input type=text id="input_1" />' +
       '<button id="control" data-toggle="disable" data-disable-target="#input_1" data-disable-event="click" />' +
       '<input type=text id="input_2" />' +
