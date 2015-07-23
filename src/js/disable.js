@@ -66,6 +66,6 @@
         });
       });
     });
-  }(Plugin, $, window, document));
+  }(Plugin, $, window));
 
 }(jQuery, window, document));
