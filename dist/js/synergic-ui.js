@@ -7,21 +7,31 @@
  * HTML & LESS © Adam Kudrna, 2014—2015
  * JavaScript © Martin Bohal, 2014—2015
  *
- * v0.7.1 (19 July 2015)
+ * v0.8.0 (29 July 2015)
  */
 ;(function($, window) {
   'use strict';
 
   // CKEDITOR-LOADER DATA-API
-  // ================
+  // ========================
 
   (function($, window) {
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
       $('[data-onload-ckeditor]').each(function() {
+        var confObj = {};
         var $this = $(this);
-        $this.ckeditor({customConfig: $this.data('onload-ckeditor')});
+        var confValue = $this.data('onload-ckeditor');
+        if (confValue) {
+          if (typeof confValue === 'object') {
+            confObj = confValue;
+          } else {
+            confObj = {customConfig: confValue};
+          }
+        }
+
+        $this.ckeditor(confObj);
       });
     });
   }($, window));
@@ -45,7 +55,7 @@
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
-    'callback': function() {} // Having empty callback is useless, it is here as a sane fallback for tests
+    callback: function() {} // Having empty callback is useless, it is here as a sane fallback for tests
   };
 
   Confirmation.prototype.showConfirmation = function() {
@@ -60,13 +70,16 @@
     $triggerEl.on('rejected.sui.confirmation', function() {
       callback(false);
     });
+
     $triggerEl.on('confirmed.sui.confirmation', function() {
       callback(true);
     });
+
     $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function() {
       $modal.on('hidden.bs.modal', function() {
         $(this).remove();
       });
+
       // The fade class is removed before hiding the modal to prevent the backdrop from staying behond
       // Thats why there is no animation :(
       // http://stackoverflow.com/questions/22056147/bootstrap-modal-backdrop-remaining
@@ -82,11 +95,13 @@
         $triggerEl.trigger('confirmed.sui.confirmation');
       }
     });
+
     $modal
       .find('[data-confirmation=reject]')
       .on('click.sui.confirmation', function() {
         $triggerEl.trigger('rejected.sui.confirmation');
       });
+
     $modal
       .find('[data-confirmation=confirm]')
       .on('click.sui.confirmation', function() {
@@ -98,13 +113,12 @@
     return $('<div class="modal fade" tabindex="-1">' +
       '<div class="modal-dialog modal-sm">' +
       '<div class="modal-content">' +
-      '<div class="modal-body">' + message + '</div>'+
+      '<div class="modal-body">' + message + '</div>' +
       '<div class="modal-footer">' +
       '<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>' +
       '<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>' +
       '</div></div></div></div>');
   };
-
 
   // CONFIRMATION PLUGIN DEFINITION
   // ==============================
@@ -115,8 +129,10 @@
       var data = $this.data('sui.confirmation');
 
       if (!data) {
-        $this.data('sui.confirmation', (data = new Confirmation($this, options)));
+        data = new Confirmation($this, options);
+        $this.data('sui.confirmation', data);
       }
+
       data.showConfirmation();
     });
   }
@@ -126,15 +142,12 @@
   $.fn.confirmation = Plugin;
   $.fn.confirmation.Constructor = Confirmation;
 
-
   // CONFIRMATION NO CONFLICT
   // ========================
-
   $.fn.confirmation.noConflict = function() {
     $.fn.confirmation = old;
     return this;
   };
-
 
   // CONFIRMATION DATA-API
   // =====================
@@ -149,7 +162,7 @@
         'confirm-message': $this.data('confirm-message'),
         'confirm-yes': $this.data('confirm-yes'),
         'confirm-no': $this.data('confirm-no'),
-        'callback': function(result) {
+        callback: function(result) {
           if (result) {
             $this.trigger('click.sui.confirmation.data-api', true);
           }
@@ -159,6 +172,32 @@
   });
 
 }(jQuery, window, document));
+
+;(function($, window) {
+  'use strict';
+
+  // CKEDITOR-LOADER DATA-API
+  // ========================
+
+  (function($, window) {
+    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+    // and thus it would make it impossible to test this part of the code.
+    $(window).load(function() {
+      var initComponentFn = function(confObj, confValue) {
+        if (confValue) {
+          $.extend(confObj, confValue);
+        }
+
+        $(this).datetimepicker(confObj);
+      };
+
+      $('[data-onload-datetimepicker]').each(function() {
+        initComponentFn.call(this, {allowInputToggle: true, sideBySide: true}, $(this).data('onload-datetimepicker'));
+      });
+    });
+  }($, window));
+
+}(jQuery, window));
 
 ;(function($, window, document) {
   'use strict';
@@ -170,40 +209,34 @@
   };
 
   Disable.prototype.toggle = function() {
+    $(document).trigger('toggle.sui.disable');
     this.$element.prop('disabled', !this.$element.prop('disabled'));
+    $(document).trigger('toggled.sui.disable');
   };
-
 
   // DISABLE PLUGIN DEFINITION
   // =========================
 
-  function Plugin(options) {
-    $(document).trigger('toggle.sui.disable');
-
+  function Plugin() {
     this.each(function() {
       var $this = $(this);
       var data = $this.data('sui.disable');
 
       if (!data) {
-        $this.data('sui.disable', (data = new Disable($this)));
+        data = new Disable($this);
+        $this.data('sui.disable', data);
       }
 
-      if (options === 'toggle') {
-        data.toggle();
-      }
+      data.toggle();
     });
-
-    $(document).trigger('toggled.sui.disable');
 
     return this;
   }
-
 
   var old = $.fn.disable;
 
   $.fn.disable = Plugin;
   $.fn.disable.Constructor = Disable;
-
 
   // DISABLE NO CONFLICT
   // ===================
@@ -213,12 +246,11 @@
     return this;
   };
 
-
   // DISABLE DATA-API
   // ================
 
   (function(Plugin, $, window) {
-    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+    // We have to use $(window).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
       var $controls = $('[data-toggle=disable]');
@@ -229,17 +261,18 @@
         if (!eventType) {
           eventType = 'change';
         }
+
         $this.on(eventType + '.sui.disable.data-api', function() {
-          Plugin.call($($this.data('disable-target')), 'toggle');
+          Plugin.call($($this.data('disable-target')));
         });
       });
     });
-  }(Plugin, $, window, document));
+  }(Plugin, $, window));
 
 }(jQuery, window, document));
 
 ;(function($, window, document) {
-    'use strict';
+  'use strict';
 
   // FILTERABLE CLASS DEFINITION
   // ===========================
@@ -249,8 +282,16 @@
   };
 
   Filterable.prototype.filter = function(fObjects) {
-    var dataVal, filterValCounter, filterValLength, filterVal,
-      filterOper, dataValCounter, dataValLength, fObjCounter, hideEl, fObjectsLength;
+    var dataVal;
+    var filterValCounter;
+    var filterValLength;
+    var filterVal;
+    var filterOper;
+    var dataValCounter;
+    var dataValLength;
+    var fObjCounter;
+    var hideEl;
+    var fObjectsLength;
 
     this.$filterable.show();
     if (fObjects && fObjects.length) {
@@ -273,12 +314,14 @@
             }
           } else if (filterOper === 'intersect') {
             hideEl = true;
-            if (typeof(filterVal) === 'string') {
+            if (typeof filterVal === 'string') {
               filterVal = [filterVal];
             }
-            if (typeof(dataVal) === 'string') {
+
+            if (typeof dataVal === 'string') {
               dataVal = [dataVal];
             }
+
             filterValLength = filterVal.length;
             dataValLength = dataVal.length;
             for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
@@ -288,12 +331,13 @@
                   break;
                 }
               }
-            }} else if (
-            (filterOper === '=' && +dataVal !== +filterVal) ||
-            (filterOper === '>=' && +dataVal < +filterVal) ||
-            (filterOper === '<=' && +dataVal > +filterVal) ||
-            (filterOper === '<' && +dataVal >= +filterVal) ||
-            (filterOper === '>' && +dataVal <= +filterVal)
+            }
+          } else if (
+            filterOper === '=' && +dataVal !== +filterVal ||
+            filterOper === '>=' && +dataVal < +filterVal ||
+            filterOper === '<=' && +dataVal > +filterVal ||
+            filterOper === '<' && +dataVal >= +filterVal ||
+            filterOper === '>' && +dataVal <= +filterVal
           ) {
             hideEl = true;
           }
@@ -309,7 +353,6 @@
   Filterable.prototype.resetFilter = function() {
     this.$filterable.show();
   };
-
 
   // FILTERABLE PLUGIN DEFINITION
   // ============================
@@ -328,7 +371,8 @@
 
         data = $this.data('sui.filterable');
         if (!data) {
-          $this.data('sui.filterable', (data = new Filterable($this)));
+          data = new Filterable($this);
+          $this.data('sui.filterable', data);
         }
 
         if (options === 'reset') {
@@ -353,7 +397,6 @@
   $.fn.filterable = Plugin;
   $.fn.filterable.Constructor = Filterable;
 
-
   // FILTERABLE NO CONFLICT
   // ======================
 
@@ -361,7 +404,6 @@
     $.fn.filterable = old;
     return this;
   };
-
 
   // FILTERABLE DATA-API
   // ===================
@@ -373,7 +415,7 @@
     var $filter = $(this).closest('form');
     var filterData = [];
 
-    if(lastEventTarget !== e.target || (lastEventTarget === e.target && lastEventValue !== e.target.value)) {
+    if (lastEventTarget !== e.target || lastEventTarget === e.target && lastEventValue !== e.target.value) {
       $filter.find(':input').each(function() {
         var $this = $(this);
         if ($this.val() !== '' && $this.val() !== null) {
@@ -392,7 +434,6 @@
     lastEventValue = e.target.value;
   });
 
-
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
     var $form = $(this).closest('form');
     $form[0].reset();
@@ -401,13 +442,121 @@
 
 }(jQuery, window, document));
 
-;(function ($, window, document) {
-    'use strict';
+;(function($, window) {
+  'use strict';
+
+  // SELECT2-LOADER DATA-API
+  // ========================
+
+  (function($, window) {
+    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+    // and thus it would make it impossible to test this part of the code.
+    $(window).load(function() {
+      $('[data-onload-select2]').each(function() {
+        var confObj = {};
+        var $this = $(this);
+        var confValue = $this.data('onload-select2');
+        if (confValue) {
+          confObj = confValue;
+        }
+
+        $this.select2(confObj);
+      });
+    });
+  }($, window));
+
+}(jQuery, window));
+
+;(function($, window, document) {
+  'use strict';
+
+  // SLUGGER CLASS DEFINITION
+  // ========================
+  var Slugger = function($source, options) {
+    this.$source = $source;
+    this.$target = options.target;
+  };
+
+  Slugger.prototype.updateSlug = function() {
+    var generateSlug = function(str) {
+      var from = 'ãàáäâåčçďẽèéëêìíïîñõòóöôřšťùúüûýž·/_,:;';
+      var to   = 'aaaaaaccdeeeeeiiiinooooorstuuuuyz------';
+
+      str = str
+        .replace(/^\s+|\s+$/g, '') //trim
+        .toLowerCase();
+
+      for (var i = 0 ; i < from.length; i++) {
+        str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+      }
+
+      str = str
+        .replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+        .replace(/\s+/g, '-') // collapse whitespace and replace by -
+        .replace(/-+/g, '-'); // collapse dashes
+
+      return str;
+    };
+
+    this.$target.val(generateSlug(this.$source.val()));
+    this.$source.trigger('updated.sui.slugger');
+  };
+
+  // SLUGGER PLUGIN DEFINITION
+  // =========================
+
+  function Plugin(options) {
+    this.each(function() {
+      var $this = $(this);
+      var data = $this.data('sui.slugger');
+
+      if (!data) {
+        data = new Slugger($this, options);
+        $this.data('sui.slugger', data);
+      }
+
+      data.updateSlug();
+    });
+
+    return this;
+  }
+
+  var old = $.fn.slugger;
+
+  $.fn.slugger = Plugin;
+  $.fn.slugger.Constructor = Slugger;
+
+  // SLUGGER NO CONFLICT
+  // ===================
+
+  $.fn.slugger.noConflict = function() {
+    $.fn.slugger = old;
+    return this;
+  };
+
+  // SLUGGER DATA-API
+  // ================
+
+  $(document)
+    .on('keyup.sui.slugger.data-api', '[data-toggle=slugger]', function() {
+      $('[data-toggle=slugger]').each(function() {
+        var $this = $(this);
+        Plugin.call($this, {target: $($this.data('slugger-target'))});
+      });
+    })
+    .on('change.sui.slugger.data-api', '[data-toggle=slugger]', function() {
+      $(this).trigger('changed.sui.slugger');
+    });
+
+}(jQuery, window, document));
+
+;(function($, window, document) {
+  'use strict';
 
   // SORTABLE TABLE CLASS DEFINITION
   // ===============================
 
-  var SortableTable = function ($sortedTable, $navigation) {
+  var SortableTable = function($sortedTable, $navigation) {
     this.$sortedTable = $sortedTable;
     this.$navigation = $navigation;
     if ($navigation) {
@@ -415,8 +564,16 @@
     }
   };
 
-  SortableTable.prototype.sort = function ($sortedTh, sortDir) {
-    var newSortGroup, sortGroup, rowCounter, rowsLength, navigationHtml = '', tableHtml = '', row, isNavigationCol, rows;
+  SortableTable.prototype.sort = function($sortedTh, sortDir) {
+    var sortGroup;
+    var rowCounter;
+    var rowsLength;
+    var tableHtml;
+    var row;
+    var isNavigationCol;
+    var rows;
+    var newSortGroup = null;
+    var navigationHtml = '';
     var isSortedAsc = $sortedTh.hasClass('sorting-asc');
 
     this.$sortedTable
@@ -439,7 +596,6 @@
 
     isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index()).data('sort-group') !== 'undefined';
     tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
-    navigationHtml = '';
 
     rowsLength = rows.length;
     for (rowCounter = 0; rowCounter < rowsLength; rowCounter++) {
@@ -458,6 +614,7 @@
             '</th></tr></thead><tbody>';
         }
       }
+
       tableHtml += row.outerHTML;
     }
 
@@ -465,6 +622,7 @@
       if (isNavigationCol) {
         navigationHtml = '<ul>' + navigationHtml + '</ul>';
       }
+
       this.$navigation.html(navigationHtml);
     }
 
@@ -474,10 +632,12 @@
 
   SortableTable.prototype.comparer = function(index, sortDir) {
     return function(a, b) {
-      var result, valA, valB;
+      var result;
+      var valA;
+      var valB;
       var getCellValue = function(row, index) {
         var cell = $(row).children('td').eq(index);
-        if (cell.attr('data-sort-value')){
+        if (cell.attr('data-sort-value')) {
           return cell.attr('data-sort-value');
         } else {
           return cell.text();
@@ -496,20 +656,21 @@
     };
   };
 
-
   // SORTABLE TABLE PLUGIN DEFINITION
   // ================================
 
   function Plugin(options) {
-    return this.each(function () {
+    return this.each(function() {
       var $navigation;
       var $this = $(this);
       var data = $this.data('sui.sortableTable');
 
       if (!data) {
-        $navigation = options && ('navigation' in options) && options.navigation ? $(options.navigation) : false;
-        $this.data('sui.sortableTable', (data = new SortableTable($this, $navigation)));
+        $navigation = options && 'navigation' in options && options.navigation ? $(options.navigation) : false;
+        data = new SortableTable($this, $navigation);
+        $this.data('sui.sortableTable', data);
       }
+
       data.sort(options['sorted-th'], options['sort-direction']);
     });
   }
@@ -519,15 +680,13 @@
   $.fn.sortableTable = Plugin;
   $.fn.sortableTable.Constructor = SortableTable;
 
-
   // SORTABLE TABLE NO CONFLICT
   // ==========================
 
-  $.fn.sortableTable.noConflict = function () {
+  $.fn.sortableTable.noConflict = function() {
     $.fn.sortableTable = old;
     return this;
   };
-
 
   // SORTABLE TABLE DATA-API
   // =======================
@@ -537,7 +696,7 @@
       var $sortedTable = $this.closest('table');
       Plugin.call($sortedTable, {
         'sorted-th': $this,
-        'navigation': $($sortedTable.data('sort-navigation'))
+        navigation: $($sortedTable.data('sort-navigation'))
       });
     };
 
@@ -555,11 +714,13 @@
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function() {
       var $sortedTh = $('th[data-sort-onload]');
-      var $sortedTable = $sortedTh.closest('table');
-      Plugin.call($sortedTable, {
-        'sorted-th': $sortedTh,
-        'navigation': $($sortedTable.data('sort-navigation')),
-        'sort-direction': $sortedTh.data('sort-onload')
+      $sortedTh.each(function(i) {
+        var $sortedTable = $($sortedTh[i]).closest('table');
+        Plugin.call($sortedTable, {
+          'sorted-th': $($sortedTh[i]),
+          navigation: $sortedTable.data('sort-navigation'),
+          'sort-direction': $($sortedTh[i]).data('sort-onload')
+        });
       });
     });
   }(Plugin, $, window, document));
