@@ -5,6 +5,3 @@ bower_components/
 # Generated files
 .tmp
 /styleguide
-
-# IDE configs
-.idea
