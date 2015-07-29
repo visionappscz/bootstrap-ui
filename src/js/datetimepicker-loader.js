@@ -16,12 +16,8 @@
         $(this).datetimepicker(confObj);
       };
 
-      $('input[data-onload-datepicker]').each(function() {
-        initComponentFn.call(this, {pickTime: false}, $(this).data('onload-datepicker'));
-      });
-
-      $('input[data-onload-datetimepicker]').each(function() {
-        initComponentFn.call(this, {sideBySide: true}, $(this).data('onload-datetimepicker'));
+      $('[data-onload-datetimepicker]').each(function() {
+        initComponentFn.call(this, {allowInputToggle: true, sideBySide: true}, $(this).data('onload-datetimepicker'));
       });
     });
   }($, window));
