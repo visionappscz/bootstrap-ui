@@ -2,7 +2,8 @@
 Slugger
 
 Creates a slug in one HTML form element based on value in another.
-The relationship is unidirectional in the sense that changes made to source element affect the target element, but not vice versa.
+The relationship is unidirectional in the sense that changes made to source element affect the target element, but not
+vice versa.
 
 <div class="panel panel-danger">
     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
@@ -11,21 +12,24 @@ The relationship is unidirectional in the sense that changes made to source elem
     </div>
 </div>
 
-<h3>Usage</h3>
+### Usage
 
-<h4>Data-api</h4>
+#### Data-API
 
-To make this component function there must be two HTML form elements.
-One is the source where user types text and the other is the target where slugger dynamically generates the slug.
+To make this component function there must be two HTML form elements. One is the source where user types text and the
+other is the target where slugger dynamically generates the slug.
 
-Two attributes have to be defined on the source element.
-`data-toggle="slugger"`indicates that the elements value will be used as the string from which the slug is to be generated..
-`data-slugger-target="#id-of-the-target-element"` defines the jQuery selector of the HTML form element where
+Two attributes have to be defined on the source element:
+
+* `data-toggle="slugger"`indicates that the element’s value will be used as the string from which the slug is to be
+generated.
+* `data-slugger-target="#id-of-the-target-element"` defines the jQuery selector of the HTML form element where
 the generated slug is to be displayed.
 
-<h4>JavaScript</h4>
+#### JavaScript
 
-<h5>Options</h5>
+##### Options
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -45,11 +49,14 @@ the generated slug is to be displayed.
     </tbody>
 </table>
 
-<h5>Methods</h5>
-<h6>$().updateSlug()</h6>
+##### Methods
+
+###### $().updateSlug()
+
 Sets slug generated as the value of the target element based on the value of the source element.
 
-<h3>Events</h3>
+##### Events
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -70,22 +77,20 @@ Sets slug generated as the value of the target element based on the value of the
 </table>
 
 Markup:
-<form>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label>Source</label>
-                <input type="text" class="form-control" data-toggle="slugger" data-slugger-target="#slugger-target" />
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label>Target</label>
-                <input type="text" class="form-control" id="slugger-target" />
-            </div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Source</label>
+            <input type="text" class="form-control" data-toggle="slugger" data-slugger-target="#slugger-target" />
         </div>
     </div>
-</form>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Target</label>
+            <input type="text" class="form-control" id="slugger-target" />
+        </div>
+    </div>
+</div>
 
-Styleguide 6.7
+Styleguide 6.5
 */

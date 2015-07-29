@@ -1,7 +1,7 @@
 /*
 Disable
 
-Toogles the disabled property on DOM elements.
+Toggles the disabled property on DOM elements.
 
 <div class="panel panel-danger">
     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
@@ -10,25 +10,28 @@ Toogles the disabled property on DOM elements.
     </div>
 </div>
 
-<h3>Usage</h3>
+### Usage
 
-<h4>Data-api</h4>
+#### Data-API
 
 To use an element as control element for toggling disable status on other elements, it must possess the
 `data-toggle="disable"` attribute. It also must define the `data-disable-target` attribute that holds a string which,
 when evaluated as a jQuery selector, returns a jQuery object referencing the elements that are to be disabled or
 enabled.
 
-By default the control element triggers the disable() method on the JS event `change`. This can be changed by
+By default the control element triggers the `disable()` method on the JS event `change`. This can be changed by
 specifying the `data-disable-event` attribute on the control element (i.e. `data-disable-event="click"`).
 
-<h4>JavaScript</h4>
+#### JavaScript
 
-<h5>Methods</h5>
-<h6>$().toggle()</h6>
+##### Methods
+
+###### $().toggle()
+
 Toggles between enabled and disabled states.
 
-<h3>Events</h3>
+##### Events
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>

@@ -11,7 +11,6 @@ To initialize the component taking into account that the data is already sorted 
 a `.sorting-asc` and `.sorting-desc` can be added to the relevant `<th>` to indicate the column and direction of the
 default sorting.
 
-
 <div class="panel panel-danger">
     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
     <div class="panel-body">
@@ -27,22 +26,25 @@ default sorting.
     </div>
 </div>
 
-<h3>Usage</h3>
+### Usage
 
-<h4>Data-api</h4>
+#### Data-API
 
-To use sortable-table via data-api, `data-toggle="sort"` has to be defined on the `<th>` that should trigger sorting on click.
+To use sortable-table via data-API, `data-toggle="sort"` has to be defined on the `<th>` that should trigger sorting on
+click.
 
-In order to utilize the navigation feature, `data-sort-navigation` has to be defined on the `<table>`element and it must contain a string that
-when evaluated as a jQuery selector will return a jQuery object referencing teh navigation container DOM element.
+In order to utilize the navigation feature, `data-sort-navigation` has to be defined on the `<table>` element and it
+must contain a string that, when evaluated as a jQuery selector, will return a jQuery object referencing the navigation
+container DOM element.
 
-Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be
-achieved by specifying the attribute `data-sort-onload` on the appropriate `<th>`. This attribute takes the value
-of either `asc` or `desc` to indicate the sorting order.
+Forcing sorting of a given table on page load (and potentially generating group headers and navigation) can be achieved
+by specifying the attribute `data-sort-onload` on the appropriate `<th>`. This attribute takes the value of either `asc`
+or `desc` to indicate the sorting order.
 
-<h4>JavaScript</h4>
+#### JavaScript
 
-<h5>Options</h5>
+##### Options
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -78,11 +80,14 @@ of either `asc` or `desc` to indicate the sorting order.
     </tbody>
 </table>
 
-<h5>Methods</h5>
-<h6>$().sortableTable(options)</h6>
+##### Methods
+
+###### $().sortableTable(options)
+
 Initiates a sortable table if needed and performs the sorting according to the options object.
 
-<h3>Events</h3>
+##### Events
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>

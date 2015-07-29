@@ -9,10 +9,10 @@ filtered. If a data attribute is not provided, the element is ignored by the fil
 is treated as if it passed the filter.
 
 The options to be passed to the Filterable plugin are always an array of filter definition objects. If using the
-data-api, each of these object has to be represented by a single `:input` element with the appropriate `data-*`
+data-API, each of these objects has to be represented by a single `:input` element with the appropriate `data-*`
 attributes.
 
-To allow users to view all filterable elements when using the data-api, simply place a button with `type="reset"`
+To allow users to view all filterable elements when using the data-API, simply place a button with `type="reset"`
 attribute within the filter `<form>`.
 
 <div class="panel panel-danger">
@@ -22,21 +22,23 @@ attribute within the filter `<form>`.
     </div>
 </div>
 
-<h3>Usage</h3>
+### Usage
 
-<h4>Data-api</h4>
+#### Data-API
 
-The filter has to be a `<form>` with a `data-filter-target` attribute containing a string which, when evaluated as a jQuery
-selector, returns a jQuery object holding the DOM elements to be filtered.
+The filter has to be a `<form>` with a `data-filter-target` attribute containing a string which, when evaluated as a
+jQuery selector, returns a jQuery object holding the DOM elements to be filtered.
 
-Each of the `:input` elements of the form that are to be used for filtering have to define the `data-toggle="filter"` attribute.
-Further each one also has to possess the `data-filter-attrib` and `data-filter-operator` attributes (see the Filter Object section bellow)
+Each of the `:input` elements of the form that are to be used for filtering have to define the `data-toggle="filter"`
+attribute. Further each one also has to possess the `data-filter-attrib` and `data-filter-operator` attributes (see the
+Filter Object section below).
 
 The element that is to reset the filter on click has to have the `data-toggle="reset-filter"` attribute defined.
 
-<h4>JavaScript</h4>
+#### JavaScript
 
-<h5>Filter Object</h5>
+##### Filter Object
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -139,13 +141,18 @@ The element that is to reset the filter on click has to have the `data-toggle="r
     </tbody>
 </table>
 
-<h5>Methods</h5>
-<h6>$().filter(filterObjects)</h6>
+##### Methods
+
+###### $().filter(filterObjects)
+
 Filters the set of elements on which it is called according to the given array of filter objects.
-<h6>$().resetFilter)</h6>
+
+###### $().resetFilter)
+
 Displays all filterable elements.
 
-<h3>Events</h3>
+##### Events
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>

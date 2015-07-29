@@ -30,19 +30,21 @@ appropriately or by overriding the plugin default options which affects all inst
     </div>
 </div>
 
-<h3>Usage</h3>
+### Usage
 
-<h4>Data-api</h4>
+#### Data-API
 
 To bind confirmation dialog to an element, the element must have `data-toggle="confirm"` attribute defined.
 
-To overload the default options, you can use the same options as the JavaScript api prepended with `data-` (i.e. `data-confirm-yes="Oui"`).
+To override default options, you can use the same options as the JavaScript API prepended with `data-`
+(i.e. `data-confirm-yes="Oui"`).
 
-This components data-api only supports `<button>` elements.
+**Note that this component only supports `<button>` elements.**
 
-<h4>JavaScript</h4>
+#### JavaScript
 
-<h5>Options</h5>
+##### Options
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -74,11 +76,14 @@ This components data-api only supports `<button>` elements.
     </tbody>
 </table>
 
-<h5>Methods</h5>
-<h6>$().showConfirmation()</h6>
+##### Methods
+
+###### $().showConfirmation()
+
 Triggers a confirmation dialog on the given element.
 
-<h3>Events</h3>
+##### Events
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
