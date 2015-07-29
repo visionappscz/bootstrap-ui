@@ -19,12 +19,12 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-autoprefixer": "^3.0.0",
+    "grunt-autoprefixer": "^3.0.3",
     "grunt-browser-sync": "~2.1.3",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-copy": "~0.8.0",
-    "grunt-contrib-cssmin": "~0.12.3",
+    "grunt-contrib-cssmin": "~0.13.0",
     "grunt-contrib-jshint": "~0.11.2",
     "grunt-contrib-less": "~1.0.1",
     "grunt-contrib-qunit": "~0.7.0",
@@ -33,8 +33,8 @@
     "grunt-jscs": "~1.8.0",
     "grunt-styleguide": "~0.2.17",
     "grunt-text-replace": "^0.4.0",
-    "load-grunt-config": "^0.17.1",
-    "time-grunt": "~1.2.0"
+    "load-grunt-config": "^0.17.2",
+    "time-grunt": "~1.2.1"
   },
   "engines": {
     "node": "~0.10.1"
