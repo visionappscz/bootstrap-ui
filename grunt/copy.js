@@ -34,7 +34,7 @@ module.exports = {
         src: [
           '<%= paths.bower %>/jquery/dist/jquery.min.*',
           '<%= paths.bower %>/eonasdan-bootstrap-datetimepicker/build/js/*',
-          '<%= paths.bower %>/moment/min/moment.min.js',
+          '<%= paths.bower %>/moment/min/moment-with-locales.min.js',
           '<%= paths.bower %>/select2/select2.min.js'
         ],
         dest: '<%= paths.styleguide %>/public/js/'
