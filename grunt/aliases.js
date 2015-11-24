@@ -2,7 +2,32 @@
 
 module.exports = {
 
-  // Individual build tasks
+  // Testing
+  // =======
+
+  'test-js': [
+    'jscs',
+    'jshint',
+    'qunit'
+  ],
+
+  test:[
+    'test-js'
+  ],
+
+  // Run JS tests in a real browser.
+  // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
+  // To access the tests from a remote device that is connected to local network (mobile, tablet, etc.), visit
+  // `http://<your local IP address>:3000/src/js/tests/`.
+  'test-remote': [
+    'jscs',
+    'jshint',
+    'browserSync:test'
+  ],
+
+  // Build
+  // =====
+
   'build-css': [
     'less',
     'autoprefixer:core',
@@ -10,8 +35,6 @@ module.exports = {
   ],
 
   'build-js': [
-    'jscs',
-    'jshint:core',
     'concat',
     'uglify'
   ],
@@ -28,6 +51,7 @@ module.exports = {
   build: [
     'clean:temp',
     'clean:styleguide',
+    'test-js',
     'build-css',
     'build-js',
     'build-styleguide'
@@ -42,6 +66,9 @@ module.exports = {
     'copy:fonts'
   ],
 
+  // Development
+  // ===========
+
   // Serve the style guide to browser, watch the source files for changes and update them automatically.
   serve: [
     'build',
@@ -49,23 +76,8 @@ module.exports = {
     'watch'
   ],
 
-  // Run JS tests in a headless browser.
-  test:[
-    'jscs',
-    'jshint',
-    'qunit'
-  ],
-
-  // Run JS tests in a real browser.
-  // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
-  // To access the tests from a remote device that is connected to local network (mobile, tablet, etc.), visit
-  // `http://<your local IP address>:3000/src/js/tests/`.
-  'test-remote': [
-    'jscs',
-    'jshint',
-    'browserSync:test'
-  ],
-
   // Default task
+  // ============
+
   default: 'test'
 };
