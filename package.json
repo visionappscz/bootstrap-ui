@@ -4,13 +4,13 @@
   "description": "Synergic UI is a UI library for building responsive admin interfaces. Built on Bootstrap 3.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:synergic-cz/synergic-ui.git"
+    "url": "git@github.com:visionappscz/synergic-ui.git"
   },
   "homepage": "http://ui.synergic.cz",
-  "author": "Synergic",
+  "author": "VisionApps",
   "license": {
     "type": "MIT",
-    "url": "https://github.com/synergic-cz/synergic-ui/blob/master/LICENSE"
+    "url": "https://github.com/visionappscz/synergic-ui/blob/master/LICENSE"
   },
   "style": "dist/css/synergic-ui.css",
   "less": "src/less/dist.less",
