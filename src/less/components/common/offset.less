@@ -4,15 +4,67 @@ Offset
 Simple helper for providing additional margin.
 
 Markup:
-<div class="offset-bottom">I have bottom spacing like a real paragraph!</div>
-<div class="offset-bottom-large">I have big bottom spacing!</div>
-<div class="offset-bottom-larger">I have HUGE bottom spacing!</div>
-<p class="offset-bottom-none">I have no bottom spacing :/.</p>
+<div class="row offset-bottom">
+    <div class="col-sm-6">
+        <h4>Left Offset</h4>
+        There is a gap between me and the icon.
+        <span class="glyphicon glyphicon-tree-conifer offset-left" aria-hidden="true"></span>
+    </div>
+    <div class="col-sm-6">
+        <h4>Right Offset</h4>
+        <span class="glyphicon glyphicon-tree-deciduous offset-right" aria-hidden="true"></span>
+        There is a gap between me and the icon.
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <h4>Top Offset</h4>
+        <div class="offset-top">I have some top spacing.</div>
+        <div class="offset-top-large">I have big top spacing!</div>
+        <div class="offset-top-larger">I have HUGE top spacing!</div>
+        <p class="offset-top-none">I have no top spacing :/.</p>
+    </div>
+    <div class="col-sm-6">
+        <h4>Bottom Offset</h4>
+        <div class="offset-bottom">I have bottom spacing like a real paragraph!</div>
+        <div class="offset-bottom-large">I have big bottom spacing!</div>
+        <div class="offset-bottom-larger">I have HUGE bottom spacing!</div>
+        <p class="offset-bottom-none">I have no bottom spacing :/.</p>
+    </div>
+</div>
 
 Styleguide 5.15
 */
 
 
+// Left
+.offset-left {
+    margin-left: .75ex;
+}
+
+// Right
+.offset-right {
+    margin-right: .75ex;
+}
+
+// Top
+.offset-top {
+    margin-top: @line-height-computed;
+}
+
+.offset-top-large {
+    margin-top: 2 * @line-height-computed;
+}
+
+.offset-top-larger {
+    margin-top: 4 * @line-height-computed;
+}
+
+.offset-top-none {
+    margin-top: 0 !important;
+}
+
+// Bottom
 .offset-bottom {
     margin-bottom: @line-height-computed;
 }
