@@ -8,7 +8,7 @@ Markup:
 <h2>Heading Level 2</h2>
 <h3>Heading Level 3</h3>
 <h4>Heading Level 4</h4>
-<p class="perex">This is perex. But I must explain to you how all this mistaken idea of denouncing pleasure and
+<p class="lead">This is perex. But I must explain to you how all this mistaken idea of denouncing pleasure and
 praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the
 great explorer of the truth, the master-builder of human happiness.</p>
 <p>Bring one I make, moved lights there signs lights. Two replenish creeping their together from kind, may brought
@@ -43,15 +43,9 @@ hr {
     margin: (2 * @line-height-computed) 0;
 }
 
+// Deprecated as of v0.9.0, will be removed in v1.
 .perex {
     &:extend(.lead all);
-    font-size: @perex-font-size-xs;
-    line-height: @perex-line-height-xs;
-
-    @media (min-width: @screen-sm-min) {
-        font-size: @perex-font-size-sm;
-        line-height: @perex-line-height-sm;
-    }
 }
 
 
