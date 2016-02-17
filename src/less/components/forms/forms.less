@@ -7,19 +7,8 @@ Styleguide 4.1
 */
 
 
-/*
-Better Validation Messages
-
-Markup:
-<div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" name="email" />
-    <div class="text-danger-block">Please enter a valid email address</div>
-</div>
-
-Styleguide 4.1.1
-*/
-
+// Deprecated in favour of original Bootstrap's combination of `has-error` and `help-block` as of v0.9.0, will be
+// removed in v1.
 .text-danger-block {
     .alert();
     .alert-danger();
@@ -41,7 +30,7 @@ Markup:
 <label for="name" class="required">Name</label>
 <input type="text" class="form-control" id="name" name="name" required />
 
-Styleguide 4.1.2
+Styleguide 4.1.1
 */
 
 label.required:after {
