@@ -42,25 +42,29 @@
 @footer-link-hover-color: @link-hover-color;
 @footer-divider-border: #ddd;
 
-// Default navbar
-@navbar-default-color:                     #fff;
-@navbar-default-bg:                        @brand-primary;
-@navbar-default-border:                    darken(@navbar-default-bg, 10%);
+// Primary navbar
+@navbar-primary-color: #fff;
+@navbar-primary-bg: @brand-primary;
+@navbar-primary-border: darken(@navbar-primary-bg, 10%);
 
-// Default navbar links
-@navbar-default-link-color:                #fff;
-@navbar-default-link-hover-color:          mix(#fff, @navbar-default-bg, 75%);
-@navbar-default-link-active-color:         @navbar-default-link-hover-color;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 10%);
+// Primary navbar links
+@navbar-primary-link-color: #fff;
+@navbar-primary-link-hover-color: mix(#fff, @navbar-primary-bg, 75%);
+@navbar-primary-link-hover-bg: transparent;
+@navbar-primary-link-active-color: @navbar-primary-link-hover-color;
+@navbar-primary-link-active-bg: darken(@navbar-primary-bg, 10%);
+@navbar-primary-link-disabled-color: #ccc;
+@navbar-primary-link-disabled-bg: transparent;
 
 // Navbar brand label
-@navbar-default-brand-color:               #fff;
-@navbar-default-brand-hover-color:         #fff;
+@navbar-primary-brand-color: #fff;
+@navbar-primary-brand-hover-color: #fff;
+@navbar-primary-brand-hover-bg: transparent;
 
-// Default navbar toggle
-@navbar-default-toggle-hover-bg:           transparent;
-@navbar-default-toggle-icon-bar-bg:        #fff;
-@navbar-default-toggle-border-color:       #fff;
+// Primary navbar toggle
+@navbar-primary-toggle-hover-bg: transparent;
+@navbar-primary-toggle-icon-bar-bg: #fff;
+@navbar-primary-toggle-border-color: #fff;
 
 // Page header
 @page-header-border-color:    #ddd;

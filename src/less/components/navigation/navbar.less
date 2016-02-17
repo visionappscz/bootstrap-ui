@@ -2,7 +2,7 @@
 Navbar
 
 Implements default [Bootstrap navbar](http://getbootstrap.com/components/#navbar) component with minor enhancements
-(eg. `.navbar-icon` for icon items). This is the recommended setup for admin interfaces.
+(eg. `.navbar-primary` modification or `.navbar-icon` for icon items).
 
 <div class="panel panel-info">
 <div class="panel-heading"><h4 class="panel-title">Fixed navbar</h4></div>
@@ -14,7 +14,7 @@ Implements default [Bootstrap navbar](http://getbootstrap.com/components/#navbar
 
 Markup:
 <!-- Main navigation -->
-<nav class="navbar navbar-static-top navbar-default">
+<nav class="navbar navbar-static-top navbar-primary">
     <div class="container">
         <!-- Brand and menu toggle -->
         <div class="navbar-header">
@@ -98,7 +98,7 @@ Styleguide 3.1
         }
 
         &-icon .glyphicon {
-            .icon-offset();
+            margin-right: .75ex;
         }
     }
 
@@ -112,4 +112,135 @@ Styleguide 3.1
 // Make place for fixed navbar
 .has-navbar-fixed-top {
     padding-top: @navbar-height;
+}
+
+// Primary navbar
+.navbar-primary {
+    background-color: @navbar-primary-bg;
+    border-color: @navbar-primary-border;
+
+    .navbar-brand {
+        color: @navbar-primary-brand-color;
+        &:hover,
+        &:focus {
+            color: @navbar-primary-brand-hover-color;
+            background-color: @navbar-primary-brand-hover-bg;
+        }
+    }
+
+    .navbar-text {
+        color: @navbar-primary-color;
+    }
+
+    .navbar-nav {
+        > li > a {
+            color: @navbar-primary-link-color;
+
+            &:hover,
+            &:focus {
+                color: @navbar-primary-link-hover-color;
+                background-color: @navbar-primary-link-hover-bg;
+            }
+        }
+        > .active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: @navbar-primary-link-active-color;
+                background-color: @navbar-primary-link-active-bg;
+            }
+        }
+        > .disabled > a {
+            &,
+            &:hover,
+            &:focus {
+                color: @navbar-primary-link-disabled-color;
+                background-color: @navbar-primary-link-disabled-bg;
+            }
+        }
+    }
+
+    .navbar-toggle {
+        border-color: @navbar-primary-toggle-border-color;
+        &:hover,
+        &:focus {
+            background-color: @navbar-primary-toggle-hover-bg;
+        }
+        .icon-bar {
+            background-color: @navbar-primary-toggle-icon-bar-bg;
+        }
+    }
+
+    .navbar-collapse,
+    .navbar-form {
+        border-color: @navbar-primary-border;
+    }
+
+    // Dropdown menu items
+    .navbar-nav {
+        // Remove background color from open dropdown
+        > .open > a {
+            &,
+            &:hover,
+            &:focus {
+                background-color: @navbar-primary-link-active-bg;
+                color: @navbar-primary-link-active-color;
+            }
+        }
+
+        @media (max-width: @grid-float-breakpoint-max) {
+            // Dropdowns get custom display when collapsed
+            .open .dropdown-menu {
+                > li > a {
+                    color: @navbar-primary-link-color;
+                    &:hover,
+                    &:focus {
+                        color: @navbar-primary-link-hover-color;
+                        background-color: @navbar-primary-link-hover-bg;
+                    }
+                }
+                > .active > a {
+                    &,
+                    &:hover,
+                    &:focus {
+                        color: @navbar-primary-link-active-color;
+                        background-color: @navbar-primary-link-active-bg;
+                    }
+                }
+                > .disabled > a {
+                    &,
+                    &:hover,
+                    &:focus {
+                        color: @navbar-primary-link-disabled-color;
+                        background-color: @navbar-primary-link-disabled-bg;
+                    }
+                }
+            }
+        }
+    }
+
+    // Links in navbars
+    //
+    // Add a class to ensure links outside the navbar nav are colored correctly.
+    .navbar-link {
+        color: @navbar-primary-link-color;
+        &:hover {
+            color: @navbar-primary-link-hover-color;
+        }
+    }
+
+    .btn-link {
+        color: @navbar-primary-link-color;
+        &:hover,
+        &:focus {
+            color: @navbar-primary-link-hover-color;
+        }
+        &[disabled],
+        fieldset[disabled] & {
+            &:hover,
+            &:focus {
+                color: @navbar-primary-link-disabled-color;
+            }
+        }
+    }
 }
