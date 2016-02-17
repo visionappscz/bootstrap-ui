@@ -30,8 +30,8 @@ module.exports = {
 
   'build-css': [
     'less',
-    'autoprefixer:core',
-    'cssmin'
+    'postcss:core',
+    'postcss:core-min'
   ],
 
   'build-js': [
@@ -43,7 +43,7 @@ module.exports = {
     'replace:styleguide',
     'copy:styleguideSrc',
     'styleguide',
-    'autoprefixer:styleguide',
+    'postcss:styleguide',
     'copy:styleguide'
   ],
 
