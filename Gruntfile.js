@@ -25,7 +25,9 @@ module.exports = function(grunt) {
     ' * JavaScript © Martin Bohal, 2014—2015\n' +
     ' *\n' +
     ' * v<%= pkg.version %> (<%= grunt.template.today("d mmmm yyyy") %>)\n' +
-    ' */\n'
+    ' */\n',
+
+    devBrowser: 'google chrome'
   };
 
   require('time-grunt')(grunt);

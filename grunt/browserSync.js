@@ -14,6 +14,7 @@ module.exports = {
       server: {
         baseDir: './styleguide/'
       },
+      browser: '<%= devBrowser %>',
       watchTask: true
     }
   },
