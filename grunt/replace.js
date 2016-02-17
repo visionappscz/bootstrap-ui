@@ -8,13 +8,13 @@ module.exports = {
     replacements: [
       {
         from: '%VERSION%',
-        to: '<%= pkg.version %>'
+        to: '<%= pkg.version %>',
       },
       {
         from: '%YEAR%',
-        to: '<%= grunt.template.today("yyyy") %>'
-      }
-    ]
-  }
+        to: '<%= grunt.template.today("yyyy") %>',
+      },
+    ],
+  },
 
 };

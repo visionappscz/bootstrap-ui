@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   var options = {
     pkg: grunt.file.readJSON('package.json'),
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       grunt: 'grunt',
       src: 'src',
       styleguide: 'styleguide',
-      temp: '.tmp'
+      temp: '.tmp',
     },
 
     // Banner for distribution CSS and JS
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     ' * v<%= pkg.version %> (<%= grunt.template.today("d mmmm yyyy") %>)\n' +
     ' */\n',
 
-    devBrowser: 'google chrome'
+    devBrowser: 'google chrome',
   };
 
   require('time-grunt')(grunt);

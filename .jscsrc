@@ -1,5 +1,6 @@
 {
   "preset": "airbnb",
   "disallowMultipleVarDecl": true,
-  "requireMultipleVarDecl": null
+  "requireMultipleVarDecl": null,
+  "requireDollarBeforejQueryAssignment": "ignoreProperties"
 }

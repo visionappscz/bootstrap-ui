@@ -7,28 +7,28 @@ module.exports = {
       src: [
         '<%= paths.styleguide %>/public/css/*.css',
         '<%= paths.styleguide %>/public/js/*.js',
-        '<%= paths.styleguide %>/*.html'
-      ]
+        '<%= paths.styleguide %>/*.html',
+      ],
     },
     options: {
       server: {
-        baseDir: './styleguide/'
+        baseDir: './styleguide/',
       },
       browser: '<%= devBrowser %>',
-      watchTask: true
-    }
+      watchTask: true,
+    },
   },
   test: {
     bsFiles: {
       src: [
-        '<%= paths.src %>/js/**/*.js'
-      ]
+        '<%= paths.src %>/js/**/*.js',
+      ],
     },
     options: {
       server: {
-        baseDir: './'
-      }
-    }
-  }
+        baseDir: './',
+      },
+    },
+  },
 
 };

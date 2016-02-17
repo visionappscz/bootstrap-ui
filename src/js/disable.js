@@ -1,13 +1,13 @@
-;(function($, window, document) {
+;(function ($, window, document) {
   'use strict';
 
   // DISABLE CLASS DEFINITION
   // ========================
-  var Disable = function($element) {
+  var Disable = function ($element) {
     this.$element = $element;
   };
 
-  Disable.prototype.toggle = function() {
+  Disable.prototype.toggle = function () {
     $(document).trigger('toggle.sui.disable');
     this.$element.prop('disabled', !this.$element.prop('disabled'));
     $(document).trigger('toggled.sui.disable');
@@ -17,7 +17,7 @@
   // =========================
 
   function Plugin() {
-    this.each(function() {
+    this.each(function () {
       var $this = $(this);
       var data = $this.data('sui.disable');
 
@@ -40,7 +40,7 @@
   // DISABLE NO CONFLICT
   // ===================
 
-  $.fn.disable.noConflict = function() {
+  $.fn.disable.noConflict = function () {
     $.fn.disable = old;
     return this;
   };
@@ -48,20 +48,20 @@
   // DISABLE DATA-API
   // ================
 
-  (function(Plugin, $, window) {
+  (function (Plugin, $, window) {
     // We have to use $(window).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function() {
+    $(window).load(function () {
       var $controls = $('[data-toggle=disable]');
 
-      $controls.each(function() {
+      $controls.each(function () {
         var $this = $(this);
         var eventType = $this.data('disable-event');
         if (!eventType) {
           eventType = 'change';
         }
 
-        $this.on(eventType + '.sui.disable.data-api', function() {
+        $this.on(eventType + '.sui.disable.data-api', function () {
           Plugin.call($($this.data('disable-target')));
         });
       });

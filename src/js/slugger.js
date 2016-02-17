@@ -1,15 +1,15 @@
-;(function($, window, document) {
+;(function ($, window, document) {
   'use strict';
 
   // SLUGGER CLASS DEFINITION
   // ========================
-  var Slugger = function($source, options) {
+  var Slugger = function ($source, options) {
     this.$source = $source;
     this.$target = options.target;
   };
 
-  Slugger.prototype.updateSlug = function() {
-    var generateSlug = function(str) {
+  Slugger.prototype.updateSlug = function () {
+    var generateSlug = function (str) {
       var from = 'ãàáäâåčçďẽèéëêìíïîñõòóöôřšťùúüûýž·/_,:;';
       var to   = 'aaaaaaccdeeeeeiiiinooooorstuuuuyz------';
 
@@ -17,7 +17,7 @@
         .replace(/^\s+|\s+$/g, '') //trim
         .toLowerCase();
 
-      for (var i = 0 ; i < from.length; i++) {
+      for (var i = 0; i < from.length; i++) {
         str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
       }
 
@@ -37,7 +37,7 @@
   // =========================
 
   function Plugin(options) {
-    this.each(function() {
+    this.each(function () {
       var $this = $(this);
       var data = $this.data('sui.slugger');
 
@@ -60,7 +60,7 @@
   // SLUGGER NO CONFLICT
   // ===================
 
-  $.fn.slugger.noConflict = function() {
+  $.fn.slugger.noConflict = function () {
     $.fn.slugger = old;
     return this;
   };
@@ -69,13 +69,13 @@
   // ================
 
   $(document)
-    .on('keyup.sui.slugger.data-api', '[data-toggle=slugger]', function() {
-      $('[data-toggle=slugger]').each(function() {
+    .on('keyup.sui.slugger.data-api', '[data-toggle=slugger]', function () {
+      $('[data-toggle=slugger]').each(function () {
         var $this = $(this);
-        Plugin.call($this, {target: $($this.data('slugger-target'))});
+        Plugin.call($this, { target: $($this.data('slugger-target')) });
       });
     })
-    .on('change.sui.slugger.data-api', '[data-toggle=slugger]', function() {
+    .on('change.sui.slugger.data-api', '[data-toggle=slugger]', function () {
       $(this).trigger('changed.sui.slugger');
     });
 

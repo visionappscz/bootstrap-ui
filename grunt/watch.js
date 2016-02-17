@@ -6,24 +6,24 @@ module.exports = {
     files: ['<%= paths.src %>/less/**/*.less'],
     tasks: [
       'build-css',
-      'build-styleguide'
-    ]
+      'build-styleguide',
+    ],
   },
   js: {
     files: ['<%= paths.src %>/js/*.js'],
     tasks: [
       'build-js',
-      'build-styleguide'
-    ]
+      'build-styleguide',
+    ],
   },
   styleguide: {
     files: [
       '<%= paths.src %>/less/styleguide.md',
-      '<%= paths.src %>/styleguide/**/*'
+      '<%= paths.src %>/styleguide/**/*',
     ],
     tasks: [
-      'build-styleguide'
-    ]
-  }
+      'build-styleguide',
+    ],
+  },
 
 };

@@ -1,14 +1,14 @@
-;(function($, window, document) {
+;(function ($, window, document) {
   'use strict';
 
   // FILTERABLE CLASS DEFINITION
   // ===========================
 
-  var Filterable = function($filterable) {
+  var Filterable = function ($filterable) {
     this.$filterable = $filterable;
   };
 
-  Filterable.prototype.filter = function(fObjects) {
+  Filterable.prototype.filter = function (fObjects) {
     var dataVal;
     var filterValCounter;
     var filterValLength;
@@ -77,7 +77,7 @@
     }
   };
 
-  Filterable.prototype.resetFilter = function() {
+  Filterable.prototype.resetFilter = function () {
     this.$filterable.show();
   };
 
@@ -92,7 +92,7 @@
         $(document).trigger('filter.sui.filterable');
       }
 
-      this.each(function() {
+      this.each(function () {
         var data;
         var $this = $(this);
 
@@ -127,7 +127,7 @@
   // FILTERABLE NO CONFLICT
   // ======================
 
-  $.fn.filterable.noConflict = function() {
+  $.fn.filterable.noConflict = function () {
     $.fn.filterable = old;
     return this;
   };
@@ -138,18 +138,18 @@
   var lastEventTarget;
   var lastEventValue;
 
-  $(document).on('keyup.sui.filterable.data-api change.sui.filterable.data-api', '[data-toggle=filter]', function(e) {
+  $(document).on('keyup.sui.filterable.data-api change.sui.filterable.data-api', '[data-toggle=filter]', function (e) {
     var $filter = $(this).closest('form');
     var filterData = [];
 
     if (lastEventTarget !== e.target || lastEventTarget === e.target && lastEventValue !== e.target.value) {
-      $filter.find(':input').each(function() {
+      $filter.find(':input').each(function () {
         var $this = $(this);
         if ($this.val() !== '' && $this.val() !== null) {
           filterData.push({
             'filter-attrib': $this.data('filter-attrib'),
             'filter-operator': $this.data('filter-operator'),
-            'filter-value': $this.val()
+            'filter-value': $this.val(),
           });
         }
 
@@ -161,7 +161,7 @@
     lastEventValue = e.target.value;
   });
 
-  $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function() {
+  $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
     var $form = $(this).closest('form');
     $form[0].reset();
     Plugin.call($($form.data('filter-target')), 'reset');

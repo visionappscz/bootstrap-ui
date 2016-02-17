@@ -4,16 +4,18 @@ module.exports = {
 
   options: {
     template: {
-      src: '<%= paths.temp %>/styleguide'
+      src: '<%= paths.temp %>/styleguide',
     },
     framework: {
-      name: 'kss'
-    }
+      name: 'kss',
+    },
   },
   all: {
-    files: [{
-      styleguide: '<%= paths.src %>/less/dist.less'
-    }]
-  }
+    files: [
+      {
+        styleguide: '<%= paths.src %>/less/dist.less',
+      },
+    ],
+  },
 
 };

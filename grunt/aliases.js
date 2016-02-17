@@ -8,11 +8,11 @@ module.exports = {
   'test-js': [
     'jscs',
     'jshint',
-    'qunit'
+    'qunit',
   ],
 
   test:[
-    'test-js'
+    'test-js',
   ],
 
   // Run JS tests in a real browser.
@@ -22,7 +22,7 @@ module.exports = {
   'test-remote': [
     'jscs',
     'jshint',
-    'browserSync:test'
+    'browserSync:test',
   ],
 
   // Build
@@ -31,12 +31,12 @@ module.exports = {
   'build-css': [
     'less',
     'postcss:core',
-    'postcss:core-min'
+    'postcss:core-min',
   ],
 
   'build-js': [
     'concat',
-    'uglify'
+    'uglify',
   ],
 
   'build-styleguide': [
@@ -44,7 +44,7 @@ module.exports = {
     'copy:styleguideSrc',
     'styleguide',
     'postcss:styleguide',
-    'copy:styleguide'
+    'copy:styleguide',
   ],
 
   // Build CSS, JS and style guide.
@@ -54,7 +54,7 @@ module.exports = {
     'test-js',
     'build-css',
     'build-js',
-    'build-styleguide'
+    'build-styleguide',
   ],
 
   // Create distribution package. To be run right before release.
@@ -63,7 +63,7 @@ module.exports = {
     'clean:dist',
     'build',
     'copy:dist',
-    'copy:fonts'
+    'copy:fonts',
   ],
 
   // Development
@@ -73,11 +73,11 @@ module.exports = {
   serve: [
     'build',
     'browserSync:dev',
-    'watch'
+    'watch',
   ],
 
   // Default task
   // ============
 
-  default: 'test'
+  default: 'test',
 };

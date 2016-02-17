@@ -3,8 +3,8 @@
 module.exports = {
 
   options: {
-    noGlobals: true
+    noGlobals: true,
   },
-  all: ['<%= paths.src %>/js/tests/index.html']
+  all: ['<%= paths.src %>/js/tests/index.html'],
 
 };

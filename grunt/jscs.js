@@ -6,9 +6,9 @@ module.exports = {
     '<%= paths.src %>/js/*.js',
     '<%= paths.src %>/js/tests/unit/*.js',
     '<%= paths.grunt %>/*.js',
-    'Gruntfile.js'
+    'Gruntfile.js',
   ],
   options: {
-    config: '.jscsrc'
-  }
+    config: '.jscsrc',
+  },
 };

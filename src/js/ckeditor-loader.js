@@ -1,14 +1,14 @@
-;(function($, window) {
+;(function ($, window) {
   'use strict';
 
   // CKEDITOR-LOADER DATA-API
   // ========================
 
-  (function($, window) {
+  (function ($, window) {
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function() {
-      $('[data-onload-ckeditor]').each(function() {
+    $(window).load(function () {
+      $('[data-onload-ckeditor]').each(function () {
         var confObj = {};
         var $this = $(this);
         var confValue = $this.data('onload-ckeditor');
@@ -16,7 +16,7 @@
           if (typeof confValue === 'object') {
             confObj = confValue;
           } else {
-            confObj = {customConfig: confValue};
+            confObj = { customConfig: confValue };
           }
         }
 

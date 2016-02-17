@@ -1,10 +1,10 @@
-;(function($, window, document) {
+;(function ($, window, document) {
   'use strict';
 
   // SORTABLE TABLE CLASS DEFINITION
   // ===============================
 
-  var SortableTable = function($sortedTable, $navigation) {
+  var SortableTable = function ($sortedTable, $navigation) {
     this.$sortedTable = $sortedTable;
     this.$navigation = $navigation;
     if ($navigation) {
@@ -12,7 +12,7 @@
     }
   };
 
-  SortableTable.prototype.sort = function($sortedTh, sortDir) {
+  SortableTable.prototype.sort = function ($sortedTh, sortDir) {
     var sortGroup;
     var rowCounter;
     var rowsLength;
@@ -78,12 +78,12 @@
     this.$sortedTable.trigger('sorted.sui.sortableTable');
   };
 
-  SortableTable.prototype.comparer = function(index, sortDir) {
-    return function(a, b) {
+  SortableTable.prototype.comparer = function (index, sortDir) {
+    return function (a, b) {
       var result;
       var valA;
       var valB;
-      var getCellValue = function(row, index) {
+      var getCellValue = function (row, index) {
         var cell = $(row).children('td').eq(index);
         if (cell.attr('data-sort-value')) {
           return cell.attr('data-sort-value');
@@ -108,7 +108,7 @@
   // ================================
 
   function Plugin(options) {
-    return this.each(function() {
+    return this.each(function () {
       var $navigation;
       var $this = $(this);
       var data = $this.data('sui.sortableTable');
@@ -131,7 +131,7 @@
   // SORTABLE TABLE NO CONFLICT
   // ==========================
 
-  $.fn.sortableTable.noConflict = function() {
+  $.fn.sortableTable.noConflict = function () {
     $.fn.sortableTable = old;
     return this;
   };
@@ -139,20 +139,20 @@
   // SORTABLE TABLE DATA-API
   // =======================
 
-  (function(Plugin, $, window, document) {
-    var callPlugin = function($this) {
+  (function (Plugin, $, window, document) {
+    var callPlugin = function ($this) {
       var $sortedTable = $this.closest('table');
       Plugin.call($sortedTable, {
         'sorted-th': $this,
-        navigation: $($sortedTable.data('sort-navigation'))
+        navigation: $($sortedTable.data('sort-navigation')),
       });
     };
 
-    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function() {
+    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function () {
       callPlugin($(this));
     });
 
-    $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function(e) {
+    $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function (e) {
       if (e.keyCode === 13 || e.keyCode === 32) { //enter or space
         callPlugin($(this));
       }
@@ -160,14 +160,14 @@
 
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function() {
+    $(window).load(function () {
       var $sortedTh = $('th[data-sort-onload]');
-      $sortedTh.each(function(i) {
+      $sortedTh.each(function (i) {
         var $sortedTable = $($sortedTh[i]).closest('table');
         Plugin.call($sortedTable, {
           'sorted-th': $($sortedTh[i]),
           navigation: $sortedTable.data('sort-navigation'),
-          'sort-direction': $($sortedTh[i]).data('sort-onload')
+          'sort-direction': $($sortedTh[i]).data('sort-onload'),
         });
       });
     });

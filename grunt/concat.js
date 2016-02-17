@@ -7,8 +7,8 @@ module.exports = {
     dest: '<%= paths.temp %>/js/<%= pkg.name %>.js',
     options: {
       banner: '<%= banner %>',
-      sourceMap: true
-    }
-  }
+      sourceMap: true,
+    },
+  },
 
 };

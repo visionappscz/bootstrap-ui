@@ -1,10 +1,10 @@
-;(function($, window, document) {
+;(function ($, window, document) {
   'use strict';
 
   // CONFIRMATION CLASS DEFINITION
   // =============================
 
-  var Confirmation = function($triggerEl, options) {
+  var Confirmation = function ($triggerEl, options) {
     options = $.extend({}, this.options, options);
     this.modal = this.getModal(options['confirm-message'], options['confirm-yes'], options['confirm-no']);
     this.$triggerEl = $triggerEl;
@@ -15,28 +15,28 @@
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
-    callback: function() {} // Having empty callback is useless, it is here as a sane fallback for tests
+    callback: function () {}, // Having empty callback is useless, it is here as a sane fallback for tests
   };
 
-  Confirmation.prototype.showConfirmation = function() {
+  Confirmation.prototype.showConfirmation = function () {
     var $triggerEl = this.$triggerEl;
     var callback = this.callback;
     var $modal = this.modal.modal({
       keboard: false,
-      backdrop: 'static'
+      backdrop: 'static',
     });
 
     $triggerEl.trigger('show.sui.confirmation');
-    $triggerEl.on('rejected.sui.confirmation', function() {
+    $triggerEl.on('rejected.sui.confirmation', function () {
       callback(false);
     });
 
-    $triggerEl.on('confirmed.sui.confirmation', function() {
+    $triggerEl.on('confirmed.sui.confirmation', function () {
       callback(true);
     });
 
-    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function() {
-      $modal.on('hidden.bs.modal', function() {
+    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function () {
+      $modal.on('hidden.bs.modal', function () {
         $(this).remove();
       });
 
@@ -47,29 +47,28 @@
       $triggerEl.off('rejected.sui.confirmation confirmed.sui.confirmation');
     });
 
-    $modal.on('keydown.sui.confirmation', function(e) {
+    $modal.on('keydown.sui.confirmation', function (e) {
       if (e.keyCode === 27) { //escape
         $triggerEl.trigger('rejected.sui.confirmation');
-      }
-      else if (e.keyCode === 13) { //enter
+      } else if (e.keyCode === 13) { //enter
         $triggerEl.trigger('confirmed.sui.confirmation');
       }
     });
 
     $modal
       .find('[data-confirmation=reject]')
-      .on('click.sui.confirmation', function() {
+      .on('click.sui.confirmation', function () {
         $triggerEl.trigger('rejected.sui.confirmation');
       });
 
     $modal
       .find('[data-confirmation=confirm]')
-      .on('click.sui.confirmation', function() {
+      .on('click.sui.confirmation', function () {
         $triggerEl.trigger('confirmed.sui.confirmation');
       });
   };
 
-  Confirmation.prototype.getModal = function(message, yes, no) {
+  Confirmation.prototype.getModal = function (message, yes, no) {
     return $('<div class="modal fade" tabindex="-1">' +
       '<div class="modal-dialog modal-sm">' +
       '<div class="modal-content">' +
@@ -84,7 +83,7 @@
   // ==============================
 
   function Plugin(options) {
-    return this.each(function() {
+    return this.each(function () {
       var $this = $(this);
       var data = $this.data('sui.confirmation');
 
@@ -104,7 +103,7 @@
 
   // CONFIRMATION NO CONFLICT
   // ========================
-  $.fn.confirmation.noConflict = function() {
+  $.fn.confirmation.noConflict = function () {
     $.fn.confirmation = old;
     return this;
   };
@@ -112,7 +111,7 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function(e, noConfirm) {
+  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function (e, noConfirm) {
     var $this = $(this);
 
     if (!noConfirm) {
@@ -122,11 +121,11 @@
         'confirm-message': $this.data('confirm-message'),
         'confirm-yes': $this.data('confirm-yes'),
         'confirm-no': $this.data('confirm-no'),
-        callback: function(result) {
+        callback: function (result) {
           if (result) {
             $this.trigger('click.sui.confirmation.data-api', true);
           }
-        }
+        },
       });
     }
   });

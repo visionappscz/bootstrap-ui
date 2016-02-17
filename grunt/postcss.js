@@ -5,27 +5,27 @@ module.exports = {
   core: {
     options: {
       processors: [
-        require('autoprefixer')()
-      ]
+        require('autoprefixer')(),
+      ],
     },
-    src: '<%= paths.temp %>/css/<%= pkg.name %>.css'
+    src: '<%= paths.temp %>/css/<%= pkg.name %>.css',
   },
   'core-min': {
     options: {
       processors: [
-        require('cssnano')()
-      ]
+        require('cssnano')(),
+      ],
     },
     src: '<%= paths.temp %>/css/<%= pkg.name %>.css',
-    dest: '<%= paths.temp %>/css/<%= pkg.name %>.min.css'
+    dest: '<%= paths.temp %>/css/<%= pkg.name %>.min.css',
   },
   styleguide: {
     options: {
       processors: [
-        require('autoprefixer')()
-      ]
+        require('autoprefixer')(),
+      ],
     },
-    src: '<%= paths.styleguide %>/public/kss.css'
-  }
+    src: '<%= paths.styleguide %>/public/kss.css',
+  },
 
 };
