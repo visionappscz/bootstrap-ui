@@ -19,14 +19,16 @@ Markup:
 <div class="row">
     <div class="col-sm-6">
         <h4>Top Offset</h4>
-        <div class="offset-top">I have some top spacing.</div>
+        <div class="offset-top-small">I have small top spacing.</div>
+        <div class="offset-top">I have some regular top spacing.</div>
         <div class="offset-top-large">I have big top spacing!</div>
         <div class="offset-top-larger">I have HUGE top spacing!</div>
         <p class="offset-top-none">I have no top spacing :/.</p>
     </div>
     <div class="col-sm-6">
         <h4>Bottom Offset</h4>
-        <div class="offset-bottom">I have bottom spacing like a real paragraph!</div>
+        <div class="offset-bottom-small">I have small bottom spacing.</div>
+        <div class="offset-bottom">I have some regular bottom spacing. Just like a real paragraph, weehoo!</div>
         <div class="offset-bottom-large">I have big bottom spacing!</div>
         <div class="offset-bottom-larger">I have HUGE bottom spacing!</div>
         <p class="offset-bottom-none">I have no bottom spacing :/.</p>
@@ -48,6 +50,10 @@ Styleguide 2.3
 }
 
 // Top
+.offset-top-small {
+    margin-top: floor((@line-height-computed / 2));
+}
+
 .offset-top {
     margin-top: @line-height-computed;
 }
@@ -65,6 +71,10 @@ Styleguide 2.3
 }
 
 // Bottom
+.offset-bottom-small {
+    margin-bottom: floor((@line-height-computed / 2));
+}
+
 .offset-bottom {
     margin-bottom: @line-height-computed;
 }
