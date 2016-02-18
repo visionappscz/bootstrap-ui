@@ -91,35 +91,37 @@
 
 <main role="main">
 
-    <section class="section section-header">
-        <div class="container">
-
-            {{#if overview}}
-            <div class="row">
-                <div class="col-sm-8">
-                    <h1 class="section-header-title">Synergic UI</h1>
-                </div>
-                <div class="col-sm-4">
-                    <div class="cta">
-                        <a href="#install" class="btn btn-primary kss__cta">
-                            <span class="glyphicon glyphicon-save icon-offset" aria-hidden="true"></span>
-                            Download
-                        </a>
-                        <br />
-                        <small class="text-muted">Currently %VERSION%</small>
+    {{#if overview}}
+        <section class="section section-header section-primary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h1 class="section-header-title">Synergic UI</h1>
                     </div>
-                </div>
-            </div><!-- .row -->
-            {{else}}
-            {{#eachSection rootNumber}}
+                    <div class="col-sm-4">
+                        <div class="cta">
+                            <a href="#install" class="btn btn-transparent text-uppercase text-letterspacing text-bold offset-bottom-small">
+                                <span class="glyphicon glyphicon-save offset-right" aria-hidden="true"></span>
+                                Download
+                            </a>
+                            <br />
+                            <small>Currently %VERSION%</small>
+                        </div>
+                    </div>
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </section>
+    {{else}}
+        {{#eachSection rootNumber}}
             {{#ifDepth 1}}
-            <h1 class="section-header-title">{{ reference }}. {{ header }}</h1>
+                <section class="section section-header">
+                    <div class="container">
+                        <h1 class="section-header-title">{{ reference }}. {{ header }}</h1>
+                    </div>
+                </section>
             {{/ifDepth}}
-            {{/eachSection}}
-            {{/if}}
-
-        </div>
-    </section>
+        {{/eachSection}}
+    {{/if}}
 
     <section class="section section-content">
         <div class="container">
