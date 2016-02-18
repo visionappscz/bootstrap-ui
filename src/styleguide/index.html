@@ -49,13 +49,13 @@
     </script>
 </head>
 {{#if overview}}
-<body class="has-navbar-fixed-top has-footer-sticky">
+    <body class="has-navbar-fixed-top has-footer-sticky">
 {{else}}
-{{#eachSection rootNumber}}
-{{#ifDepth 1}}
-<body class="has-navbar-fixed-top has-footer-sticky" data-current-section="{{ reference }}">
-{{/ifDepth}}
-{{/eachSection}}
+    {{#eachSection rootNumber}}
+        {{#ifDepth 1}}
+            <body class="has-navbar-fixed-top has-footer-sticky" data-current-section="{{ reference }}">
+        {{/ifDepth}}
+    {{/eachSection}}
 {{/if}}
 
 <header role="banner" id="top">
@@ -134,73 +134,74 @@
                 <div class="content">
 
                     {{#if overview}}
-                    <article class="kss__overview">
+                        <article class="kss__overview">
                         {{{overview}}}
 
                     {{else}}
-                    <article>
+                        <article>
 
-                        <ul class="hidden-md hidden-lg offset-bottom kss__secondary-nav__list">
-                            {{#if overview}}
-                            {{else}}
+                            <ul class="hidden-md hidden-lg offset-bottom kss__secondary-nav__list">
+                                {{#if overview}}
+                                {{else}}
+                                    {{#eachSection rootNumber}}
+                                        {{#ifDepth 2}}
+                                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
+                                        {{else}}
+                                        {{/ifDepth}}
+                                    {{/eachSection}}
+
+                                {{/if}}
+                            </ul>
+
+                            {{!
+                            Find each section, in order.
+                            If there's no markup or modifiers supplied, use a Markdown-only
+                            layout instead.
+
+                            The "root" element comes first in this loop, and can be detected using
+                            the "#ifDepth 1" block as seen below.
+                            }}
 
                             {{#eachSection rootNumber}}
-                            {{#ifDepth 2}}
-                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
-                            {{else}}
-                            {{/ifDepth}}
+                                {{#ifDepth 1}}
+                                {{else}}
+
+                                    <section id="section-{{reference}}" class="kss__section kss__depth--{{ refDepth }}">
+                                    {{#ifDepth 2}}
+                                        <h2 class="page-header kss__title">{{ reference }}&thinsp;—&thinsp;{{ header }}</h2>
+                                    {{else}}
+                                        <h3 class="kss__subtitle">{{ reference }}&thinsp;—&thinsp;{{ header }}</h3>
+                                    {{/ifDepth}}
+                                {{/ifDepth}}
+
+                                {{#if description}}
+                                    {{{description}}}
+                                {{/if}}
+
+                                {{! Modifiers }}
+                                {{#if markup}}
+                                    <p class="kss__example-title">Example</p>
+                                    <div class="kss__example">
+                                        {{modifierMarkup}}
+                                    </div>
+
+                                    {{#eachModifier}}
+                                        <p><strong>{{name}}</strong></p>
+                                        {{{description}}}
+                                        <div class="kss__example">{{modifierMarkup}}</div>
+                                    {{/eachModifier}}
+
+                                    <div class="kss__markup">
+                                        <pre class="prettyprint lang-html">{{markup}}</pre>
+                                    </div>
+
+                                {{/if}}
+
+                                {{#ifDepth 1}}
+                                {{else}}
+                                    </section>
+                                {{/ifDepth}}
                             {{/eachSection}}
-
-                            {{/if}}
-                        </ul>
-
-                        {{!
-                        Find each section, in order.
-                        If there's no markup or modifiers supplied, use a Markdown-only
-                        layout instead.
-
-                        The "root" element comes first in this loop, and can be detected using
-                        the "#ifDepth 1" block as seen below.
-                        }}
-                        {{#eachSection rootNumber}}
-                        {{#ifDepth 1}}
-                        {{else}}
-
-                        <section id="section-{{reference}}" class="kss__section kss__depth--{{ refDepth }}">
-                            {{#ifDepth 2}}
-                            <h2 class="page-header kss__title">{{ reference }}&thinsp;—&thinsp;{{ header }}</h2>
-                            {{else}}
-                            <h3 class="kss__subtitle">{{ reference }}&thinsp;—&thinsp;{{ header }}</h3>
-                            {{/ifDepth}}
-                            {{/ifDepth}}
-
-                            {{#if description}}
-                            {{{description}}}
-                            {{/if}}
-
-                            {{! Modifiers }}
-                            {{#if markup}}
-                            <p class="kss__example-title">Example</p>
-                            <div class="kss__example">
-                                {{modifierMarkup}}
-                            </div>
-
-                            {{#eachModifier}}
-                            <p><strong>{{name}}</strong></p>
-                            {{{description}}}
-                            <div class="kss__example">{{modifierMarkup}}</div>
-                            {{/eachModifier}}
-
-                            <div class="kss__markup">
-                                <pre class="prettyprint lang-html">{{markup}}</pre>
-                            </div>
-
-                            {{/if}}
-
-                            {{#ifDepth 1}} {{else}}
-                        </section>
-                        {{/ifDepth}}
-                        {{/eachSection}}
 
                         {{/if}}
 
@@ -212,17 +213,17 @@
                     <nav class="kss__secondary-nav offset-bottom-large">
                         <ul class="offset-bottom kss__secondary-nav__list">
                             {{#if overview}}
-                            <li><a href="#top"><strong>Synergic UI</strong></a></li>
-                            <li><a href="#install">Install</a></li>
-                            <li><a href="#usage">Usage</a></li>
-                            <li><a href="#changelog">Changelog</a></li>
+                                <li><a href="#top"><strong>Synergic UI</strong></a></li>
+                                <li><a href="#install">Install</a></li>
+                                <li><a href="#usage">Usage</a></li>
+                                <li><a href="#changelog">Changelog</a></li>
                             {{else}}
 
                             {{#eachSection rootNumber}}
-                            {{#ifDepth 2}}
-                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
-                            {{else}}
-                            {{/ifDepth}}
+                                {{#ifDepth 2}}
+                                    <li><a href="#section-{{ reference }}">{{ header }}</a></li>
+                                {{else}}
+                                {{/ifDepth}}
                             {{/eachSection}}
 
                             {{/if}}
