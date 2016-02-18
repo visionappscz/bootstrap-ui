@@ -7,13 +7,25 @@ Markup:
 <div class="row offset-bottom">
     <div class="col-sm-6">
         <h4>Left Offset</h4>
-        There is a gap between me and the icon.
-        <span class="glyphicon glyphicon-tree-conifer offset-left" aria-hidden="true"></span>
+        <p>
+            There is a gap between me and the icon.
+            <span class="glyphicon glyphicon-tree-conifer offset-left" aria-hidden="true"></span>
+        </p>
+        <p>
+            This gap is a bit larger.
+            <span class="glyphicon glyphicon-tree-conifer offset-left-large" aria-hidden="true"></span>
+        </p>
     </div>
     <div class="col-sm-6">
         <h4>Right Offset</h4>
-        <span class="glyphicon glyphicon-tree-deciduous offset-right" aria-hidden="true"></span>
-        There is a gap between me and the icon.
+        <p>
+            <span class="glyphicon glyphicon-tree-deciduous offset-right" aria-hidden="true"></span>
+            There is a gap between me and the icon.
+        </p>
+        <p>
+            <span class="glyphicon glyphicon-tree-deciduous offset-right-large" aria-hidden="true"></span>
+            This gap is a bit larger.
+        </p>
     </div>
 </div>
 <div class="row">
@@ -44,9 +56,17 @@ Styleguide 2.3
     margin-left: .75ex;
 }
 
+.offset-left-large {
+    margin-left: 1em;
+}
+
 // Right
 .offset-right {
     margin-right: .75ex;
+}
+
+.offset-right-large {
+    margin-right: 1em;
 }
 
 // Top
