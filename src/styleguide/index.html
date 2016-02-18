@@ -72,14 +72,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index.html" class="navbar-brand" title="Synergic UI">Synergic UI</a>
+                <a href="index.html" class="navbar-brand offset-right-large" title="Synergic UI">
+                    <span class="hidden-sm">Synergic UI</span>
+                    <span class="visible-sm-inline" aria-hidden="true">SUI</span>
+                </a>
             </div>
 
             <!-- Collapsible menu -->
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav">
                     {{#eachRoot}}
-                    <li><a href="section-{{reference}}.html">{{header}}</a></li>
+                        <li>
+                            <a href="section-{{reference}}.html" class="small text-uppercase text-letterspacing">{{header}}</a>
+                        </li>
                     {{/eachRoot}}
                 </ul>
             </div>
@@ -100,7 +105,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="cta">
-                            <a href="#install" class="btn btn-transparent text-uppercase text-letterspacing text-bold offset-bottom-small">
+                            <a href="#install" class="btn btn-transparent text-uppercase text-letterspacing offset-bottom-small">
                                 <span class="glyphicon glyphicon-save offset-right" aria-hidden="true"></span>
                                 Download
                             </a>
