@@ -24,7 +24,7 @@ Markup:
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     </span>
                     Bilbo Baggins
-                    <span class="caret" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-menu-down offset-left" aria-hidden="true"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="userMenuLabel">
                     <li>
@@ -38,17 +38,17 @@ Markup:
     <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
         <h2>Administration</h2>
         <ul class="nav nav-icons">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pages</a></li>
+            <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large offset-right" aria-hidden="true"></span> Pages</a></li>
             <li>
-                <a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Media</a>
+                <a href="#"><span class="glyphicon glyphicon-picture offset-right" aria-hidden="true"></span> Media</a>
                 <ul class="nav">
                     <li><a href="#">Pictures</a></li>
                     <li><a href="#">Music</a></li>
                     <li><a href="#">Video</a></li>
                 </ul>
             </li>
-            <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Settings</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user offset-right" aria-hidden="true"></span> Users</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
         </ul>
     </nav><!-- .panel-menu-pane -->
 </div><!-- .panel-menu -->
@@ -64,14 +64,6 @@ Styleguide 3.7
         text-decoration: none;
         color: @panel-menu-link-text;
         transition: all 250ms ease-out;
-
-        > .glyphicon {
-            position: relative;
-            top: 3px;
-            width: @panel-menu-link-icon-size;
-            float: left;
-            margin-right: @panel-menu-link-icon-offset;
-        }
 
         &:hover,
         &:focus {
