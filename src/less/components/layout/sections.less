@@ -15,6 +15,11 @@ Markup:
         <p>This is the content of the page.</p>
     </div><!-- .container -->
 </section>
+<section class="section-primary">
+    <div class="container">
+        <p>This will recolor section to primary color. Works both with header and content sections.</p>
+    </div><!-- .container -->
+</section>
 
 Styleguide 2.5
 */
@@ -24,20 +29,20 @@ Styleguide 2.5
     &-header {
         padding-top: 3 * @line-height-computed;
         padding-bottom: 3 * @line-height-computed;
-        color: @header-color;
-        border-bottom: 1px solid @header-border-color;
-        background-color: @header-bg;
+        color: @section-header-color;
+        border-bottom: 1px solid @section-header-border-color;
+        background-color: @section-header-bg;
 
         &-title {
             margin: 0;
-            color: @header-title-color;
+            color: @section-header-title-color;
         }
 
         &-subtitle {
             margin-top: .1em;
             margin-bottom: 0;
             font-size: @font-size-h3;
-            color: @header-subtitle-color;
+            color: @section-header-subtitle-color;
         }
 
         &.has-tabs {
@@ -58,5 +63,14 @@ Styleguide 2.5
     &-content {
         padding-top: 2 * @line-height-computed;
         padding-bottom: 2 * @line-height-computed;
+    }
+
+    &-primary {
+        color: @section-primary-color;
+        background-color: @section-primary-bg;
+
+        &.section-header {
+            border-bottom: none;
+        }
     }
 }
