@@ -37,10 +37,10 @@ You can also download all releases from [GitHub](https://github.com/synergic-cz/
 ### CSS
 You will find everything you need in the `/dist` directory to start using Synergic UI right away.
 
-Link Open Sans font and complete Synergic UI CSS:
+Link Titillium Web font and complete Synergic UI CSS:
 
 ```
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700&amp;subset=latin,latin-ext" />
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,300,700&amp;subset=latin,latin-ext" />
 <link rel="stylesheet" href="bower_components/synergic-ui/dist/css/synergic-ui.min.css" />
 ```
 
