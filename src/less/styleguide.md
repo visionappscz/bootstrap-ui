@@ -16,7 +16,6 @@ of code on top of Bootstrap’s codebase as possible.
 
 - [**Bootstrap 3**](http://www.getbootstrap.com) together with [Glyphicons](http://glyphicons.com/) and
 [jQuery](http://www.jquery.com)
-- [LESS modules](https://github.com/adamkudrna/less-modules)
 - [Bower](http://bower.io)
 - [Grunt](http://gruntjs.com)
 - [Style guide generator](https://github.com/indieisaconcept/grunt-styleguide) using
