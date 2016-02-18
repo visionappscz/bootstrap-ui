@@ -20,9 +20,9 @@ module.exports = function (grunt) {
     ' * Built on the shoulders of a giant: Bootstrap 3\n' +
     ' * <%= pkg.homepage %>\n' +
     ' *\n' +
-    ' * Created by <%= pkg.author %> (www.synergic.cz)\n' +
-    ' * HTML & LESS © Adam Kudrna, 2014—2015\n' +
-    ' * JavaScript © Martin Bohal, 2014—2015\n' +
+    ' * Created by <%= pkg.author %> (www.visionapps.cz)\n' +
+    ' * HTML & LESS © Adam Kudrna, 2014—2016\n' +
+    ' * JavaScript © Martin Bohal, 2014—2016\n' +
     ' *\n' +
     ' * v<%= pkg.version %> (<%= grunt.template.today("d mmmm yyyy") %>)\n' +
     ' */\n',
