@@ -1,6 +1,6 @@
 {
   "name": "synergic-ui",
-  "description": "Synergic UI is a UI library for building responsive admin interfaces. Built on Bootstrap 3.",
+  "description": "Synergic UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
   "version": "0.8.1",
   "homepage": "http://ui.synergic.cz",
   "authors": [
