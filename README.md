@@ -8,4 +8,4 @@ Synergic UI is a [Bootstrap 3](http://getbootstrap.com) extension for building b
 
 Get started at [ui.synergic.cz](http://ui.synergic.cz)!
 
-Code licensed under [MIT](https://github.com/synergic-cz/synergic-ui/blob/master/LICENSE).
+Code licensed under [MIT](https://github.com/visionappscz/synergic-ui/blob/master/LICENSE).
