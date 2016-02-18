@@ -5,8 +5,59 @@ Styleguide 5.2
 */
 
 
+/*
+Additional Button Variants
+
+Cast some shadow below buttons.
+
+Markup:
+<button type="button" class="btn btn-accent">Accent button</button>
+<button type="button" class="btn btn-transparent">Transparent button</button>
+
+Styleguide 5.2.1
+*/
+
+.btn-accent {
+    .button-variant(@btn-accent-color; @btn-accent-bg; @btn-accent-border);
+}
+
+.btn-transparent {
+    .button-variant(@btn-transparent-color; @btn-transparent-bg; @btn-transparent-border);
+}
+
+
+/*
+Raised Buttons
+
+Cast some shadow below buttons.
+
+Markup:
+<button type="button" class="btn btn-default btn-raised">Raised default button</button>
+<button type="button" class="btn btn-primary btn-raised">Raised primary button</button>
+<button type="button" class="btn btn-accent btn-raised">Raised accent button</button>
+<button type="button" class="btn btn-success btn-raised">Raised success button</button>
+<button type="button" class="btn btn-info btn-raised">Raised info button</button>
+<button type="button" class="btn btn-warning btn-raised">Raised warning button</button>
+<button type="button" class="btn btn-danger btn-raised">Raised danger button</button>
+
+Styleguide 5.2.2
+*/
+
 .btn {
     transition: all 150ms linear;
+
+    &-raised {
+        border: none;
+
+        &,
+        &:active,
+        &.active {
+            box-shadow:
+                0 2px 2px 0 rgba(0, 0, 0, .14),
+                0 3px 1px -2px rgba(0, 0, 0, .2),
+                0 1px 5px 0 rgba(0, 0, 0, .12);
+        }
+    }
 }
 
 
@@ -16,9 +67,10 @@ Responsive Buttons
 Expanded on small screens, auto size on the rest.
 
 Markup:
-<button type="button" class="btn btn-default btn-responsive">Responsive button</button>
+<button type="button" class="btn btn-default btn-responsive">Responsive default button</button>
+<button type="button" class="btn btn-primary btn-responsive">Responsive primary button</button>
 
-Styleguide 5.2.1
+Styleguide 5.2.3
 */
 
 .btn-responsive {
@@ -41,7 +93,7 @@ Markup:
 <button type="button" class="btn btn-default" disabled>Disabled default button</button>
 <button type="button" class="btn btn-primary" disabled>Disabled primary button</button>
 
-Styleguide 5.2.2
+Styleguide 5.2.4
 */
 
 .btn[disabled] {
