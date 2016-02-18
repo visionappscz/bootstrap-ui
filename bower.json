@@ -35,7 +35,7 @@
     "/src/less/styleguide.md"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.0",
+    "bootstrap": "~3.3.6",
     "less-modules": "~0.3.0",
     "eonasdan-bootstrap-datetimepicker": "~4.14.30",
     "select2": "~3.5.2",
