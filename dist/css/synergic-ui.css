@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v0.9.0 (18 February 2016)
+ * v0.9.1 (23 February 2016)
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -8702,11 +8702,11 @@ Styleguide 2.1
   background-color: #eeeeee;
 }
 .footer a {
-  color: #00778b;
+  color: #777777;
 }
 .footer a:hover,
 .footer a:focus {
-  color: #004b58;
+  color: #555555;
 }
 .footer-divider {
   margin-left: .75ex;
