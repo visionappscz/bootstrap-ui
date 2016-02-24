@@ -1,4 +1,4 @@
-<p class="lead">This the docs of Synergic UI, a Bootstrap 3 extension for building beautiful web apps user
+<p class="lead">This is the docs of Synergic UI, a Bootstrap 3 extension for building beautiful web apps user
 interfaces.</p>
 
 Bootstrap itself is a great tool for quick creating web app interfaces. Synergic UI extends its capabilities with some
