@@ -13,6 +13,23 @@ features and components that are common in web app UIs, yet too specific to be i
 - [Style guide generator](https://github.com/indieisaconcept/grunt-styleguide) using
 [KSS syntax](http://warpspire.com/kss/syntax/)
 
+<h2 id="why" class="page-header">Why</h2>
+
+Why you need Synergic UI on top of Bootstrap:
+
+- **Synergic UI** contains the missing components for web apps that are not present in Bootstrap: datepicker, listbox,
+  CTAs, navigation components, sticky footer, extensions for table listings, and many others. Especially, we are very
+  proud of the JavaScript part: sorting, filtering, confirmation, etc.
+- **Synergic UI** made it possible to build a consistent library of design patterns that we at
+  [VisionApps](http://www.visionapps.cz) use every day when developing responsive HTML prototypes and UIs for our web
+  apps. Showcase coming soon!
+- **Synergic UI** benefits from extending the original Bootstrap codebase at the LESS level. This is why you can easily
+  adjust almost anything using just LESS variables.
+- **Synergic UI** is designed as an extension, not a modification, neither an override of Bootstrap. However, we made some
+  design decisions for you and adjusted couple of things to make the UI look beautiful and nicer than default, easily
+  recognizable &rdquo;Bootstrap style&ldquo;.
+- Of course, everything is mobile first and fully responsive.
+
 <h2 id="install" class="page-header">Install</h2>
 
 The recommended way to install Synergic UI is via [Bower](http://bower.io) (assumes you have
@@ -37,9 +54,8 @@ Link Titillium Web font and complete Synergic UI CSS:
 ```
 
 ### JavaScript
-Bootstrap JavaScript is **not** included in this package (and neither are the other dependencies). We recommend loading
-it from [CDN](http://www.bootstrapcdn.com), you can also link to the package managed by Bower. Do not forget that
-Bootstrap needs jQuery to work.
+Bootstrap JavaScript is **not** included in the distribution package (and neither are the other dependencies). You can
+load it from [CDN](http://www.bootstrapcdn.com), or better, link the packages managed by Bower.
 
 ```
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -55,7 +71,7 @@ Loading original LESS components allows you to customize your Synergic UI build.
 want and recolor the UI by overriding LESS variables. Remember that Bootstrap and other dependencies must be loaded
 manually in this case.
 
-Import the complete Synergic UI:
+Import the complete Synergic UI with all dependencies:
 
 ```
 // Synergic UI and its dependencies.
