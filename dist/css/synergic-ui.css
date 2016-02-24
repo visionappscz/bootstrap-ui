@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v0.9.1 (23 February 2016)
+ * v0.9.2 (24 February 2016)
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -9096,7 +9096,7 @@ Markup:
     </div>
     <div class="col-sm-4">
         <a href="#" class="btn btn-primary cta">
-            <span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-plus-sign offset-right" aria-hidden="true"></span>
             New Page
         </a>
     </div>
@@ -9132,7 +9132,7 @@ For CTA buttons alongside headings in content area simply apply `pull-right` on 
 
 Markup:
 <a href="#" class="btn btn-primary pull-right">
-    <span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-plus-sign offset-right" aria-hidden="true"></span>
     New Page
 </a>
 <h2>Pages</h2>
@@ -9148,12 +9148,12 @@ best as sidebar navigation.
 Markup:
 <div class="list-group list-group-nested">
     <a href="#" class="list-group-item active"><h4 class="list-group-item-heading">Pages</h4></a>
-    <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span></a>
+    <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign offset-right" aria-hidden="true"></span></a>
     <a href="#" class="list-group-item list-group-item-nested">Home</a>
     <a href="#" class="list-group-item list-group-item-nested">Products</a>
     <a href="#" class="list-group-item list-group-item-nested">About</a>
     <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Articles</h4></a>
-    <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign icon-offset" aria-hidden="true"></span></a>
+    <a href="#" class="list-group-add" title="Create new item"><span class="glyphicon glyphicon-plus-sign offset-right" aria-hidden="true"></span></a>
     <a href="#" class="list-group-item"><h4 class="list-group-item-heading">Settings</h4></a>
 </div>
 
@@ -9284,13 +9284,13 @@ Markup:
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <span class="glyphicon glyphicon-user icon-offset icon-vertically-aligned" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-user offset-right icon-vertically-aligned" aria-hidden="true"></span>
                                 My Account
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <span class="glyphicon glyphicon-off icon-offset icon-vertically-aligned" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-off offset-right icon-vertically-aligned" aria-hidden="true"></span>
                                 Sign out
                             </a>
                         </li>
@@ -9455,8 +9455,8 @@ Styleguide 3.8.1
 
     Markup:
     <ul role="tablist" class="nav nav-tabs nav-tabs-header">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope icon-offset" aria-hidden="true"></span> Emailing</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-cog icon-offset" aria-hidden="true"></span> Settings</a></li>
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope offset-right" aria-hidden="true"></span> Emailing</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
     </ul>
 
     Styleguide 3.8.2
@@ -10095,7 +10095,7 @@ Markup:
 <div class="alert alert-success alert-dismissible alert-full fade in">
     <button class="close" data-dismiss="alert">&times;</button>
     <div class="container">
-        <span class="glyphicon glyphicon-ok-sign icon-offset" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-ok-sign offset-right" aria-hidden="true"></span>
         Your order has been placed. Thank you!
     </div>
 </div>
@@ -10121,7 +10121,7 @@ Bootstrap’s `.alert-danger`.
 Markup:
 <div class="alert alert-error alert-dismissible fade in">
     <button class="close" data-dismiss="alert">&times;</button>
-    <span class="glyphicon glyphicon-warning-sign icon-offset" aria-hidden="true"></span>
+    <span class="glyphicon glyphicon-warning-sign offset-right" aria-hidden="true"></span>
     What a mistake!
 </div>
 
@@ -10537,7 +10537,7 @@ Extends [Bootstrap panels](http://getbootstrap.com/components/#panels) with rich
 Markup:
 <div class="panel panel-default">
     <div class="panel-heading panel-heading-extended">
-        <a href="#" class="panel-action" title="Settings"><span class="glyphicon glyphicon-cog icon-offset" aria-hidden="true"></span></a>
+        <a href="#" class="panel-action" title="Settings"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span></a>
         <a href="#">
             <h4 class="panel-title panel-title-big">Big Big Title</h4>
             <h5 class="panel-title panel-title-subtitle">Teeny Tiny Subtitle</h5>
