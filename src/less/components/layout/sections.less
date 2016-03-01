@@ -10,6 +10,11 @@ Markup:
         <h2 class="section-header-subtitle">Subtitle</h2>
     </div><!-- .container -->
 </section>
+<section class="section-header section-header-condensed">
+    <div class="container">
+        <h1 class="section-header-title">Condensed Header Section</h1>
+    </div><!-- .container -->
+</section>
 <section class="section-content">
     <div class="container">
         <p>This is the content of the page.</p>
@@ -28,8 +33,8 @@ Styleguide 2.5
 
 .section {
     &-header {
-        padding-top: 3 * @line-height-computed;
-        padding-bottom: 3 * @line-height-computed;
+        padding-top: 1.5 * @line-height-computed;
+        padding-bottom: 1.5 * @line-height-computed;
         color: @section-header-color;
         border-bottom: 1px solid @section-header-border-color;
         background-color: @section-header-bg;
@@ -40,9 +45,9 @@ Styleguide 2.5
         }
 
         &-subtitle {
+            &:extend(.h3 all);
             margin-top: .3em;
             margin-bottom: 0;
-            font-size: @font-size-h3;
             color: @section-header-subtitle-color;
         }
 
@@ -54,16 +59,33 @@ Styleguide 2.5
             }
         }
 
-        @media screen and (min-width: @screen-sm-min) {
-            &.has-tabs > .container {
-                padding-bottom: 3 * @line-height-computed;
+        @media (min-width: @screen-sm-min) {
+            padding-top: 3 * @line-height-computed;
+            padding-bottom: 3 * @line-height-computed;
+
+            &-condensed {
+                padding-top: 1.5 * @line-height-computed;
+                padding-bottom: 1.5 * @line-height-computed;
+            }
+
+            &.has-tabs {
+                padding-bottom: 0;
+
+                > .container {
+                    padding-bottom: 3 * @line-height-computed;
+                }
             }
         }
     }
 
     &-content {
-        padding-top: 2 * @line-height-computed;
-        padding-bottom: 2 * @line-height-computed;
+        padding-top: 1.5 * @line-height-computed;
+        padding-bottom: 1.5 * @line-height-computed;
+
+        @media (min-width: @screen-sm-min) {
+            padding-top: 2 * @line-height-computed;
+            padding-bottom: 2 * @line-height-computed;
+        }
     }
 
     &-primary {
