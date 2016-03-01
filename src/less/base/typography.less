@@ -1,7 +1,8 @@
 /*
 Headings and Paragraphs
 
-There are some slight modifications of headings compared with default Bootstrap styling.
+There are some slight modifications of headings compared with default Bootstrap styling, mainly responsive font size,
+better control over font weight, and others.
 
 Markup:
 <h1>Heading Level 1</h1>
@@ -26,11 +27,13 @@ Styleguide 1.1
 */
 
 
-h1 {
+h1,
+.h1 {
     margin-bottom: .75em;
 }
 
-h2 {
+h2,
+.h2 {
     margin-top: 0;
     margin-bottom: .75em;
 
@@ -65,6 +68,15 @@ h2 {
     .h5 {
         font-size: .85 * @font-size-h5;
     }
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+    font-weight: normal;
 }
 
 hr {
