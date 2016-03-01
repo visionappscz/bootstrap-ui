@@ -39,6 +39,34 @@ h2 {
     }
 }
 
+// Responsive typography for headings
+@media (max-width: @screen-xs-max) {
+    h1,
+    .h1 {
+        font-size: .75 * @font-size-h1;
+    }
+
+    h2,
+    .h2 {
+        font-size: .75 * @font-size-h2;
+    }
+
+    h3,
+    .h3 {
+        font-size: .75 * @font-size-h3;
+    }
+
+    h4,
+    .h4 {
+        font-size: .75 * @font-size-h4;
+    }
+
+    h5,
+    .h5 {
+        font-size: .85 * @font-size-h5;
+    }
+}
+
 hr {
     margin: (2 * @line-height-computed) 0;
 }
