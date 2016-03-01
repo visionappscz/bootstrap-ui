@@ -17,6 +17,7 @@ Markup:
 </section>
 <section class="section-primary">
     <div class="container">
+        <h1>Primary Section</h1>
         <p>This will recolor section to primary color. Works both with header and content sections.</p>
     </div><!-- .container -->
 </section>
@@ -66,8 +67,17 @@ Styleguide 2.5
     }
 
     &-primary {
-        color: @section-primary-color;
         background-color: @section-primary-bg;
+
+        &,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: @section-primary-color;
+        }
 
         &.section-header {
             border-bottom: none;
