@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v0.11.0 (2 March 2016)
+ * v0.11.1 (2 March 2016)
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -9124,15 +9124,18 @@ Styleguide 2.6
     padding-top: 72px;
     padding-bottom: 72px;
   }
-  .section-header-condensed {
-    padding-top: 36px;
-    padding-bottom: 36px;
-  }
   .section-header.has-tabs {
     padding-bottom: 0;
   }
   .section-header.has-tabs > .container {
     padding-bottom: 72px;
+  }
+  .section-header-condensed {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  .section-header-condensed.has-tabs > .container {
+    padding-bottom: 36px;
   }
 }
 .section-content {
