@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v0.9.2 (24 February 2016)
+ * v0.10.0 (2 March 2016)
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -1128,7 +1128,7 @@ img {
   height: auto;
 }
 .img-rounded {
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .img-thumbnail {
   padding: 4px;
@@ -1184,7 +1184,8 @@ h6,
 .h3,
 .h4,
 .h5,
-.h6 {
+.h6,
+.section-header-subtitle {
   font-family: inherit;
   font-weight: 300;
   line-height: 1.1;
@@ -1213,7 +1214,9 @@ h6 .small,
 .h3 .small,
 .h4 .small,
 .h5 .small,
-.h6 .small {
+.h6 .small,
+.section-header-subtitle small,
+.section-header-subtitle .small {
   font-weight: normal;
   line-height: 1;
   color: #777777;
@@ -1223,7 +1226,8 @@ h1,
 h2,
 .h2,
 h3,
-.h3 {
+.h3,
+.section-header-subtitle {
   margin-top: 24px;
   margin-bottom: 12px;
 }
@@ -1238,7 +1242,9 @@ h1 .small,
 h2 .small,
 .h2 .small,
 h3 .small,
-.h3 .small {
+.h3 .small,
+.section-header-subtitle small,
+.section-header-subtitle .small {
   font-size: 65%;
 }
 h4,
@@ -1273,7 +1279,8 @@ h2,
   font-size: 34px;
 }
 h3,
-.h3 {
+.h3,
+.section-header-subtitle {
   font-size: 28px;
 }
 h4,
@@ -1549,7 +1556,7 @@ kbd {
   font-size: 90%;
   color: #fff;
   background-color: #333;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 kbd kbd {
@@ -2703,7 +2710,7 @@ fieldset[disabled] .checkbox label {
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 select.input-sm {
   height: 33px;
@@ -2718,7 +2725,7 @@ select[multiple].input-sm {
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .form-group-sm select.form-control {
   height: 33px;
@@ -2740,7 +2747,7 @@ select[multiple].input-sm {
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 select.input-lg {
   height: 49px;
@@ -2755,7 +2762,7 @@ select[multiple].input-lg {
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .form-group-lg select.form-control {
   height: 49px;
@@ -3494,7 +3501,7 @@ fieldset[disabled] .btn-link:focus {
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .btn-sm,
 .btn-group-sm > .btn,
@@ -3503,7 +3510,7 @@ fieldset[disabled] .btn-link:focus {
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .btn-xs,
 .btn-group-xs > .btn,
@@ -3511,7 +3518,7 @@ fieldset[disabled] .btn-link:focus {
   padding: 1px 5px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .btn-block {
   display: block;
@@ -3931,7 +3938,7 @@ tbody.collapse.in {
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
@@ -3958,7 +3965,7 @@ select[multiple].input-group-lg > .input-group-btn > .item-action {
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
@@ -4007,12 +4014,12 @@ select[multiple].input-group-sm > .input-group-btn > .item-action {
 .input-group-addon.input-sm {
   padding: 5px 10px;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .input-group-addon.input-lg {
   padding: 10px 16px;
   font-size: 20px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .input-group-addon input[type="radio"],
 .input-group-addon input[type="checkbox"] {
@@ -4902,13 +4909,13 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .pagination-lg > li:first-child > a,
 .pagination-lg > li:first-child > span {
-  border-bottom-left-radius: 6px;
-  border-top-left-radius: 6px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 .pagination-lg > li:last-child > a,
 .pagination-lg > li:last-child > span {
-  border-bottom-right-radius: 6px;
-  border-top-right-radius: 6px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
 }
 .pagination-sm > li > a,
 .pagination-sm > li > span {
@@ -4918,13 +4925,13 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .pagination-sm > li:first-child > a,
 .pagination-sm > li:first-child > span {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 .pagination-sm > li:last-child > a,
 .pagination-sm > li:last-child > span {
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
 }
 .pager {
   padding-left: 0;
@@ -5101,7 +5108,7 @@ a.badge:focus {
 }
 .container .jumbotron,
 .container-fluid .jumbotron {
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .jumbotron .container {
   max-width: 100%;
@@ -5937,11 +5944,11 @@ button.list-group-item-danger.active:focus {
 }
 .well-lg {
   padding: 24px;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .well-sm {
   padding: 9px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .close {
   float: right;
@@ -6009,7 +6016,7 @@ button.close {
   background-color: #fff;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 2px;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   background-clip: padding-box;
   outline: 0;
@@ -6230,7 +6237,7 @@ button.close {
   background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
+  border-radius: 2px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .popover.top {
@@ -6251,7 +6258,7 @@ button.close {
   font-size: 16px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
-  border-radius: 5px 5px 0 0;
+  border-radius: 1px 1px 0 0;
 }
 .popover-content {
   padding: 9px 14px;
@@ -7612,13 +7619,13 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 .input-group-sm .select2-container .select2-choice {
   height: 33px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .select2-container.input-lg .select2-choice,
 .input-group-lg .select2-container .select2-choice {
   height: 49px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 .select2-container-multi .select2-choices .select2-search-field input {
   height: 40px;
@@ -7844,16 +7851,16 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
   border-top-right-radius: 0 !important;
 }
 .input-group.input-group-sm.select2-bootstrap-prepend .select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
-  border-bottom-right-radius: 3px !important;
+  border-bottom-right-radius: 2px !important;
 }
 .input-group.input-group-lg.select2-bootstrap-prepend .select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
-  border-bottom-right-radius: 6px !important;
+  border-bottom-right-radius: 2px !important;
 }
 .input-group.input-group-sm.select2-bootstrap-append .select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
-  border-bottom-left-radius: 3px !important;
+  border-bottom-left-radius: 2px !important;
 }
 .input-group.input-group-lg.select2-bootstrap-append .select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
-  border-bottom-left-radius: 6px !important;
+  border-bottom-left-radius: 2px !important;
 }
 /**
  * Adjust Select2's choices hover and selected styles to match Bootstrap 3's default dropdown styles.
@@ -8365,7 +8372,8 @@ Styleguide 1.
 /*
 Headings and Paragraphs
 
-There are some slight modifications of headings compared with default Bootstrap styling.
+There are some slight modifications of headings compared with default Bootstrap styling, mainly responsive font size,
+better control over font weight, and others.
 
 Markup:
 <h1>Heading Level 1</h1>
@@ -8388,15 +8396,52 @@ Midst.</p>
 
 Styleguide 1.1
 */
-h1 {
+html {
+  height: 100%;
+}
+h1,
+.h1 {
   margin-bottom: .75em;
 }
-h2 {
+h2,
+.h2 {
   margin-top: 0;
   margin-bottom: .75em;
 }
-h2:not(:first-of-type) {
+h2:not(:first-of-type),
+.h2:not(:first-of-type) {
   margin-top: 2em;
+}
+@media (max-width: 767px) {
+  h1,
+  .h1 {
+    font-size: 30.75px;
+  }
+  h2,
+  .h2 {
+    font-size: 25.5px;
+  }
+  h3,
+  .h3,
+  .section-header-subtitle {
+    font-size: 21px;
+  }
+  h4,
+  .h4 {
+    font-size: 15px;
+  }
+  h5,
+  .h5 {
+    font-size: 13.6px;
+  }
+}
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  font-weight: normal;
 }
 hr {
   margin: 48px 0;
@@ -8665,7 +8710,44 @@ Layout
 Styleguide 2.
 */
 /*
+Aligner
+
+Vertical centering [solved by flexbox](http://philipwalton.github.io/solved-by-flexbox).
+
+Markup:
+<div class="aligner">
+    <div class="aligner-item">Centered!</div>
+</div>
+
+Styleguide 2.1
+*/
+.aligner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.aligner-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/*
 Footer
+
+<p class="alert alert-warning">
+    <span class="glyphicon glyphicon-alert offset-right" aria-hidden="true"></span>
+    Sticky footer is deprecated in favour of Site component.
+</p>
 
 Based on [LESS modules](https://github.com/adamkudrna/less-modules) Sticky Footer module.
 
@@ -8692,7 +8774,7 @@ Markup:
     </footer>
 </body>
 
-Styleguide 2.1
+Styleguide 2.2
 */
 .footer {
   padding-top: 24px;
@@ -8782,7 +8864,7 @@ Markup:
     </div>
 </div><!-- .row -->
 
-Styleguide 2.2
+Styleguide 2.3
 */
 .content {
   position: relative;
@@ -8867,7 +8949,7 @@ Markup:
     </div>
 </div>
 
-Styleguide 2.3
+Styleguide 2.4
 */
 .offset-left {
   margin-left: .75ex;
@@ -8924,7 +9006,7 @@ Markup:
 <div class="offset-bottom-larger-xs-max">I have HUGE bottom spacing on extra small screens (xs).</div>
 <div class="offset-bottom-larger-sm-max">I have HUGE bottom spacing on small screens (sm).</div>
 
-Styleguide 2.3.1
+Styleguide 2.4.1
 */
 @media (max-width: 767px) {
   .offset-bottom-xs-max {
@@ -8959,10 +9041,15 @@ Styleguide 2.3.1
 /*
 Screen
 
+<p class="alert alert-warning">
+    <span class="glyphicon glyphicon-alert offset-right" aria-hidden="true"></span>
+    Deprecated in favour of Site component.
+</p>
+
 Apply `screen-centered` on `<html>` to allow content to be centered on the screen both in horizontal and vertical
 direction.
 
-Styleguide 2.4
+Styleguide 2.5
 */
 .screen-centered {
   height: 100%;
@@ -8991,6 +9078,11 @@ Markup:
         <h2 class="section-header-subtitle">Subtitle</h2>
     </div><!-- .container -->
 </section>
+<section class="section-header section-header-condensed">
+    <div class="container">
+        <h1 class="section-header-title">Condensed Header Section</h1>
+    </div><!-- .container -->
+</section>
 <section class="section-content">
     <div class="container">
         <p>This is the content of the page.</p>
@@ -8998,15 +9090,16 @@ Markup:
 </section>
 <section class="section-primary">
     <div class="container">
+        <h1>Primary Section</h1>
         <p>This will recolor section to primary color. Works both with header and content sections.</p>
     </div><!-- .container -->
 </section>
 
-Styleguide 2.5
+Styleguide 2.6
 */
 .section-header {
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-top: 36px;
+  padding-bottom: 36px;
   color: inherit;
   border-bottom: 1px solid #ddd;
   background-color: #eeeeee;
@@ -9018,7 +9111,6 @@ Styleguide 2.5
 .section-header-subtitle {
   margin-top: .3em;
   margin-bottom: 0;
-  font-size: 28px;
   color: inherit;
 }
 .section-header.has-tabs {
@@ -9027,21 +9119,103 @@ Styleguide 2.5
 .section-header.has-tabs > .container {
   position: relative;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
+  .section-header {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  .section-header-condensed {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  .section-header.has-tabs {
+    padding-bottom: 0;
+  }
   .section-header.has-tabs > .container {
     padding-bottom: 72px;
   }
 }
 .section-content {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+@media (min-width: 768px) {
+  .section-content {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
 }
 .section-primary {
-  color: #fff;
   background-color: #00778b;
+}
+.section-primary,
+.section-primary h1,
+.section-primary h2,
+.section-primary h3,
+.section-primary h4,
+.section-primary h5,
+.section-primary h6 {
+  color: #fff;
 }
 .section-primary.section-header {
   border-bottom: none;
+}
+/*
+Site
+
+Use the following markup to turn the site into fluid flexbox layout with sticky footer. Credits for cross-browser
+solution go to [Philip Walton](http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/).
+
+Markup:
+<body class="site">
+    <header role="banner" class="site-header">
+        Header
+    </header>
+    <main role="main" class="site-body">
+        Main Content
+    </main>
+    <footer role="contentinfo" class="site-footer">
+        Sticky Footer
+    </footer>
+</body>
+
+Styleguide 2.7
+*/
+/**
+ * 1. Avoid the IE 10-11 `min-height` bug.
+ * 2. Set `flex-shrink` to `0` to prevent some browsers from
+ *    letting these items shrink to smaller than their content's default
+ *    minimum size. See http://bit.ly/1Mn35US for details.
+ * 3. Use `%` instead of `vh` since `vh` is buggy in older mobile Safari.
+ */
+.site {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  /* 1, 3 */
+}
+.site-header,
+.site-footer {
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none;
+  /* 2 */
+}
+.site-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  /* 2 */
+  width: 100%;
 }
 /*
 Navigation
@@ -9095,7 +9269,7 @@ Markup:
         <h1 class="section-header-title">Pages</h1>
     </div>
     <div class="col-sm-4">
-        <a href="#" class="btn btn-primary cta">
+        <a href="#" class="btn btn-primary btn-raised cta">
             <span class="glyphicon glyphicon-plus-sign offset-right" aria-hidden="true"></span>
             New Page
         </a>
@@ -9131,7 +9305,7 @@ CTA for Content Headings
 For CTA buttons alongside headings in content area simply apply `pull-right` on a regular button, `cta` is not needed.
 
 Markup:
-<a href="#" class="btn btn-primary pull-right">
+<a href="#" class="btn btn-primary btn-raised pull-right">
     <span class="glyphicon glyphicon-plus-sign offset-right" aria-hidden="true"></span>
     New Page
 </a>
@@ -9806,7 +9980,7 @@ Cancel Link
 Link for returning from edit form back to listing.
 
 Markup:
-<button type="submit" class="btn btn-primary">Save and publish</button>
+<button type="submit" class="btn btn-primary btn-raised">Save and publish</button>
 <div class="cancel-link">
     or
     <a href="#">Cancel</a>
@@ -9939,7 +10113,7 @@ Markup:
 <div class="input-group">
     <input type="search" placeholder="Hledat" class="form-control" title="Zadejte hledaný termín" />
     <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary">Hledat</button>
+        <button type="submit" class="btn btn-primary btn-raised">Hledat</button>
     </span>
 </div>
 
@@ -10513,7 +10687,7 @@ Markup:
                 <input type="password" id="password" class="form-control" />
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                <button type="submit" class="btn btn-primary btn-raised btn-block">Sign in</button>
             </div>
         </form>
     </div>
