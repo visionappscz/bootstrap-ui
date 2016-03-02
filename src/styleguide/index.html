@@ -49,16 +49,16 @@
     </script>
 </head>
 {{#if overview}}
-    <body class="has-navbar-fixed-top has-footer-sticky">
+    <body class="site has-navbar-fixed-top">
 {{else}}
     {{#eachSection rootNumber}}
         {{#ifDepth 1}}
-            <body class="has-navbar-fixed-top has-footer-sticky" data-current-section="{{ reference }}">
+            <body class="site has-navbar-fixed-top" data-current-section="{{ reference }}">
         {{/ifDepth}}
     {{/eachSection}}
 {{/if}}
 
-<header role="banner" id="top">
+<header role="banner" id="top" class="site-header">
 
     <!-- Main navigation -->
     <nav class="navbar navbar-fixed-top navbar-primary">
@@ -94,7 +94,7 @@
 
 </header>
 
-<main role="main">
+<main role="main" class="site-content">
 
     {{#if overview}}
         <section class="section section-header section-primary">
@@ -240,7 +240,7 @@
 
 </main>
 
-<footer role="contentinfo" class="footer footer-sticky">
+<footer role="contentinfo" class="footer site-footer">
     <div class="container">
         <div class="row">
             <div class="col-md-9">
