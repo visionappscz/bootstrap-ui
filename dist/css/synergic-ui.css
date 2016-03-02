@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v0.10.0 (2 March 2016)
+ * v0.11.0 (2 March 2016)
  */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
@@ -10302,9 +10302,20 @@ Markup:
 Styleguide 5.1.2
 */
 /*
-Buttons
+Boxes
+
+Markup:
+<div class="well box">This box has maximum width.</div>
 
 Styleguide 5.2
+*/
+.box {
+  max-width: 22em;
+}
+/*
+Buttons
+
+Styleguide 5.3
 */
 /*
 Additional Button Variants
@@ -10315,7 +10326,7 @@ Markup:
 <button type="button" class="btn btn-accent">Accent button</button>
 <button type="button" class="btn btn-transparent">Transparent button</button>
 
-Styleguide 5.2.1
+Styleguide 5.3.1
 */
 .btn-accent {
   color: #fff;
@@ -10463,7 +10474,7 @@ Markup:
 <button type="button" class="btn btn-warning btn-raised">Raised warning button</button>
 <button type="button" class="btn btn-danger btn-raised">Raised danger button</button>
 
-Styleguide 5.2.2
+Styleguide 5.3.2
 */
 .btn,
 .item-action {
@@ -10491,7 +10502,7 @@ Markup:
 <button type="button" class="btn btn-default btn-responsive">Responsive default button</button>
 <button type="button" class="btn btn-primary btn-responsive">Responsive primary button</button>
 
-Styleguide 5.2.3
+Styleguide 5.3.3
 */
 .btn-responsive {
   width: 100%;
@@ -10512,7 +10523,7 @@ Markup:
 <button type="button" class="btn btn-default" disabled>Disabled default button</button>
 <button type="button" class="btn btn-primary" disabled>Disabled primary button</button>
 
-Styleguide 5.2.4
+Styleguide 5.3.4
 */
 .btn[disabled],
 .item-action[disabled] {
@@ -10535,7 +10546,7 @@ Markup:
     <a href="#"><img src="//satyr.io/320x320" alt="Photo" /></a>
 </div>
 
-Styleguide 5.3
+Styleguide 5.4
 */
 .gallery {
   margin: 24px -15px 24px 0;
@@ -10577,7 +10588,7 @@ Markup:
 <span class="glyphicon glyphicon-wrench icon-vertically-aligned" aria-hidden="true"></span>
 The icon is vertically aligned on the line.
 
-Styleguide 5.4
+Styleguide 5.5
 */
 .icon-offset {
   margin-right: .75ex;
@@ -10643,7 +10654,7 @@ Markup:
     </tbody>
 </table>
 
-Styleguide 5.5
+Styleguide 5.6
 */
 .item-action {
   color: #333;
@@ -10664,10 +10675,15 @@ Styleguide 5.5
 /*
 Panels
 
-Styleguide 5.6
+Styleguide 5.7
 */
 /*
 Login Panel
+
+<p class="alert alert-warning">
+    <span class="glyphicon glyphicon-alert offset-right" aria-hidden="true"></span>
+    Deprecated in favour of Box component.
+</p>
 
 Simple panel designed for login form.
 
@@ -10693,7 +10709,7 @@ Markup:
     </div>
 </div>
 
-Styleguide 5.6.1
+Styleguide 5.7.1
 */
 .panel-login {
   display: block;
@@ -10722,7 +10738,7 @@ Markup:
     </div>
 </div>
 
-Styleguide 5.6.2
+Styleguide 5.7.2
 */
 .panel-heading-extended {
   position: relative;
@@ -10856,7 +10872,7 @@ Markup:
     </table>
 </div>
 
-Styleguide 5.7
+Styleguide 5.8
 */
 /*
 Tables with Groups
@@ -10912,7 +10928,7 @@ Markup:
     </table>
 </div>
 
-Styleguide 5.7.1
+Styleguide 5.8.1
 */
 tr.disabled {
   opacity: .5;
@@ -11003,7 +11019,7 @@ Markup:
     </div>
 </div><!-- .row -->
 
-Styleguide 5.8
+Styleguide 5.9
 */
 .thumbnail-fixed {
   position: relative;
