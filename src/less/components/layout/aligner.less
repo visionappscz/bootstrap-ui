@@ -1,0 +1,23 @@
+/*
+Aligner
+
+Vertical centering [solved by flexbox](http://philipwalton.github.io/solved-by-flexbox).
+
+Markup:
+<div class="aligner">
+    <div class="aligner-item">Centered!</div>
+</div>
+
+Styleguide 2.1
+*/
+
+
+.aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aligner-item {
+    flex: 1;
+}
