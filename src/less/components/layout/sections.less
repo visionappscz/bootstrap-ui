@@ -63,16 +63,20 @@ Styleguide 2.6
             padding-top: 3 * @line-height-computed;
             padding-bottom: 3 * @line-height-computed;
 
-            &-condensed {
-                padding-top: 1.5 * @line-height-computed;
-                padding-bottom: 1.5 * @line-height-computed;
-            }
-
             &.has-tabs {
                 padding-bottom: 0;
 
                 > .container {
                     padding-bottom: 3 * @line-height-computed;
+                }
+            }
+
+            &-condensed {
+                padding-top: 1.5 * @line-height-computed;
+                padding-bottom: 1.5 * @line-height-computed;
+
+                &.has-tabs > .container {
+                    padding-bottom: 1.5 * @line-height-computed;
                 }
             }
         }
