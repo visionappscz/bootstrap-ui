@@ -14,9 +14,9 @@ Datetimepicker
 
 Markup:
 <div class="form-group">
-    <label>Pick a date and time</label>
-    <div class="input-group date" id="datetimepicker1">
-        <input type="text" class="form-control" value="2014-09-06 18:05" />
+    <label>Pick date and time</label>
+    <div class="input-group date" data-onload-datetimepicker>
+        <input type="text" class="form-control" />
         <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
         </span>
@@ -24,26 +24,13 @@ Markup:
 </div>
 <div class="form-group">
     <label>Pick a date</label>
-    <div class="input-group date" id="datetimepicker2">
-        <input type="text" class="form-control" value="2014-06-26" />
+    <div class="input-group date" data-onload-datetimepicker='{"locale": "cs", "format": "D. M. YYYY"}'>
+        <input type="text" class="form-control" value="26. 6. 2016" />
         <span class="input-group-addon">
             <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
         </span>
     </div>
 </div>
-<script>
-$(function () {
-    $('#datetimepicker1').datetimepicker({
-        format: 'YYYY-MM-DD HH:mm',
-        sideBySide: true,
-        allowInputToggle: true
-    });
-    $('#datetimepicker2').datetimepicker({
-        format: 'YYYY-MM-DD',
-        allowInputToggle: true
-    });
-});
-</script>
 
 Styleguide 4.2
 */
