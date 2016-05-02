@@ -9,7 +9,8 @@ $(function () {
 
   QUnit.module('disable', {
     setup: function () {
-      // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
+      // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in
+      // noConflict mode
       $.fn.suiDisable = $.fn.disable.noConflict();
     },
 
@@ -22,7 +23,11 @@ $(function () {
   // Plugin tests
   // ============
   QUnit.test('should provide no conflict', function () {
-    QUnit.strictEqual($.fn.disable, undefined, 'disable was set back to undefined (original value)');
+    QUnit.strictEqual(
+      $.fn.disable,
+      undefined,
+      'disable was set back to undefined (original value)'
+    );
   });
 
   QUnit.test('should return jquery collection containing the element', function () {
@@ -34,50 +39,56 @@ $(function () {
 
   // Disabling elements tests
   // ========================
-  QUnit.test('should fire toggle.sui.disable when disable("toggle") function is called', function () {
-    QUnit.stop();
-    var eventFired = false;
-    var $el = $('<input type="text" />');
+  QUnit.test(
+    'should fire toggle.sui.disable when disable("toggle") function is called',
+    function () {
+      QUnit.stop();
+      var eventFired = false;
+      var $el = $('<input type="text" />');
 
-    $(document).on('toggle.sui.disable', function () {
-      QUnit.ok(true, 'event fired');
-      eventFired = true;
-    });
+      $(document).on('toggle.sui.disable', function () {
+        QUnit.ok(true, 'event fired');
+        eventFired = true;
+      });
 
-    $el.suiDisable('toggle');
+      $el.suiDisable('toggle');
 
-    setTimeout(function () {
-      if (!eventFired) {
-        QUnit.ok(false, 'event not fired');
-      }
+      setTimeout(function () {
+        if (!eventFired) {
+          QUnit.ok(false, 'event not fired');
+        }
 
-      $(document).off('toggle.sui.disable');
-      QUnit.start();
-    }, 100);
-  });
+        $(document).off('toggle.sui.disable');
+        QUnit.start();
+      }, 100);
+    }
+  );
 
-  QUnit.test('should fire toggled.sui.disable when disable("toggle") function is finished', function () {
-    QUnit.stop();
-    var eventFired = false;
-    var $el = $('<input type="text" />');
+  QUnit.test(
+    'should fire toggled.sui.disable when disable("toggle") function is finished',
+    function () {
+      QUnit.stop();
+      var eventFired = false;
+      var $el = $('<input type="text" />');
 
-    $(document).on('toggled.sui.disable', function () {
-      QUnit.ok($el.prop('disabled'), 'element is disabled');
-      QUnit.ok(true, 'event fired');
-      eventFired = true;
-    });
+      $(document).on('toggled.sui.disable', function () {
+        QUnit.ok($el.prop('disabled'), 'element is disabled');
+        QUnit.ok(true, 'event fired');
+        eventFired = true;
+      });
 
-    $el.suiDisable('toggle');
+      $el.suiDisable('toggle');
 
-    setTimeout(function () {
-      if (!eventFired) {
-        QUnit.ok(false, 'event not fired');
-      }
+      setTimeout(function () {
+        if (!eventFired) {
+          QUnit.ok(false, 'event not fired');
+        }
 
-      $(document).off('toggled.sui.disable');
-      QUnit.start();
-    }, 100);
-  });
+        $(document).off('toggled.sui.disable');
+        QUnit.start();
+      }, 100);
+    }
+  );
 
   QUnit.test('should enable element if it is already disabled', function () {
     QUnit.stop();
@@ -107,8 +118,8 @@ $(function () {
 
     // Two control elements are defined to ensue that the second one does not interfere
     $('#qunit-fixture').html('<input type=text id="input_1" />' +
-      '<input type="checkbox" id="control" data-toggle="disable" data-disable-target="#input_1" />' +
-      '<input type=text id="input_2" />' +
+      '<input type="checkbox" id="control" data-toggle="disable" ' +
+      'data-disable-target="#input_1" /><input type=text id="input_2" />' +
       '<input type="checkbox" data-toggle="disable" data-disable-target="#input_2" />');
 
     $(document).on('toggled.sui.disable', function () {
@@ -130,9 +141,10 @@ $(function () {
 
     // Two control elements are defined to ensure that the second one does not interfere
     $('#qunit-fixture').html('<input type=text id="input_1" />' +
-      '<button id="control" data-toggle="disable" data-disable-target="#input_1" data-disable-event="click" />' +
-      '<input type=text id="input_2" />' +
-      '<button type="checkbox" data-toggle="disable" data-disable-target="#input_2" data-disable-event="click" />');
+      '<button id="control" data-toggle="disable" data-disable-target="#input_1" ' +
+      'data-disable-event="click" /><input type=text id="input_2" />' +
+      '<button type="checkbox" data-toggle="disable" data-disable-target="#input_2" ' +
+      'data-disable-event="click" />');
 
     $(document).on('toggled.sui.disable', function () {
       QUnit.ok($('#qunit-fixture #input_1').prop('disabled'), 'element input_1 is disabled');

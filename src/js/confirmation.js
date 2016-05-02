@@ -6,7 +6,11 @@
 
   var Confirmation = function ($triggerEl, options) {
     options = $.extend({}, this.options, options);
-    this.modal = this.getModal(options['confirm-message'], options['confirm-yes'], options['confirm-no']);
+    this.modal = this.getModal(
+        options['confirm-message'],
+        options['confirm-yes'],
+        options['confirm-no']
+    );
     this.$triggerEl = $triggerEl;
     this.callback = options.callback;
   };
@@ -15,7 +19,8 @@
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
-    callback: function () {}, // Having empty callback is useless, it is here as a sane fallback for tests
+    callback: function () {}, // Having empty callback is useless, it is here as a sane fallback for
+    // tests
   };
 
   Confirmation.prototype.showConfirmation = function () {
@@ -40,7 +45,8 @@
         $(this).remove();
       });
 
-      // The fade class is removed before hiding the modal to prevent the backdrop from staying behond
+      // The fade class is removed before hiding the modal to prevent the backdrop from staying
+      // behond
       // Thats why there is no animation :(
       // http://stackoverflow.com/questions/22056147/bootstrap-modal-backdrop-remaining
       $modal.removeClass('fade').modal('hide');
@@ -74,9 +80,9 @@
       '<div class="modal-content">' +
       '<div class="modal-body">' + message + '</div>' +
       '<div class="modal-footer">' +
-      '<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>' +
-      '<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>' +
-      '</div></div></div></div>');
+      '<button type="button" class="btn btn-default" data-confirmation="reject">' + no +
+      '</button>' + '<button type="button" class="btn btn-primary" data-confirmation="confirm">' +
+      yes + '</button></div></div></div></div>');
   };
 
   // CONFIRMATION PLUGIN DEFINITION
@@ -111,23 +117,25 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function (e, noConfirm) {
-    var $this = $(this);
+  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]',
+    function (e, noConfirm) {
+      var $this = $(this);
 
-    if (!noConfirm) {
-      e.preventDefault();
+      if (!noConfirm) {
+        e.preventDefault();
 
-      Plugin.call($this, {
-        'confirm-message': $this.data('confirm-message'),
-        'confirm-yes': $this.data('confirm-yes'),
-        'confirm-no': $this.data('confirm-no'),
-        callback: function (result) {
-          if (result) {
-            $this.trigger('click.sui.confirmation.data-api', true);
-          }
-        },
-      });
+        Plugin.call($this, {
+          'confirm-message': $this.data('confirm-message'),
+          'confirm-yes': $this.data('confirm-yes'),
+          'confirm-no': $this.data('confirm-no'),
+          callback: function (result) {
+            if (result) {
+              $this.trigger('click.sui.confirmation.data-api', true);
+            }
+          },
+        });
+      }
     }
-  });
+  );
 
 }(jQuery, window, document));

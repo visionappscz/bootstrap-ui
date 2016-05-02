@@ -30,7 +30,7 @@
     "grunt-contrib-qunit": "~1.0.1",
     "grunt-contrib-uglify": "^0.11.0",
     "grunt-contrib-watch": "~0.6.1",
-    "grunt-jscs": "~2.7.0",
+    "grunt-jscs": "~2.8.0",
     "grunt-postcss": "^0.7.2",
     "grunt-styleguide": "~0.2.17",
     "grunt-text-replace": "^0.4.0",

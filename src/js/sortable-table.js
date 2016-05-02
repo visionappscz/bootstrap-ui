@@ -42,7 +42,8 @@
       .toArray()
       .sort(this.comparer($sortedTh.index(), sortDir));
 
-    isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index()).data('sort-group') !== 'undefined';
+    isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index())
+            .data('sort-group') !== 'undefined';
     tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
 
     rowsLength = rows.length;
@@ -114,7 +115,8 @@
       var data = $this.data('sui.sortableTable');
 
       if (!data) {
-        $navigation = options && 'navigation' in options && options.navigation ? $(options.navigation) : false;
+        $navigation = options && 'navigation' in options && options.navigation ?
+            $(options.navigation) : false;
         data = new SortableTable($this, $navigation);
         $this.data('sui.sortableTable', data);
       }
