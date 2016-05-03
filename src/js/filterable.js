@@ -53,7 +53,8 @@
             dataValLength = dataVal.length;
             for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
-                if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter].toLowerCase()) !== -1) {
+                if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter]
+                        .toLowerCase()) !== -1) {
                   hideEl = false;
                   break;
                 }
@@ -138,28 +139,33 @@
   var lastEventTarget;
   var lastEventValue;
 
-  $(document).on('keyup.sui.filterable.data-api change.sui.filterable.data-api', '[data-toggle=filter]', function (e) {
-    var $filter = $(this).closest('form');
-    var filterData = [];
+  $(document).on(
+    'keyup.sui.filterable.data-api change.sui.filterable.data-api',
+    '[data-toggle=filter]',
+    function (e) {
+      var $filter = $(this).closest('form');
+      var filterData = [];
 
-    if (lastEventTarget !== e.target || lastEventTarget === e.target && lastEventValue !== e.target.value) {
-      $filter.find(':input').each(function () {
-        var $this = $(this);
-        if ($this.val() !== '' && $this.val() !== null) {
-          filterData.push({
-            'filter-attrib': $this.data('filter-attrib'),
-            'filter-operator': $this.data('filter-operator'),
-            'filter-value': $this.val(),
-          });
-        }
+      if (lastEventTarget !== e.target || lastEventTarget === e.target &&
+        lastEventValue !== e.target.value) {
+        $filter.find(':input').each(function () {
+          var $this = $(this);
+          if ($this.val() !== '' && $this.val() !== null) {
+            filterData.push({
+              'filter-attrib': $this.data('filter-attrib'),
+              'filter-operator': $this.data('filter-operator'),
+              'filter-value': $this.val(),
+            });
+          }
 
-        Plugin.call($($filter.data('filter-target')), filterData);
-      });
+          Plugin.call($($filter.data('filter-target')), filterData);
+        });
+      }
+
+      lastEventTarget = e.target;
+      lastEventValue = e.target.value;
     }
-
-    lastEventTarget = e.target;
-    lastEventValue = e.target.value;
-  });
+  );
 
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
     var $form = $(this).closest('form');

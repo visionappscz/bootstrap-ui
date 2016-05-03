@@ -17,7 +17,9 @@
       };
 
       $('[data-onload-datetimepicker]').each(function () {
-        initComponentFn.call(this, { allowInputToggle: true, sideBySide: true }, $(this).data('onload-datetimepicker'));
+        initComponentFn.call(this, { allowInputToggle: true, sideBySide: true }, $(this).data(
+            'onload-datetimepicker'
+        ));
       });
     });
   }($, window));

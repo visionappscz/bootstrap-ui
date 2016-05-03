@@ -9,7 +9,8 @@ $(function () {
 
   QUnit.module('slugger', {
     setup: function () {
-      // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
+      // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in
+      // noConflict mode
       $.fn.suiSlugger = $.fn.slugger.noConflict();
     },
 
@@ -22,7 +23,11 @@ $(function () {
   // Plugin tests
   // ============
   QUnit.test('should provide no conflict', function () {
-    QUnit.strictEqual($.fn.slugger, undefined, 'slugger was set back to undefined (original value)');
+    QUnit.strictEqual(
+      $.fn.slugger,
+      undefined,
+      'slugger was set back to undefined (original value)'
+    );
   });
 
   QUnit.test('should return jquery collection containing the element', function () {
@@ -54,7 +59,11 @@ $(function () {
     $source
       .val('ãàáäâåčçďẽèéëêìíïîñõòóöôřšťùúüûýž x·x/x_x,x:x;;;')
       .on('updated.sui.slugger', function () {
-        QUnit.strictEqual($target.val(), 'aaaaaaccdeeeeeiiiinooooorstuuuuyz-x-x-x-x-x-x-', 'Slug was generated correctly.');
+        QUnit.strictEqual(
+          $target.val(),
+          'aaaaaaccdeeeeeiiiinooooorstuuuuyz-x-x-x-x-x-x-',
+          'Slug was generated correctly.'
+        );
         QUnit.start();
       })
       .suiSlugger({ target: $target });
@@ -64,7 +73,8 @@ $(function () {
   // ==============
   QUnit.test('should generate slug', function () {
     QUnit.stop();
-    var $source = $('<input type="text" data-toggle="slugger" data-slugger-target="#target" value="some text" />');
+    var $source = $('<input type="text" data-toggle="slugger" data-slugger-target="#target" ' +
+      'value="some text" />');
     $('#qunit-fixture')
       .html('<input type="text" id="target" />')
       .append($source);
@@ -80,7 +90,8 @@ $(function () {
 
   QUnit.test('should fire changed.sui.slugger when source looses focus after change', function () {
     QUnit.stop();
-    var $source = $('<input type="text" data-toggle="slugger" data-slugger-target="#target" value="some text" />');
+    var $source = $('<input type="text" data-toggle="slugger" data-slugger-target="#target" ' +
+      'value="some text" />');
     $('#qunit-fixture')
       .html('<input type="text" id="target" />')
       .append($source);

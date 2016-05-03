@@ -9,7 +9,8 @@ $(function () {
 
   QUnit.module('confirmation', {
     setup: function () {
-      // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in noConflict mode
+      // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in
+      // noConflict mode
       $.fn.suiConfirmation = $.fn.confirmation.noConflict();
     },
 
@@ -25,7 +26,11 @@ $(function () {
   // Plugin tests
   // ============
   QUnit.test('should provide no conflict', function () {
-    QUnit.strictEqual($.fn.confirmation, undefined, 'confirmation was set back to undefined (original value)');
+    QUnit.strictEqual(
+      $.fn.confirmation,
+      undefined,
+      'confirmation was set back to undefined (original value)'
+    );
   });
 
   QUnit.test('should return jquery collection containing the element', function () {
@@ -65,15 +70,31 @@ $(function () {
       'confirm-no': 'Custom_no',
     });
     QUnit.strictEqual($('.modal-body').text(), 'Custom_message', 'the custom message was used');
-    QUnit.strictEqual($('.modal-footer button[data-confirmation=confirm]').text(), 'Custom_yes', 'the custom yes was used');
-    QUnit.strictEqual($('.modal-footer button[data-confirmation=reject]').text(), 'Custom_no', 'the custom no was used');
+    QUnit.strictEqual($(
+      '.modal-footer button[data-confirmation=confirm]').text(),
+      'Custom_yes',
+      'the custom yes was used'
+    );
+    QUnit.strictEqual(
+      $('.modal-footer button[data-confirmation=reject]').text(),
+      'Custom_no',
+      'the custom no was used'
+    );
   });
 
   QUnit.test('should use default messages when no custom messages are provided', function () {
     $('<button/>').suiConfirmation();
     QUnit.strictEqual($('.modal-body').text(), 'Are you sure?', 'the default message was used');
-    QUnit.strictEqual($('.modal-footer button[data-confirmation=confirm]').text(), 'Yes', 'the default yes was used');
-    QUnit.strictEqual($('.modal-footer button[data-confirmation=reject]').text(), 'No', 'the default no was used');
+    QUnit.strictEqual($(
+      '.modal-footer button[data-confirmation=confirm]').text(),
+      'Yes',
+      'the default yes was used'
+    );
+    QUnit.strictEqual($(
+      '.modal-footer button[data-confirmation=reject]').text(),
+      'No',
+      'the default no was used'
+    );
   });
 
   // Tests for rejecting the confirmation
@@ -122,26 +143,32 @@ $(function () {
     }, 100);
   });
 
-  QUnit.test('should destroy the confirmation modal when rejected.sui.confirmation was triggered', function () {
-    QUnit.stop();
-    var $el = $('<button/>').suiConfirmation();
-    $el.on('rejected.sui.confirmation', function () {
-      QUnit.ok($('.modal').length === 0, 'confirmation modal destroyed');
-      QUnit.start();
-    });
+  QUnit.test('should destroy the confirmation modal when rejected.sui.confirmation was triggered',
+    function () {
+      QUnit.stop();
+      var $el = $('<button/>').suiConfirmation();
+      $el.on('rejected.sui.confirmation', function () {
+        QUnit.ok($('.modal').length === 0, 'confirmation modal destroyed');
+        QUnit.start();
+      });
 
-    $el.trigger('rejected.sui.confirmation');
-  });
+      $el.trigger('rejected.sui.confirmation');
+    }
+  );
 
-  QUnit.test('should execute the callback function with argument set to false when rejected.sui.confirmation was triggered', function () {
-    QUnit.stop();
-    var $el = $('<button/>').suiConfirmation({ callback: function (result) {
-      QUnit.ok(result === false, 'executed the callback function');
-      QUnit.start();
-    }, });
+  QUnit.test(
+    'should execute the callback function with argument set to false when ' +
+    'rejected.sui.confirmation was triggered',
+    function () {
+      QUnit.stop();
+      var $el = $('<button/>').suiConfirmation({ callback: function (result) {
+        QUnit.ok(result === false, 'executed the callback function');
+        QUnit.start();
+      }, });
 
-    $el.trigger('rejected.sui.confirmation');
-  });
+      $el.trigger('rejected.sui.confirmation');
+    }
+  );
 
   // Tests for confirming the confirmation
   // =====================================
@@ -167,41 +194,49 @@ $(function () {
     }, 100);
   });
 
-  QUnit.test('should fire confirmed.sui.confirmation confirmation on pressing the confirm button', function () {
-    QUnit.stop();
-    var eventFired = false;
+  QUnit.test(
+    'should fire confirmed.sui.confirmation confirmation on pressing the confirm button',
+    function () {
+      QUnit.stop();
+      var eventFired = false;
 
-    $('<button/>')
-      .on('confirmed.sui.confirmation', function () {
-        QUnit.ok(true, 'event fired');
-        eventFired = true;
-      })
-      .suiConfirmation();
+      $('<button/>')
+        .on('confirmed.sui.confirmation', function () {
+          QUnit.ok(true, 'event fired');
+          eventFired = true;
+        })
+        .suiConfirmation();
 
-    $('.modal button[data-confirmation=confirm]').click();
+      $('.modal button[data-confirmation=confirm]').click();
 
-    setTimeout(function () {
-      if (!eventFired) {
-        QUnit.ok(false, 'event not fired');
-      }
+      setTimeout(function () {
+        if (!eventFired) {
+          QUnit.ok(false, 'event not fired');
+        }
 
-      QUnit.start();
-    }, 100);
-  });
+        QUnit.start();
+      }, 100);
+    }
+  );
 
-  QUnit.test('should destroy the confirmation modal when confirmed.sui.confirmation was triggered', function () {
-    QUnit.stop();
-    var $el = $('<button/>').suiConfirmation();
+  QUnit.test(
+    'should destroy the confirmation modal when confirmed.sui.confirmation was triggered',
+    function () {
+      QUnit.stop();
+      var $el = $('<button/>').suiConfirmation();
 
-    $el.on('confirmed.sui.confirmation', function () {
-      QUnit.ok($('.modal').length === 0, 'confirmation modal destroyed');
-      QUnit.start();
-    });
+      $el.on('confirmed.sui.confirmation', function () {
+        QUnit.ok($('.modal').length === 0, 'confirmation modal destroyed');
+        QUnit.start();
+      });
 
-    $el.trigger('confirmed.sui.confirmation');
-  });
+      $el.trigger('confirmed.sui.confirmation');
+    }
+  );
 
-  QUnit.test('should execute callback function with argument set to true when confirmed.sui.confirmation was triggered', function () {
+  QUnit.test(
+    'should execute callback function with argument set to true when ' +
+    'confirmed.sui.confirmation was triggered', function () {
     QUnit.stop();
     $('<button/>')
       .suiConfirmation({ callback: function (result) {
@@ -213,67 +248,96 @@ $(function () {
 
   // Data-api tests
   // ==============
-  QUnit.test('should populate the options object from the data attributes', function () {
-    QUnit.stop();
-    var $el = $('<button data-toggle="confirm" data-confirm-message="Custom_message" data-confirm-yes="Custom_yes" data-confirm-no="Custom_no" />');
-    $('#qunit-fixture').append($el);
-    $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function () {
-      $(document).off('show.sui.confirmation');
-      QUnit.strictEqual($('.modal-body').text(), 'Custom_message', 'the custom message was used');
-      QUnit.strictEqual($('.modal-footer button[data-confirmation=confirm]').text(), 'Custom_yes', 'the custom yes was used');
-      QUnit.strictEqual($('.modal-footer button[data-confirmation=reject]').text(), 'Custom_no', 'the custom no was used');
-      QUnit.start();
-    });
+  QUnit.test(
+    'should populate the options object from the data attributes',
+    function () {
+      QUnit.stop();
+      var $el = $(
+        '<button data-toggle="confirm" data-confirm-message="Custom_message" ' +
+        'data-confirm-yes="Custom_yes" data-confirm-no="Custom_no" />'
+      );
+      $('#qunit-fixture').append($el);
+      $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function () {
+        $(document).off('show.sui.confirmation');
+        QUnit.strictEqual($('.modal-body').text(), 'Custom_message', 'the custom message was used');
+        QUnit.strictEqual(
+          $('.modal-footer button[data-confirmation=confirm]').text(),
+          'Custom_yes',
+          'the custom yes was used'
+        );
+        QUnit.strictEqual(
+          $('.modal-footer button[data-confirmation=reject]').text(),
+          'Custom_no',
+          'the custom no was used'
+        );
+        QUnit.start();
+      });
 
-    $el.trigger('click.sui.confirmation.data-api');
-  });
+      $el.trigger('click.sui.confirmation.data-api');
+    }
+  );
 
-  QUnit.test('should prevent default action when click.sui.confirmation.data-api triggered with no argument ', function () {
-    QUnit.stop();
-    var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
-    $('#qunit-fixture').append($el);
-    $(document).on('click.sui.confirmation.data-api.test', 'button[data-toggle=confirm]', function (e) {
-      $(document).off('click.sui.confirmation.data-api.test');
-      if (e.isDefaultPrevented()) {
-        QUnit.ok(true, 'default action prevented');
-      } else {
-        QUnit.ok(false, 'default action not prevented');
-      }
+  QUnit.test(
+    'should prevent default action when click.sui.confirmation.data-api triggered with no ' +
+    'argument ',
+    function () {
+      QUnit.stop();
+      var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
+      $('#qunit-fixture').append($el);
+      $(document).on(
+        'click.sui.confirmation.data-api.test', 'button[data-toggle=confirm]',
+        function (e) {
+          $(document).off('click.sui.confirmation.data-api.test');
+          if (e.isDefaultPrevented()) {
+            QUnit.ok(true, 'default action prevented');
+          } else {
+            QUnit.ok(false, 'default action not prevented');
+          }
 
-      QUnit.start();
-    });
+          QUnit.start();
+        }
+      );
 
-    $el.find('button').trigger('click.sui.confirmation.data-api');
-  });
+      $el.find('button').trigger('click.sui.confirmation.data-api');
+    }
+  );
 
-  QUnit.test('should show confirmation modal when click.sui.confirmation.data-api triggered with no argument', function () {
-    QUnit.stop();
-    var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
-    $('#qunit-fixture').append($el);
-    $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function () {
-      $(document).off('show.sui.confirmation');
-      QUnit.ok($('.modal').length > 0, 'confirmation modal not shown');
-      QUnit.start();
-    });
+  QUnit.test(
+    'should show confirmation modal when click.sui.confirmation.data-api triggered with no ' +
+    'argument',
+    function () {
+      QUnit.stop();
+      var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
+      $('#qunit-fixture').append($el);
+      $(document).on('show.sui.confirmation', 'button[data-toggle=confirm]', function () {
+        $(document).off('show.sui.confirmation');
+        QUnit.ok($('.modal').length > 0, 'confirmation modal not shown');
+        QUnit.start();
+      });
 
-    $el.find('button').trigger('click.sui.confirmation.data-api');
-  });
+      $el.find('button').trigger('click.sui.confirmation.data-api');
+    }
+  );
 
-  QUnit.test('should not prevent default action when click.sui.confirmation.data-api triggered with argument noConfirm=true ', function () {
-    QUnit.stop();
-    var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
-    $('#qunit-fixture').append($el);
-    $(document).on('click.sui.confirmation.data-api.test', function (e) {
-      $(document).off('click.sui.confirmation.data-api.test');
-      if (!e.isDefaultPrevented()) {
-        QUnit.ok(true, 'default action not prevented');
-      } else {
-        QUnit.ok(false, 'default action prevented');
-      }
+  QUnit.test(
+    'should not prevent default action when click.sui.confirmation.data-api triggered with ' +
+    'argument noConfirm=true ',
+    function () {
+      QUnit.stop();
+      var $el = $('<span><button type="submit" data-toggle="confirm"/></span>');
+      $('#qunit-fixture').append($el);
+      $(document).on('click.sui.confirmation.data-api.test', function (e) {
+        $(document).off('click.sui.confirmation.data-api.test');
+        if (!e.isDefaultPrevented()) {
+          QUnit.ok(true, 'default action not prevented');
+        } else {
+          QUnit.ok(false, 'default action prevented');
+        }
 
-      QUnit.start();
-    });
+        QUnit.start();
+      });
 
-    $el.find('button').trigger('click.sui.confirmation.data-api', true);
-  });
+      $el.find('button').trigger('click.sui.confirmation.data-api', true);
+    }
+  );
 });
