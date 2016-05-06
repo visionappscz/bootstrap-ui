@@ -109,10 +109,11 @@ Triggers a confirmation dialog on the given element.
 
 Markup:
 <form onsubmit="alert('Confirmation confirmed');" method="get">
-    <button class="btn btn-danger" data-toggle="confirm">
+    <button type="button" class="btn btn-danger" data-toggle="confirm">
         Basic confirmation
     </button>
     <button
+        type="button"
         class="btn btn-danger"
         data-toggle="confirm"
         data-confirm-message="Really?"
@@ -122,6 +123,7 @@ Markup:
         Confirmation with custom text
     </button>
     <button
+        type="button"
         class="btn btn-danger"
         data-toggle="confirm"
         data-confirm-yes="<span class='glyphicon glyphicon-ok'></span>"
