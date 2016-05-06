@@ -29,9 +29,23 @@ Styleguide 5.1.1
     margin-bottom: 1px;
     padding-left: 0;
     border-radius: 0;
+    border-left-style: none;
+    border-right-style: none;
 
-    @media screen and (min-width: @screen-sm-min) {
-        padding-left: 15px;
+    &.alert-dismissible {
+        position: relative;
+        padding-right: 0;
+
+        > .container {
+            padding-right: 1.5 * @grid-gutter-width;
+        }
+
+        > .close {
+            position: absolute;
+            top: 50%;
+            right: @grid-gutter-width / 2;
+            margin-top: -15px;
+        }
     }
 }
 
