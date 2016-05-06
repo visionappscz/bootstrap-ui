@@ -65,3 +65,67 @@ Styleguide 3.8.2
         bottom: 0;
     }
 }
+
+
+/*
+Justified Tabs
+
+Tabs that are justified on smallest screens.
+
+Markup:
+<ul role="tablist" class="nav nav-tabs nav-justified nav-tabs-justified-xs">
+    <li class="active">
+        <a href="#">
+            <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+            <span class="hidden-xs offset-left">New</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span class="glyphicon glyphicon-ok-sign offset-right" aria-hidden="true"></span>
+            <span class="hidden-xs offset-left">Done</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span class="glyphicon glyphicon-remove-sign offset-right" aria-hidden="true"></span>
+            <span class="hidden-xs offset-left">Cancelled</span>
+        </a>
+    </li>
+</ul>
+
+Styleguide 3.8.3
+*/
+
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff;
+}
+
+.nav-tabs.nav-tabs-justified-xs {
+    @media (max-width: @screen-xs-max) {
+        width: 100%;
+        border-bottom: 0;
+
+        > li {
+            display: table-cell;
+            float: none;
+            width: 1%;
+
+            > a {
+                margin-right: 0;
+                margin-bottom: 0;
+                text-align: center;
+                border-bottom: 1px solid @nav-tabs-justified-link-border-color;
+                border-radius: @border-radius-base @border-radius-base 0 0;
+            }
+        }
+
+        > .active > a,
+        > .active > a:hover,
+        > .active > a:focus {
+            border-bottom-color: @nav-tabs-justified-active-link-border-color;
+        }
+    }
+}
