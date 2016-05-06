@@ -1,35 +1,25 @@
 /*
 Footer
 
-<p class="alert alert-warning">
-    <span class="glyphicon glyphicon-alert offset-right" aria-hidden="true"></span>
-    Sticky footer is deprecated in favour of Site component.
-</p>
-
-Based on [LESS modules](https://github.com/adamkudrna/less-modules) Sticky Footer module.
-
-Page footer sticks to the bottom of the screen when there is not much content on the page. For this to work, it must
-be a direct descendant of `<body>` which must have `.has-footer-sticky` class.
+Page footer with links and logo.
 
 Markup:
-<body class="has-footer-sticky">
-    <footer role="contentinfo" class="footer footer-sticky">
-        <div class="container">
-           <div class="row">
-               <div class="col-md-6">
-                   © Synergic.cz 2015
-                   <span class="footer-divider">|</span>
-                   <a href="#" target="_blank">Contact</a>
-               </div>
-               <div class="col-md-6">
-                   <a href="http://www.visionapps.cz" target="_blank" class="footer-author" title="Created by VisionApps">
-                       <img src="public/images/visionapps.svg" width="90" height="16" alt="VisionApps" />
-                   </a>
-               </div>
-           </div><!-- .row -->
-        </div><!-- .container -->
-    </footer>
-</body>
+<footer role="contentinfo" class="footer">
+    <div class="container">
+       <div class="row">
+           <div class="col-md-6">
+               © VisionApps, s.r.o. 2016
+               <span class="footer-divider">|</span>
+               <a href="#" target="_blank">Contact</a>
+           </div>
+           <div class="col-md-6">
+               <a href="http://www.visionapps.cz" target="_blank" class="footer-author" title="Created by VisionApps">
+                   <img src="public/images/visionapps.svg" width="90" height="16" alt="VisionApps" />
+               </a>
+           </div>
+       </div><!-- .row -->
+    </div><!-- .container -->
+</footer>
 
 Styleguide 2.2
 */
@@ -76,18 +66,4 @@ Styleguide 2.2
             margin-top: 0;
         }
     }
-}
-
-// Make the footer sticky
-// Deprecated in favour of screen-footer, will be removed in v1.
-html {
-    .sticky-footer-wrapper();
-}
-
-.has-footer-sticky {
-    .sticky-footer-sub-wrapper(@footer-height);
-}
-
-.footer-sticky {
-    .sticky-footer-footer(@footer-height);
 }
