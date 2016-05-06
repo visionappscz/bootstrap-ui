@@ -20,7 +20,7 @@ Styleguide 5.4
 
 
 .gallery {
-    margin: @line-height-computed -(@grid-gutter-width / 2) @line-height-computed 0;
+    margin-left: -(@grid-gutter-width / 2);
 
     > a {
         display: inline-block;
@@ -36,9 +36,6 @@ Styleguide 5.4
     }
 
     @media screen and (min-width: @screen-sm-min) {
-        margin-top: 1.5 * @line-height-computed;
-        margin-bottom: 1.5 * @line-height-computed;
-
         > a > img {
             width: 150px;
         }

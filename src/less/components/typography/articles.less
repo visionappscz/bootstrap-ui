@@ -10,7 +10,7 @@ as responsive and can be pulled off from the article body by using one of the fo
 
 Markup:
 <article class="article">
-    <header class="article-header">
+    <header class="article-header offset-bottom-large">
         <h1>Article Headline</h1>
         <p class="perex">
             Sklo hledání 1 tradici v jízdě vyznačuje penzionovaného rozbuška nasazením svém. Přibližně
@@ -20,7 +20,7 @@ Markup:
         </p>
         <div class="text-muted">Written by Jaroslav Hašek on 1<sup>st</sup> December 2014 at 4:03 PM</div>
     </header>
-    <div class="article-image">
+    <div class="article-image offset-bottom-large">
         <img src="//satyr.io/1200x600" alt="" />
     </div>
     <div class="article-body article-body-floated-images-right">
@@ -74,12 +74,6 @@ Styleguide 1.3
 
 
 .article {
-    &,
-    &-header,
-    &-image {
-        margin-bottom: 2 * @line-height-computed;
-    }
-
     // Make all images responsive
     img,
     &-image > img {
