@@ -28,42 +28,40 @@ Styleguide 3.8.1
             cursor: pointer;
         }
     }
+}
 
 
-    /*
-    Header Tabs
+/*
+Header Tabs
 
-    Tabs modified for use in header section.
+Tabs modified for use in header section.
 
-    Markup:
-    <ul role="tablist" class="nav nav-tabs nav-tabs-header">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope offset-right" aria-hidden="true"></span> Emailing</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
-    </ul>
+Markup:
+<ul role="tablist" class="nav nav-tabs nav-tabs-header">
+    <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope offset-right" aria-hidden="true"></span> Emailing</a></li>
+    <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
+</ul>
 
-    Styleguide 3.8.2
-    */
+Styleguide 3.8.2
+*/
 
-    &-header {
-        float: right;
-        margin-top: 2 * @line-height-computed;
-        margin-bottom: -1px; // collapse border
+.nav-tabs-header {
+    float: right;
+    margin-top: 2 * @line-height-computed;
+    margin-bottom: -1px; // collapse border
 
-        > li > a {
-            color: @text-color;
+    > li > a {
+        color: @text-color;
 
-            &:hover,
-            &:focus {
-                color: @brand-primary;
-            }
+        &:hover,
+        &:focus {
+            color: @brand-primary;
         }
     }
 
     @media screen and (min-width: @screen-sm-min) {
-        &-header {
-            position: absolute;
-            right: @grid-gutter-width / 2;
-            bottom: 0;
-        }
+        position: absolute;
+        right: @grid-gutter-width / 2;
+        bottom: 0;
     }
 }
