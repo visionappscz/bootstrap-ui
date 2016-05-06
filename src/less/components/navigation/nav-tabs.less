@@ -129,3 +129,53 @@ Styleguide 3.8.3
         }
     }
 }
+
+
+/*
+Transparent Tabs
+
+Tabs modification for use on primary background.
+
+Markup:
+<div class="section-content section-primary">
+    <ul role="tablist" class="nav nav-tabs nav-tabs-transparent">
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope offset-right" aria-hidden="true"></span> Emailing</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
+    </ul>
+</div>
+
+Styleguide 3.8.4
+*/
+
+.nav-tabs-transparent {
+    border-bottom-color: @nav-tabs-transparent-border-color;
+
+    > li > a {
+        color: @nav-tabs-transparent-link-color;
+        border-color: @nav-tabs-transparent-link-border-color;
+
+        &:hover,
+        &:focus {
+            color: @nav-tabs-transparent-link-hover-color;
+            border-color: @nav-tabs-transparent-link-hover-border-color;
+            background-color: @nav-tabs-transparent-link-hover-bg;
+        }
+    }
+
+    > li.active > a,
+    > li.active > a:hover,
+    > li.active > a:focus {
+        color: @nav-tabs-transparent-active-link-color;
+        border-color: @nav-tabs-transparent-active-link-border-color;
+        border-bottom-color: @brand-primary;
+        background-color: @nav-tabs-transparent-active-link-bg;
+    }
+
+    &.nav-tabs-header {
+        > li.active > a,
+        > li.active > a:hover,
+        > li.active > a:focus {
+            border-bottom-color: @nav-tabs-transparent-link-border-color;
+        }
+    }
+}
