@@ -1,28 +1,32 @@
 // Synergic UI
-// Use this file when implementing full Synergic UI via LESS.
 
+
+// External Dependencies
+// =====================
+
+// Bootstrap
+@import "@{bower-directory}bower_components/bootstrap/less/bootstrap";
+
+// Select2
+@import (inline) "@{bower-directory}bower_components/select2/select2.css";
+@import "@{bower-directory}bower_components/select2-bootstrap-css/lib/select2-bootstrap";
+
+// Datetimepicker
+@import "@{bower-directory}bower_components/eonasdan-bootstrap-datetimepicker/src/less/_bootstrap-datetimepicker";
+
+
+// Synergic UI
+// ===========
 
 // Configuration
 @import "config/variables";
 
-
-/*
-Typography
-
-Styleguide 1.
-*/
-
+// Typography
 @import "base/typography";
 @import "components/typography/articles";
 @import "components/typography/teaser";
 
-
-/*
-Layout
-
-Styleguide 2.
-*/
-
+// Layout
 @import "components/layout/aligner";
 @import "components/layout/footer";
 @import "components/layout/layout";
@@ -30,13 +34,7 @@ Styleguide 2.
 @import "components/layout/sections";
 @import "components/layout/site";
 
-
-/*
-Navigation
-
-Styleguide 3.
-*/
-
+// Navigation
 @import "components/navigation/back";
 @import "components/navigation/cta";
 @import "components/navigation/list-group";
@@ -45,13 +43,7 @@ Styleguide 3.
 @import "components/navigation/nav-tabs";
 @import "components/navigation/nav-letters";
 
-
-/*
-Forms
-
-Styleguide 4.
-*/
-
+// Forms
 @import "components/forms/cancel-link";
 @import "components/forms/filter";
 @import "components/forms/forms";
@@ -59,13 +51,7 @@ Styleguide 4.
 @import "components/forms/datetimepicker";
 @import "components/forms/listbox";
 
-
-/*
-Common
-
-Styleguide 5.
-*/
-
+// Common
 @import "components/common/alerts";
 @import "components/common/boxes";
 @import "components/common/buttons";
@@ -76,35 +62,7 @@ Styleguide 5.
 @import "components/common/tables";
 @import "components/common/thumbnails";
 
-
-/*
-JavaScript
-
-Please refer to the [Bootstrap JavaScript documentation](http://getbootstrap.com/javascript/) for details about how
-to use the JavaScript components. Synergic UI components were written to be as compatible with Bootstrap 3 components
-as possible. Namely the following sections of Bootstrap docs apply:
-
-* [Data attributes](http://getbootstrap.com/javascript/#js-data-attrs)
-* [Programmatic API](http://getbootstrap.com/javascript/#js-programmatic-api)
-* [No conflict](http://getbootstrap.com/javascript/#js-noconflict)
-* [Events](http://getbootstrap.com/javascript/#js-events)
-
-<div class="panel panel-info">
-    <div class="panel-heading"><h4 class="panel-title">QUnit Tests</h4></div>
-    <div class="panel-body">
-        Tests for all components are store in `src/js/tests/` and can be run using either of the following commands:
-        <ul>
-            <li>`$ grunt test` for testing in a headless browser Phantom JS.</li>
-            <li>`$ grunt test-remote` for testing in a real browser. **Please append** `src/js/tests/` **to the URL**
-                (typically `localhost:3000`) to view the QUnit test page. For testing on another device, replace
-                `localhost` with your local IP address.</li>
-        </ul>
-    </div>
-</div>
-
-Styleguide 6.
-*/
-
+// JavaScript
 @import "components/javascript/ckeditor-loader";
 @import "components/javascript/confirmation";
 @import "components/javascript/datetimepicker-loader";

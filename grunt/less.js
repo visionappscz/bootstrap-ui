@@ -4,7 +4,7 @@ module.exports = {
 
   dist: {
     files: {
-      '<%= paths.temp %>/css/<%= pkg.name %>.css': '<%= paths.src %>/less/dist.less',
+      '<%= paths.temp %>/css/<%= pkg.name %>.css': '<%= paths.src %>/less/synergic-ui.less',
     },
     options: {
       banner: '<%= banner %>',

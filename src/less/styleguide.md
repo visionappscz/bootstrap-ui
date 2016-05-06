@@ -67,20 +67,13 @@ load it from [CDN](http://www.bootstrapcdn.com), or better, link the packages ma
 ```
 
 ### The LESS Way
-Loading original LESS components allows you to customize your Synergic UI build. You can pick just the components you
-want and recolor the UI by overriding LESS variables. Remember that Bootstrap and other dependencies must be loaded
-manually in this case.
+Loading original LESS styles allows you to customize your Synergic UI build. You can pick just the components you want
+and recolor the UI by overriding LESS variables.
 
-Import the complete Synergic UI with all dependencies:
+Import complete Synergic UI styles:
 
 ```
-// Synergic UI and its dependencies.
-@import "bower_components/bootstrap/less/bootstrap";
-@import "bower_components/less-modules/less/sticky-footer";
-@import (inline) "bower_components/select2/select2.css";
-@import "bower_components/select2-bootstrap-css/lib/select2-bootstrap";
-@import "bower_components/eonasdan-bootstrap-datetimepicker/src/less/_bootstrap-datetimepicker";
-@import "bower_components/synergic-ui/src/less/synergic-ui"; // not `dist.less`!
+@import "bower_components/synergic-ui/src/less/synergic-ui";
 ```
 
 <h2 id="changelog" class="page-header">Changelog</h2>
