@@ -8,10 +8,7 @@
   },
   "homepage": "http://ui.synergic.cz",
   "author": "VisionApps",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/visionappscz/synergic-ui/blob/master/LICENSE"
-  },
+  "license": "MIT",
   "style": "dist/css/synergic-ui.css",
   "less": "src/less/dist.less",
   "scripts": {
