@@ -3,8 +3,8 @@
 module.exports = {
 
   styleguide: {
-    src: '<%= paths.src %>/styleguide/index.html',
-    dest: '<%= paths.temp %>/styleguide/index.html',
+    src: '<%= paths.src %>/styleguide/index.hbs',
+    dest: '<%= paths.temp %>/styleguide/index.hbs',
     replacements: [
       {
         from: '%VERSION%',

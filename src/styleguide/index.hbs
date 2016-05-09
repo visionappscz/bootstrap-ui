@@ -7,56 +7,26 @@
     <title>Synergic UI — Bootstrap 3 extension for building beautiful web apps</title>
     <meta name="description" content="Synergic UI is a Bootstrap 3 extension for building beautiful web apps user interfaces." />
     <meta name="author" content="VisionApps [www.visionapps.cz]" />
-    <meta name="generator" content="kss-node" />
+    <meta name="generator" content="kss" />
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,300,700&amp;subset=latin,latin-ext" type="text/css" />
-    <link rel="stylesheet" href="public/css/synergic-ui.css?v%VERSION%" type="text/css" />
-    <link rel="stylesheet" href="public/kss.css?v%VERSION%" type="text/css" />
+    <link rel="stylesheet" href="assets/css/synergic-ui.min.css?v%VERSION%" type="text/css" />
+    <link rel="stylesheet" href="kss-assets/css/kss.min.css?v%VERSION%" type="text/css" />
 
     <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdhJREFUeNpiZKjqY6AlYGKgMRi1gCBgIUaRg6JMvJG2gaQoEEFEHrz/9ODDpw/ff1588frB+48H7j8BimDVy4g/FQlwsK+P8QNagN8FjftONOw9To4P9qeEwl2NBxy495icIEow0kIzHRIyEDZQCug/iuLAX1MFzv7w42fgkk3AsMYaQxeevybHAmTnLzh3DavpoPDBIU44mSoI8sHZH3/8pH4+QE55+VaGBNMSVsDMYOuOO4jE4KHEwcKSYKTtoCTLCLb4x5+/VLAAGCxAQ9ECLUBLpcLeFGj3z79/brx+T5EFwBT58MMnoImYUhqiQhF66kDrgQrwW4PPAiAApr+N1+8CjUOOcEQ+52QHWqMgyA9UQ6YFQPDiy7eF564BjQBGA9AaIImZmoElEi5/ELYAbg3Qjs5DpyE2oeVwoMjKyzfJKezwZJH9yaHwcAPmc8HmadSsD4ApdeH5a8iFLm0rnA+48zmZFgCdHG+ohVRcPyGzsOv3doBUW+Ak+wrIhojnWxkhJ9yD98mqD4BZDFL+BGgp44+PCcfO0yoOQPXE0k1k5mRgIAhwcgCzK2bmghi94tItzwXr4XUc+fkAGKWQnAUsTcFh8hEYLPjrGUoz2mjTkYoAIMAAq7nM4Ilu85sAAAAASUVORK5CYII=" />
 
-    <!-- Scripts -->
-    <script src="public/kss.js?v%VERSION%"></script>
-    <script src="public/prettify.js?v%VERSION%"></script>
-    <script src="public/js/jquery.min.js?v%VERSION%"></script>
-    <script src="public/js/moment-with-locales.min.js?v%VERSION%"></script>
-    <script src="public/js/bootstrap.min.js?v%VERSION%"></script>
-    <script src="public/js/bootstrap-datetimepicker.min.js?v%VERSION%"></script>
-    <script src="public/js/select2.min.js?v%VERSION%"></script>
-    <script src="public/js/synergic-ui.js?v%VERSION%"></script>
-    <script src="public/vendor/ckeditor/ckeditor.js";></script>
-    <script src="public/vendor/ckeditor/adapters/jquery.js";></script>
-
+    <!-- Google Analytics -->
     <script>
-        $(document).ready(function(){
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-            // Highlight current section in the main menu
-            var current = $('body').data('current-section');
-            if (current > 0) {
-                $('.navbar-nav > li').eq(current - 1).addClass('active');
-            }
-
-            // Ensure code blocks are highlighted properly...
-            $('pre > code').addClass('prettyprint');
-            prettyPrint();
-
-            // Prevent dummy links from navigating
-            $('a[href="#"]').not('.dropdown-toggle').on('click', function () {
-                return false;
-            });
-
-        });
+        ga('create', 'UA-43870012-2', 'auto');
+        ga('send', 'pageview');
     </script>
 </head>
-{{#if overview}}
-    <body class="site has-navbar-fixed-top">
-{{else}}
-    {{#eachSection rootNumber}}
-        {{#ifDepth 1}}
-            <body class="site has-navbar-fixed-top" data-current-section="{{ reference }}">
-        {{/ifDepth}}
-    {{/eachSection}}
-{{/if}}
+<body class="site has-navbar-fixed-top">
 
 <header role="banner" id="top" class="site-header">
 
@@ -81,11 +51,11 @@
             <!-- Collapsible menu -->
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="nav navbar-nav">
-                    {{#eachRoot}}
-                        <li>
-                            <a href="section-{{reference}}.html" class="small text-uppercase text-letterspacing">{{header}}</a>
+                    {{#each menu}}
+                        <li{{#if isActive}} class="active"{{/if}}>
+                            <a href="section-{{referenceURI}}.html" class="small text-uppercase text-letterspacing">{{header}}</a>
                         </li>
-                    {{/eachRoot}}
+                    {{/each}}
                 </ul>
             </div>
 
@@ -96,7 +66,7 @@
 
 <main role="main" class="site-content">
 
-    {{#if overview}}
+    {{#if homepage}}
         <section class="section section-header section-primary">
             <div class="container">
                 <div class="row">
@@ -119,15 +89,21 @@
             </div><!-- .container -->
         </section>
     {{else}}
-        {{#eachSection rootNumber}}
-            {{#ifDepth 1}}
+        {{!
+            Display each section, in order.
+
+            The "root" element comes first in this loop, and can be detected using
+            the "#if @first" block as seen below.
+        }}
+        {{#each sections}}
+            {{#if @first}}
                 <section class="section section-header">
                     <div class="container">
-                        <h1 class="section-header-title">{{ reference }}. {{ header }}</h1>
+                        <h1 class="section-header-title">{{referenceNumber}}. {{header}}</h1>
                     </div>
                 </section>
-            {{/ifDepth}}
-        {{/eachSection}}
+            {{/if}}
+        {{/each}}
     {{/if}}
 
     <section class="section section-content">
@@ -135,46 +111,37 @@
             <div class="row">
                 <div class="content">
 
-                    {{#if overview}}
+                    {{#if homepage}}
                         <article class="kss__overview">
-                        {{{overview}}}
-
+                        {{{homepage}}}
                     {{else}}
                         <article>
 
                             <ul class="hidden-md hidden-lg offset-bottom kss__secondary-nav__list">
-                                {{#if overview}}
+                                {{#if homepage}}
                                 {{else}}
-                                    {{#eachSection rootNumber}}
-                                        {{#ifDepth 2}}
-                                            <li><a href="#section-{{ reference }}">{{ header }}</a></li>
+                                    {{#each sections}}
+                                        {{#if @first}}
                                         {{else}}
-                                        {{/ifDepth}}
-                                    {{/eachSection}}
-
+                                            <li><a href="#section-{{referenceURI}}">{{header}}</a></li>
+                                        {{/if}}
+                                    {{/each}}
                                 {{/if}}
                             </ul>
 
                             {{!
-                            Find each section, in order.
-                            If there's no markup or modifiers supplied, use a Markdown-only
-                            layout instead.
+                                Display each section, in order.
 
-                            The "root" element comes first in this loop, and can be detected using
-                            the "#ifDepth 1" block as seen below.
+                                The "root" element comes first in this loop, and can be detected using
+                                the "#if @first" block as seen below.
                             }}
 
-                            {{#eachSection rootNumber}}
-                                {{#ifDepth 1}}
+                            {{#each sections}}
+                                {{#if @first}}
                                 {{else}}
-
-                                    <section id="section-{{reference}}" class="kss__section kss__depth--{{ refDepth }}">
-                                    {{#ifDepth 2}}
-                                        <h2 class="page-header kss__title">{{ reference }}&thinsp;—&thinsp;{{ header }}</h2>
-                                    {{else}}
-                                        <h3 class="kss__subtitle">{{ reference }}&thinsp;—&thinsp;{{ header }}</h3>
-                                    {{/ifDepth}}
-                                {{/ifDepth}}
+                                    <section id="section-{{referenceURI}}" class="kss__section kss__depth--{{depth}}">
+                                    <h{{depth}} class="kss__title kss__title--{{depth}}">{{referenceNumber}}&thinsp;—&thinsp;{{header}}</h{{depth}}>
+                                {{/if}}
 
                                 {{#if description}}
                                     {{{description}}}
@@ -184,26 +151,26 @@
                                 {{#if markup}}
                                     <p class="kss__example-title">Example</p>
                                     <div class="kss__example">
-                                        {{modifierMarkup}}
+                                        {{{markup}}}
                                     </div>
 
-                                    {{#eachModifier}}
+                                    {{#each modifiers}}
                                         <p><strong>{{name}}</strong></p>
                                         {{{description}}}
-                                        <div class="kss__example">{{modifierMarkup}}</div>
-                                    {{/eachModifier}}
+                                        <div class="kss__example">{{{markup}}}</div>
+                                    {{/each}}
 
                                     <div class="kss__markup">
-                                        <pre class="prettyprint lang-html">{{markup}}</pre>
+                                        <pre class="prettyprint lang-html"><code data-language="html">{{markup}}</code></pre>
                                     </div>
 
                                 {{/if}}
 
-                                {{#ifDepth 1}}
+                                {{#if @first}}
                                 {{else}}
                                     </section>
-                                {{/ifDepth}}
-                            {{/eachSection}}
+                                {{/if}}
+                            {{/each}}
 
                         {{/if}}
 
@@ -214,21 +181,19 @@
 
                     <nav class="kss__secondary-nav offset-bottom-large">
                         <ul class="offset-bottom kss__secondary-nav__list">
-                            {{#if overview}}
+                            {{#if homepage}}
                                 <li><a href="#top"><strong>Synergic UI</strong></a></li>
                                 <li><a href="#why">Why</a></li>
                                 <li><a href="#install">Install</a></li>
                                 <li><a href="#usage">Usage</a></li>
                                 <li><a href="#changelog">Changelog</a></li>
                             {{else}}
-
-                            {{#eachSection rootNumber}}
-                                {{#ifDepth 2}}
-                                    <li><a href="#section-{{ reference }}">{{ header }}</a></li>
-                                {{else}}
-                                {{/ifDepth}}
-                            {{/eachSection}}
-
+                                {{#each sections}}
+                                    {{#if @first}}
+                                    {{else}}
+                                        <li><a href="#section-{{ referenceURI }}">{{ header }}</a></li>
+                                    {{/if}}
+                                {{/each}}
                             {{/if}}
                         </ul>
                         <a href="#top" class="kss__top-link">&uarr; Top</a>
@@ -244,7 +209,7 @@
 <footer role="contentinfo" class="footer site-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="content">
 
                 © <a href="https://github.com/visionappscz/synergic-ui/graphs/contributors" target="_blank">VisionApps team</a> %YEAR%,
                 code licensed under <a href="https://github.com/visionappscz/synergic-ui/blob/master/LICENSE" target="_blank">MIT</a>
@@ -254,10 +219,10 @@
                 <a href="https://github.com/visionappscz/synergic-ui" target="_blank">GitHub</a>
 
             </div>
-            <div class="col-md-3">
+            <div class="sidebar">
 
                 <a href="http://www.visionapps.cz" target="_blank" class="footer-author" title="Created by VisionApps">
-                    <img src="public/images/visionapps.svg" width="90" height="16" alt="VisionApps" />
+                    <img src="assets/images/visionapps.svg" width="90" height="16" alt="VisionApps" />
                 </a>
 
             </div>
@@ -265,16 +230,27 @@
     </div><!-- .container -->
 </footer>
 
-<!-- Google Analytics -->
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js?v%VERSION%"></script>
+<script src="assets/js/moment-with-locales.min.js?v%VERSION%"></script>
+<script src="assets/js/bootstrap.min.js?v%VERSION%"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js?v%VERSION%"></script>
+<script src="assets/js/select2.min.js?v%VERSION%"></script>
+<script src="assets/js/synergic-ui.js?v%VERSION%"></script>
+<script src="assets/vendor/ckeditor/ckeditor.js"></script>
+<script src="assets/vendor/ckeditor/adapters/jquery.js"></script>
+<script src="kss-assets/js/prettify.js?v%VERSION%"></script>
 <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    // Ensure that all code blocks use syntax highlighter.
+    $('pre:not(.prettyprint)').addClass('prettyprint');
 
-    ga('create', 'UA-43870012-2', 'auto');
-    ga('send', 'pageview');
+    // Run syntax highlighter.
+    prettyPrint();
 
+    // Prevent dummy links from navigation.
+    $('a[href="#"]').not('.dropdown-toggle').on('click', function () {
+        return false;
+    });
 </script>
 
 </body>
