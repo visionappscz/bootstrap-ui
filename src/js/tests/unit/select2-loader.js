@@ -36,9 +36,9 @@ $(function () {
   );
 
   QUnit.test(
-    'should call the ckeditor() method on the textarea on page load with no attribute',
+    'should call the select2 method on the select element on page load with no attribute',
     function () {
-      var $select = $('<select data-onload-select2="">Some text</select>');
+      var $select = $('<select data-onload-select2>Some text</select>');
 
       $('#qunit-fixture').append($select);
       sinon.spy(jQuery.fn, 'select2');
