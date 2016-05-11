@@ -33,6 +33,10 @@ Each of the `:input` elements of the form that are to be used for filtering have
 attribute. Further each one also has to possess the `data-filter-attrib` and `data-filter-operator` attributes (see the
 Filter Object section below).
 
+To save the filter conditions to the browser session storage set the attribute `data-filter-storage-id`.
+This identifies the data in the context of the given host, domain and path combination. If the filter form changes
+the filter data in session storage that are not applicable any more are silently ignored.
+
 The element that is to reset the filter on click has to have the `data-toggle="reset-filter"` attribute defined.
 
 #### JavaScript
@@ -147,7 +151,7 @@ The element that is to reset the filter on click has to have the `data-toggle="r
 
 Filters the set of elements on which it is called according to the given array of filter objects.
 
-###### $().resetFilter)
+###### $().resetFilter()
 
 Displays all filterable elements.
 
@@ -174,7 +178,7 @@ Displays all filterable elements.
             <td>Fired when the `filter` method is called.</td>
         </tr>
         <tr>
-            <td>filter.sui.filterable</td>
+            <td>filtered.sui.filterable</td>
             <td>Fired when the `filter` method is finished executing.</td>
         </tr>
     <tbody>
@@ -182,7 +186,7 @@ Displays all filterable elements.
 
 Markup:
 <div class="row">
-    <form class="form-filter offset-bottom" data-filter-target="#people tr">
+    <form class="form-filter offset-bottom" data-filter-target="#people tr" data-filter-storage-id="filterable-example">
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
