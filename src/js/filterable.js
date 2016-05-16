@@ -139,6 +139,27 @@
   var lastEventTarget;
   var lastEventValue;
 
+  $(window).load(function () {
+    $.each($('form'), function () {
+      var $this = $(this);
+      var filterData;
+
+      if ($this.data('filter-storage-id')) {
+        var storageId = window.location.pathname + '|' + $this.data('filter-storage-id');
+        if (window.sessionStorage.getItem(storageId)) {
+          filterData = JSON.parse(window.sessionStorage.getItem(storageId));
+          $.each(filterData, function () {
+            $this
+              .find('[data-filter-attrib=' + this['filter-attrib'] + ']')
+              .val(this['filter-value']);
+          });
+
+          Plugin.call($($this.data('filter-target')), filterData);
+        }
+      }
+    });
+  });
+
   $(document).on(
     'keyup.sui.filterable.data-api change.sui.filterable.data-api',
     '[data-toggle=filter]',
@@ -158,6 +179,13 @@
             });
           }
 
+          if ($filter.data('filter-storage-id')) {
+            window.sessionStorage.setItem(
+              window.location.pathname + '|' + $filter.data('filter-storage-id'),
+              JSON.stringify(filterData)
+            );
+          }
+
           Plugin.call($($filter.data('filter-target')), filterData);
         });
       }
@@ -168,9 +196,15 @@
   );
 
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
-    var $form = $(this).closest('form');
-    $form[0].reset();
-    Plugin.call($($form.data('filter-target')), 'reset');
+    var $filter = $(this).closest('form');
+    var storageId = $filter.data('filter-storage-id');
+
+    $filter[0].reset();
+    if (storageId) {
+      window.sessionStorage.removeItem(window.location.pathname + '|' + storageId);
+    }
+
+    Plugin.call($($filter.data('filter-target')), 'reset');
   });
 
 }(jQuery, window, document));

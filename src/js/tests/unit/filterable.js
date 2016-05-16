@@ -759,7 +759,7 @@ $(function () {
     function () {
       QUnit.stop();
 
-      // Two forms are defined to ensue that the second one doesnt interfere
+      // Two forms are defined to ensure that the second one doesnt interfere
       $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
         '<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
         '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
@@ -790,7 +790,7 @@ $(function () {
     function () {
       QUnit.stop();
 
-      // Two forms are defined to ensue that the second one doesnt interfere
+      // Two forms are defined to ensure that the second one doesnt interfere
       $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
       '<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
       '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
@@ -819,7 +819,7 @@ $(function () {
   QUnit.test('should reset filterables by clicking on reset element', function () {
     QUnit.stop();
 
-    // Two forms are defined to ensue that the second one doesnt interfere
+    // Two forms are defined to ensure that the second one doesnt interfere
     $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
       '<form id="form-1" data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
       '<input id="control-1" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
@@ -870,6 +870,137 @@ $(function () {
     });
 
     $('#control-1').val('').change();
+  });
+
+  QUnit.test('should store the filter values in session storage', function () {
+    var storageId = window.location.pathname + '|storageId';
+    QUnit.stop();
+
+    // Two forms are defined to ensure that the second one doesnt interfere
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+      '<form data-filter-target="div[data-tag=tag1]" data-filter-storage-id="storageId">' +
+      '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
+      'data-filter-operator="intersect" />' +
+      '</form>' +
+      '<div data-tag="tag2">Tag 2</div>' +
+      '<form data-filter-target="#qunit-fixture div[data-tag=tag2]">' +
+      '<input type="text" data-toggle="filter" data-filter-attrib="tag" ' +
+      'data-filter-operator="intersect" />' +
+      '</form>');
+
+    $(document).on('filtered.sui.filterable', function () {
+      QUnit.equal(window.sessionStorage.getItem(storageId), JSON.stringify([
+        {
+          'filter-attrib': 'tag',
+          'filter-operator': 'intersect',
+          'filter-value': 'tag2',
+        },
+      ]));
+    });
+
+    $('#control').val('tag2').change();
+
+    setTimeout(function () {
+      window.sessionStorage.removeItem(storageId);
+      $(document).off('filtered.sui.filterable');
+      QUnit.start();
+    }, 100);
+
+  });
+
+  QUnit.test('should not store the filter values in session storage', function () {
+    var storageId = window.location.pathname + '|storageId';
+    QUnit.stop();
+
+    window.sessionStorage.removeItem(storageId);
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+      '<form data-filter-target="#qunit-fixture div[data-tag=tag1]">' +
+      '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
+      'data-filter-operator="intersect" />' +
+      '</form>');
+
+    $(document).on('filtered.sui.filterable', function () {
+      QUnit.equal(window.sessionStorage.getItem(storageId), null);
+    });
+
+    $('#control').val('tag2').change();
+
+    setTimeout(function () {
+      $(document).off('filtered.sui.filterable');
+      QUnit.start();
+    }, 100);
+
+  });
+
+  QUnit.test('should restore the filter values from session storage', function () {
+    var storageId = window.location.pathname + '|storageId';
+
+    QUnit.stop();
+    window.sessionStorage.setItem(storageId, JSON.stringify([
+      {
+        'filter-attrib': 'tag',
+        'filter-operator': 'intersect',
+        'filter-value': 'tag2',
+      },
+    ]));
+
+    // Two forms are defined to ensure that the second one doesnt interfere
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+      '<form data-filter-target="div[data-tag=tag1]" data-filter-storage-id="storageId">' +
+      '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
+      'data-filter-operator="intersect" />' +
+      '</form>' +
+      '<div data-tag="tag2">Tag 2</div>' +
+      '<form data-filter-target="#qunit-fixture div[data-tag=tag2]">' +
+      '<input type="text" data-toggle="filter" data-filter-attrib="tag" ' +
+      'data-filter-operator="intersect" />' +
+      '</form>');
+
+    $(document).on('filtered.sui.filterable', function () {
+      QUnit.ok(!$('#qunit-fixture div[data-tag="tag1"]').is(':visible'));
+      QUnit.ok($('#qunit-fixture div[data-tag="tag2"]').is(':visible'));
+      QUnit.equal('tag2', $('#control').val());
+    });
+
+    $(window).trigger('load');
+
+    setTimeout(function () {
+      window.sessionStorage.removeItem(storageId);
+      $(document).off('filtered.sui.filterable');
+      QUnit.start();
+    }, 100);
+
+  });
+
+  QUnit.test('should clear values from session storage on pressing the reset button', function () {
+    var storageId = window.location.pathname + '|storageId';
+
+    QUnit.stop();
+    window.sessionStorage.setItem(storageId, JSON.stringify([
+      {
+        'filter-attrib': 'tag',
+        'filter-operator': 'intersect',
+        'filter-value': 'tag2',
+      },
+    ]));
+
+    $('#qunit-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+      '<form data-filter-target="div[data-tag=tag1]" data-filter-storage-id="storageId">' +
+      '<button type="reset" data-toggle="filter-reset">Reset</button>' +
+      '<input type="text" data-toggle="filter" data-filter-attrib="tag" ' +
+      'data-filter-operator="intersect" />' +
+      '</form>');
+
+    $(document).on('resetEnd.sui.filterable', function () {
+      QUnit.equal(window.sessionStorage.getItem(storageId), null);
+    });
+
+    $('button[type=reset]').click();
+
+    setTimeout(function () {
+      $(document).off('resetEnd.sui.filterable');
+      QUnit.start();
+    }, 100);
   });
 
 });
