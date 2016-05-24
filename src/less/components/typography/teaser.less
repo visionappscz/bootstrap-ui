@@ -89,8 +89,12 @@ Styleguide 1.4.1
     clear: both;
     text-decoration: none;
 
+    &-title {
+        margin-top: 0;
+    }
+
     &-submitted {
-        margin-bottom: @line-height-computed / 2;
+        margin-bottom: floor((@line-height-computed / 2));
         font-size: @font-size-small;
         color: @gray-light;
     }

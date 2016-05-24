@@ -34,18 +34,10 @@ html {
 
 // Adjust heading margins
 h1,
-.h1 {
-    margin-bottom: .75em;
-}
-
 h2,
+.h1,
 .h2 {
-    margin-top: 0;
-    margin-bottom: .75em;
-
-    &:not(:first-of-type) {
-        margin-top: 2em;
-    }
+    margin-bottom: @line-height-computed;
 }
 
 // Responsive typography for headings
