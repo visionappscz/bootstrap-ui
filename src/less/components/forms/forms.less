@@ -1,7 +1,7 @@
 /*
 Forms
 
-Styleguide 4.4
+Styleguide 4.3
 */
 
 
@@ -14,7 +14,7 @@ Markup:
 <label for="name" class="required">Name</label>
 <input type="text" class="form-control" id="name" name="name" required />
 
-Styleguide 4.4.1
+Styleguide 4.3.1
 */
 
 label.required:after {
@@ -30,4 +30,28 @@ input[type="file"] {
     &.form-control {
         margin: 0;
     }
+}
+
+
+/*
+Form Actions
+
+Static form action designed for cancel link to return from edit form back to listing.
+
+Markup:
+<button type="submit" class="btn btn-primary btn-raised">Save and publish</button>
+<div class="form-action-static">
+    or
+    <a href="#">Cancel</a>
+</div>
+
+Styleguide 4.3.2
+*/
+
+.form-action-static {
+    position: relative;
+    top: 2px; // compensate button border
+    display: inline-block;
+    margin-left: @padding-large-horizontal;
+    margin-bottom: @line-height-computed;
 }
