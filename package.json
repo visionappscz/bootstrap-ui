@@ -10,7 +10,7 @@
   "author": "VisionApps",
   "license": "MIT",
   "style": "dist/css/synergic-ui.css",
-  "less": "src/less/dist.less",
+  "less": "src/less/synergic-ui.less",
   "scripts": {
     "test": "grunt test"
   },
