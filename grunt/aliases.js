@@ -30,7 +30,7 @@ module.exports = {
   // =====
 
   'build-css': [
-    'less',
+    'less:core',
     'postcss:core',
     'postcss:core-min',
   ],
@@ -42,10 +42,10 @@ module.exports = {
 
   'build-styleguide': [
     'replace:styleguide',
-    'copy:styleguideSrc',
-    'styleguide',
+    'less:styleguide',
     'postcss:styleguide',
     'copy:styleguide',
+    'kss',
   ],
 
   // Build CSS, JS and style guide.

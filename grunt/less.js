@@ -2,10 +2,7 @@
 
 module.exports = {
 
-  dist: {
-    files: {
-      '<%= paths.temp %>/css/<%= pkg.name %>.css': '<%= paths.src %>/less/synergic-ui.less',
-    },
+  core: {
     options: {
       banner: '<%= banner %>',
       strictUnits: true,
@@ -13,6 +10,15 @@ module.exports = {
       sourceMapFilename: '<%= paths.temp %>/css/<%= pkg.name %>.css.map',
       sourceMapURL: '<%= pkg.name %>.css.map',
       sourceMapRootpath: '../../../',
+    },
+    files: {
+      '<%= paths.temp %>/css/<%= pkg.name %>.css': '<%= paths.src %>/less/synergic-ui.less',
+    },
+  },
+  styleguide: {
+    files: {
+      '<%= paths.temp %>/styleguide/kss.css':
+        '<%= paths.src %>/styleguide/kss-assets/less/kss.less',
     },
   },
 

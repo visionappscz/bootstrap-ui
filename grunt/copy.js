@@ -22,16 +22,6 @@ module.exports = {
       },
     ],
   },
-  styleguideSrc: {
-    files: [
-      {
-        expand: true,
-        cwd: '<%= paths.src %>/styleguide/public/',
-        src: ['**/*'],
-        dest: '<%= paths.temp %>/styleguide/public/',
-      },
-    ],
-  },
   styleguide: {
     files: [
       {
@@ -43,31 +33,37 @@ module.exports = {
           '<%= paths.bower %>/moment/min/moment-with-locales.min.js',
           '<%= paths.bower %>/select2/select2.min.js',
         ],
-        dest: '<%= paths.styleguide %>/public/js/',
+        dest: '<%= paths.styleguide %>/assets/js/',
       },
       {
         expand: true,
         cwd: '<%= paths.bower %>/bootstrap/dist/',
         src: ['fonts/*', 'js/*'],
-        dest: '<%= paths.styleguide %>/public/',
+        dest: '<%= paths.styleguide %>/assets/',
       },
       {
         expand: true,
         cwd: '<%= paths.temp %>/',
         src: ['css/*', 'js/*'],
-        dest: '<%= paths.styleguide %>/public/',
+        dest: '<%= paths.styleguide %>/assets/',
       },
       {
         expand: true,
         cwd: '<%= paths.src %>/images/',
         src: ['*'],
-        dest: '<%= paths.styleguide %>/public/images/',
+        dest: '<%= paths.styleguide %>/assets/images/',
+      },
+      {
+        expand: true,
+        cwd: '<%= paths.src %>/styleguide/kss-assets/js/',
+        src: ['*'],
+        dest: '<%= paths.styleguide %>/kss-assets/js/',
       },
       {
         expand: true,
         cwd: '<%= paths.bower %>/',
         src: ['ckeditor/**/*'],
-        dest: '<%= paths.styleguide %>/public/vendor/',
+        dest: '<%= paths.styleguide %>/assets/vendor/',
       },
     ],
   },

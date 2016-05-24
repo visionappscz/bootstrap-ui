@@ -13,7 +13,11 @@ module.exports = {
   'core-min': {
     options: {
       processors: [
-        require('cssnano')(),
+        require('cssnano')({
+          autoprefixer: false,
+          mergeRules: false,
+          zindex: false,
+        }),
       ],
     },
     src: '<%= paths.temp %>/css/<%= pkg.name %>.css',
@@ -23,9 +27,15 @@ module.exports = {
     options: {
       processors: [
         require('autoprefixer')(),
+        require('cssnano')({
+          autoprefixer: false,
+          mergeRules: false,
+          zindex: false,
+        }),
       ],
     },
-    src: '<%= paths.styleguide %>/public/kss.css',
+    src: '<%= paths.temp %>/styleguide/kss.css',
+    dest: '<%= paths.styleguide %>/kss-assets/css/kss.min.css',
   },
 
 };
