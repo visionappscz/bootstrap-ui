@@ -66,11 +66,12 @@ load it from [CDN](http://www.bootstrapcdn.com), or better, link the packages ma
 <script src="bower_components/synergic-ui/dist/js/synergic-ui.min.js"></script>
 ```
 
-### The LESS Way
-Loading original LESS styles allows you to customize your Synergic UI build. You can pick just the components you want
-and recolor the UI by overriding LESS variables.
+<h2 id="customizing" class="page-header">Customizing</h2>
 
-Import complete Synergic UI styles:
+Loading original LESS styles allows you to customize your Synergic UI build. You can pick just the components you want
+and recolor the UI by overriding LESS variables (see `src/less/config/variables.less`).
+
+Import complete Synergic UI styles to customize via LESS variables:
 
 ```
 @import "bower_components/synergic-ui/src/less/synergic-ui";
