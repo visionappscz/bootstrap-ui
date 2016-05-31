@@ -25,9 +25,9 @@ Why you need Synergic UI on top of Bootstrap:
   apps. Showcase coming soon!
 - **Synergic UI** benefits from extending the original Bootstrap codebase at the LESS level. This is why you can easily
   adjust almost anything using just LESS variables.
-- **Synergic UI** is designed as an extension, not a modification, neither an override of Bootstrap. However, we made some
-  design decisions for you and adjusted couple of things to make the UI look beautiful and nicer than default, easily
-  recognizable &rdquo;Bootstrap style&ldquo;.
+- **Synergic UI** is designed as an extension, not a modification, neither an override of Bootstrap. However, we made
+  some design decisions for you and adjusted couple of things to make the UI look beautiful and nicer than default,
+  easily recognizable &rdquo;Bootstrap style&ldquo;.
 - Of course, everything is mobile first and fully responsive.
 
 <h2 id="install" class="page-header">Install</h2>
@@ -44,9 +44,10 @@ You can also download all releases from [GitHub](https://github.com/visionappscz
 <h2 id="usage" class="page-header">Usage</h2>
 
 ### CSS
-You will find everything you need in the `/dist` directory to start using Synergic UI right away.
+You will find everything you need in the `dist/css` directory to start using Synergic UI styles right away
+(the styles link Bootstrap’s Glyphicons from `dist/fonts`).
 
-Link Titillium Web font and complete Synergic UI CSS:
+Link Titillium Web font from [Google Fonts](https://www.google.com/fonts/) and Synergic UI CSS in your HTML:
 
 ```
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,300,700&amp;subset=latin,latin-ext" />
@@ -54,15 +55,20 @@ Link Titillium Web font and complete Synergic UI CSS:
 ```
 
 ### JavaScript
-Bootstrap JavaScript is **not** included in the distribution package (and neither are the other dependencies). You can
-load it from [CDN](http://www.bootstrapcdn.com), or better, link the packages managed by Bower.
+You will find Synergic UI JavaScript in the `dist/js` directory.
+
+Please note that jQuery and Bootstrap JavaScript **is not bundled** in Synergic UI distribution package, and neither are
+other dependencies of Synergic UI. You can load them from [CDN](http://www.bootstrapcdn.com) if this option is
+available, or better, link the packages managed by Bower:
 
 ```
+<!-- External JS dependencies -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <script src="bower_components/select2/select2.min.js"></script>
+<!-- Synergic UI JS -->
 <script src="bower_components/synergic-ui/dist/js/synergic-ui.min.js"></script>
 ```
 
@@ -71,7 +77,7 @@ load it from [CDN](http://www.bootstrapcdn.com), or better, link the packages ma
 Loading original LESS styles allows you to customize your Synergic UI build. You can pick just the components you want
 and recolor the UI by overriding LESS variables (see `src/less/config/variables.less`).
 
-Import complete Synergic UI styles to customize via LESS variables:
+In your LESS styles, import complete Synergic UI styles to customize via LESS variables:
 
 ```
 @import "bower_components/synergic-ui/src/less/synergic-ui";
