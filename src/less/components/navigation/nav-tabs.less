@@ -34,7 +34,7 @@ Styleguide 3.7.1
 /*
 Header Tabs
 
-Tabs modified for use in header section.
+Tabs extended for use within header section.
 
 Markup:
 <ul role="tablist" class="nav nav-tabs nav-tabs-header">
@@ -47,8 +47,7 @@ Styleguide 3.7.2
 
 .nav-tabs-header {
     float: right;
-    margin-top: 2 * @line-height-computed;
-    margin-bottom: -1px; // collapse border
+    margin-top: @line-height-computed;
 
     > li > a {
         color: @text-color;
@@ -59,10 +58,24 @@ Styleguide 3.7.2
         }
     }
 
-    @media screen and (min-width: @screen-sm-min) {
-        position: absolute;
-        right: @grid-gutter-width / 2;
-        bottom: 0;
+    .section-header > .container &,
+    .section-header > .container-fluid & {
+        margin-bottom: -1.5 * @line-height-computed - 1;
+
+    }
+
+    @media (min-width: @screen-sm-min) {
+        margin-top: 0;
+
+        .section-header > .container &,
+        .section-header > .container-fluid & {
+            margin-bottom: -3 * @line-height-computed - 1;
+        }
+
+        .section-header-condensed > .container &,
+        .section-header-condensed > .container-fluid & {
+            margin-bottom: -1.5 * @line-height-computed - 1;
+        }
     }
 }
 
@@ -70,7 +83,7 @@ Styleguide 3.7.2
 /*
 Justified Tabs
 
-Tabs that are justified on smallest screens.
+Tabs that are justified also on smallest screens.
 
 Markup:
 <ul role="tablist" class="nav nav-tabs nav-justified nav-tabs-justified-xs">
