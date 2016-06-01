@@ -32,14 +32,14 @@
     "/.*",
     "/src/js/tests",
     "/src/styleguide",
-    "/src/less/styleguide.md"
+    "/src/less/homepage.md"
   ],
   "dependencies": {
     "bootstrap": "~3.3.6",
     "eonasdan-bootstrap-datetimepicker": "~4.14.30",
-    "select2": "~3.5.2",
+    "select2": "~3.5.4",
     "select2-bootstrap-css": "~1.4.1",
-    "ckeditor": "~4.5.1"
+    "ckeditor": "~4.5.9"
   },
   "devDependencies": {
     "qunit": "~1.15.0",
