@@ -10,7 +10,7 @@ features and components that are common in web app UIs, yet too specific to be i
 [jQuery](http://jquery.com)
 - [Bower](http://bower.io)
 - [Grunt](http://gruntjs.com)
-- [Style guide generator](https://github.com/indieisaconcept/grunt-styleguide) using
+- [Style guide generator](https://github.com/kss-node/grunt-kss) using
 [KSS syntax](http://warpspire.com/kss/syntax/)
 
 <h2 id="why" class="page-header">Why</h2>
