@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v0.11.2 (28 April 2016)
+ * v1.0.0 (1 June 2016)
  */
 ;(function ($, window) {
   'use strict';
@@ -46,7 +46,11 @@
 
   var Confirmation = function ($triggerEl, options) {
     options = $.extend({}, this.options, options);
-    this.modal = this.getModal(options['confirm-message'], options['confirm-yes'], options['confirm-no']);
+    this.modal = this.getModal(
+        options['confirm-message'],
+        options['confirm-yes'],
+        options['confirm-no']
+    );
     this.$triggerEl = $triggerEl;
     this.callback = options.callback;
   };
@@ -55,7 +59,8 @@
     'confirm-message': 'Are you sure?',
     'confirm-yes': 'Yes',
     'confirm-no': 'No',
-    callback: function () {}, // Having empty callback is useless, it is here as a sane fallback for tests
+    callback: function () {}, // Having empty callback is useless, it is here as a sane fallback for
+    // tests
   };
 
   Confirmation.prototype.showConfirmation = function () {
@@ -80,7 +85,8 @@
         $(this).remove();
       });
 
-      // The fade class is removed before hiding the modal to prevent the backdrop from staying behond
+      // The fade class is removed before hiding the modal to prevent the backdrop from staying
+      // behond
       // Thats why there is no animation :(
       // http://stackoverflow.com/questions/22056147/bootstrap-modal-backdrop-remaining
       $modal.removeClass('fade').modal('hide');
@@ -114,9 +120,9 @@
       '<div class="modal-content">' +
       '<div class="modal-body">' + message + '</div>' +
       '<div class="modal-footer">' +
-      '<button type="button" class="btn btn-default" data-confirmation="reject">' + no + '</button>' +
-      '<button type="button" class="btn btn-primary" data-confirmation="confirm">' + yes + '</button>' +
-      '</div></div></div></div>');
+      '<button type="button" class="btn btn-default" data-confirmation="reject">' + no +
+      '</button>' + '<button type="button" class="btn btn-primary" data-confirmation="confirm">' +
+      yes + '</button></div></div></div></div>');
   };
 
   // CONFIRMATION PLUGIN DEFINITION
@@ -151,24 +157,26 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]', function (e, noConfirm) {
-    var $this = $(this);
+  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]',
+    function (e, noConfirm) {
+      var $this = $(this);
 
-    if (!noConfirm) {
-      e.preventDefault();
+      if (!noConfirm) {
+        e.preventDefault();
 
-      Plugin.call($this, {
-        'confirm-message': $this.data('confirm-message'),
-        'confirm-yes': $this.data('confirm-yes'),
-        'confirm-no': $this.data('confirm-no'),
-        callback: function (result) {
-          if (result) {
-            $this.trigger('click.sui.confirmation.data-api', true);
-          }
-        },
-      });
+        Plugin.call($this, {
+          'confirm-message': $this.data('confirm-message'),
+          'confirm-yes': $this.data('confirm-yes'),
+          'confirm-no': $this.data('confirm-no'),
+          callback: function (result) {
+            if (result) {
+              $this.trigger('click.sui.confirmation.data-api', true);
+            }
+          },
+        });
+      }
     }
-  });
+  );
 
 }(jQuery, window, document));
 
@@ -191,7 +199,9 @@
       };
 
       $('[data-onload-datetimepicker]').each(function () {
-        initComponentFn.call(this, { allowInputToggle: true, sideBySide: true }, $(this).data('onload-datetimepicker'));
+        initComponentFn.call(this, { allowInputToggle: true, sideBySide: true }, $(this).data(
+            'onload-datetimepicker'
+        ));
       });
     });
   }($, window));
@@ -325,7 +335,8 @@
             dataValLength = dataVal.length;
             for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
-                if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter].toLowerCase()) !== -1) {
+                if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter]
+                        .toLowerCase()) !== -1) {
                   hideEl = false;
                   break;
                 }
@@ -410,33 +421,72 @@
   var lastEventTarget;
   var lastEventValue;
 
-  $(document).on('keyup.sui.filterable.data-api change.sui.filterable.data-api', '[data-toggle=filter]', function (e) {
-    var $filter = $(this).closest('form');
-    var filterData = [];
+  $(window).load(function () {
+    $.each($('form'), function () {
+      var $this = $(this);
+      var filterData;
 
-    if (lastEventTarget !== e.target || lastEventTarget === e.target && lastEventValue !== e.target.value) {
-      $filter.find(':input').each(function () {
-        var $this = $(this);
-        if ($this.val() !== '' && $this.val() !== null) {
-          filterData.push({
-            'filter-attrib': $this.data('filter-attrib'),
-            'filter-operator': $this.data('filter-operator'),
-            'filter-value': $this.val(),
+      if ($this.data('filter-storage-id')) {
+        var storageId = window.location.pathname + '|' + $this.data('filter-storage-id');
+        if (window.sessionStorage.getItem(storageId)) {
+          filterData = JSON.parse(window.sessionStorage.getItem(storageId));
+          $.each(filterData, function () {
+            $this
+              .find('[data-filter-attrib=' + this['filter-attrib'] + ']')
+              .val(this['filter-value']);
           });
+
+          Plugin.call($($this.data('filter-target')), filterData);
         }
-
-        Plugin.call($($filter.data('filter-target')), filterData);
-      });
-    }
-
-    lastEventTarget = e.target;
-    lastEventValue = e.target.value;
+      }
+    });
   });
 
+  $(document).on(
+    'keyup.sui.filterable.data-api change.sui.filterable.data-api',
+    '[data-toggle=filter]',
+    function (e) {
+      var $filter = $(this).closest('form');
+      var filterData = [];
+
+      if (lastEventTarget !== e.target || lastEventTarget === e.target &&
+        lastEventValue !== e.target.value) {
+        $filter.find(':input').each(function () {
+          var $this = $(this);
+          if ($this.val() !== '' && $this.val() !== null) {
+            filterData.push({
+              'filter-attrib': $this.data('filter-attrib'),
+              'filter-operator': $this.data('filter-operator'),
+              'filter-value': $this.val(),
+            });
+          }
+
+          if ($filter.data('filter-storage-id')) {
+            window.sessionStorage.setItem(
+              window.location.pathname + '|' + $filter.data('filter-storage-id'),
+              JSON.stringify(filterData)
+            );
+          }
+
+          Plugin.call($($filter.data('filter-target')), filterData);
+        });
+      }
+
+      lastEventTarget = e.target;
+      lastEventValue = e.target.value;
+    }
+  );
+
   $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
-    var $form = $(this).closest('form');
-    $form[0].reset();
-    Plugin.call($($form.data('filter-target')), 'reset');
+    var $filter = $(this).closest('form');
+    var storageId = $filter.data('filter-storage-id');
+
+    $filter[0].reset();
+    if (storageId) {
+      window.sessionStorage.removeItem(window.location.pathname + '|' + storageId);
+    }
+
+    Plugin.call($($filter.data('filter-target')), 'reset');
   });
 
 }(jQuery, window, document));
@@ -593,7 +643,8 @@
       .toArray()
       .sort(this.comparer($sortedTh.index(), sortDir));
 
-    isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index()).data('sort-group') !== 'undefined';
+    isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index())
+            .data('sort-group') !== 'undefined';
     tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
 
     rowsLength = rows.length;
@@ -665,7 +716,8 @@
       var data = $this.data('sui.sortableTable');
 
       if (!data) {
-        $navigation = options && 'navigation' in options && options.navigation ? $(options.navigation) : false;
+        $navigation = options && 'navigation' in options && options.navigation ?
+            $(options.navigation) : false;
         data = new SortableTable($this, $navigation);
         $this.data('sui.sortableTable', data);
       }

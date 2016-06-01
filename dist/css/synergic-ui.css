@@ -7,10 +7,10 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v0.11.2 (28 April 2016)
+ * v1.0.0 (1 June 2016)
  */
 /*!
- * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
@@ -282,10 +282,10 @@ th {
   -moz-osx-font-smoothing: grayscale;
 }
 .glyphicon-asterisk:before {
-  content: "\2a";
+  content: "\002a";
 }
 .glyphicon-plus:before {
-  content: "\2b";
+  content: "\002b";
 }
 .glyphicon-euro:before,
 .glyphicon-eur:before {
@@ -1298,16 +1298,14 @@ h6,
 p {
   margin: 0 0 12px;
 }
-.lead,
-.perex {
+.lead {
   margin-bottom: 24px;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
-  .lead,
-  .perex {
+  .lead {
     font-size: 24px;
   }
 }
@@ -2585,6 +2583,10 @@ output {
 .form-control::-webkit-input-placeholder {
   color: #999;
 }
+.form-control::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
@@ -2985,7 +2987,7 @@ select[multiple].input-lg {
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
-    padding-top: 14.333333px;
+    padding-top: 11px;
     font-size: 20px;
   }
 }
@@ -3108,9 +3110,6 @@ fieldset[disabled] a.item-action {
 .open > .dropdown-toggle.btn-default {
   background-image: none;
 }
-.btn-default.disabled,
-.btn-default[disabled],
-fieldset[disabled] .btn-default,
 .btn-default.disabled:hover,
 .btn-default[disabled]:hover,
 fieldset[disabled] .btn-default:hover,
@@ -3119,13 +3118,7 @@ fieldset[disabled] .btn-default:hover,
 fieldset[disabled] .btn-default:focus,
 .btn-default.disabled.focus,
 .btn-default[disabled].focus,
-fieldset[disabled] .btn-default.focus,
-.btn-default.disabled:active,
-.btn-default[disabled]:active,
-fieldset[disabled] .btn-default:active,
-.btn-default.disabled.active,
-.btn-default[disabled].active,
-fieldset[disabled] .btn-default.active {
+fieldset[disabled] .btn-default.focus {
   background-color: #fff;
   border-color: #ccc;
 }
@@ -3174,9 +3167,6 @@ fieldset[disabled] .btn-default.active {
 .open > .dropdown-toggle.btn-primary {
   background-image: none;
 }
-.btn-primary.disabled,
-.btn-primary[disabled],
-fieldset[disabled] .btn-primary,
 .btn-primary.disabled:hover,
 .btn-primary[disabled]:hover,
 fieldset[disabled] .btn-primary:hover,
@@ -3185,13 +3175,7 @@ fieldset[disabled] .btn-primary:hover,
 fieldset[disabled] .btn-primary:focus,
 .btn-primary.disabled.focus,
 .btn-primary[disabled].focus,
-fieldset[disabled] .btn-primary.focus,
-.btn-primary.disabled:active,
-.btn-primary[disabled]:active,
-fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
+fieldset[disabled] .btn-primary.focus {
   background-color: #00778b;
   border-color: #006172;
 }
@@ -3240,9 +3224,6 @@ fieldset[disabled] .btn-primary.active {
 .open > .dropdown-toggle.btn-success {
   background-image: none;
 }
-.btn-success.disabled,
-.btn-success[disabled],
-fieldset[disabled] .btn-success,
 .btn-success.disabled:hover,
 .btn-success[disabled]:hover,
 fieldset[disabled] .btn-success:hover,
@@ -3251,13 +3232,7 @@ fieldset[disabled] .btn-success:hover,
 fieldset[disabled] .btn-success:focus,
 .btn-success.disabled.focus,
 .btn-success[disabled].focus,
-fieldset[disabled] .btn-success.focus,
-.btn-success.disabled:active,
-.btn-success[disabled]:active,
-fieldset[disabled] .btn-success:active,
-.btn-success.disabled.active,
-.btn-success[disabled].active,
-fieldset[disabled] .btn-success.active {
+fieldset[disabled] .btn-success.focus {
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
@@ -3306,9 +3281,6 @@ fieldset[disabled] .btn-success.active {
 .open > .dropdown-toggle.btn-info {
   background-image: none;
 }
-.btn-info.disabled,
-.btn-info[disabled],
-fieldset[disabled] .btn-info,
 .btn-info.disabled:hover,
 .btn-info[disabled]:hover,
 fieldset[disabled] .btn-info:hover,
@@ -3317,13 +3289,7 @@ fieldset[disabled] .btn-info:hover,
 fieldset[disabled] .btn-info:focus,
 .btn-info.disabled.focus,
 .btn-info[disabled].focus,
-fieldset[disabled] .btn-info.focus,
-.btn-info.disabled:active,
-.btn-info[disabled]:active,
-fieldset[disabled] .btn-info:active,
-.btn-info.disabled.active,
-.btn-info[disabled].active,
-fieldset[disabled] .btn-info.active {
+fieldset[disabled] .btn-info.focus {
   background-color: #5bc0de;
   border-color: #46b8da;
 }
@@ -3372,9 +3338,6 @@ fieldset[disabled] .btn-info.active {
 .open > .dropdown-toggle.btn-warning {
   background-image: none;
 }
-.btn-warning.disabled,
-.btn-warning[disabled],
-fieldset[disabled] .btn-warning,
 .btn-warning.disabled:hover,
 .btn-warning[disabled]:hover,
 fieldset[disabled] .btn-warning:hover,
@@ -3383,13 +3346,7 @@ fieldset[disabled] .btn-warning:hover,
 fieldset[disabled] .btn-warning:focus,
 .btn-warning.disabled.focus,
 .btn-warning[disabled].focus,
-fieldset[disabled] .btn-warning.focus,
-.btn-warning.disabled:active,
-.btn-warning[disabled]:active,
-fieldset[disabled] .btn-warning:active,
-.btn-warning.disabled.active,
-.btn-warning[disabled].active,
-fieldset[disabled] .btn-warning.active {
+fieldset[disabled] .btn-warning.focus {
   background-color: #f0ad4e;
   border-color: #eea236;
 }
@@ -3438,9 +3395,6 @@ fieldset[disabled] .btn-warning.active {
 .open > .dropdown-toggle.btn-danger {
   background-image: none;
 }
-.btn-danger.disabled,
-.btn-danger[disabled],
-fieldset[disabled] .btn-danger,
 .btn-danger.disabled:hover,
 .btn-danger[disabled]:hover,
 fieldset[disabled] .btn-danger:hover,
@@ -3449,13 +3403,7 @@ fieldset[disabled] .btn-danger:hover,
 fieldset[disabled] .btn-danger:focus,
 .btn-danger.disabled.focus,
 .btn-danger[disabled].focus,
-fieldset[disabled] .btn-danger.focus,
-.btn-danger.disabled:active,
-.btn-danger[disabled]:active,
-fieldset[disabled] .btn-danger:active,
-.btn-danger.disabled.active,
-.btn-danger[disabled].active,
-fieldset[disabled] .btn-danger.active {
+fieldset[disabled] .btn-danger.focus {
   background-color: #d9534f;
   border-color: #d43f3a;
 }
@@ -3857,14 +3805,16 @@ tbody.collapse.in {
 .btn-group-vertical > .btn:first-child:not(:last-child),
 .btn-group-vertical > .item-action:first-child:not(:last-child) {
   border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 .btn-group-vertical > .btn:last-child:not(:first-child),
 .btn-group-vertical > .item-action:last-child:not(:first-child) {
-  border-bottom-left-radius: 2px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn,
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .item-action {
@@ -3929,6 +3879,9 @@ tbody.collapse.in {
   float: left;
   width: 100%;
   margin-bottom: 0;
+}
+.input-group .form-control:focus {
+  z-index: 3;
 }
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
@@ -4873,7 +4826,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  z-index: 3;
+  z-index: 2;
   color: #004b58;
   background-color: #eeeeee;
   border-color: #ddd;
@@ -4884,7 +4837,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  z-index: 2;
+  z-index: 3;
   color: #fff;
   background-color: #00778b;
   border-color: #00778b;
@@ -5109,6 +5062,8 @@ a.badge:focus {
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .jumbotron .container {
   max-width: 100%;
@@ -6041,7 +5996,6 @@ button.close {
 .modal-header {
   padding: 15px;
   border-bottom: 1px solid #e5e5e5;
-  min-height: 16.5px;
 }
 .modal-header .close {
   margin-top: -2px;
@@ -6430,6 +6384,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0);
 }
 .carousel-control.left {
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
@@ -6538,16 +6493,16 @@ button.close {
   .carousel-control .icon-next {
     width: 30px;
     height: 30px;
-    margin-top: -15px;
+    margin-top: -10px;
     font-size: 30px;
   }
   .carousel-control .glyphicon-chevron-left,
   .carousel-control .icon-prev {
-    margin-left: -15px;
+    margin-left: -10px;
   }
   .carousel-control .glyphicon-chevron-right,
   .carousel-control .icon-next {
-    margin-right: -15px;
+    margin-right: -10px;
   }
   .carousel-caption {
     left: 20%;
@@ -6586,10 +6541,10 @@ button.close {
 .pager:after,
 .panel-body:before,
 .panel-body:after,
+.modal-header:before,
+.modal-header:after,
 .modal-footer:before,
 .modal-footer:after,
-.panel-menu-bar:before,
-.panel-menu-bar:after,
 .sortable-table-nav ul:before,
 .sortable-table-nav ul:after {
   content: " ";
@@ -6609,8 +6564,8 @@ button.close {
 .navbar-collapse:after,
 .pager:after,
 .panel-body:after,
+.modal-header:after,
 .modal-footer:after,
-.panel-menu-bar:after,
 .sortable-table-nav ul:after {
   clear: both;
 }
@@ -6858,15 +6813,12 @@ button.close {
   }
 }
 /*
-Version: 3.5.2 Timestamp: Sat Nov  1 14:43:36 EDT 2014
+Version: 3.5.4 Timestamp: Sun Aug 30 13:30:32 EDT 2015
 */
 .select2-container {
     margin: 0;
     position: relative;
     display: inline-block;
-    /* inline-block for ie7 */
-    zoom: 1;
-    *display: inline;
     vertical-align: middle;
 }
 
@@ -7035,10 +6987,6 @@ html[dir="rtl"] .select2-container .select2-choice > .select2-chosen {
     width: auto;
 }
 
-.select2-drop-auto-width .select2-search {
-    padding-top: 4px;
-}
-
 .select2-container .select2-choice .select2-arrow {
     display: inline-block;
     width: 18px;
@@ -7086,8 +7034,7 @@ html[dir="rtl"] .select2-container .select2-choice .select2-arrow b {
     width: 100%;
     min-height: 26px;
     margin: 0;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding: 4px 4px 0 4px;
 
     position: relative;
     z-index: 10000;
@@ -7125,10 +7072,6 @@ html[dir="rtl"] .select2-search input {
     background: url('select2.png') no-repeat -37px -22px, -webkit-linear-gradient(center bottom, #fff 85%, #eee 99%);
     background: url('select2.png') no-repeat -37px -22px, -webkit-linear-gradient(top, #fff 85%, #eee 99%) 0 0;
     background: url('select2.png') no-repeat -37px -22px, linear-gradient(to bottom, #fff 85%, #eee 99%) 0 0;
-}
-
-.select2-drop.select2-drop-above .select2-search input {
-    margin-top: 4px;
 }
 
 .select2-search input.select2-active {
@@ -8365,11 +8308,6 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
   cursor: pointer;
 }
 /*
-Typography
-
-Styleguide 1.
-*/
-/*
 Headings and Paragraphs
 
 There are some slight modifications of headings compared with default Bootstrap styling, mainly responsive font size,
@@ -8400,17 +8338,10 @@ html {
   height: 100%;
 }
 h1,
-.h1 {
-  margin-bottom: .75em;
-}
 h2,
+.h1,
 .h2 {
-  margin-top: 0;
-  margin-bottom: .75em;
-}
-h2:not(:first-of-type),
-.h2:not(:first-of-type) {
-  margin-top: 2em;
+  margin-bottom: 24px;
 }
 @media (max-width: 767px) {
   h1,
@@ -8451,20 +8382,14 @@ a {
   transition: all 150ms linear;
 }
 /*
-Text Helpers
+Colors
 
-Markup:
-<p class="text-bold">This text is shown as bold.</p>
-<p class="text-letterspacing">Add some spacing between letters.</p>
+Synergic UI uses Bootstrap’s `@brand-primary` variable to color the entire UI. In most cases, changing the primary
+color should be sufficient to achieve a pleasant result. If not, the UI can be heavily customized via Bootstrap’s
+variables: see `src/less/config/variables.less` and `bower_components/bootstrap/less/variables.less` for more.
 
-Styleguide 1.1.1
+Styleguide 1.2
 */
-.text-bold {
-  font-weight: 700;
-}
-.text-letterspacing {
-  letter-spacing: .1em;
-}
 /*
 Article
 
@@ -8477,7 +8402,7 @@ as responsive and can be pulled off from the article body by using one of the fo
 
 Markup:
 <article class="article">
-    <header class="article-header">
+    <header class="article-header offset-bottom-large">
         <h1>Article Headline</h1>
         <p class="perex">
             Sklo hledání 1 tradici v jízdě vyznačuje penzionovaného rozbuška nasazením svém. Přibližně
@@ -8487,7 +8412,7 @@ Markup:
         </p>
         <div class="text-muted">Written by Jaroslav Hašek on 1<sup>st</sup> December 2014 at 4:03 PM</div>
     </header>
-    <div class="article-image">
+    <div class="article-image offset-bottom-large">
         <img src="//satyr.io/1200x600" alt="" />
     </div>
     <div class="article-body article-body-floated-images-right">
@@ -8538,11 +8463,6 @@ Markup:
 
 Styleguide 1.3
 */
-.article,
-.article-header,
-.article-image {
-  margin-bottom: 48px;
-}
 .article-header {
   max-width: 45em;
 }
@@ -8561,6 +8481,98 @@ Styleguide 1.3
     float: left;
     clear: left;
     margin: 24px 1.5em 24px -150px;
+  }
+}
+/*
+Responsive Alignment
+
+Helper classes for adjusting alignment on different breakpoints.
+
+Markup:
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Left</h4>
+        <div class="text-left-xs kss__example-box kss__example-box--xs"><code>.text-left-xs</code></div>
+        <div class="text-left-sm kss__example-box kss__example-box--sm"><code>.text-left-sm</code></div>
+        <div class="text-left-md kss__example-box kss__example-box--md"><code>.text-left-md</code></div>
+        <div class="text-left-lg kss__example-box kss__example-box--lg"><code>.text-left-lg</code></div>
+    </div>
+    <div class="col-sm-4">
+        <h4>Center</h4>
+        <div class="text-center-xs kss__example-box kss__example-box--xs"><code>.text-center-xs</code></div>
+        <div class="text-center-sm kss__example-box kss__example-box--sm"><code>.text-center-sm</code></div>
+        <div class="text-center-md kss__example-box kss__example-box--md"><code>.text-center-md</code></div>
+        <div class="text-center-lg kss__example-box kss__example-box--lg"><code>.text-center-lg</code></div>
+    </div>
+    <div class="col-sm-4">
+        <h4>Right</h4>
+        <div class="text-right-xs kss__example-box kss__example-box--xs"><code>.text-right-xs</code></div>
+        <div class="text-right-sm kss__example-box kss__example-box--sm"><code>.text-right-sm</code></div>
+        <div class="text-right-md kss__example-box kss__example-box--md"><code>.text-right-md</code></div>
+        <div class="text-right-lg kss__example-box kss__example-box--lg"><code>.text-right-lg</code></div>
+    </div>
+</div>
+
+Styleguide 1.4
+*/
+@media (max-width: 767px) {
+  .text-left-xs {
+    text-align: left !important;
+  }
+}
+@media (max-width: 767px) {
+  .text-center-xs {
+    text-align: center !important;
+  }
+}
+@media (max-width: 767px) {
+  .text-right-xs {
+    text-align: right !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .text-left-sm {
+    text-align: left !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .text-center-sm {
+    text-align: center !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .text-right-sm {
+    text-align: right !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .text-left-md {
+    text-align: left !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .text-center-md {
+    text-align: center !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .text-right-md {
+    text-align: right !important;
+  }
+}
+@media (min-width: 1200px) {
+  .text-left-lg {
+    text-align: left !important;
+  }
+}
+@media (min-width: 1200px) {
+  .text-center-lg {
+    text-align: center !important;
+  }
+}
+@media (min-width: 1200px) {
+  .text-right-lg {
+    text-align: right !important;
   }
 }
 /*
@@ -8586,7 +8598,7 @@ Markup:
     <a href="#" class="teaser-more">Read more</a>
 </article>
 
-Styleguide 1.4
+Styleguide 1.5
 */
 /*
 Teaser Grid
@@ -8643,13 +8655,15 @@ Markup:
     </div>
 </div><!-- .row -->
 
-Styleguide 1.4.1
+Styleguide 1.5.1
 */
 .teaser {
   display: block;
   clear: both;
-  margin-bottom: 24px;
   text-decoration: none;
+}
+.teaser-title {
+  margin-top: 0;
 }
 .teaser-submitted {
   margin-bottom: 12px;
@@ -8705,10 +8719,20 @@ Styleguide 1.4.1
   }
 }
 /*
-Layout
+Text Helpers
 
-Styleguide 2.
+Markup:
+<p class="text-bold">This text is shown as bold.</p>
+<p class="text-letterspacing">Add some spacing between letters.</p>
+
+Styleguide 1.6
 */
+.text-bold {
+  font-weight: 700;
+}
+.text-letterspacing {
+  letter-spacing: .1em;
+}
 /*
 Aligner
 
@@ -8723,56 +8747,42 @@ Styleguide 2.1
 */
 .aligner {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 .aligner-item {
   -webkit-box-flex: 1;
-  -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 /*
 Footer
 
-<p class="alert alert-warning">
-    <span class="glyphicon glyphicon-alert offset-right" aria-hidden="true"></span>
-    Sticky footer is deprecated in favour of Site component.
-</p>
-
-Based on [LESS modules](https://github.com/adamkudrna/less-modules) Sticky Footer module.
-
-Page footer sticks to the bottom of the screen when there is not much content on the page. For this to work, it must
-be a direct descendant of `<body>` which must have `.has-footer-sticky` class.
+Page footer with links and logo.
 
 Markup:
-<body class="has-footer-sticky">
-    <footer role="contentinfo" class="footer footer-sticky">
-        <div class="container">
-           <div class="row">
-               <div class="col-md-6">
-                   © Synergic.cz 2015
-                   <span class="footer-divider">|</span>
-                   <a href="#" target="_blank">Contact</a>
-               </div>
-               <div class="col-md-6">
-                   <a href="http://www.visionapps.cz" target="_blank" class="footer-author" title="Created by VisionApps">
-                       <img src="public/images/visionapps.svg" width="90" height="16" alt="VisionApps" />
-                   </a>
-               </div>
-           </div><!-- .row -->
-        </div><!-- .container -->
-    </footer>
-</body>
+<footer role="contentinfo" class="footer">
+    <div class="container">
+       <div class="row">
+           <div class="col-md-6">
+               © VisionApps, s.r.o. 2016
+               <span class="footer-divider">|</span>
+               <a href="#" target="_blank">Contact</a>
+           </div>
+           <div class="col-md-6">
+               <a href="http://www.visionapps.cz" target="_blank" class="footer-author" title="Created by VisionApps">
+                   <img src="assets/images/visionapps.svg" width="90" height="16" alt="VisionApps" />
+               </a>
+           </div>
+       </div><!-- .row -->
+    </div><!-- .container -->
+</footer>
 
 Styleguide 2.2
 */
@@ -8812,21 +8822,6 @@ Styleguide 2.2
     float: right;
     margin-top: 0;
   }
-}
-html {
-  position: relative;
-  min-height: 100%;
-}
-.has-footer-sticky {
-  width: 100%;
-  margin: 0 0 72px;
-}
-.footer-sticky {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  min-height: 72px;
 }
 /*
 Layout
@@ -8952,16 +8947,16 @@ Markup:
 Styleguide 2.4
 */
 .offset-left {
-  margin-left: .75ex;
+  margin-left: 5px;
 }
 .offset-left-large {
-  margin-left: 1em;
+  margin-left: 16px;
 }
 .offset-right {
-  margin-right: .75ex;
+  margin-right: 5px;
 }
 .offset-right-large {
-  margin-right: 1em;
+  margin-right: 16px;
 }
 .offset-top-small {
   margin-top: 12px;
@@ -9039,34 +9034,6 @@ Styleguide 2.4.1
   }
 }
 /*
-Screen
-
-<p class="alert alert-warning">
-    <span class="glyphicon glyphicon-alert offset-right" aria-hidden="true"></span>
-    Deprecated in favour of Site component.
-</p>
-
-Apply `screen-centered` on `<html>` to allow content to be centered on the screen both in horizontal and vertical
-direction.
-
-Styleguide 2.5
-*/
-.screen-centered {
-  height: 100%;
-}
-.screen-centered > body {
-  width: 100%;
-  min-height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-/*
 Sections
 
 Sections are used to structure the page content.
@@ -9095,7 +9062,7 @@ Markup:
     </div><!-- .container -->
 </section>
 
-Styleguide 2.6
+Styleguide 2.5
 */
 .section-header {
   padding-top: 36px;
@@ -9113,28 +9080,13 @@ Styleguide 2.6
   margin-bottom: 0;
   color: inherit;
 }
-.section-header.has-tabs {
-  padding-bottom: 0;
-}
-.section-header.has-tabs > .container {
-  position: relative;
-}
 @media (min-width: 768px) {
   .section-header {
     padding-top: 72px;
     padding-bottom: 72px;
   }
-  .section-header.has-tabs {
-    padding-bottom: 0;
-  }
-  .section-header.has-tabs > .container {
-    padding-bottom: 72px;
-  }
   .section-header-condensed {
     padding-top: 36px;
-    padding-bottom: 36px;
-  }
-  .section-header-condensed.has-tabs > .container {
     padding-bottom: 36px;
   }
 }
@@ -9172,17 +9124,17 @@ solution go to [Philip Walton](http://philipwalton.github.io/solved-by-flexbox/d
 Markup:
 <body class="site">
     <header role="banner" class="site-header">
-        Header
+        <div class="kss__example-box">Header</div>
     </header>
     <main role="main" class="site-content">
-        Main Content
+        <div class="kss__example-box">Main Content</div>
     </main>
     <footer role="contentinfo" class="site-footer">
-        Sticky Footer
+        <div class="kss__example-box">Sticky Footer</div>
     </footer>
 </body>
 
-Styleguide 2.7
+Styleguide 2.6
 */
 /**
  * 1. Avoid the IE 10-11 `min-height` bug.
@@ -9193,12 +9145,10 @@ Styleguide 2.7
  */
 .site {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
@@ -9207,24 +9157,17 @@ Styleguide 2.7
 .site-header,
 .site-footer {
   -webkit-box-flex: 0;
-  -webkit-flex: none;
       -ms-flex: none;
           flex: none;
   /* 2 */
 }
 .site-content {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   /* 2 */
   width: 100%;
 }
-/*
-Navigation
-
-Styleguide 3.
-*/
 /*
 Back Link
 
@@ -9303,6 +9246,41 @@ Styleguide 3.2
   }
 }
 /*
+CTA Dropdown
+
+Call to action combined with dropdown.
+
+Markup:
+<div class="row">
+    <div class="col-sm-8">
+        <h1 class="section-header-title">Pages</h1>
+    </div>
+    <div class="col-sm-4">
+        <div class="dropdown cta">
+            <button class="btn btn-primary btn-raised" type="button" id="ctaDropdownLabel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions
+                <span class="glyphicon glyphicon-menu-down offset-left" aria-hidden="true"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="ctaDropdownLabel">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- .row -->
+
+Styleguide 3.2.1
+*/
+@media screen and (min-width: 768px) {
+  .cta.dropdown > .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+}
+/*
 CTA for Content Headings
 
 For CTA buttons alongside headings in content area simply apply `pull-right` on a regular button, `cta` is not needed.
@@ -9314,7 +9292,7 @@ Markup:
 </a>
 <h2>Pages</h2>
 
-Styleguide 3.2.1
+Styleguide 3.2.2
 */
 /*
 List Group
@@ -9336,9 +9314,6 @@ Markup:
 
 Styleguide 3.4
 */
-.list-group-nested {
-  margin-bottom: 48px;
-}
 .list-group-nested .list-group-item-heading {
   margin-bottom: 0;
   font-weight: 700;
@@ -9367,13 +9342,17 @@ Styleguide 3.4
 /*
 More Link
 
-Responsive link to a complete listing.
+Responsive link to a complete listing. Works best with H2.
+
+By default, more link is aligned to baseline with element that has space of one line between itself and the following
+content. The value corresponds to default bottom margin of H2 (which is one line) and can be adjusted via LESS variable
+`@more-link-top-offset`.
 
 <div class="panel panel-info">
     <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
     <div class="panel-body">
         It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
-        appear on the right side of heading on big screens but they are designed in a different way for mobile.
+        appear on the right side of heading on big screens, but they are designed in a different way for mobile.
     </div>
 </div>
 
@@ -9608,7 +9587,7 @@ fieldset[disabled] .navbar-primary .btn-link:focus {
 /*
 Tabs
 
-Styleguide 3.8
+Styleguide 3.7
 */
 /*
 Default Tabs
@@ -9622,32 +9601,29 @@ Markup:
     <li><a href="#">Living created</a></li>
 </ul>
 
-Styleguide 3.8.1
+Styleguide 3.7.1
 */
-.nav-tabs {
-  /*
-    Header Tabs
-
-    Tabs modified for use in header section.
-
-    Markup:
-    <ul role="tablist" class="nav nav-tabs nav-tabs-header">
-        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope offset-right" aria-hidden="true"></span> Emailing</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
-    </ul>
-
-    Styleguide 3.8.2
-    */
-}
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   cursor: pointer;
 }
+/*
+Header Tabs
+
+Tabs extended for use within header section.
+
+Markup:
+<ul role="tablist" class="nav nav-tabs nav-tabs-header">
+    <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope offset-right" aria-hidden="true"></span> Emailing</a></li>
+    <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
+</ul>
+
+Styleguide 3.7.2
+*/
 .nav-tabs-header {
   float: right;
-  margin-top: 48px;
-  margin-bottom: -1px;
+  margin-top: 12px;
 }
 .nav-tabs-header > li > a {
   color: #333333;
@@ -9656,12 +9632,120 @@ Styleguide 3.8.1
 .nav-tabs-header > li > a:focus {
   color: #00778b;
 }
-@media screen and (min-width: 768px) {
+.section-header > .container .nav-tabs-header,
+.section-header > .container-fluid .nav-tabs-header {
+  margin-bottom: -37px;
+}
+@media (min-width: 768px) {
   .nav-tabs-header {
-    position: absolute;
-    right: 15px;
-    bottom: 0;
+    margin-top: 0;
   }
+  .section-header > .container .nav-tabs-header,
+  .section-header > .container-fluid .nav-tabs-header {
+    margin-bottom: -73px;
+  }
+  .section-header-condensed > .container .nav-tabs-header,
+  .section-header-condensed > .container-fluid .nav-tabs-header {
+    margin-bottom: -37px;
+  }
+}
+/*
+Justified Tabs
+
+Tabs that are justified also on smallest screens.
+
+Markup:
+<ul role="tablist" class="nav nav-tabs nav-justified nav-tabs-justified-xs">
+    <li class="active">
+        <a href="#">
+            <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+            <span class="hidden-xs offset-left">New</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span class="glyphicon glyphicon-ok-sign offset-right" aria-hidden="true"></span>
+            <span class="hidden-xs offset-left">Done</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <span class="glyphicon glyphicon-remove-sign offset-right" aria-hidden="true"></span>
+            <span class="hidden-xs offset-left">Cancelled</span>
+        </a>
+    </li>
+</ul>
+
+Styleguide 3.7.3
+*/
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+  border-bottom-color: #fff;
+}
+@media (max-width: 767px) {
+  .nav-tabs.nav-tabs-justified-xs {
+    width: 100%;
+    border-bottom: 0;
+  }
+  .nav-tabs.nav-tabs-justified-xs > li {
+    display: table-cell;
+    float: none;
+    width: 1%;
+  }
+  .nav-tabs.nav-tabs-justified-xs > li > a {
+    margin-right: 0;
+    margin-bottom: 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    border-radius: 2px 2px 0 0;
+  }
+  .nav-tabs.nav-tabs-justified-xs > .active > a,
+  .nav-tabs.nav-tabs-justified-xs > .active > a:hover,
+  .nav-tabs.nav-tabs-justified-xs > .active > a:focus {
+    border-bottom-color: #fff;
+  }
+}
+/*
+Transparent Tabs
+
+Tabs modification for use on primary background.
+
+Markup:
+<div class="section-content section-primary">
+    <ul role="tablist" class="nav nav-tabs nav-tabs-transparent">
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-envelope offset-right" aria-hidden="true"></span> Emailing</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
+    </ul>
+</div>
+
+Styleguide 3.7.4
+*/
+.nav-tabs-transparent {
+  border-bottom-color: #fff;
+}
+.nav-tabs-transparent > li > a {
+  color: #fff;
+  border-color: transparent;
+}
+.nav-tabs-transparent > li > a:hover,
+.nav-tabs-transparent > li > a:focus {
+  color: #fff;
+  border-color: #fff;
+  background-color: transparent;
+}
+.nav-tabs-transparent > li.active > a,
+.nav-tabs-transparent > li.active > a:hover,
+.nav-tabs-transparent > li.active > a:focus {
+  color: #fff;
+  border-color: #fff;
+  border-bottom-color: #00778b;
+  background-color: transparent;
+}
+.nav-tabs-transparent.nav-tabs-header > li.active > a,
+.nav-tabs-transparent.nav-tabs-header > li.active > a:hover,
+.nav-tabs-transparent.nav-tabs-header > li.active > a:focus {
+  border-bottom-color: transparent;
 }
 /*
 Letter Navigation
@@ -9691,7 +9775,6 @@ Styleguide 3.3
 */
 .nav-letters,
 .sortable-table-nav ul {
-  margin-bottom: 24px;
   text-align: center;
 }
 .nav-letters > li,
@@ -9707,296 +9790,6 @@ Styleguide 3.3
   .sortable-table-nav ul > li > a {
     display: block;
   }
-}
-/*
-Panel Menu
-
-Lef-side panel menu designed for admin navigation. If using with panel menu bar, class `.has-panel-menu-bar` on
-`<body>` is required so the the page content is not covered by the bar. Apply `.nav-icons` to the `.nav` element to
-adjust offset of nested menu items.
-
-Markup:
-<div class="panel-menu">
-    <!-- Panel menu bar -->
-    <div class="panel-menu-bar">
-        <button data-toggle="collapse" data-target="#panelMenu" class="panel-menu-bar-toggle collapsed" aria-expanded="false">
-            <span class="panel-menu-bar-toggle-icon" aria-hidden="true">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </span>
-            <span class="sr-only">Menu</span>
-        </button>
-        <div class="panel-menu-bar-right">
-            <div class="dropdown">
-                <a href="#" id="userMenuLabel" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                    <span class="panel-menu-bar-avatar">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    </span>
-                    Bilbo Baggins
-                    <span class="glyphicon glyphicon-menu-down offset-left" aria-hidden="true"></span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="userMenuLabel">
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-off offset-right" aria-hidden="true"></span> Sign out</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div><!-- .panel-menu-bar -->
-    <!-- Panel menu pane -->
-    <nav role="navigation" id="panelMenu" class="panel-menu-pane collapse width" aria-expanded="false">
-        <h2>Administration</h2>
-        <ul class="nav nav-icons">
-            <li class="active"><a href="#"><span class="glyphicon glyphicon-th-large offset-right" aria-hidden="true"></span> Pages</a></li>
-            <li>
-                <a href="#"><span class="glyphicon glyphicon-picture offset-right" aria-hidden="true"></span> Media</a>
-                <ul class="nav">
-                    <li><a href="#">Pictures</a></li>
-                    <li><a href="#">Music</a></li>
-                    <li><a href="#">Video</a></li>
-                </ul>
-            </li>
-            <li><a href="#"><span class="glyphicon glyphicon-user offset-right" aria-hidden="true"></span> Users</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-cog offset-right" aria-hidden="true"></span> Settings</a></li>
-        </ul>
-    </nav><!-- .panel-menu-pane -->
-</div><!-- .panel-menu -->
-
-Styleguide 3.7
-*/
-.panel-menu-bar a,
-.panel-menu-pane a {
-  text-decoration: none;
-  color: #777777;
-  -webkit-transition: all 250ms ease-out;
-  transition: all 250ms ease-out;
-}
-.panel-menu-bar a:hover,
-.panel-menu-pane a:hover,
-.panel-menu-bar a:focus,
-.panel-menu-pane a:focus {
-  text-decoration: none;
-  color: #eeeeee;
-}
-.has-panel-menu-bar {
-  margin-top: 50px;
-}
-.panel-menu-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1031;
-  height: 50px;
-  padding: 0 16px 0 0;
-  color: #777777;
-  background-color: #222222;
-  box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.7);
-}
-.panel-menu-bar-toggle {
-  float: left;
-  padding: 15px 15px;
-  border: none;
-  border-radius: 0;
-  background: none;
-}
-.panel-menu-bar-toggle-icon {
-  width: 30px;
-  height: 20px;
-  display: block;
-}
-.panel-menu-bar-toggle-icon > .icon-bar {
-  height: 3px;
-  display: block;
-  background-color: #777777;
-  -webkit-transition: all 250ms ease-out;
-  transition: all 250ms ease-out;
-}
-.panel-menu-bar-toggle-icon > .icon-bar + .icon-bar {
-  margin-top: 5px;
-}
-.panel-menu-bar-toggle:hover,
-.panel-menu-bar-toggle:focus {
-  outline: none;
-}
-.panel-menu-bar-toggle:hover .panel-menu-bar-toggle-icon > .icon-bar,
-.panel-menu-bar-toggle:focus .panel-menu-bar-toggle-icon > .icon-bar {
-  background-color: #eeeeee;
-}
-.panel-menu-bar-toggle:not(.collapsed) > .panel-menu-bar-toggle-icon > .icon-bar:first-child {
-  -webkit-transform: translate(0, 8px) rotate(45deg);
-          transform: translate(0, 8px) rotate(45deg);
-}
-.panel-menu-bar-toggle:not(.collapsed) > .panel-menu-bar-toggle-icon > .icon-bar:nth-child(2) {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.panel-menu-bar-toggle:not(.collapsed) > .panel-menu-bar-toggle-icon > .icon-bar:last-child {
-  -webkit-transform: translate(0, -8px) rotate(-45deg);
-          transform: translate(0, -8px) rotate(-45deg);
-}
-.panel-menu-bar-right {
-  float: right;
-}
-.panel-menu-bar .dropdown {
-  margin-left: 1em;
-}
-.panel-menu-bar .dropdown > .dropdown-toggle {
-  display: inline-block;
-  padding: 10px 0;
-}
-.panel-menu-bar .dropdown > .dropdown-menu {
-  border: none;
-  background-color: #222222;
-}
-.panel-menu-bar .dropdown > .dropdown-menu > li > a {
-  color: #777777;
-}
-.panel-menu-bar .dropdown > .dropdown-menu > li > a:hover,
-.panel-menu-bar .dropdown > .dropdown-menu > li > a:focus {
-  color: #eeeeee;
-  background-color: #333333;
-}
-.panel-menu-bar-avatar {
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  margin-right: 1ex;
-  vertical-align: middle;
-  line-height: 30px;
-  text-align: center;
-  color: #eeeeee;
-  border-radius: 50%;
-  background-color: #555555;
-}
-.panel-menu-pane {
-  position: fixed;
-  left: 0;
-  top: 50px;
-  bottom: 0;
-  z-index: 1030;
-  width: 260px;
-  overflow-y: auto;
-  color: #777777;
-  background-color: #222222;
-  box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.7);
-}
-.panel-menu-pane.collapse {
-  width: 0;
-  height: auto;
-}
-.panel-menu-pane.collapse.in {
-  width: 260px;
-}
-.panel-menu-pane.collapsing {
-  position: fixed;
-  height: auto;
-  -webkit-transition-property: width, visibility;
-  transition-property: width, visibility;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-.panel-menu-pane h2,
-.panel-menu-pane .nav,
-.panel-menu-pane .sortable-table-nav ul {
-  width: 260px;
-}
-.panel-menu-pane h2 {
-  margin: 24px 0;
-  padding: 0 15px;
-  font-weight: 300;
-  font-family: 'Titillium Web', helvetica, arial, sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #777777;
-}
-.panel-menu-pane .nav,
-.panel-menu-pane .sortable-table-nav ul {
-  overflow-y: hidden;
-  margin: 24px 0;
-}
-.panel-menu-pane .nav > li > a,
-.panel-menu-pane .nav > li > .nav > li > a,
-.panel-menu-pane .sortable-table-nav ul > li > a,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a {
-  border-top: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-}
-.panel-menu-pane .nav > li > a:hover,
-.panel-menu-pane .nav > li > .nav > li > a:hover,
-.panel-menu-pane .nav > li > a:focus,
-.panel-menu-pane .nav > li > .nav > li > a:focus,
-.panel-menu-pane .sortable-table-nav ul > li > a:hover,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a:hover,
-.panel-menu-pane .sortable-table-nav ul > li > a:focus,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a:focus {
-  padding-left: 23px;
-  background-color: #333333;
-}
-.panel-menu-pane .nav > li + li > a,
-.panel-menu-pane .nav > li > .nav > li > a,
-.panel-menu-pane .sortable-table-nav ul > li + li > a,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a {
-  border-top: none;
-}
-.panel-menu-pane .nav > .active > a,
-.panel-menu-pane .sortable-table-nav ul > .active > a {
-  color: #fff;
-  background-color: #333333;
-}
-.panel-menu-pane .nav > li > .nav,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul {
-  margin: 0;
-}
-.panel-menu-pane .nav > li > .nav > li > a,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a {
-  padding-left: 31px;
-  background-color: #161616;
-}
-.panel-menu-pane .nav > li > .nav > li > a:hover,
-.panel-menu-pane .nav > li > .nav > li > a:focus,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a:hover,
-.panel-menu-pane .sortable-table-nav ul > li > .sortable-table-nav ul > li > a:focus {
-  padding-left: 39px;
-  background-color: #333333;
-}
-.panel-menu-pane .nav.nav-icons > li > .nav > li > a,
-.panel-menu-pane .sortable-table-nav ul.nav-icons > li > .sortable-table-nav ul > li > a {
-  padding-left: 47px;
-}
-.panel-menu-pane .nav.nav-icons > li > .nav > li > a:hover,
-.panel-menu-pane .nav.nav-icons > li > .nav > li > a:focus,
-.panel-menu-pane .sortable-table-nav ul.nav-icons > li > .sortable-table-nav ul > li > a:hover,
-.panel-menu-pane .sortable-table-nav ul.nav-icons > li > .sortable-table-nav ul > li > a:focus {
-  padding-left: 55px;
-}
-/*
-Forms
-
-Styleguide 4.
-*/
-/*
-Cancel Link
-
-Link for returning from edit form back to listing.
-
-Markup:
-<button type="submit" class="btn btn-primary btn-raised">Save and publish</button>
-<div class="cancel-link">
-    or
-    <a href="#">Cancel</a>
-</div>
-
-Styleguide 4.1
-*/
-.cancel-link {
-  position: relative;
-  top: 2px;
-  display: inline-block;
-  margin-left: 1em;
-  margin-bottom: 24px;
 }
 /*
 Filter
@@ -10040,7 +9833,7 @@ Markup:
     </div><!-- .row -->
 </form>
 
-Styleguide 4.3
+Styleguide 4.2
 */
 @media screen and (min-width: 768px) {
   .form-filter .form-actions {
@@ -10050,42 +9843,8 @@ Styleguide 4.3
 /*
 Forms
 
-Styleguide 4.4
+Styleguide 4.3
 */
-.text-danger-block {
-  padding: 15px;
-  margin-bottom: 24px;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  color: #a94442;
-  display: block;
-  list-style: none;
-}
-.text-danger-block h4 {
-  margin-top: 0;
-  color: inherit;
-}
-.text-danger-block .alert-link {
-  font-weight: bold;
-}
-.text-danger-block > p,
-.text-danger-block > ul {
-  margin-bottom: 0;
-}
-.text-danger-block > p + p {
-  margin-top: 5px;
-}
-.text-danger-block hr {
-  border-top-color: #e4b9c0;
-}
-.text-danger-block .alert-link {
-  color: #843534;
-}
-.form-group .text-danger-block:not(:only-child) {
-  margin-top: 12px;
-}
 /*
 Required Fields
 
@@ -10095,7 +9854,7 @@ Markup:
 <label for="name" class="required">Name</label>
 <input type="text" class="form-control" id="name" name="name" required />
 
-Styleguide 4.4.1
+Styleguide 4.3.1
 */
 label.required:after {
   content: ' *';
@@ -10106,6 +9865,27 @@ input[type="file"] {
 }
 input[type="file"].form-control {
   margin: 0;
+}
+/*
+Form Actions
+
+Static form action designed for cancel link to return from edit form back to listing.
+
+Markup:
+<button type="submit" class="btn btn-primary btn-raised">Save and publish</button>
+<div class="form-action-static">
+    or
+    <a href="#">Cancel</a>
+</div>
+
+Styleguide 4.3.2
+*/
+.form-action-static {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  margin-left: 16px;
+  margin-bottom: 24px;
 }
 /*
 Input Group
@@ -10120,7 +9900,7 @@ Markup:
     </span>
 </div>
 
-Styleguide 4.5
+Styleguide 4.4
 */
 .input-group-btn > .btn,
 .input-group-btn > .item-action {
@@ -10160,7 +9940,7 @@ Markup:
     </div>
 </div>
 
-Styleguide 4.2
+Styleguide 4.1
 */
 /*
 Listbox
@@ -10175,13 +9955,13 @@ Implements [select2](http://ivaynberg.github.io/select2/) by [Igor Vaynberg](htt
     </div>
 </div>
 
-Styleguide 4.6
+Styleguide 4.5
 */
 /*
 Single Option
 
 Markup:
-<select class="form-control" id="select2-example-single">
+<select class="form-control" data-onload-select2>
     <option selected value="">All</option>
     <option value="Denver">Denver</option>
     <option value="Liptákov">Liptákov</option>
@@ -10190,19 +9970,14 @@ Markup:
     <option value="Prague">Prague</option>
     <option value="Viena">Vienna</option>
 </select>
-<script>
-$(function () {
-    $('#select2-example-single').select2();
-});
-</script>
 
-Styleguide 4.6.1
+Styleguide 4.5.1
 */
 /*
 Multiple Options
 
 Markup:
-<select class="form-control" id="select2-example-multiple" multiple>
+<select class="form-control" data-onload-select2 multiple>
     <option selected value="Denver">Denver</option>
     <option selected value="Liptákov">Liptákov</option>
     <option value="Moscow">Moscow</option>
@@ -10210,38 +9985,28 @@ Markup:
     <option selected value="Prague">Prague</option>
     <option value="Viena">Vienna</option>
 </select>
-<script>
-$(function () {
-    $('#select2-example-multiple').select2();
-});
-</script>
 
-Styleguide 4.6.2
+Styleguide 4.5.2
 */
 .select2-search input,
 .select2-search-choice-close,
 .select2-container .select2-choice abbr,
 .select2-container .select2-choice .select2-arrow b {
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAACLElEQVR42u3Zz0sUYRzH8bUISoyF1i5iXSooyYgOEXapZNYNojwU/aAfUAT9A4YhUgdxt1To0KFIBCMIvEcUEXntUtivpYuUhYFIdDBMmD69he/hObgsbSnb13ngdZjZhX3eO8/MDrMpSctKErwsg//HUSgU7uNYsB3hHla4CybqEoRPaMJGFCEMewxuxnsIk5iALPqg1yVdj9eQGUdjiuE1eAs+QOYztrsMJqwFk8EyHguW95klD+ZD08gsYvBFCBPYgHXBOT1UNpg3ncQpnAicRbrCCQ3j8SIf5QvYEWxvxnlb0mWDr0MIvcOaCiayC78gRKmlH+WDbaIjkJnDzgq/+VHIvMWqag3ehBkIAxXGdkAIDVRlsE24H9//4ty9hju4Hej710c5m83WYging32HMYjMnwSvx75UlQ+iOiDEaEMLZiA8dPc7TFQDnkGYxQ8Iz9Hs8k4riqIa4l5ApojVbm8tiduPL5CZRs5lMGFH8DNYxo+C5d3tMfgohJeow0qMQujxuqRb0RBsZ3DA2ZIuP5LgJDgJToKr4ZHOWjTOy+fzNa6DiezCFGReod1lMGF3IYzjMm5B5rirYIJyEJ4iHezfjW+YRr2n4EHE2LrAa1cg5DwFj2DWLlKljn67p+B+CIdKPAaOsddTcBOEKbTZvjp0Qvjo8Sp9DjJFfIVMjBsef4f34AHeYAxX0VfqMbDnfw97IXMTta6DLbobcxBa3Qdb9BPE2LZQ8G98530ecQi/2QAAAABJRU5ErkJggg==') !important;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAoCAYAAACiu5n/AAACLElEQVR42u3Zz0sUYRzH8bUISoyF1i5iXSooyYgOEXapZNYNojwU/aAfUAT9A4YhUgdxt1To0KFIBCMIvEcUEXntUtivpYuUhYFIdDBMmD69he/hObgsbSnb13ngdZjZhX3eO8/MDrMpSctKErwsg//HUSgU7uNYsB3hHla4CybqEoRPaMJGFCEMewxuxnsIk5iALPqg1yVdj9eQGUdjiuE1eAs+QOYztrsMJqwFk8EyHguW95klD+ZD08gsYvBFCBPYgHXBOT1UNpg3ncQpnAicRbrCCQ3j8SIf5QvYEWxvxnlb0mWDr0MIvcOaCiayC78gRKmlH+WDbaIjkJnDzgq/+VHIvMWqag3ehBkIAxXGdkAIDVRlsE24H9//4ty9hju4Hej710c5m83WYging32HMYjMnwSvx75UlQ+iOiDEaEMLZiA8dPc7TFQDnkGYxQ8Iz9Hs8k4riqIa4l5ApojVbm8tiduPL5CZRs5lMGFH8DNYxo+C5d3tMfgohJeow0qMQujxuqRb0RBsZ3DA2ZIuP5LgJDgJToKr4ZHOWjTOy+fzNa6DiezCFGReod1lMGF3IYzjMm5B5rirYIJyEJ4iHezfjW+YRr2n4EHE2LrAa1cg5DwFj2DWLlKljn67p+B+CIdKPAaOsddTcBOEKbTZvjp0Qvjo8Sp9DjJFfIVMjBsef4f34AHeYAxX0VfqMbDnfw97IXMTta6DLbobcxBa3Qdb9BPE2LZQ8G98530ecQi/2QAAAABJRU5ErkJggg==") !important;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
   .select2-search input,
   .select2-search-choice-close,
   .select2-container .select2-choice abbr,
   .select2-container .select2-choice .select2-arrow b {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAADFElEQVR42u2dsW4TQRBAI0ERCYpDpAUdJX/hAlxQ3SekovYXIIvKEiBRIUF1lHT+BP+Br0TCCCsFLW5cmCS3jKWNNFrdZu+EOG7sd9Irkl0p8r3s7Mzs5XLinIMD5uhvAIIBwYBgaMnNNZvNyj0nkUvPQbAdtDjnCSU3zkGwEbS4iOToHATbE6wptVwEGyUhcaW/JkTbT7JcCpIse4K7SC4pk4wRXreE5ZUMUwezgh03lT0YyKKBOhjoZHUi1oCf7mkYohd9ACVFrj50HgxzmtQifKwF15L1fxC8UD9/EQxzHtxC8KiD4FHPNWMhuIACwd33h3kLuXOZ2mc4yyLRZS1kCG6H3uc2Mbl+LO9Z8FRwEaYINnpDdWKVIEdwC/QVC4l97nk6sUqwQHA3wbGEa9Sj4CCxSlIguHtZMg8Tq/4Edy/bLNXB4/G4FKJ1sJ7zTwTrhMuTU3f+NVqc84SSG+bEJR99a3BoaHERybE5HDYYFKwptVwEGyUhcRX5PufBRoiH4Tg80WFMcBfJPJNljfC6JSzzVCUrGMHswUAWDdTBQCcLOveiCdEBnCYBb9kBBAOCAcGAYEDw0XP0NwDBgGBAMCAYEAwIHvD7QzJhIlSCE2rF0o9lav4eBBt5JWHR8EfzdYATfgkFgg2g5J4LdSD1WrjyXDeIPkfwsNErV6/Y38J34aXwWHgkvBJWwi74RSgQPGD8nrtRwrbCe+G0YX9+KHzyc2rPRsgQPFzBEyVrJ7xLvNTsjvBBuFQreYLg4Qpeqv32m3BP+YxJPhUulOAKwQMl2HsnymNK8mudeCF44IK9rCcdBD8XrhBsS/BTBBOibwTPCNEGCFqSX4X7LeSeCRdK8BLBwy6TdIPjo3A3kUF/pkyy1+ioPVsv8KxB7gPhi7BVcndCpqYheKCtSt1+vBR+CG+EZ8IL4a3wU69cRYlgC4cN4UFD/LDBNVAi2NZxYa0Ixe5ikhFs58B/2SC48mOZUMYkI/jw/61diWDzgtOSEWxdcFpyhWDTgtOSEWxccCgZwfZJ9akrJXiKYEDwMfAHMSYobVemsdsAAAAASUVORK5CYII=') !important;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABQCAYAAADSm7GJAAADFElEQVR42u2dsW4TQRBAI0ERCYpDpAUdJX/hAlxQ3SekovYXIIvKEiBRIUF1lHT+BP+Br0TCCCsFLW5cmCS3jKWNNFrdZu+EOG7sd9Irkl0p8r3s7Mzs5XLinIMD5uhvAIIBwYBgaMnNNZvNyj0nkUvPQbAdtDjnCSU3zkGwEbS4iOToHATbE6wptVwEGyUhcaW/JkTbT7JcCpIse4K7SC4pk4wRXreE5ZUMUwezgh03lT0YyKKBOhjoZHUi1oCf7mkYohd9ACVFrj50HgxzmtQifKwF15L1fxC8UD9/EQxzHtxC8KiD4FHPNWMhuIACwd33h3kLuXOZ2mc4yyLRZS1kCG6H3uc2Mbl+LO9Z8FRwEaYINnpDdWKVIEdwC/QVC4l97nk6sUqwQHA3wbGEa9Sj4CCxSlIguHtZMg8Tq/4Edy/bLNXB4/G4FKJ1sJ7zTwTrhMuTU3f+NVqc84SSG+bEJR99a3BoaHERybE5HDYYFKwptVwEGyUhcRX5PufBRoiH4Tg80WFMcBfJPJNljfC6JSzzVCUrGMHswUAWDdTBQCcLOveiCdEBnCYBb9kBBAOCAcGAYEDw0XP0NwDBgGBAMCAYEAwIHvD7QzJhIlSCE2rF0o9lav4eBBt5JWHR8EfzdYATfgkFgg2g5J4LdSD1WrjyXDeIPkfwsNErV6/Y38J34aXwWHgkvBJWwi74RSgQPGD8nrtRwrbCe+G0YX9+KHzyc2rPRsgQPFzBEyVrJ7xLvNTsjvBBuFQreYLg4Qpeqv32m3BP+YxJPhUulOAKwQMl2HsnymNK8mudeCF44IK9rCcdBD8XrhBsS/BTBBOibwTPCNEGCFqSX4X7LeSeCRdK8BLBwy6TdIPjo3A3kUF/pkyy1+ioPVsv8KxB7gPhi7BVcndCpqYheKCtSt1+vBR+CG+EZ8IL4a3wU69cRYlgC4cN4UFD/LDBNVAi2NZxYa0Ixe5ikhFs58B/2SC48mOZUMYkI/jw/61diWDzgtOSEWxdcFpyhWDTgtOSEWxccCgZwfZJ9akrJXiKYEDwMfAHMSYobVemsdsAAAAASUVORK5CYII=") !important;
   }
 }
 .select2-search input.select2-active,
 .select2-more-results.select2-active,
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-  background-image: url('data:image/gif;base64,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') !important;
+  background-image: url("data:image/gif;base64,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") !important;
 }
-/*
-Common
-
-Styleguide 5.
-*/
 /*
 Alerts
 
@@ -10257,7 +10022,7 @@ aligned with the rest of the page.
 
 Markup:
 <div class="alert alert-success alert-dismissible alert-full fade in">
-    <button class="close" data-dismiss="alert">&times;</button>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
     <div class="container">
         <span class="glyphicon glyphicon-ok-sign offset-right" aria-hidden="true"></span>
         Your order has been placed. Thank you!
@@ -10270,11 +10035,21 @@ Styleguide 5.1.1
   margin-bottom: 1px;
   padding-left: 0;
   border-radius: 0;
+  border-left-style: none;
+  border-right-style: none;
 }
-@media screen and (min-width: 768px) {
-  .alert-full {
-    padding-left: 15px;
-  }
+.alert-full.alert-dismissible {
+  position: relative;
+  padding-right: 0;
+}
+.alert-full.alert-dismissible > .container {
+  padding-right: 45px;
+}
+.alert-full.alert-dismissible > .close {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -15px;
 }
 /*
 Error Alert
@@ -10284,7 +10059,7 @@ Bootstrap’s `.alert-danger`.
 
 Markup:
 <div class="alert alert-error alert-dismissible fade in">
-    <button class="close" data-dismiss="alert">&times;</button>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
     <span class="glyphicon glyphicon-warning-sign offset-right" aria-hidden="true"></span>
     What a mistake!
 </div>
@@ -10359,9 +10134,6 @@ Styleguide 5.3.1
 .open > .dropdown-toggle.btn-accent {
   background-image: none;
 }
-.btn-accent.disabled,
-.btn-accent[disabled],
-fieldset[disabled] .btn-accent,
 .btn-accent.disabled:hover,
 .btn-accent[disabled]:hover,
 fieldset[disabled] .btn-accent:hover,
@@ -10370,13 +10142,7 @@ fieldset[disabled] .btn-accent:hover,
 fieldset[disabled] .btn-accent:focus,
 .btn-accent.disabled.focus,
 .btn-accent[disabled].focus,
-fieldset[disabled] .btn-accent.focus,
-.btn-accent.disabled:active,
-.btn-accent[disabled]:active,
-fieldset[disabled] .btn-accent:active,
-.btn-accent.disabled.active,
-.btn-accent[disabled].active,
-fieldset[disabled] .btn-accent.active {
+fieldset[disabled] .btn-accent.focus {
   background-color: #fa4616;
   border-color: #fa4616;
 }
@@ -10425,9 +10191,6 @@ fieldset[disabled] .btn-accent.active {
 .open > .dropdown-toggle.btn-transparent {
   background-image: none;
 }
-.btn-transparent.disabled,
-.btn-transparent[disabled],
-fieldset[disabled] .btn-transparent,
 .btn-transparent.disabled:hover,
 .btn-transparent[disabled]:hover,
 fieldset[disabled] .btn-transparent:hover,
@@ -10436,13 +10199,7 @@ fieldset[disabled] .btn-transparent:hover,
 fieldset[disabled] .btn-transparent:focus,
 .btn-transparent.disabled.focus,
 .btn-transparent[disabled].focus,
-fieldset[disabled] .btn-transparent.focus,
-.btn-transparent.disabled:active,
-.btn-transparent[disabled]:active,
-fieldset[disabled] .btn-transparent:active,
-.btn-transparent.disabled.active,
-.btn-transparent[disabled].active,
-fieldset[disabled] .btn-transparent.active {
+fieldset[disabled] .btn-transparent.focus {
   background-color: transparent;
   border-color: #fff;
 }
@@ -10539,7 +10296,7 @@ Markup:
 Styleguide 5.4
 */
 .gallery {
-  margin: 24px -15px 24px 0;
+  margin-left: -15px;
 }
 .gallery > a {
   display: inline-block;
@@ -10553,10 +10310,6 @@ Styleguide 5.4
   height: auto;
 }
 @media screen and (min-width: 768px) {
-  .gallery {
-    margin-top: 36px;
-    margin-bottom: 36px;
-  }
   .gallery > a > img {
     width: 150px;
   }
@@ -10575,17 +10328,14 @@ Icons
 Nicer icon placement.
 
 Markup:
-<span class="glyphicon glyphicon-wrench icon-vertically-aligned" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-wrench icon-shift-down" aria-hidden="true"></span>
 The icon is vertically aligned on the line.
 
 Styleguide 5.5
 */
-.icon-offset {
-  margin-right: .75ex;
-}
-.icon-vertically-aligned {
+.icon-shift-down {
   position: relative;
-  top: 2px;
+  top: 0.125em;
 }
 /*
 Item Actions
@@ -10665,52 +10415,6 @@ Styleguide 5.6
 /*
 Panels
 
-Styleguide 5.7
-*/
-/*
-Login Panel
-
-<p class="alert alert-warning">
-    <span class="glyphicon glyphicon-alert offset-right" aria-hidden="true"></span>
-    Deprecated in favour of Box component.
-</p>
-
-Simple panel designed for login form.
-
-Markup:
-<div class="panel panel-default panel-login">
-    <div class="panel-heading">
-        <h4 class="text-center">Sign In</h4>
-    </div>
-    <div class="panel-body">
-        <form role="form" action="" method="post">
-            <div class="form-group">
-                <label for="username">Email:</label>
-                <input type="email" id="username" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" class="form-control" />
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-raised btn-block">Sign in</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-Styleguide 5.7.1
-*/
-.panel-login {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 25em;
-  margin-top: 24px;
-}
-/*
-Panel with Extended Header
-
 Extends [Bootstrap panels](http://getbootstrap.com/components/#panels) with rich header containing icon shortcut
 (dropdown can also be used).
 
@@ -10728,7 +10432,7 @@ Markup:
     </div>
 </div>
 
-Styleguide 5.7.2
+Styleguide 5.7
 */
 .panel-heading-extended {
   position: relative;
@@ -10971,7 +10675,7 @@ Markup:
                 </div>
             </a>
             <div class="thumbnail-actions">
-                <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                <button type="button" class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
             </div>
         </div>
     </div>
@@ -10987,7 +10691,7 @@ Markup:
                 </div>
             </a>
             <div class="thumbnail-actions">
-                <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                <button type="button" class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
             </div>
         </div>
     </div>
@@ -11003,7 +10707,7 @@ Markup:
                 </div>
             </a>
             <div class="thumbnail-actions">
-                <button class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+                <button type="button" class="item-action item-action-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
             </div>
         </div>
     </div>
@@ -11047,33 +10751,6 @@ Styleguide 5.9
 .thumbnail-fixed .thumbnail-actions form {
   display: inline;
 }
-/*
-JavaScript
-
-Please refer to the [Bootstrap JavaScript documentation](http://getbootstrap.com/javascript/) for details about how
-to use the JavaScript components. Synergic UI components were written to be as compatible with Bootstrap 3 components
-as possible. Namely the following sections of Bootstrap docs apply:
-
-* [Data attributes](http://getbootstrap.com/javascript/#js-data-attrs)
-* [Programmatic API](http://getbootstrap.com/javascript/#js-programmatic-api)
-* [No conflict](http://getbootstrap.com/javascript/#js-noconflict)
-* [Events](http://getbootstrap.com/javascript/#js-events)
-
-<div class="panel panel-info">
-    <div class="panel-heading"><h4 class="panel-title">QUnit Tests</h4></div>
-    <div class="panel-body">
-        Tests for all components are store in `src/js/tests/` and can be run using either of the following commands:
-        <ul>
-            <li>`$ grunt test` for testing in a headless browser Phantom JS.</li>
-            <li>`$ grunt test-remote` for testing in a real browser. **Please append** `src/js/tests/` **to the URL**
-                (typically `localhost:3000`) to view the QUnit test page. For testing on another device, replace
-                `localhost` with your local IP address.</li>
-        </ul>
-    </div>
-</div>
-
-Styleguide 6.
-*/
 /*
 CKEditor Loader
 
@@ -11219,10 +10896,11 @@ Triggers a confirmation dialog on the given element.
 
 Markup:
 <form onsubmit="alert('Confirmation confirmed');" method="get">
-    <button class="btn btn-danger" data-toggle="confirm">
+    <button type="button" class="btn btn-danger" data-toggle="confirm">
         Basic confirmation
     </button>
     <button
+        type="button"
         class="btn btn-danger"
         data-toggle="confirm"
         data-confirm-message="Really?"
@@ -11232,6 +10910,7 @@ Markup:
         Confirmation with custom text
     </button>
     <button
+        type="button"
         class="btn btn-danger"
         data-toggle="confirm"
         data-confirm-yes="<span class='glyphicon glyphicon-ok'></span>"
@@ -11411,6 +11090,10 @@ Each of the `:input` elements of the form that are to be used for filtering have
 attribute. Further each one also has to possess the `data-filter-attrib` and `data-filter-operator` attributes (see the
 Filter Object section below).
 
+To save the filter conditions to the browser session storage set the attribute `data-filter-storage-id`.
+This identifies the data in the context of the given host, domain and path combination. If the filter form changes
+the filter data in session storage that are not applicable any more are silently ignored.
+
 The element that is to reset the filter on click has to have the `data-toggle="reset-filter"` attribute defined.
 
 #### JavaScript
@@ -11525,7 +11208,7 @@ The element that is to reset the filter on click has to have the `data-toggle="r
 
 Filters the set of elements on which it is called according to the given array of filter objects.
 
-###### $().resetFilter)
+###### $().resetFilter()
 
 Displays all filterable elements.
 
@@ -11552,7 +11235,7 @@ Displays all filterable elements.
             <td>Fired when the `filter` method is called.</td>
         </tr>
         <tr>
-            <td>filter.sui.filterable</td>
+            <td>filtered.sui.filterable</td>
             <td>Fired when the `filter` method is finished executing.</td>
         </tr>
     <tbody>
@@ -11560,7 +11243,7 @@ Displays all filterable elements.
 
 Markup:
 <div class="row">
-    <form class="form-filter offset-bottom" data-filter-target="#people tr">
+    <form class="form-filter offset-bottom" data-filter-target="#people tr" data-filter-storage-id="filterable-example">
         <div class="row">
             <div class="col-sm-3">
                 <div class="form-group">
