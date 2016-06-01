@@ -4,7 +4,6 @@ module.exports = {
 
   options: {
     builder: '<%= paths.temp %>/styleguide/',
-    verbose: true,
   },
   dist: {
     files: [
