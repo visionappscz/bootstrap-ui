@@ -69,11 +69,14 @@ Styleguide 3.7.2
 
         .section-header > .container &,
         .section-header > .container-fluid & {
-            margin-bottom: -3 * @line-height-computed - 1;
+            position: relative;
+            top: 27px;
+            margin-bottom: -100%;
         }
 
         .section-header-condensed > .container &,
         .section-header-condensed > .container-fluid & {
+            position: static;
             margin-bottom: -1.5 * @line-height-computed - 1;
         }
     }
