@@ -1,0 +1,105 @@
+/*
+Responsive Alignment
+
+Helper classes for adjusting alignment on different breakpoints.
+
+Markup:
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Left</h4>
+        <div class="text-left-xs kss__example-box kss__example-box--xs"><code>.text-left-xs</code></div>
+        <div class="text-left-sm kss__example-box kss__example-box--sm"><code>.text-left-sm</code></div>
+        <div class="text-left-md kss__example-box kss__example-box--md"><code>.text-left-md</code></div>
+        <div class="text-left-lg kss__example-box kss__example-box--lg"><code>.text-left-lg</code></div>
+    </div>
+    <div class="col-sm-4">
+        <h4>Center</h4>
+        <div class="text-center-xs kss__example-box kss__example-box--xs"><code>.text-center-xs</code></div>
+        <div class="text-center-sm kss__example-box kss__example-box--sm"><code>.text-center-sm</code></div>
+        <div class="text-center-md kss__example-box kss__example-box--md"><code>.text-center-md</code></div>
+        <div class="text-center-lg kss__example-box kss__example-box--lg"><code>.text-center-lg</code></div>
+    </div>
+    <div class="col-sm-4">
+        <h4>Right</h4>
+        <div class="text-right-xs kss__example-box kss__example-box--xs"><code>.text-right-xs</code></div>
+        <div class="text-right-sm kss__example-box kss__example-box--sm"><code>.text-right-sm</code></div>
+        <div class="text-right-md kss__example-box kss__example-box--md"><code>.text-right-md</code></div>
+        <div class="text-right-lg kss__example-box kss__example-box--lg"><code>.text-right-lg</code></div>
+    </div>
+</div>
+
+Styleguide 1.4
+*/
+
+
+.text-left-xs {
+    @media (max-width: @screen-xs-max) {
+        text-align: left !important;
+    }
+}
+
+.text-center-xs {
+    @media (max-width: @screen-xs-max) {
+        text-align: center !important;
+    }
+}
+
+.text-right-xs {
+    @media (max-width: @screen-xs-max) {
+        text-align: right !important;
+    }
+}
+
+.text-left-sm {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        text-align: left !important;
+    }
+}
+
+.text-center-sm {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        text-align: center !important;
+    }
+}
+
+.text-right-sm {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+        text-align: right !important;
+    }
+}
+
+.text-left-md {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        text-align: left !important;
+    }
+}
+
+.text-center-md {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        text-align: center !important;
+    }
+}
+
+.text-right-md {
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        text-align: right !important;
+    }
+}
+
+.text-left-lg {
+    @media (min-width: @screen-lg-min) {
+        text-align: left !important;
+    }
+}
+
+.text-center-lg {
+    @media (min-width: @screen-lg-min) {
+        text-align: center !important;
+    }
+}
+
+.text-right-lg {
+    @media (min-width: @screen-lg-min) {
+        text-align: right !important;
+    }
+}
