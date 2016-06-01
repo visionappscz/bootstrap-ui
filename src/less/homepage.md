@@ -80,8 +80,12 @@ and recolor the UI by overriding LESS variables (see `src/less/config/variables.
 In your LESS styles, import complete Synergic UI styles to customize via LESS variables:
 
 ```
-@import "bower_components/synergic-ui/src/less/synergic-ui";
+@external-components-path: 'bower_components/';
+@import 'bower_components/synergic-ui/src/less/synergic-ui';
 ```
+
+Do not forget to declare `@external-components-path` variable saying where Bower dependencies are installed (relative to
+the calling file).
 
 <h2 id="changelog" class="page-header">Changelog</h2>
 

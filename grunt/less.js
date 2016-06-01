@@ -5,6 +5,7 @@ module.exports = {
   core: {
     options: {
       banner: '<%= banner %>',
+      modifyVars: { 'external-components-path': '"bower_components/"' },
       strictUnits: true,
       sourceMap: true,
       sourceMapFilename: '<%= paths.temp %>/css/<%= pkg.name %>.css.map',
