@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v1.0.0 (1 June 2016)
+ * v1.0.1 (1 June 2016)
  */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -9440,13 +9440,13 @@ Markup:
                         <li class="divider"></li>
                         <li>
                             <a href="#">
-                                <span class="glyphicon glyphicon-user offset-right icon-vertically-aligned" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-user offset-right icon-shift-down" aria-hidden="true"></span>
                                 My Account
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <span class="glyphicon glyphicon-off offset-right icon-vertically-aligned" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-off offset-right icon-shift-down" aria-hidden="true"></span>
                                 Sign out
                             </a>
                         </li>
@@ -9642,10 +9642,13 @@ Styleguide 3.7.2
   }
   .section-header > .container .nav-tabs-header,
   .section-header > .container-fluid .nav-tabs-header {
-    margin-bottom: -73px;
+    position: relative;
+    top: 27px;
+    margin-bottom: -100%;
   }
   .section-header-condensed > .container .nav-tabs-header,
   .section-header-condensed > .container-fluid .nav-tabs-header {
+    position: static;
     margin-bottom: -37px;
   }
 }
@@ -10021,7 +10024,7 @@ For use on the same level as page sections, eg. right after `.navbar`. It featur
 aligned with the rest of the page.
 
 Markup:
-<div class="alert alert-success alert-dismissible alert-full fade in">
+<div role="alert" class="alert alert-success alert-dismissible alert-full fade in">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <div class="container">
         <span class="glyphicon glyphicon-ok-sign offset-right" aria-hidden="true"></span>
