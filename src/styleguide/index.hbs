@@ -117,13 +117,15 @@
                     {{else}}
                         <article>
 
-                            <ul class="hidden-md hidden-lg offset-bottom kss__secondary-nav__list">
+                            <ul class="hidden-md hidden-lg offset-bottom-large kss__secondary-nav__list">
                                 {{#if homepage}}
                                 {{else}}
                                     {{#each sections}}
                                         {{#if @first}}
                                         {{else}}
-                                            <li><a href="#section-{{referenceURI}}">{{header}}</a></li>
+                                            <li class="kss__secondary-nav__item--depth-{{depth}}">
+                                                <a href="#section-{{referenceURI}}">{{header}}</a>
+                                            </li>
                                         {{/if}}
                                     {{/each}}
                                 {{/if}}
@@ -192,7 +194,9 @@
                                 {{#each sections}}
                                     {{#if @first}}
                                     {{else}}
-                                        <li><a href="#section-{{ referenceURI }}">{{ header }}</a></li>
+                                        <li class="kss__secondary-nav__item--depth-{{depth}}">
+                                            <a href="#section-{{referenceURI}}">{{header}}</a>
+                                        </li>
                                     {{/if}}
                                 {{/each}}
                             {{/if}}

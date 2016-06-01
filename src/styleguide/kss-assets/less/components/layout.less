@@ -1,7 +1,15 @@
+code {
+    word-wrap: break-word;
+}
+
 .kss__secondary-nav {
     &__list {
         list-style-type: square;
         color: #888;
+    }
+
+    &__item--depth-3 {
+        display: none;
     }
 
     @media screen and (min-width: @screen-md-min) {
