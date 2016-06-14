@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v1.0.1 (1 June 2016)
+ * v1.0.2 (14 June 2016)
  */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -10456,14 +10456,6 @@ Styleguide 5.7
   font-weight: 400;
   font-size: 1em;
   text-align: center;
-}
-.panel-default .panel-heading a,
-.panel-default .panel-heading .panel-title {
-  color: #333333;
-}
-.panel-primary .panel-heading a,
-.panel-primary .panel-heading .panel-title {
-  color: #fff;
 }
 /*
 Tables
