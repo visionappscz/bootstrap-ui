@@ -7,7 +7,7 @@
  * HTML & LESS © Adam Kudrna, 2014—2016
  * JavaScript © Martin Bohal, 2014—2016
  *
- * v1.0.2 (14 June 2016)
+ * v1.0.3 (15 June 2016)
  */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -7938,7 +7938,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 }
 /*!
  * Datetimepicker for Bootstrap 3
- * version : 4.14.30
+ * version : 4.17.37
  * https://github.com/Eonasdan/bootstrap-datetimepicker/
  */
 .bootstrap-datetimepicker-widget {
@@ -8246,7 +8246,8 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
 .bootstrap-datetimepicker-widget table td.today:before {
   content: '';
   display: inline-block;
-  border: 0 0 7px 7px solid transparent;
+  border: solid transparent;
+  border-width: 0 0 7px 7px;
   border-bottom-color: #00778b;
   border-top-color: rgba(0, 0, 0, 0.2);
   position: absolute;
