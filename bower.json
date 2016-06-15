@@ -36,7 +36,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.6",
-    "eonasdan-bootstrap-datetimepicker": "~4.14.30",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37",
     "select2": "~3.5.4",
     "select2-bootstrap-css": "~1.4.1",
     "ckeditor": "~4.5.9"
