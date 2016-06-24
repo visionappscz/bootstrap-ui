@@ -162,9 +162,9 @@ $(function () {
     function () {
       QUnit.stop();
       var $el = $('<button/>').suiConfirmation({ callback: function (result) {
-        QUnit.ok(result === false, 'executed the callback function');
-        QUnit.start();
-      }, });
+          QUnit.ok(result === false, 'executed the callback function');
+          QUnit.start();
+        }, });
 
       $el.trigger('rejected.sui.confirmation');
     }

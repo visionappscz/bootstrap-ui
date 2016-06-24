@@ -11,7 +11,7 @@ module.exports = {
     'qunit',
   ],
 
-  test:[
+  test: [
     'test-js',
   ],
 
