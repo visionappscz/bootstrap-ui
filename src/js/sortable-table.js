@@ -25,7 +25,7 @@
     var isSortedAsc = $sortedTh.hasClass('sorting-asc');
 
     this.$sortedTable
-      .trigger('sort.sui.sortableTable')
+      .trigger('sort.bui.sortableTable')
       .find('th')
       .removeClass('sorting-asc')
       .removeClass('sorting-desc');
@@ -76,7 +76,7 @@
     }
 
     this.$sortedTable.html(tableHtml + '</tbody>');
-    this.$sortedTable.trigger('sorted.sui.sortableTable');
+    this.$sortedTable.trigger('sorted.bui.sortableTable');
   };
 
   SortableTable.prototype.comparer = function (index, sortDir) {
@@ -112,13 +112,13 @@
     return this.each(function () {
       var $navigation;
       var $this = $(this);
-      var data = $this.data('sui.sortableTable');
+      var data = $this.data('bui.sortableTable');
 
       if (!data) {
         $navigation = options && 'navigation' in options && options.navigation ?
             $(options.navigation) : false;
         data = new SortableTable($this, $navigation);
-        $this.data('sui.sortableTable', data);
+        $this.data('bui.sortableTable', data);
       }
 
       data.sort(options['sorted-th'], options['sort-direction']);
@@ -150,11 +150,11 @@
       });
     };
 
-    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function () {
+    $(document).on('click.bui.sortableTable.data-api', 'th[data-toggle=sort]', function () {
       callPlugin($(this));
     });
 
-    $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function (e) {
+    $(document).on('keydown.bui.sortableTable.data-api', 'th[data-toggle=sort]', function (e) {
       if (e.keyCode === 13 || e.keyCode === 32) { //enter or space
         callPlugin($(this));
       }

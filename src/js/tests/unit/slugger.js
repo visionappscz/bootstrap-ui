@@ -11,12 +11,12 @@ $(function () {
     setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in
       // noConflict mode
-      $.fn.suiSlugger = $.fn.slugger.noConflict();
+      $.fn.buiSlugger = $.fn.slugger.noConflict();
     },
 
     teardown: function () {
-      $.fn.slugger = $.fn.suiSlugger;
-      delete $.fn.suiSlugger;
+      $.fn.slugger = $.fn.buiSlugger;
+      delete $.fn.buiSlugger;
     },
   });
 
@@ -32,23 +32,23 @@ $(function () {
 
   QUnit.test('should return jquery collection containing the element', function () {
     var $el = $('<input type="text" />');
-    var $slugger = $el.suiSlugger({ target: $() });
+    var $slugger = $el.buiSlugger({ target: $() });
     QUnit.ok($slugger instanceof $, 'returns jquery collection');
     QUnit.strictEqual($slugger[0], $el[0], 'collection contains element');
   });
 
   // Slug generation tests
   // ========================
-  QUnit.test('should fire updated.sui.slugger when source value changes', function () {
+  QUnit.test('should fire updated.bui.slugger when source value changes', function () {
     QUnit.stop();
     var $source = $('<input type="text" />');
 
     $source
-      .on('updated.sui.slugger', function () {
+      .on('updated.bui.slugger', function () {
         QUnit.ok(true, 'Event was expected and triggered');
         QUnit.start();
       })
-      .suiSlugger({ target: $() });
+      .buiSlugger({ target: $() });
   });
 
   QUnit.test('should generate the correct slug', function () {
@@ -58,7 +58,7 @@ $(function () {
 
     $source
       .val('ãàáäâåčçďẽèéëêìíïîñõòóöôřšťùúüûýž x·x/x_x,x:x;;;')
-      .on('updated.sui.slugger', function () {
+      .on('updated.bui.slugger', function () {
         QUnit.strictEqual(
           $target.val(),
           'aaaaaaccdeeeeeiiiinooooorstuuuuyz-x-x-x-x-x-x-',
@@ -66,7 +66,7 @@ $(function () {
         );
         QUnit.start();
       })
-      .suiSlugger({ target: $target });
+      .buiSlugger({ target: $target });
   });
 
   // Data-api tests
@@ -79,16 +79,16 @@ $(function () {
       .html('<input type="text" id="target" />')
       .append($source);
 
-    $(document).on('updated.sui.slugger', function () {
+    $(document).on('updated.bui.slugger', function () {
       QUnit.strictEqual($('#qunit-fixture #target').val(), 'some-text', 'Slug was generated.');
-      $(document).off('updated.sui.slugger');
+      $(document).off('updated.bui.slugger');
       QUnit.start();
     });
 
-    $source.trigger('keyup.sui.slugger.data-api');
+    $source.trigger('keyup.bui.slugger.data-api');
   });
 
-  QUnit.test('should fire changed.sui.slugger when source looses focus after change', function () {
+  QUnit.test('should fire changed.bui.slugger when source looses focus after change', function () {
     QUnit.stop();
     var $source = $('<input type="text" data-toggle="slugger" data-slugger-target="#target" ' +
       'value="some text" />');
@@ -96,13 +96,13 @@ $(function () {
       .html('<input type="text" id="target" />')
       .append($source);
 
-    $(document).on('changed.sui.slugger', function () {
-      $(document).off('changed.sui.slugger');
+    $(document).on('changed.bui.slugger', function () {
+      $(document).off('changed.bui.slugger');
       QUnit.ok(true, 'Event was expected and fired');
       QUnit.start();
     });
 
-    $source.trigger('change.sui.slugger.data-api');
+    $source.trigger('change.bui.slugger.data-api');
   });
 
 });

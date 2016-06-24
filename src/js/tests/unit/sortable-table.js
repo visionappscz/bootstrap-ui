@@ -11,12 +11,12 @@ $(function () {
     setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in
       // noConflict mode
-      $.fn.suiSortableTable = $.fn.sortableTable.noConflict();
+      $.fn.buiSortableTable = $.fn.sortableTable.noConflict();
     },
 
     teardown: function () {
-      $.fn.sortableTable = $.fn.suiSortableTable;
-      delete $.fn.suiSortableTable;
+      $.fn.sortableTable = $.fn.buiSortableTable;
+      delete $.fn.buiSortableTable;
     },
   });
 
@@ -37,7 +37,7 @@ $(function () {
       '<tr id="row1"><td>1</td></tr>' +
       '</tbody>' +
     '</table>');
-    var $sortableTable = $table.suiSortableTable({ 'sorted-th': $table.find('th') });
+    var $sortableTable = $table.buiSortableTable({ 'sorted-th': $table.find('th') });
 
     QUnit.ok($sortableTable instanceof $, 'returns jquery collection');
     QUnit.strictEqual($sortableTable[0], $table[0], 'collection contains element');
@@ -45,7 +45,7 @@ $(function () {
 
   // Events tests
   // ============
-  QUnit.test('should fire sort.sui.sortableTable when sorting begins', function () {
+  QUnit.test('should fire sort.bui.sortableTable when sorting begins', function () {
     QUnit.stop();
     var eventFired = false;
     var $table = $('<table>' +
@@ -57,7 +57,7 @@ $(function () {
       '</tbody>' +
     '</table>');
 
-    $table.on('sort.sui.sortableTable', function () {
+    $table.on('sort.bui.sortableTable', function () {
       var $rows = $table.find('tbody tr');
       eventFired = true;
       QUnit.ok($($rows[0]).attr('id') === 'row2', 'row2 is first');
@@ -66,7 +66,7 @@ $(function () {
       QUnit.ok(true, 'event fired');
     });
 
-    $table.suiSortableTable({ 'sorted-th': $table.find('th') });
+    $table.buiSortableTable({ 'sorted-th': $table.find('th') });
     setTimeout(function () {
       if (!eventFired) {
         QUnit.ok(false, 'Event not fired.');
@@ -76,7 +76,7 @@ $(function () {
     }, 100);
   });
 
-  QUnit.test('should fire sorted.sui.sortableTable when sorting is done', function () {
+  QUnit.test('should fire sorted.bui.sortableTable when sorting is done', function () {
     QUnit.stop();
     var eventFired = false;
     var $table = $('<table>' +
@@ -88,8 +88,8 @@ $(function () {
       '</tbody>' +
     '</table>');
 
-    $table.on('sort.sui.sortableTable', function () {
-      $table.on('sorted.sui.sortableTable', function () {
+    $table.on('sort.bui.sortableTable', function () {
+      $table.on('sorted.bui.sortableTable', function () {
         var $rows = $table.find('tbody tr');
         eventFired = true;
         QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
@@ -99,7 +99,7 @@ $(function () {
       });
     });
 
-    $table.suiSortableTable({ 'sorted-th': $table.find('th') });
+    $table.buiSortableTable({ 'sorted-th': $table.find('th') });
     setTimeout(function () {
       if (!eventFired) {
         QUnit.ok(false, 'Event not fired.');
@@ -113,19 +113,19 @@ $(function () {
     QUnit.stop();
     var $table = $('#empty-selector');
 
-    $(document).on('sort.sui.sortableTable', function () {
-      QUnit.ok(false, 'event sort.sui.sortableTable fired');
+    $(document).on('sort.bui.sortableTable', function () {
+      QUnit.ok(false, 'event sort.bui.sortableTable fired');
     });
 
-    $(document).on('sorted.sui.sortableTable', function () {
-      QUnit.ok(false, 'event sorted.sui.sortableTable fired');
+    $(document).on('sorted.bui.sortableTable', function () {
+      QUnit.ok(false, 'event sorted.bui.sortableTable fired');
     });
 
-    $table.suiSortableTable({ 'sorted-th': $table.find('th') });
+    $table.buiSortableTable({ 'sorted-th': $table.find('th') });
     setTimeout(function () {
       QUnit.ok(true, 'allways ok');
-      $(document).off('sort.sui.sortableTable');
-      $(document).off('sorted.sui.sortableTable');
+      $(document).off('sort.bui.sortableTable');
+      $(document).off('sorted.bui.sortableTable');
       QUnit.start();
     }, 100);
   });
@@ -144,26 +144,26 @@ $(function () {
       '</tbody>' +
     '</table>');
 
-    $table.on('sorted.sui.sortableTable', function () {
-      $table.off('sorted.sui.sortableTable');
+    $table.on('sorted.bui.sortableTable', function () {
+      $table.off('sorted.bui.sortableTable');
       var $rows = $table.find('tbody tr');
       QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first on run 1');
       QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second on run 1');
       QUnit.ok($($rows[2]).attr('id') === 'row3', 'row3 is third on run 1');
     });
 
-    $table.suiSortableTable({ 'sorted-th': $table.find('th') });
-    $table.on('sorted.sui.sortableTable', function () {
-      $table.off('sorted.sui.sortableTable');
+    $table.buiSortableTable({ 'sorted-th': $table.find('th') });
+    $table.on('sorted.bui.sortableTable', function () {
+      $table.off('sorted.bui.sortableTable');
       var $rows = $table.find('tbody tr');
       QUnit.ok($($rows[0]).attr('id') === 'row3', 'row3 is first on run 2');
       QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second on run 2');
       QUnit.ok($($rows[2]).attr('id') === 'row1', 'row1 is third on run 2');
     });
 
-    $table.suiSortableTable({ 'sorted-th': $table.find('th') });
-    $table.on('sorted.sui.sortableTable', function () {
-      $table.off('sorted.sui.sortableTable');
+    $table.buiSortableTable({ 'sorted-th': $table.find('th') });
+    $table.on('sorted.bui.sortableTable', function () {
+      $table.off('sorted.bui.sortableTable');
       var $rows = $table.find('tbody tr');
       QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first on run 3');
       QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second on run 3');
@@ -171,7 +171,7 @@ $(function () {
       QUnit.start();
     });
 
-    $table.suiSortableTable({ 'sorted-th': $table.find('th') });
+    $table.buiSortableTable({ 'sorted-th': $table.find('th') });
   });
 
   QUnit.test(
@@ -187,7 +187,7 @@ $(function () {
         '</tbody>' +
       '</table>');
 
-      $table.on('sorted.sui.sortableTable', function () {
+      $table.on('sorted.bui.sortableTable', function () {
         var $rows = $table.find('tbody tr');
         QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
         QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
@@ -195,7 +195,7 @@ $(function () {
         QUnit.start();
       });
 
-      $table.suiSortableTable({ 'sorted-th': $table.find('th'), 'sort-direction': 'asc' });
+      $table.buiSortableTable({ 'sorted-th': $table.find('th'), 'sort-direction': 'asc' });
     }
   );
 
@@ -212,7 +212,7 @@ $(function () {
         '</tbody>' +
       '</table>');
 
-      $table.on('sorted.sui.sortableTable', function () {
+      $table.on('sorted.bui.sortableTable', function () {
         var $rows = $table.find('tbody tr');
         QUnit.ok($($rows[0]).attr('id') === 'row3', 'row3 is first');
         QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
@@ -220,7 +220,7 @@ $(function () {
         QUnit.start();
       });
 
-      $table.suiSortableTable({ 'sorted-th': $table.find('th'), 'sort-direction': 'desc' });
+      $table.buiSortableTable({ 'sorted-th': $table.find('th'), 'sort-direction': 'desc' });
     }
   );
 
@@ -242,8 +242,8 @@ $(function () {
       '</table>');
       $('qunit-fixture').append($table);
 
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok(
           $table.find('#headerA').hasClass('sorting-asc'),
           'headerA has the class sorting-asc on run 1'
@@ -254,9 +254,9 @@ $(function () {
         );
       });
 
-      $table.suiSortableTable({ 'sorted-th': $table.find('#headerA'), 'sort-direction': 'asc' });
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.buiSortableTable({ 'sorted-th': $table.find('#headerA'), 'sort-direction': 'asc' });
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok(
           !$table.find('#headerA').hasClass('sorting-asc'),
           'headerA has not the class sorting-asc on run 2'
@@ -268,7 +268,7 @@ $(function () {
         QUnit.start();
       });
 
-      $table.suiSortableTable({ 'sorted-th': $table.find('#headerB'), 'sort-direction': 'asc' });
+      $table.buiSortableTable({ 'sorted-th': $table.find('#headerB'), 'sort-direction': 'asc' });
     }
   );
 
@@ -289,8 +289,8 @@ $(function () {
         '</tbody>' +
       '</table>');
 
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok(
           $table.find('#headerA').hasClass('sorting-desc'),
           'headerA has the class sorting-desc on run 1'
@@ -301,9 +301,9 @@ $(function () {
         );
       });
 
-      $table.suiSortableTable({ 'sorted-th': $table.find('#headerA'), 'sort-direction': 'desc' });
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.buiSortableTable({ 'sorted-th': $table.find('#headerA'), 'sort-direction': 'desc' });
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok(
           !$table.find('#headerA').hasClass('sorting-desc'),
           'headerA has not the class sorting-desc on run 2'
@@ -315,7 +315,7 @@ $(function () {
         QUnit.start();
       });
 
-      $table.suiSortableTable({ 'sorted-th': $table.find('#headerB'), 'sort-direction': 'desc' });
+      $table.buiSortableTable({ 'sorted-th': $table.find('#headerB'), 'sort-direction': 'desc' });
     }
   );
 
@@ -340,24 +340,24 @@ $(function () {
         .append($table);
       navigationEl = $('#navigation');
 
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok(!$('#navigation').is(':empty'), 'the navigation element was populated');
       });
 
-      $table.suiSortableTable({
+      $table.buiSortableTable({
         'sorted-th': $table.find('#headerA'),
         'sort-direction': 'desc',
         navigation: navigationEl,
       });
 
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok($('#navigation').is(':empty'), 'the navigation element was emptied');
         QUnit.start();
       });
 
-      $table.suiSortableTable({
+      $table.buiSortableTable({
         'sorted-th': $table.find('#headerB'),
         'sort-direction': 'desc',
         navigation: navigationEl,
@@ -387,24 +387,24 @@ $(function () {
         .append($table);
       navigationEl = $('#navigation');
 
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok($table.find('thead').length === 4, 'the group <thead> were created');
       });
 
-      $table.suiSortableTable({
+      $table.buiSortableTable({
         'sorted-th': $table.find('#headerA'),
         'sort-direction': 'desc',
         navigation: navigationEl,
       });
 
-      $table.on('sorted.sui.sortableTable', function () {
-        $table.off('sorted.sui.sortableTable');
+      $table.on('sorted.bui.sortableTable', function () {
+        $table.off('sorted.bui.sortableTable');
         QUnit.ok($table.find('thead').length === 1, 'the group <thead> were removed');
         QUnit.start();
       });
 
-      $table.suiSortableTable({
+      $table.buiSortableTable({
         'sorted-th': $table.find('#headerB'),
         'sort-direction': 'desc',
         navigation: navigationEl,
@@ -427,23 +427,23 @@ $(function () {
         '<tr id="row3"><td>3</td><td>0</td></tr>' +
         '</tbody>' +
       '</table>')
-        .on('sorted.sui.sortableTable', function () {
-          $(this).off('sorted.sui.sortableTable');
+        .on('sorted.bui.sortableTable', function () {
+          $(this).off('sorted.bui.sortableTable');
           var $rows = $(this).find('tbody tr');
           QUnit.ok($($rows[0]).attr('id') === 'row2', 'row2 is first');
           QUnit.ok($($rows[1]).attr('id') === 'row1', 'row1 is second');
           QUnit.ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
         })
-        .suiSortableTable({ 'sorted-th': $(this).find('#headerB'), 'sort-direction': 'desc' })
-        .on('sorted.sui.sortableTable', function () {
-          $(this).off('sorted.sui.sortableTable');
+        .buiSortableTable({ 'sorted-th': $(this).find('#headerB'), 'sort-direction': 'desc' })
+        .on('sorted.bui.sortableTable', function () {
+          $(this).off('sorted.bui.sortableTable');
           var $rows = $(this).find('tbody tr');
           QUnit.ok($($rows[0]).attr('id') === 'row2', 'row2 is first');
           QUnit.ok($($rows[1]).attr('id') === 'row1', 'row1 is second');
           QUnit.ok($($rows[2]).attr('id') === 'row3', 'row3 is third');
           QUnit.start();
         })
-        .suiSortableTable({ 'sorted-th': $(this).find('#headerB'), 'sort-direction': 'asc' });
+        .buiSortableTable({ 'sorted-th': $(this).find('#headerB'), 'sort-direction': 'asc' });
     }
   );
 
@@ -461,7 +461,7 @@ $(function () {
       '</table>');
     $('#qunit-fixture').append($table);
 
-    $table.on('sorted.sui.sortableTable', function () {
+    $table.on('sorted.bui.sortableTable', function () {
       var $rows = $table.find('tbody tr');
       QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
       QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
@@ -486,7 +486,7 @@ $(function () {
         '</table>');
       $('#qunit-fixture').append($table);
 
-      $table.on('sorted.sui.sortableTable', function () {
+      $table.on('sorted.bui.sortableTable', function () {
         var $rows = $table.find('tbody tr');
         QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
         QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
@@ -512,7 +512,7 @@ $(function () {
         '</table>');
       $('#qunit-fixture').append($table);
 
-      $table.on('sorted.sui.sortableTable', function () {
+      $table.on('sorted.bui.sortableTable', function () {
         var $rows = $table.find('tbody tr');
         QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
         QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
@@ -539,7 +539,7 @@ $(function () {
         '</table>');
       $('#qunit-fixture').append($table);
 
-      $table.on('sorted.sui.sortableTable', function () {
+      $table.on('sorted.bui.sortableTable', function () {
         var $rows = $table.find('tbody tr');
         QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
         QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
@@ -567,7 +567,7 @@ $(function () {
         '</table>');
       $('#qunit-fixture').append($table);
 
-      $table.on('sorted.sui.sortableTable', function () {
+      $table.on('sorted.bui.sortableTable', function () {
         var $rows = $table.find('tbody tr');
         QUnit.ok($($rows[0]).attr('id') === 'row3', 'row3 is first');
         QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
@@ -604,12 +604,12 @@ $(function () {
       .append($table1)
       .append($table2);
 
-    $table1.on('sorted.sui.sortableTable', function () {
+    $table1.on('sorted.bui.sortableTable', function () {
       var $rows = $table1.find('tbody tr');
       QUnit.ok($($rows[0]).attr('id') === 'row3', 'row3 is first');
       QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');
       QUnit.ok($($rows[2]).attr('id') === 'row1', 'row1 is third');
-      $table2.on('sorted.sui.sortableTable', function () {
+      $table2.on('sorted.bui.sortableTable', function () {
         var $rows = $table2.find('tbody tr');
         QUnit.ok($($rows[0]).attr('id') === 'row1', 'row1 is first');
         QUnit.ok($($rows[1]).attr('id') === 'row2', 'row2 is second');

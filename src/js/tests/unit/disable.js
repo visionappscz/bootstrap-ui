@@ -11,12 +11,12 @@ $(function () {
     setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in
       // noConflict mode
-      $.fn.suiDisable = $.fn.disable.noConflict();
+      $.fn.buiDisable = $.fn.disable.noConflict();
     },
 
     teardown: function () {
-      $.fn.disable = $.fn.suiDisable;
-      delete $.fn.suiDisable;
+      $.fn.disable = $.fn.buiDisable;
+      delete $.fn.buiDisable;
     },
   });
 
@@ -32,7 +32,7 @@ $(function () {
 
   QUnit.test('should return jquery collection containing the element', function () {
     var $el = $('<input type="checkbox" />');
-    var $disable = $el.suiDisable();
+    var $disable = $el.buiDisable();
     QUnit.ok($disable instanceof $, 'returns jquery collection');
     QUnit.strictEqual($disable[0], $el[0], 'collection contains element');
   });
@@ -40,51 +40,51 @@ $(function () {
   // Disabling elements tests
   // ========================
   QUnit.test(
-    'should fire toggle.sui.disable when disable("toggle") function is called',
+    'should fire toggle.bui.disable when disable("toggle") function is called',
     function () {
       QUnit.stop();
       var eventFired = false;
       var $el = $('<input type="text" />');
 
-      $(document).on('toggle.sui.disable', function () {
+      $(document).on('toggle.bui.disable', function () {
         QUnit.ok(true, 'event fired');
         eventFired = true;
       });
 
-      $el.suiDisable('toggle');
+      $el.buiDisable('toggle');
 
       setTimeout(function () {
         if (!eventFired) {
           QUnit.ok(false, 'event not fired');
         }
 
-        $(document).off('toggle.sui.disable');
+        $(document).off('toggle.bui.disable');
         QUnit.start();
       }, 100);
     }
   );
 
   QUnit.test(
-    'should fire toggled.sui.disable when disable("toggle") function is finished',
+    'should fire toggled.bui.disable when disable("toggle") function is finished',
     function () {
       QUnit.stop();
       var eventFired = false;
       var $el = $('<input type="text" />');
 
-      $(document).on('toggled.sui.disable', function () {
+      $(document).on('toggled.bui.disable', function () {
         QUnit.ok($el.prop('disabled'), 'element is disabled');
         QUnit.ok(true, 'event fired');
         eventFired = true;
       });
 
-      $el.suiDisable('toggle');
+      $el.buiDisable('toggle');
 
       setTimeout(function () {
         if (!eventFired) {
           QUnit.ok(false, 'event not fired');
         }
 
-        $(document).off('toggled.sui.disable');
+        $(document).off('toggled.bui.disable');
         QUnit.start();
       }, 100);
     }
@@ -94,13 +94,13 @@ $(function () {
     QUnit.stop();
     var $el = $('<input type="text" />');
 
-    $(document).on('toggled.sui.disable', function () {
-      $(document).off('toggled.sui.disable');
+    $(document).on('toggled.bui.disable', function () {
+      $(document).off('toggled.bui.disable');
       QUnit.ok($el.prop('disabled'), 'element is disabled');
       QUnit.stop();
 
-      $(document).on('toggled.sui.disable', function () {
-        $(document).off('toggled.sui.disable');
+      $(document).on('toggled.bui.disable', function () {
+        $(document).off('toggled.bui.disable');
         QUnit.ok(!$el.prop('disabled'), 'element is not disabled');
         QUnit.start();
       });
@@ -108,7 +108,7 @@ $(function () {
       QUnit.start();
     });
 
-    $el.suiDisable('toggle').suiDisable('toggle');
+    $el.buiDisable('toggle').buiDisable('toggle');
   });
 
   // Data-api tests
@@ -122,7 +122,7 @@ $(function () {
       'data-disable-target="#input_1" /><input type=text id="input_2" />' +
       '<input type="checkbox" data-toggle="disable" data-disable-target="#input_2" />');
 
-    $(document).on('toggled.sui.disable', function () {
+    $(document).on('toggled.bui.disable', function () {
       QUnit.ok($('#qunit-fixture #input_1').prop('disabled'), 'element input_1 is disabled');
       QUnit.ok(!$('#qunit-fixture #input_2').prop('disabled'), 'element input_2 is not disabled');
     });
@@ -131,7 +131,7 @@ $(function () {
     $('#control').prop('checked', true).change();
 
     setTimeout(function () {
-      $(document).off('toggled.sui.disable');
+      $(document).off('toggled.bui.disable');
       QUnit.start();
     }, 100);
   });
@@ -146,7 +146,7 @@ $(function () {
       '<button type="checkbox" data-toggle="disable" data-disable-target="#input_2" ' +
       'data-disable-event="click" />');
 
-    $(document).on('toggled.sui.disable', function () {
+    $(document).on('toggled.bui.disable', function () {
       QUnit.ok($('#qunit-fixture #input_1').prop('disabled'), 'element input_1 is disabled');
       QUnit.ok(!$('#qunit-fixture #input_2').prop('disabled'), 'element input_2 is not disabled');
     });
@@ -155,7 +155,7 @@ $(function () {
     $('#control').click();
 
     setTimeout(function () {
-      $(document).off('toggled.sui.disable');
+      $(document).off('toggled.bui.disable');
       QUnit.start();
     }, 100);
   });

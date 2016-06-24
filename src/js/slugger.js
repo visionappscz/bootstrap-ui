@@ -30,7 +30,7 @@
     };
 
     this.$target.val(generateSlug(this.$source.val()));
-    this.$source.trigger('updated.sui.slugger');
+    this.$source.trigger('updated.bui.slugger');
   };
 
   // SLUGGER PLUGIN DEFINITION
@@ -39,11 +39,11 @@
   function Plugin(options) {
     this.each(function () {
       var $this = $(this);
-      var data = $this.data('sui.slugger');
+      var data = $this.data('bui.slugger');
 
       if (!data) {
         data = new Slugger($this, options);
-        $this.data('sui.slugger', data);
+        $this.data('bui.slugger', data);
       }
 
       data.updateSlug();
@@ -69,14 +69,14 @@
   // ================
 
   $(document)
-    .on('keyup.sui.slugger.data-api', '[data-toggle=slugger]', function () {
+    .on('keyup.bui.slugger.data-api', '[data-toggle=slugger]', function () {
       $('[data-toggle=slugger]').each(function () {
         var $this = $(this);
         Plugin.call($this, { target: $($this.data('slugger-target')) });
       });
     })
-    .on('change.sui.slugger.data-api', '[data-toggle=slugger]', function () {
-      $(this).trigger('changed.sui.slugger');
+    .on('change.bui.slugger.data-api', '[data-toggle=slugger]', function () {
+      $(this).trigger('changed.bui.slugger');
     });
 
 }(jQuery, window, document));

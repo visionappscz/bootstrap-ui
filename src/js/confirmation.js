@@ -31,16 +31,16 @@
       backdrop: 'static',
     });
 
-    $triggerEl.trigger('show.sui.confirmation');
-    $triggerEl.on('rejected.sui.confirmation', function () {
+    $triggerEl.trigger('show.bui.confirmation');
+    $triggerEl.on('rejected.bui.confirmation', function () {
       callback(false);
     });
 
-    $triggerEl.on('confirmed.sui.confirmation', function () {
+    $triggerEl.on('confirmed.bui.confirmation', function () {
       callback(true);
     });
 
-    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function () {
+    $triggerEl.on('rejected.bui.confirmation confirmed.bui.confirmation', function () {
       $modal.on('hidden.bs.modal', function () {
         $(this).remove();
       });
@@ -50,27 +50,27 @@
       // Thats why there is no animation :(
       // http://stackoverflow.com/questions/22056147/bootstrap-modal-backdrop-remaining
       $modal.removeClass('fade').modal('hide');
-      $triggerEl.off('rejected.sui.confirmation confirmed.sui.confirmation');
+      $triggerEl.off('rejected.bui.confirmation confirmed.bui.confirmation');
     });
 
-    $modal.on('keydown.sui.confirmation', function (e) {
+    $modal.on('keydown.bui.confirmation', function (e) {
       if (e.keyCode === 27) { //escape
-        $triggerEl.trigger('rejected.sui.confirmation');
+        $triggerEl.trigger('rejected.bui.confirmation');
       } else if (e.keyCode === 13) { //enter
-        $triggerEl.trigger('confirmed.sui.confirmation');
+        $triggerEl.trigger('confirmed.bui.confirmation');
       }
     });
 
     $modal
       .find('[data-confirmation=reject]')
-      .on('click.sui.confirmation', function () {
-        $triggerEl.trigger('rejected.sui.confirmation');
+      .on('click.bui.confirmation', function () {
+        $triggerEl.trigger('rejected.bui.confirmation');
       });
 
     $modal
       .find('[data-confirmation=confirm]')
-      .on('click.sui.confirmation', function () {
-        $triggerEl.trigger('confirmed.sui.confirmation');
+      .on('click.bui.confirmation', function () {
+        $triggerEl.trigger('confirmed.bui.confirmation');
       });
   };
 
@@ -91,11 +91,11 @@
   function Plugin(options) {
     return this.each(function () {
       var $this = $(this);
-      var data = $this.data('sui.confirmation');
+      var data = $this.data('bui.confirmation');
 
       if (!data) {
         data = new Confirmation($this, options);
-        $this.data('sui.confirmation', data);
+        $this.data('bui.confirmation', data);
       }
 
       data.showConfirmation();
@@ -117,7 +117,7 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]',
+  $(document).on('click.bui.confirmation.data-api', '[data-toggle=confirm]',
     function (e, noConfirm) {
       var $this = $(this);
 
@@ -130,7 +130,7 @@
           'confirm-no': $this.data('confirm-no'),
           callback: function (result) {
             if (result) {
-              $this.trigger('click.sui.confirmation.data-api', true);
+              $this.trigger('click.bui.confirmation.data-api', true);
             }
           },
         });
