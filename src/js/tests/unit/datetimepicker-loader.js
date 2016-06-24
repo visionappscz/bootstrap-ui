@@ -4,10 +4,17 @@ $(function () {
   QUnit.module('datetimepicker-loader', {
     setup: function () {
       jQuery.fn.datetimepicker = function () {};
+
+      moment.localeOrig = moment.locale;
+      moment.locale = function () {};
     },
 
     teardown: function () {
+      moment.locale = moment.localeOrig;
+      $('html').attr('lang', null);
+      delete moment.localeOrig;
       delete jQuery.fn.datetimepicker;
+
     },
   });
 
@@ -17,23 +24,28 @@ $(function () {
   // Data-api tests
   // ======================
   QUnit.test(
-    'should init datetimepicker with default config on the html element on page load',
+    'should init datetimepicker with default config on page load',
     function () {
       var $input = $('<input type="text" data-onload-datetimepicker />');
       $('#qunit-fixture').append($input);
 
       sinon.spy(jQuery.fn, 'datetimepicker');
+      sinon.stub(moment, 'locale').withArgs().returns('fake-locale');
       $(window).trigger('load');
 
       QUnit.ok(jQuery.fn.datetimepicker.calledOnce, 'Should init the datetimepicker');
       QUnit.ok(
-        jQuery.fn.datetimepicker.calledWith({ allowInputToggle: true, sideBySide: true }),
+        jQuery.fn.datetimepicker.calledWith({
+          allowInputToggle: true,
+          sideBySide: true,
+          locale: 'fake-locale',
+        }),
         'Should init the datetimepicker with default config'
       );
     }
   );
 
-  QUnit.test('should init datetimepicker with some config option on the html element on page load',
+  QUnit.test('should init datetimepicker with some config option on page load',
     function () {
       var $input = $(
         '<input type="text" data-onload-datetimepicker=\'{"option": "optionValue"}\' />'
@@ -41,6 +53,7 @@ $(function () {
       $('#qunit-fixture').append($input);
 
       sinon.spy(jQuery.fn, 'datetimepicker');
+      sinon.stub(moment, 'locale').withArgs().returns('fake-locale');
       $(window).trigger('load');
 
       QUnit.ok(jQuery.fn.datetimepicker.calledOnce, 'Should init the datetimepicker');
@@ -49,9 +62,31 @@ $(function () {
           option: 'optionValue',
           allowInputToggle: true,
           sideBySide: true,
+          locale: 'fake-locale',
         }),
         'Should init the datetimepicker with specified config object'
       );
     }
   );
+
+  QUnit.test('should init datetimepicker with locale', function () {
+    var $input = $('<input type="text" data-onload-datetimepicker />');
+
+    $('html').attr('lang', 'cs');
+    $('#qunit-fixture').append($input);
+    sinon.spy(jQuery.fn, 'datetimepicker');
+    sinon.stub(moment, 'locale').withArgs('cs').returns('fake-locale');
+    $(window).trigger('load');
+
+    QUnit.ok(jQuery.fn.datetimepicker.calledOnce, 'Should init the datetimepicker');
+    QUnit.ok(
+      jQuery.fn.datetimepicker.calledWith({
+        locale: 'fake-locale',
+        allowInputToggle: true,
+        sideBySide: true,
+      }),
+      'Should init the datetimepicker with locale set'
+    );
+  });
+
 });
