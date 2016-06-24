@@ -1,8 +1,5 @@
-<p class="lead">This is the docs of Bootstrap UI, a Bootstrap 3 extension for building beautiful web apps user
+<p class="lead">This is the documentation of Bootstrap UI, a Bootstrap 3 extension for building beautiful web apps user
 interfaces.</p>
-
-Bootstrap itself is a great tool for quick creating web app interfaces. Bootstrap UI extends its capabilities with some
-features and components that are common in web app UIs, yet too specific to be included in the original framework.
 
 **Technologies used:**
 
@@ -12,23 +9,6 @@ features and components that are common in web app UIs, yet too specific to be i
 - [Grunt](http://gruntjs.com)
 - [Style guide generator](https://github.com/kss-node/grunt-kss) using
 [KSS syntax](http://warpspire.com/kss/syntax/)
-
-<h2 id="why" class="page-header">Why</h2>
-
-Why you need Bootstrap UI on top of Bootstrap:
-
-- **Bootstrap UI** contains the missing components for web apps that are not present in Bootstrap: datepicker, listbox,
-  CTAs, navigation components, sticky footer, extensions for table listings, and many others. Especially, we are very
-  proud of the JavaScript part: sorting, filtering, confirmation, etc.
-- **Bootstrap UI** made it possible to build a consistent library of design patterns that we at
-  [VisionApps](http://www.visionapps.cz) use every day when developing responsive HTML prototypes and UIs for our web
-  apps. Showcase coming soon!
-- **Bootstrap UI** benefits from extending the original Bootstrap codebase at the LESS level. This is why you can easily
-  adjust almost anything using just LESS variables.
-- **Bootstrap UI** is designed as an extension, not a modification, neither an override of Bootstrap. However, we made
-  some design decisions for you and adjusted couple of things to make the UI look beautiful and nicer than default,
-  easily recognizable &rdquo;Bootstrap style&ldquo;.
-- Of course, everything is mobile first and fully responsive.
 
 <h2 id="install" class="page-header">Install</h2>
 
