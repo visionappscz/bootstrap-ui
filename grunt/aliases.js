@@ -52,7 +52,6 @@ module.exports = {
   build: [
     'clean:temp',
     'clean:styleguide',
-    'test-js',
     'build-css',
     'build-js',
     'build-styleguide',
@@ -73,6 +72,7 @@ module.exports = {
   // Serve the style guide to browser, watch the source files for changes and update them
   // automatically.
   serve: [
+    'test',
     'build',
     'browserSync:dev',
     'watch',
@@ -81,5 +81,8 @@ module.exports = {
   // Default task
   // ============
 
-  default: 'test',
+  default: [
+    'test',
+    'build',
+  ],
 };
