@@ -17,6 +17,10 @@ module.exports = {
     },
   },
   styleguide: {
+    options: {
+      paths: ['<%= paths.bower %>'],
+      strictUnits: true,
+    },
     files: {
       '<%= paths.temp %>/styleguide/kss.css':
         '<%= paths.src %>/styleguide/kss-assets/less/kss.less',
