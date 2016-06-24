@@ -14,16 +14,16 @@
         var $this = $(this);
         var confValue = $this.data('onload-ckeditor');
 
+        if (language) {
+          confObj.language = language;
+        }
+
         if (confValue) {
           if (typeof confValue === 'object') {
             confObj = confValue;
           } else {
             confObj = { customConfig: confValue };
           }
-        }
-
-        if (language) {
-          confObj.language = language;
         }
 
         $this.ckeditor(confObj);
