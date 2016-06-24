@@ -115,3 +115,78 @@ code {
 .kss__markup {
     margin: 1.5em 0;
 }
+
+.kss__color-swatch {
+    display: inline-block;
+    width: 100px;
+    margin: 5px 5px (@line-height-computed / 2);
+    vertical-align: top;
+    text-align: center;
+
+    &__color {
+        display: block;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 5px;
+        border-radius: @border-radius-base;
+    }
+
+    // Grays
+    &--gray-base {
+        background-color: @gray-base;
+    }
+
+    &--gray-darker {
+        background-color: @gray-darker;
+    }
+
+    &--gray-dark {
+        background-color: @gray-dark;
+    }
+
+    &--gray {
+        background-color: @gray;
+    }
+
+    &--gray-light {
+        background-color: @gray-light;
+    }
+
+    &--gray-lighter {
+        background-color: @gray-lighter;
+    }
+
+    // Brand colors
+    &--brand-primary {
+        background-color: @brand-primary;
+    }
+
+    &--brand-accent {
+        background-color: @brand-accent;
+    }
+
+    &--brand-success {
+        background-color: @brand-success;
+    }
+
+    &--brand-info {
+        background-color: @brand-info;
+    }
+
+    &--brand-warning {
+        background-color: @brand-warning;
+    }
+
+    &--brand-danger {
+        background-color: @brand-danger;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        width: 120px;
+
+        &__color {
+            width: 100px;
+            height: 100px;
+        }
+    }
+}
