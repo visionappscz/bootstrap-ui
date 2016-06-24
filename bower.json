@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-ui",
   "description": "Bootstrap UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "homepage": "http://www.bootstrap-ui.com",
   "authors": [
     "http://www.visionapps.cz"
@@ -9,6 +9,7 @@
   "license": "MIT",
   "keywords": [
     "bootstrap",
+    "ui",
     "extension",
     "css",
     "less",

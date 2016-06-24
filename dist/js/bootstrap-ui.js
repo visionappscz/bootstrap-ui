@@ -1,13 +1,11 @@
 /*!
- * Synergic UI
+ * Bootstrap UI
  * Built on the shoulders of a giant: Bootstrap 3
- * http://ui.synergic.cz
+ * http://www.bootstrap-ui.com
  *
  * Created by VisionApps (www.visionapps.cz)
- * HTML & LESS © Adam Kudrna, 2014—2016
- * JavaScript © Martin Bohal, 2014—2016
  *
- * v1.0.4 (15 June 2016)
+ * v2.0.0 (24 June 2016)
  */
 ;(function ($, window) {
   'use strict';
@@ -20,9 +18,15 @@
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function () {
       $('[data-onload-ckeditor]').each(function () {
+        var language = $('html').attr('lang');
         var confObj = {};
         var $this = $(this);
         var confValue = $this.data('onload-ckeditor');
+
+        if (language) {
+          confObj.language = language;
+        }
+
         if (confValue) {
           if (typeof confValue === 'object') {
             confObj = confValue;
@@ -71,16 +75,16 @@
       backdrop: 'static',
     });
 
-    $triggerEl.trigger('show.sui.confirmation');
-    $triggerEl.on('rejected.sui.confirmation', function () {
+    $triggerEl.trigger('show.bui.confirmation');
+    $triggerEl.on('rejected.bui.confirmation', function () {
       callback(false);
     });
 
-    $triggerEl.on('confirmed.sui.confirmation', function () {
+    $triggerEl.on('confirmed.bui.confirmation', function () {
       callback(true);
     });
 
-    $triggerEl.on('rejected.sui.confirmation confirmed.sui.confirmation', function () {
+    $triggerEl.on('rejected.bui.confirmation confirmed.bui.confirmation', function () {
       $modal.on('hidden.bs.modal', function () {
         $(this).remove();
       });
@@ -90,27 +94,27 @@
       // Thats why there is no animation :(
       // http://stackoverflow.com/questions/22056147/bootstrap-modal-backdrop-remaining
       $modal.removeClass('fade').modal('hide');
-      $triggerEl.off('rejected.sui.confirmation confirmed.sui.confirmation');
+      $triggerEl.off('rejected.bui.confirmation confirmed.bui.confirmation');
     });
 
-    $modal.on('keydown.sui.confirmation', function (e) {
+    $modal.on('keydown.bui.confirmation', function (e) {
       if (e.keyCode === 27) { //escape
-        $triggerEl.trigger('rejected.sui.confirmation');
+        $triggerEl.trigger('rejected.bui.confirmation');
       } else if (e.keyCode === 13) { //enter
-        $triggerEl.trigger('confirmed.sui.confirmation');
+        $triggerEl.trigger('confirmed.bui.confirmation');
       }
     });
 
     $modal
       .find('[data-confirmation=reject]')
-      .on('click.sui.confirmation', function () {
-        $triggerEl.trigger('rejected.sui.confirmation');
+      .on('click.bui.confirmation', function () {
+        $triggerEl.trigger('rejected.bui.confirmation');
       });
 
     $modal
       .find('[data-confirmation=confirm]')
-      .on('click.sui.confirmation', function () {
-        $triggerEl.trigger('confirmed.sui.confirmation');
+      .on('click.bui.confirmation', function () {
+        $triggerEl.trigger('confirmed.bui.confirmation');
       });
   };
 
@@ -131,11 +135,11 @@
   function Plugin(options) {
     return this.each(function () {
       var $this = $(this);
-      var data = $this.data('sui.confirmation');
+      var data = $this.data('bui.confirmation');
 
       if (!data) {
         data = new Confirmation($this, options);
-        $this.data('sui.confirmation', data);
+        $this.data('bui.confirmation', data);
       }
 
       data.showConfirmation();
@@ -157,7 +161,7 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.sui.confirmation.data-api', '[data-toggle=confirm]',
+  $(document).on('click.bui.confirmation.data-api', '[data-toggle=confirm]',
     function (e, noConfirm) {
       var $this = $(this);
 
@@ -170,7 +174,7 @@
           'confirm-no': $this.data('confirm-no'),
           callback: function (result) {
             if (result) {
-              $this.trigger('click.sui.confirmation.data-api', true);
+              $this.trigger('click.bui.confirmation.data-api', true);
             }
           },
         });
@@ -180,33 +184,49 @@
 
 }(jQuery, window, document));
 
-;(function ($, window) {
+;(function ($, moment, window) {
   'use strict';
 
-  // CKEDITOR-LOADER DATA-API
-  // ========================
+  var DatetimePickerLoader = function ($element) {
+    this.$element = $element;
+  };
 
-  (function ($, window) {
-    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
-    // and thus it would make it impossible to test this part of the code.
-    $(window).load(function () {
-      var initComponentFn = function (confObj, confValue) {
-        if (confValue) {
-          $.extend(confObj, confValue);
-        }
+  DatetimePickerLoader.prototype.filterLocale = function (locale) {
+    return moment.locale(locale);
+  };
 
-        $(this).datetimepicker(confObj);
+  DatetimePickerLoader.prototype.init = function (confObj) {
+    confObj.locale = this.filterLocale(confObj.locale);
+    this.$element.datetimepicker(confObj);
+  };
+
+  // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+  // and thus it would make it impossible to test this part of the code.
+  $(window).load(function () {
+    var initComponentFn = function (inlineConf) {
+      var datetimePickerLoader = new DatetimePickerLoader($(this));
+      var conf = {
+        allowInputToggle: true,
+        sideBySide: true,
+        locale: $('html').attr('lang'),
       };
 
-      $('[data-onload-datetimepicker]').each(function () {
-        initComponentFn.call(this, { allowInputToggle: true, sideBySide: true }, $(this).data(
-            'onload-datetimepicker'
-        ));
-      });
-    });
-  }($, window));
+      if (inlineConf) {
+        $.extend(conf, inlineConf);
+      }
 
-}(jQuery, window));
+      datetimePickerLoader.init(conf);
+    };
+
+    // CKEDITOR-LOADER DATA-API
+    // ========================
+
+    $('[data-onload-datetimepicker]').each(function () {
+      initComponentFn.call(this, $(this).data('onload-datetimepicker'));
+    });
+  });
+
+}(jQuery, moment, window));
 
 ;(function ($, window, document) {
   'use strict';
@@ -218,9 +238,9 @@
   };
 
   Disable.prototype.toggle = function () {
-    $(document).trigger('toggle.sui.disable');
+    $(document).trigger('toggle.bui.disable');
     this.$element.prop('disabled', !this.$element.prop('disabled'));
-    $(document).trigger('toggled.sui.disable');
+    $(document).trigger('toggled.bui.disable');
   };
 
   // DISABLE PLUGIN DEFINITION
@@ -229,11 +249,11 @@
   function Plugin() {
     this.each(function () {
       var $this = $(this);
-      var data = $this.data('sui.disable');
+      var data = $this.data('bui.disable');
 
       if (!data) {
         data = new Disable($this);
-        $this.data('sui.disable', data);
+        $this.data('bui.disable', data);
       }
 
       data.toggle();
@@ -271,7 +291,7 @@
           eventType = 'change';
         }
 
-        $this.on(eventType + '.sui.disable.data-api', function () {
+        $this.on(eventType + '.bui.disable.data-api', function () {
           Plugin.call($($this.data('disable-target')));
         });
       });
@@ -370,19 +390,19 @@
   function Plugin(options) {
     if (this.length) {
       if (options === 'reset') {
-        $(document).trigger('resetStart.sui.filterable');
+        $(document).trigger('resetStart.bui.filterable');
       } else {
-        $(document).trigger('filter.sui.filterable');
+        $(document).trigger('filter.bui.filterable');
       }
 
       this.each(function () {
         var data;
         var $this = $(this);
 
-        data = $this.data('sui.filterable');
+        data = $this.data('bui.filterable');
         if (!data) {
           data = new Filterable($this);
-          $this.data('sui.filterable', data);
+          $this.data('bui.filterable', data);
         }
 
         if (options === 'reset') {
@@ -393,9 +413,9 @@
       });
 
       if (options === 'reset') {
-        $(document).trigger('resetEnd.sui.filterable');
+        $(document).trigger('resetEnd.bui.filterable');
       } else {
-        $(document).trigger('filtered.sui.filterable');
+        $(document).trigger('filtered.bui.filterable');
       }
     }
 
@@ -443,7 +463,7 @@
   });
 
   $(document).on(
-    'keyup.sui.filterable.data-api change.sui.filterable.data-api',
+    'keyup.bui.filterable.data-api change.bui.filterable.data-api',
     '[data-toggle=filter]',
     function (e) {
       var $filter = $(this).closest('form');
@@ -477,7 +497,7 @@
     }
   );
 
-  $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
+  $(document).on('click.bui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
     var $filter = $(this).closest('form');
     var storageId = $filter.data('filter-storage-id');
 
@@ -548,7 +568,7 @@
     };
 
     this.$target.val(generateSlug(this.$source.val()));
-    this.$source.trigger('updated.sui.slugger');
+    this.$source.trigger('updated.bui.slugger');
   };
 
   // SLUGGER PLUGIN DEFINITION
@@ -557,11 +577,11 @@
   function Plugin(options) {
     this.each(function () {
       var $this = $(this);
-      var data = $this.data('sui.slugger');
+      var data = $this.data('bui.slugger');
 
       if (!data) {
         data = new Slugger($this, options);
-        $this.data('sui.slugger', data);
+        $this.data('bui.slugger', data);
       }
 
       data.updateSlug();
@@ -587,14 +607,14 @@
   // ================
 
   $(document)
-    .on('keyup.sui.slugger.data-api', '[data-toggle=slugger]', function () {
+    .on('keyup.bui.slugger.data-api', '[data-toggle=slugger]', function () {
       $('[data-toggle=slugger]').each(function () {
         var $this = $(this);
         Plugin.call($this, { target: $($this.data('slugger-target')) });
       });
     })
-    .on('change.sui.slugger.data-api', '[data-toggle=slugger]', function () {
-      $(this).trigger('changed.sui.slugger');
+    .on('change.bui.slugger.data-api', '[data-toggle=slugger]', function () {
+      $(this).trigger('changed.bui.slugger');
     });
 
 }(jQuery, window, document));
@@ -626,7 +646,7 @@
     var isSortedAsc = $sortedTh.hasClass('sorting-asc');
 
     this.$sortedTable
-      .trigger('sort.sui.sortableTable')
+      .trigger('sort.bui.sortableTable')
       .find('th')
       .removeClass('sorting-asc')
       .removeClass('sorting-desc');
@@ -677,7 +697,7 @@
     }
 
     this.$sortedTable.html(tableHtml + '</tbody>');
-    this.$sortedTable.trigger('sorted.sui.sortableTable');
+    this.$sortedTable.trigger('sorted.bui.sortableTable');
   };
 
   SortableTable.prototype.comparer = function (index, sortDir) {
@@ -713,13 +733,13 @@
     return this.each(function () {
       var $navigation;
       var $this = $(this);
-      var data = $this.data('sui.sortableTable');
+      var data = $this.data('bui.sortableTable');
 
       if (!data) {
         $navigation = options && 'navigation' in options && options.navigation ?
             $(options.navigation) : false;
         data = new SortableTable($this, $navigation);
-        $this.data('sui.sortableTable', data);
+        $this.data('bui.sortableTable', data);
       }
 
       data.sort(options['sorted-th'], options['sort-direction']);
@@ -751,11 +771,11 @@
       });
     };
 
-    $(document).on('click.sui.sortableTable.data-api', 'th[data-toggle=sort]', function () {
+    $(document).on('click.bui.sortableTable.data-api', 'th[data-toggle=sort]', function () {
       callPlugin($(this));
     });
 
-    $(document).on('keydown.sui.sortableTable.data-api', 'th[data-toggle=sort]', function (e) {
+    $(document).on('keydown.bui.sortableTable.data-api', 'th[data-toggle=sort]', function (e) {
       if (e.keyCode === 13 || e.keyCode === 32) { //enter or space
         callPlugin($(this));
       }
@@ -778,4 +798,4 @@
 
 }(jQuery, window, document));
 
-//# sourceMappingURL=synergic-ui.js.map
+//# sourceMappingURL=bootstrap-ui.js.map
