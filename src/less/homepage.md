@@ -31,7 +31,7 @@ Link Titillium Web font from [Google Fonts](https://www.google.com/fonts/) and B
 
 ```
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Titillium+Web:400,300,700&amp;subset=latin,latin-ext" />
-<link rel="stylesheet" href="bower_components/bootstrap-ui/dist/css/bootstrap-ui.min.css" />
+<link rel="stylesheet" href="bower_components/bootstrap.ui/dist/css/bootstrap-ui.min.css" />
 ```
 
 ### JavaScript
@@ -49,7 +49,7 @@ available, or better, link the packages managed by Bower:
 <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <script src="bower_components/select2/select2.min.js"></script>
 <!-- Bootstrap UI JS -->
-<script src="bower_components/bootstrap-ui/dist/js/bootstrap-ui.min.js"></script>
+<script src="bower_components/bootstrap.ui/dist/js/bootstrap-ui.min.js"></script>
 ```
 
 <h2 id="customizing" class="page-header">Customizing</h2>
@@ -61,7 +61,7 @@ In your LESS styles, import complete Bootstrap UI styles to customize via LESS v
 
 ```
 @external-components-path: 'bower_components/';
-@import 'bower_components/bootstrap-ui/src/less/bootstrap-ui';
+@import 'bower_components/bootstrap.ui/src/less/bootstrap-ui';
 ```
 
 Do not forget to declare `@external-components-path` variable saying where Bower dependencies are installed (relative to
