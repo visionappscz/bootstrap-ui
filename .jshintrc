@@ -20,6 +20,7 @@
     "jQuery": false,
     "$": false,
     "QUnit": false,
-    "sinon": false
+    "sinon": false,
+    "moment": false
   }
 }

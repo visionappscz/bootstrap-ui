@@ -9,9 +9,15 @@
     // and thus it would make it impossible to test this part of the code.
     $(window).load(function () {
       $('[data-onload-ckeditor]').each(function () {
+        var language = $('html').attr('lang');
         var confObj = {};
         var $this = $(this);
         var confValue = $this.data('onload-ckeditor');
+
+        if (language) {
+          confObj.language = language;
+        }
+
         if (confValue) {
           if (typeof confValue === 'object') {
             confObj = confValue;

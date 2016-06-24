@@ -1,27 +1,43 @@
-;(function ($, window) {
+;(function ($, moment, window) {
   'use strict';
 
-  // CKEDITOR-LOADER DATA-API
-  // ========================
+  var DatetimePickerLoader = function ($element) {
+    this.$element = $element;
+  };
 
-  (function ($, window) {
-    // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
-    // and thus it would make it impossible to test this part of the code.
-    $(window).load(function () {
-      var initComponentFn = function (confObj, confValue) {
-        if (confValue) {
-          $.extend(confObj, confValue);
-        }
+  DatetimePickerLoader.prototype.filterLocale = function (locale) {
+    return moment.locale(locale);
+  };
 
-        $(this).datetimepicker(confObj);
+  DatetimePickerLoader.prototype.init = function (confObj) {
+    confObj.locale = this.filterLocale(confObj.locale);
+    this.$element.datetimepicker(confObj);
+  };
+
+  // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
+  // and thus it would make it impossible to test this part of the code.
+  $(window).load(function () {
+    var initComponentFn = function (inlineConf) {
+      var datetimePickerLoader = new DatetimePickerLoader($(this));
+      var conf = {
+        allowInputToggle: true,
+        sideBySide: true,
+        locale: $('html').attr('lang'),
       };
 
-      $('[data-onload-datetimepicker]').each(function () {
-        initComponentFn.call(this, { allowInputToggle: true, sideBySide: true }, $(this).data(
-            'onload-datetimepicker'
-        ));
-      });
-    });
-  }($, window));
+      if (inlineConf) {
+        $.extend(conf, inlineConf);
+      }
 
-}(jQuery, window));
+      datetimePickerLoader.init(conf);
+    };
+
+    // CKEDITOR-LOADER DATA-API
+    // ========================
+
+    $('[data-onload-datetimepicker]').each(function () {
+      initComponentFn.call(this, $(this).data('onload-datetimepicker'));
+    });
+  });
+
+}(jQuery, moment, window));

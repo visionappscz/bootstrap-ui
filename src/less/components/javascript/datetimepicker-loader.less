@@ -8,13 +8,14 @@ Initializes [Bootstrap Datetimepicker](http://eonasdan.github.io/bootstrap-datet
 <div class="panel panel-danger">
     <div class="panel-heading"><h4 class="panel-title">JavaScript Required</h4></div>
     <div class="panel-body">
-        Scripts `datetimepicker-loader.js`, `moment.js` (this one before `bootstrap.js`) and `bootstrap-datetimepicker.js` must be included.
+        Scripts `datetimepicker-loader.js`, `moment.js` (optionaly with locales, before `bootstrap.js`) and `bootstrap-datetimepicker.js` must be included.
     </div>
 </div>
 
 ### Usage
 
-This loader only calls the jQuery plugin defined in bootstrap-datetimepicker component. It does nothing else.
+This loader only calls the jQuery plugin defined in bootstrap-datetimepicker component.
+If the `lang` attribute is set on the `<html>` element the datetimepicker is localized accordingly.
 
 #### Data-API
 
