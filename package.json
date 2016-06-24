@@ -1,16 +1,16 @@
 {
-  "name": "synergic-ui",
+  "name": "bootstrap-ui",
   "version": "1.0.4",
-  "description": "Synergic UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
+  "description": "Bootstrap UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:visionappscz/synergic-ui.git"
+    "url": "git@github.com:visionappscz/bootstrap-ui.git"
   },
-  "homepage": "http://ui.synergic.cz",
+  "homepage": "http://www.bootstrap-ui.com",
   "author": "VisionApps",
   "license": "MIT",
-  "style": "dist/css/synergic-ui.css",
-  "less": "src/less/synergic-ui.less",
+  "style": "dist/css/bootstrap-ui.css",
+  "less": "src/less/bootstrap-ui.less",
   "scripts": {
     "test": "grunt test"
   },
