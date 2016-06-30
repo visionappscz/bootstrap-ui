@@ -213,3 +213,59 @@ tr.disabled {
         }
     }
 }
+
+
+/*
+Tables with Dropdowns
+
+Prevent clipped dropdown menus in responsive tables.
+
+Markup:
+<div class="table-responsive table-responsive-dropdowns">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="table-cell-id">ID 1</td>
+                <td>2016-06-30 11:30:22</td>
+                <td>John Doe</td>
+                <td class="text-right">49 USD</td>
+                <td class="table-cell-actions">
+                    <div class="btn-group">
+                        <button class="item-action" type="button" id="itemOptions1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="itemOptions1">
+                            <li>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-usd offset-right" aria-hidden="true"></span>
+                                    Mark as paid
+                                </a>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-dropdown">
+                                    <span class="glyphicon glyphicon-remove-sign offset-right" aria-hidden="true"></span>
+                                    Cancel order
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+Styleguide 5.8.2
+*/
+
+@media (max-width: @grid-float-breakpoint-max) {
+    .table-responsive-dropdowns {
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: @grid-float-breakpoint) {
+    .table-responsive-dropdowns {
+        overflow: visible;
+    }
+}
