@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v2.0.0 (24 June 2016)
+ * v2.1.0 (30 June 2016)
  */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -3466,7 +3466,8 @@ fieldset[disabled] .btn-link:focus {
   line-height: 1.5;
   border-radius: 2px;
 }
-.btn-block {
+.btn-block,
+.btn-dropdown {
   display: block;
   width: 100%;
 }
@@ -10293,6 +10294,55 @@ Styleguide 5.3.4
   opacity: .5;
 }
 /*
+Buttons in Dropdowns
+
+Make button in dropdown look like any other item.
+
+Markup:
+<div class="dropdown">
+    <button class="btn btn-default" type="button" id="itemOptions1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Options
+        <span class="glyphicon glyphicon-menu-down offset-left" aria-hidden="true"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="itemOptions1">
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-pencil offset-right" aria-hidden="true"></span>
+                Edit
+            </a>
+        </li>
+        <li>
+            <button type="button" class="btn btn-dropdown">
+                <span class="glyphicon glyphicon-remove-sign offset-right" aria-hidden="true"></span>
+                Delete
+            </button>
+        </li>
+    </ul>
+</div>
+
+Styleguide 5.3.5
+*/
+.btn-dropdown {
+  clear: both;
+  padding: 3px 20px;
+  font-weight: normal;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-align: left;
+  color: #333333;
+  border-radius: 0;
+  background-color: transparent;
+}
+.btn-dropdown:hover,
+.btn-dropdown:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.btn-dropdown:active {
+  box-shadow: none;
+}
+/*
 Gallery
 
 Bootstrap-grid-independent responsive thumbnail grid. Designed for easy use.
@@ -10662,6 +10712,58 @@ td.table-cell-id {
 }
 .table-cell-top {
   vertical-align: top !important;
+}
+/*
+Tables with Dropdowns
+
+Prevent clipped dropdown menus in responsive tables.
+
+Markup:
+<div class="table-responsive table-responsive-dropdowns">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td class="table-cell-id">ID 1</td>
+                <td>2016-06-30 11:30:22</td>
+                <td>John Doe</td>
+                <td class="text-right">49 USD</td>
+                <td class="table-cell-actions">
+                    <div class="btn-group">
+                        <button class="item-action" type="button" id="itemOptions1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="itemOptions1">
+                            <li>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-usd offset-right" aria-hidden="true"></span>
+                                    Mark as paid
+                                </a>
+                            </li>
+                            <li>
+                                <button type="button" class="btn btn-dropdown">
+                                    <span class="glyphicon glyphicon-remove-sign offset-right" aria-hidden="true"></span>
+                                    Cancel order
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+Styleguide 5.8.2
+*/
+@media (max-width: 767px) {
+  .table-responsive-dropdowns {
+    overflow-y: auto;
+  }
+}
+@media (min-width: 768px) {
+  .table-responsive-dropdowns {
+    overflow: visible;
+  }
 }
 /*
 Thumbnails
