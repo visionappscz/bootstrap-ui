@@ -99,3 +99,58 @@ Styleguide 5.3.4
 .btn[disabled] {
     opacity: .5;
 }
+
+
+/*
+Buttons in Dropdowns
+
+Make button in dropdown look like any other item.
+
+Markup:
+<div class="dropdown">
+    <button class="btn btn-default" type="button" id="itemOptions1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Options
+        <span class="glyphicon glyphicon-menu-down offset-left" aria-hidden="true"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="itemOptions1">
+        <li>
+            <a href="#">
+                <span class="glyphicon glyphicon-pencil offset-right" aria-hidden="true"></span>
+                Edit
+            </a>
+        </li>
+        <li>
+            <button type="button" class="btn btn-dropdown">
+                <span class="glyphicon glyphicon-remove-sign offset-right" aria-hidden="true"></span>
+                Delete
+            </button>
+        </li>
+    </ul>
+</div>
+
+Styleguide 5.3.5
+*/
+
+.btn-dropdown {
+    &:extend(.btn-block);
+    clear: both;
+    padding: 3px 20px;
+    font-weight: normal;
+    line-height: @line-height-base;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    text-align: left;
+    color: @dropdown-link-color;
+    border-radius: 0;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: @dropdown-link-hover-color;
+        background-color: @dropdown-link-hover-bg;
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+}
