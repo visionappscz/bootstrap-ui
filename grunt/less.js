@@ -13,10 +13,14 @@ module.exports = {
       sourceMapRootpath: '../../../',
     },
     files: {
-      '<%= paths.temp %>/css/<%= pkg.name %>.css': '<%= paths.src %>/less/synergic-ui.less',
+      '<%= paths.temp %>/css/<%= pkg.name %>.css': '<%= paths.src %>/less/<%= pkg.name %>.less',
     },
   },
   styleguide: {
+    options: {
+      paths: ['<%= paths.bower %>'],
+      strictUnits: true,
+    },
     files: {
       '<%= paths.temp %>/styleguide/kss.css':
         '<%= paths.src %>/styleguide/kss-assets/less/kss.less',

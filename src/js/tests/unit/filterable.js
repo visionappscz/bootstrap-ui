@@ -11,12 +11,12 @@ $(function () {
     setup: function () {
       // Run all tests in noConflict mode -- it's the only way to ensure that the plugin works in
       // noConflict mode
-      $.fn.suiFilterable = $.fn.filterable.noConflict();
+      $.fn.buiFilterable = $.fn.filterable.noConflict();
     },
 
     teardown: function () {
-      $.fn.filterable = $.fn.suiFilterable;
-      delete $.fn.suiFilterable;
+      $.fn.filterable = $.fn.buiFilterable;
+      delete $.fn.buiFilterable;
     },
   });
 
@@ -32,18 +32,18 @@ $(function () {
   });
 
   QUnit.test('should return jquery collection containing the element', function () {
-    var $filterable = $(document).suiFilterable();
+    var $filterable = $(document).buiFilterable();
     QUnit.ok($filterable instanceof $, 'returns jquery collection');
     QUnit.strictEqual($filterable[0], $(document)[0], 'collection contains element');
   });
 
   // Event related tests
   // ===================
-  QUnit.test('should fire filter.sui.filterable when filtering is started', function () {
+  QUnit.test('should fire filter.bui.filterable when filtering is started', function () {
     QUnit.stop();
     var eventFired = false;
 
-    $(document).on('filter.sui.filterable', function () {
+    $(document).on('filter.bui.filterable', function () {
       QUnit.ok($('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true, 'div is visible');
       QUnit.ok(true, 'event fired');
       eventFired = true;
@@ -51,7 +51,7 @@ $(function () {
 
     $('<div data-tags="tag1">')
       .appendTo($('#qunit-fixture'))
-      .suiFilterable([
+      .buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'subset',
@@ -64,17 +64,17 @@ $(function () {
         QUnit.ok(false, 'event not fired');
       }
 
-      $(document).off('filter.sui.filterable');
+      $(document).off('filter.bui.filterable');
       QUnit.start();
     }, 100);
   });
 
-  QUnit.test('should fire filtered.sui.filterable when filtering is finished', function () {
+  QUnit.test('should fire filtered.bui.filterable when filtering is finished', function () {
     QUnit.stop();
     var eventFired = false;
 
-    $(document).on('filter.sui.filterable', function () {
-      $(this).on('filtered.sui.filterable', function () {
+    $(document).on('filter.bui.filterable', function () {
+      $(this).on('filtered.bui.filterable', function () {
         QUnit.ok(
           $('#qunit-fixture div[data-tags="tag1"]').is(':visible') === false,
           'div is visible'
@@ -86,7 +86,7 @@ $(function () {
 
     $('<div data-tags="tag1">')
       .appendTo($('#qunit-fixture'))
-      .suiFilterable([
+      .buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'subset',
@@ -100,17 +100,17 @@ $(function () {
       }
 
       $(document)
-        .off('filter.sui.filterable')
-        .off('filtered.sui.filterable');
+        .off('filter.bui.filterable')
+        .off('filtered.bui.filterable');
       QUnit.start();
     }, 100);
   });
 
-  QUnit.test('should fire resetStart.sui.filterable when reset is invoked', function () {
+  QUnit.test('should fire resetStart.bui.filterable when reset is invoked', function () {
     QUnit.stop();
     var eventFired = false;
 
-    $(document).on('resetStart.sui.filterable', function () {
+    $(document).on('resetStart.bui.filterable', function () {
       QUnit.ok(
         $('#qunit-fixture div[data-tags="tag1"]').is(':visible') === false,
         'div is visible'
@@ -121,31 +121,31 @@ $(function () {
 
     $('<div data-tags="tag1">')
       .appendTo($('#qunit-fixture'))
-      .suiFilterable([
+      .buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'subset',
           'filter-value': 'tag2',
         },
       ])
-      .suiFilterable('reset');
+      .buiFilterable('reset');
 
     setTimeout(function () {
       if (!eventFired) {
         QUnit.ok(false, 'event not fired');
       }
 
-      $(document).off('resetStart.sui.filterable');
+      $(document).off('resetStart.bui.filterable');
       QUnit.start();
     }, 100);
   });
 
-  QUnit.test('should fire resetEnd.sui.filterable when reset is invoked', function () {
+  QUnit.test('should fire resetEnd.bui.filterable when reset is invoked', function () {
     QUnit.stop();
     var eventFired = false;
 
-    $(document).on('resetStart.sui.filterable', function () {
-      $(this).on('resetEnd.sui.filterable', function () {
+    $(document).on('resetStart.bui.filterable', function () {
+      $(this).on('resetEnd.bui.filterable', function () {
         QUnit.ok(
           $('#qunit-fixture div[data-tags="tag1"]').is(':visible') === true,
           'div is visible'
@@ -157,14 +157,14 @@ $(function () {
 
     $('<div data-tags="tag1">')
       .appendTo($('#qunit-fixture'))
-      .suiFilterable([
+      .buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'subset',
           'filter-value': 'tag2',
         },
       ])
-      .suiFilterable('reset');
+      .buiFilterable('reset');
 
     setTimeout(function () {
       if (!eventFired) {
@@ -172,8 +172,8 @@ $(function () {
       }
 
       $(document)
-        .off('resetStart.sui.filterable')
-        .off('resetEnd.sui.filterable');
+        .off('resetStart.bui.filterable')
+        .off('resetEnd.bui.filterable');
       QUnit.start();
     }, 100);
   });
@@ -182,36 +182,36 @@ $(function () {
     QUnit.stop();
 
     $(document)
-      .on('filter.sui.filterable', function () {
-        QUnit.ok(false, 'event filter.sui.filterable fired');
+      .on('filter.bui.filterable', function () {
+        QUnit.ok(false, 'event filter.bui.filterable fired');
       })
-      .on('filtered.sui.filterable', function () {
-        QUnit.ok(false, 'event filtered.sui.filterable fired');
+      .on('filtered.bui.filterable', function () {
+        QUnit.ok(false, 'event filtered.bui.filterable fired');
       })
-      .on('resetStart.sui.filterable', function () {
-        QUnit.ok(false, 'event resetStart.sui.filterable fired');
+      .on('resetStart.bui.filterable', function () {
+        QUnit.ok(false, 'event resetStart.bui.filterable fired');
       })
-      .on('resetEnd.sui.filterable', function () {
-        QUnit.ok(false, 'event resetEnd.sui.filterable fired');
+      .on('resetEnd.bui.filterable', function () {
+        QUnit.ok(false, 'event resetEnd.bui.filterable fired');
       });
 
     $('#empty-selector')
-      .suiFilterable([
+      .buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'subset',
           'filter-value': 'tag2',
         },
       ])
-      .suiFilterable('reset');
+      .buiFilterable('reset');
 
     setTimeout(function () {
       QUnit.ok(true, 'allways ok');
       $(document)
-        .off('filter.sui.filterable')
-        .off('filtered.sui.filterable')
-        .off('resetStart.sui.filterable')
-        .off('resetEnd.sui.filterable');
+        .off('filter.bui.filterable')
+        .off('filtered.bui.filterable')
+        .off('resetStart.bui.filterable')
+        .off('resetEnd.bui.filterable');
       QUnit.start();
     }, 100);
   });
@@ -227,8 +227,8 @@ $(function () {
         .append('<div data-tags=\'["tag1", "tag2", "tag3"]\'>')
         .append('<div data-tags=\'["tag1"]\'>');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-tags=\'["tag1", "tag2"]\']').is(':visible') === true,
           '["tag1", "tag2"] is the same as ["tag1", "tag2"] -> visible'
@@ -244,7 +244,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'subset',
@@ -263,8 +263,8 @@ $(function () {
         .append('<div data-tags=\'["tag1", "tag2", "tag3"]\'>')
         .append('<div data-tags=\'["tag1", "tag4"]\'>');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-tags=\'["tag4", "tag5"]\']').is(':visible') === false,
           '["tag1", "tag2"] has no common members with ["tag4", "tag5"] -> hidden'
@@ -280,7 +280,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'intersect',
@@ -298,8 +298,8 @@ $(function () {
         .append('<div data-tags=\'["tag4", "tag5"]\'>')
         .append('<div data-tags=\'["tag1", "tag4"]\'>');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-tags=\'["tag4", "tag5"]\']').is(':visible') === false,
           '"tag1" is not a member of ["tag4", "tag5"] -> hidden'
@@ -311,7 +311,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'intersect',
@@ -329,8 +329,8 @@ $(function () {
         .append('<div data-tags="tag4">')
         .append('<div data-tags="tag1">');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-tags="tag4"]').is(':visible') === false,
           '"tag4" is not a member of ["tag1", "tag2"] -> hidden'
@@ -342,7 +342,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'intersect',
@@ -360,8 +360,8 @@ $(function () {
         .append('<div data-tags="tag4">')
         .append('<div data-tags="tag1">');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-tags="tag4"]').is(':visible') === false,
           '"tag4" is not the same as "tag1" -> hidden'
@@ -373,7 +373,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'intersect',
@@ -393,8 +393,8 @@ $(function () {
         .append('<div data-tags=\'["Tag1", "tag2", "tag3"]\'>')
         .append('<div data-tags=\'["Tag1", "tag4"]\'>');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-tags=\'["tag4", "tag5"]\']').is(':visible') === false,
           '["tag1", "tag2"] has no common members with ["tag4", "tag5"] -> hidden'
@@ -410,7 +410,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'tags',
           'filter-operator': 'intersect',
@@ -423,8 +423,8 @@ $(function () {
   QUnit.test('should process numeric filter value weather it is a string or a number', function () {
     QUnit.stop();
     $('#qunit-fixture').append('<div data-amount="10">');
-    $(document).on('filtered.sui.filterable', function () {
-      $(document).off('filtered.sui.filterable');
+    $(document).on('filtered.bui.filterable', function () {
+      $(document).off('filtered.bui.filterable');
       QUnit.ok(
         $('#qunit-fixture div[data-amount="10"]').is(':visible') === false,
         '10 is not the same as "5.5" -> hidden'
@@ -432,7 +432,7 @@ $(function () {
       QUnit.start();
     });
 
-    $('#qunit-fixture div').suiFilterable([
+    $('#qunit-fixture div').buiFilterable([
       {
         'filter-attrib': 'amount',
         'filter-operator': '=',
@@ -442,8 +442,8 @@ $(function () {
 
     QUnit.stop();
     $('#qunit-fixture').append('<div data-amount="10">');
-    $(document).on('filtered.sui.filterable', function () {
-      $(document).off('filtered.sui.filterable');
+    $(document).on('filtered.bui.filterable', function () {
+      $(document).off('filtered.bui.filterable');
       QUnit.ok(
         $('#qunit-fixture div[data-amount="10"]').is(':visible') === false,
         '10 is not the same as 5.5 -> hidden'
@@ -451,7 +451,7 @@ $(function () {
       QUnit.start();
     });
 
-    $('#qunit-fixture div').suiFilterable([
+    $('#qunit-fixture div').buiFilterable([
       {
         'filter-attrib': 'amount',
         'filter-operator': '=',
@@ -471,8 +471,8 @@ $(function () {
       .append('<div data-amount="0">')
       .append('<div data-amount="-10">');
 
-    $(document).on('filtered.sui.filterable', function () {
-      $(document).off('filtered.sui.filterable');
+    $(document).on('filtered.bui.filterable', function () {
+      $(document).off('filtered.bui.filterable');
       QUnit.ok(
         $('#qunit-fixture div[data-amount="10"]').is(':visible') === false,
         '10 is not the same as 0 -> hidden'
@@ -496,7 +496,7 @@ $(function () {
       QUnit.start();
     });
 
-    $('#qunit-fixture div').suiFilterable([
+    $('#qunit-fixture div').buiFilterable([
       {
         'filter-attrib': 'amount',
         'filter-operator': '=',
@@ -516,8 +516,8 @@ $(function () {
         .append('<div data-amount="0">')
         .append('<div data-amount="-10">');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-amount="10"]').is(':visible') === false,
           '10 is not <= 9.55 -> hidden'
@@ -541,7 +541,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'amount',
           'filter-operator': '<=',
@@ -562,8 +562,8 @@ $(function () {
         .append('<div data-amount="0">')
         .append('<div data-amount="-10">');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-amount="10"]').is(':visible') === true,
           '10 >= 0 -> visible'
@@ -587,7 +587,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'amount',
           'filter-operator': '>=',
@@ -608,8 +608,8 @@ $(function () {
         .append('<div data-amount="0">')
         .append('<div data-amount="-10">');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-amount="10"]').is(':visible') === false,
           '10 is not < 7.325 -> hidden'
@@ -633,7 +633,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'amount',
           'filter-operator': '<',
@@ -654,8 +654,8 @@ $(function () {
         .append('<div data-amount="0">')
         .append('<div data-amount="-10">');
 
-      $(document).on('filtered.sui.filterable', function () {
-        $(document).off('filtered.sui.filterable');
+      $(document).on('filtered.bui.filterable', function () {
+        $(document).off('filtered.bui.filterable');
         QUnit.ok(
           $('#qunit-fixture div[data-amount="10"]').is(':visible') === true,
           '10 > 0.01 -> visible'
@@ -679,7 +679,7 @@ $(function () {
         QUnit.start();
       });
 
-      $('#qunit-fixture div').suiFilterable([
+      $('#qunit-fixture div').buiFilterable([
         {
           'filter-attrib': 'amount',
           'filter-operator': '>',
@@ -696,15 +696,15 @@ $(function () {
       .append('<div id="div2" data-tags="tag1" data-groups="group2"/>')
       .append('<div id="div3" data-tags="tag3" data-groups="group2"/>');
 
-    $(document).on('filtered.sui.filterable', function () {
-      $(document).off('filtered.sui.filterable');
+    $(document).on('filtered.bui.filterable', function () {
+      $(document).off('filtered.bui.filterable');
       QUnit.ok($('#div1').is(':hidden'), '"div1" is not "group2" -> hidden');
       QUnit.ok($('#div2').is(':visible'), '"tag2" is both "tag1" and "group2"  -> visible');
       QUnit.ok($('#div3').is(':hidden'), '"div3" is not "tag1" -> hidden');
       QUnit.start();
     });
 
-    $('#qunit-fixture div').suiFilterable([
+    $('#qunit-fixture div').buiFilterable([
       {
         'filter-attrib': 'tags',
         'filter-operator': 'intersect',
@@ -724,15 +724,15 @@ $(function () {
     QUnit.stop();
     $('#qunit-fixture').append('<div data-tag="tag1">');
 
-    $(document).on('filtered.sui.filterable', function () {
-      $(document).off('filtered.sui.filterable');
+    $(document).on('filtered.bui.filterable', function () {
+      $(document).off('filtered.bui.filterable');
       QUnit.ok(
         $('#qunit-fixture div[data-tag="tag1"]').is(':visible') === false,
         'the element was hidden'
       );
     });
 
-    $('#qunit-fixture div').suiFilterable([
+    $('#qunit-fixture div').buiFilterable([
       {
         'filter-attrib': 'tag',
         'filter-operator': 'intersect',
@@ -740,8 +740,8 @@ $(function () {
       },
     ]);
 
-    $(document).on('resetEnd.sui.filterable', function () {
-      $(document).off('resetEnd.sui.filterable');
+    $(document).on('resetEnd.bui.filterable', function () {
+      $(document).off('resetEnd.bui.filterable');
       QUnit.ok(
         $('#qunit-fixture div[data-tag="tag1"]').is(':visible') === true,
         'all elements were shown'
@@ -749,7 +749,7 @@ $(function () {
       QUnit.start();
     });
 
-    $('#qunit-fixture div').suiFilterable('reset');
+    $('#qunit-fixture div').buiFilterable('reset');
   });
 
   // Data-api tests
@@ -771,7 +771,7 @@ $(function () {
         'data-filter-operator="intersect" />' +
         '</form>');
 
-      $(document).on('filtered.sui.filterable', function () {
+      $(document).on('filtered.bui.filterable', function () {
         QUnit.ok($('#qunit-fixture div[data-tag="tag1"]').is(':hidden'), 'tag 1 was hidden');
         QUnit.ok($('#qunit-fixture div[data-tag="tag2"]').is(':visible'), 'tag 2 is visible');
       });
@@ -779,7 +779,7 @@ $(function () {
       $('#control').val('tag2').keyup();
 
       setTimeout(function () {
-        $(document).off('filtered.sui.filterable');
+        $(document).off('filtered.bui.filterable');
         QUnit.start();
       }, 100);
     }
@@ -802,7 +802,7 @@ $(function () {
         'data-filter-operator="intersect" />' +
       '</form>');
 
-      $(document).on('filtered.sui.filterable', function () {
+      $(document).on('filtered.bui.filterable', function () {
         QUnit.ok($('#qunit-fixture div[data-tag="tag1"]').is(':hidden'), 'tag 1 was hidden');
         QUnit.ok($('#qunit-fixture div[data-tag="tag2"]').is(':visible'), 'tag 2 is visible');
       });
@@ -810,7 +810,7 @@ $(function () {
       $('#control').val('tag2').change();
 
       setTimeout(function () {
-        $(document).off('filtered.sui.filterable');
+        $(document).off('filtered.bui.filterable');
         QUnit.start();
       }, 100);
     }
@@ -834,8 +834,8 @@ $(function () {
       '</form>');
 
     $('#control-2').val('tag1').change();
-    $(document).on('filtered.sui.filterable', function () {
-      $(document).on('resetEnd.sui.filterable', function () {
+    $(document).on('filtered.bui.filterable', function () {
+      $(document).on('resetEnd.bui.filterable', function () {
         QUnit.ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible'), 'tag 1 was shown again');
         QUnit.ok(!$('#control-1').val(), 'the control-1 form was reset');
         QUnit.ok($('#qunit-fixture div[data-tag="tag2"]').is(':hidden'), 'tag 2 remained hidden');
@@ -847,8 +847,8 @@ $(function () {
     $('#form-1 button').click();
 
     setTimeout(function () {
-      $(document).off('filtered.sui.filterable');
-      $(document).off('resetEnd.sui.filterable');
+      $(document).off('filtered.bui.filterable');
+      $(document).off('resetEnd.bui.filterable');
       QUnit.start();
     }, 100);
   });
@@ -863,8 +863,8 @@ $(function () {
       '</form>');
 
     $('#control-1').val('x').keyup();
-    $(document).on('filtered.sui.filterable', function () {
-      $(document).off('filtered.sui.filterable');
+    $(document).on('filtered.bui.filterable', function () {
+      $(document).off('filtered.bui.filterable');
       QUnit.ok($('#qunit-fixture div[data-tag="tag1"]').is(':visible'), '"div1" was not hidden');
       QUnit.start();
     });
@@ -888,7 +888,7 @@ $(function () {
       'data-filter-operator="intersect" />' +
       '</form>');
 
-    $(document).on('filtered.sui.filterable', function () {
+    $(document).on('filtered.bui.filterable', function () {
       QUnit.equal(window.sessionStorage.getItem(storageId), JSON.stringify([
         {
           'filter-attrib': 'tag',
@@ -902,7 +902,7 @@ $(function () {
 
     setTimeout(function () {
       window.sessionStorage.removeItem(storageId);
-      $(document).off('filtered.sui.filterable');
+      $(document).off('filtered.bui.filterable');
       QUnit.start();
     }, 100);
 
@@ -919,14 +919,14 @@ $(function () {
       'data-filter-operator="intersect" />' +
       '</form>');
 
-    $(document).on('filtered.sui.filterable', function () {
+    $(document).on('filtered.bui.filterable', function () {
       QUnit.equal(window.sessionStorage.getItem(storageId), null);
     });
 
     $('#control').val('tag2').change();
 
     setTimeout(function () {
-      $(document).off('filtered.sui.filterable');
+      $(document).off('filtered.bui.filterable');
       QUnit.start();
     }, 100);
 
@@ -956,7 +956,7 @@ $(function () {
       'data-filter-operator="intersect" />' +
       '</form>');
 
-    $(document).on('filtered.sui.filterable', function () {
+    $(document).on('filtered.bui.filterable', function () {
       QUnit.ok(!$('#qunit-fixture div[data-tag="tag1"]').is(':visible'));
       QUnit.ok($('#qunit-fixture div[data-tag="tag2"]').is(':visible'));
       QUnit.equal('tag2', $('#control').val());
@@ -966,7 +966,7 @@ $(function () {
 
     setTimeout(function () {
       window.sessionStorage.removeItem(storageId);
-      $(document).off('filtered.sui.filterable');
+      $(document).off('filtered.bui.filterable');
       QUnit.start();
     }, 100);
 
@@ -991,14 +991,14 @@ $(function () {
       'data-filter-operator="intersect" />' +
       '</form>');
 
-    $(document).on('resetEnd.sui.filterable', function () {
+    $(document).on('resetEnd.bui.filterable', function () {
       QUnit.equal(window.sessionStorage.getItem(storageId), null);
     });
 
     $('button[type=reset]').click();
 
     setTimeout(function () {
-      $(document).off('resetEnd.sui.filterable');
+      $(document).off('resetEnd.bui.filterable');
       QUnit.start();
     }, 100);
   });

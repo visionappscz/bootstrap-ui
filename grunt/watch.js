@@ -12,13 +12,15 @@ module.exports = {
   js: {
     files: ['<%= paths.src %>/js/*.js'],
     tasks: [
+      'jscs',
+      'jshint',
       'build-js',
       'build-styleguide',
     ],
   },
   styleguide: {
     files: [
-      '<%= paths.src %>/less/styleguide.md',
+      '<%= paths.src %>/less/homepage.md',
       '<%= paths.src %>/styleguide/**/*',
     ],
     tasks: [

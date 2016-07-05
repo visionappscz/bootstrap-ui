@@ -8,9 +8,9 @@
   };
 
   Disable.prototype.toggle = function () {
-    $(document).trigger('toggle.sui.disable');
+    $(document).trigger('toggle.bui.disable');
     this.$element.prop('disabled', !this.$element.prop('disabled'));
-    $(document).trigger('toggled.sui.disable');
+    $(document).trigger('toggled.bui.disable');
   };
 
   // DISABLE PLUGIN DEFINITION
@@ -19,11 +19,11 @@
   function Plugin() {
     this.each(function () {
       var $this = $(this);
-      var data = $this.data('sui.disable');
+      var data = $this.data('bui.disable');
 
       if (!data) {
         data = new Disable($this);
-        $this.data('sui.disable', data);
+        $this.data('bui.disable', data);
       }
 
       data.toggle();
@@ -61,7 +61,7 @@
           eventType = 'change';
         }
 
-        $this.on(eventType + '.sui.disable.data-api', function () {
+        $this.on(eventType + '.bui.disable.data-api', function () {
           Plugin.call($($this.data('disable-target')));
         });
       });

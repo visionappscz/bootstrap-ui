@@ -1,14 +1,14 @@
 {
-  "name": "synergic-ui",
-  "description": "Synergic UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
-  "version": "1.0.4",
-  "homepage": "http://ui.synergic.cz",
+  "name": "bootstrap.ui",
+  "description": "Bootstrap UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
+  "homepage": "http://www.bootstrap-ui.com",
   "authors": [
     "http://www.visionapps.cz"
   ],
   "license": "MIT",
   "keywords": [
     "bootstrap",
+    "ui",
     "extension",
     "css",
     "less",
@@ -18,15 +18,8 @@
     "web"
   ],
   "main": [
-    "./dist/css/synergic-ui.css",
-    "./dist/css/synergic-ui.min.css",
-    "./dist/js/synergic-ui.js",
-    "./dist/js/synergic-ui.min.js",
-    "./dist/fonts/glyphicons-halflings-regular.eot",
-    "./dist/fonts/glyphicons-halflings-regular.svg",
-    "./dist/fonts/glyphicons-halflings-regular.ttf",
-    "./dist/fonts/glyphicons-halflings-regular.woff",
-    "./dist/fonts/glyphicons-halflings-regular.woff2"
+    "./dist/css/bootstrap-ui.css",
+    "./dist/js/bootstrap-ui.js"
   ],
   "ignore": [
     "/.*",

@@ -88,19 +88,19 @@
   function Plugin(options) {
     if (this.length) {
       if (options === 'reset') {
-        $(document).trigger('resetStart.sui.filterable');
+        $(document).trigger('resetStart.bui.filterable');
       } else {
-        $(document).trigger('filter.sui.filterable');
+        $(document).trigger('filter.bui.filterable');
       }
 
       this.each(function () {
         var data;
         var $this = $(this);
 
-        data = $this.data('sui.filterable');
+        data = $this.data('bui.filterable');
         if (!data) {
           data = new Filterable($this);
-          $this.data('sui.filterable', data);
+          $this.data('bui.filterable', data);
         }
 
         if (options === 'reset') {
@@ -111,9 +111,9 @@
       });
 
       if (options === 'reset') {
-        $(document).trigger('resetEnd.sui.filterable');
+        $(document).trigger('resetEnd.bui.filterable');
       } else {
-        $(document).trigger('filtered.sui.filterable');
+        $(document).trigger('filtered.bui.filterable');
       }
     }
 
@@ -161,7 +161,7 @@
   });
 
   $(document).on(
-    'keyup.sui.filterable.data-api change.sui.filterable.data-api',
+    'keyup.bui.filterable.data-api change.bui.filterable.data-api',
     '[data-toggle=filter]',
     function (e) {
       var $filter = $(this).closest('form');
@@ -195,7 +195,7 @@
     }
   );
 
-  $(document).on('click.sui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
+  $(document).on('click.bui.filterable.data-api', '[data-toggle="filter-reset"]', function () {
     var $filter = $(this).closest('form');
     var storageId = $filter.data('filter-storage-id');
 

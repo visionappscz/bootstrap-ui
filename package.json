@@ -1,16 +1,16 @@
 {
-  "name": "synergic-ui",
-  "version": "1.0.4",
-  "description": "Synergic UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
+  "name": "bootstrap-ui",
+  "version": "2.1.0",
+  "description": "Bootstrap UI is a Bootstrap 3 extension for building beautiful web apps user interfaces.",
   "repository": {
     "type": "git",
-    "url": "git@github.com:visionappscz/synergic-ui.git"
+    "url": "git@github.com:visionappscz/bootstrap-ui.git"
   },
-  "homepage": "http://ui.synergic.cz",
+  "homepage": "http://www.bootstrap-ui.com",
   "author": "VisionApps",
   "license": "MIT",
-  "style": "dist/css/synergic-ui.css",
-  "less": "src/less/synergic-ui.less",
+  "style": "dist/css/bootstrap-ui.css",
+  "less": "src/less/bootstrap-ui.less",
   "scripts": {
     "test": "grunt test"
   },
@@ -27,7 +27,7 @@
     "grunt-contrib-qunit": "~1.2.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "~1.0.0",
-    "grunt-jscs": "~2.8.0",
+    "grunt-jscs": "~3.0.1",
     "grunt-kss": "^5.0.0",
     "grunt-postcss": "^0.8.0",
     "grunt-text-replace": "^0.4.0",
