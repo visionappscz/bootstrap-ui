@@ -28,7 +28,7 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "~1.0.0",
     "grunt-jscs": "~3.0.1",
-    "grunt-kss": "^5.0.0",
+    "grunt-kss": "visionappscz/grunt-kss#master",
     "grunt-postcss": "^0.8.0",
     "grunt-text-replace": "^0.4.0",
     "load-grunt-config": "^0.19.0",
