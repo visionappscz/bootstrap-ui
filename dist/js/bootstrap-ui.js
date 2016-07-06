@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v2.1.0 (30 June 2016)
+ * v2.1.1 (6 July 2016)
  */
 ;(function ($, window) {
   'use strict';
@@ -23,16 +23,16 @@
         var $this = $(this);
         var confValue = $this.data('onload-ckeditor');
 
-        if (language) {
-          confObj.language = language;
-        }
-
         if (confValue) {
           if (typeof confValue === 'object') {
             confObj = confValue;
           } else {
             confObj = { customConfig: confValue };
           }
+        }
+
+        if (language && !confObj.hasOwnProperty('language')) {
+          confObj.language = language;
         }
 
         $this.ckeditor(confObj);
