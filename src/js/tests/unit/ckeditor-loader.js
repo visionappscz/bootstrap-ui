@@ -59,8 +59,8 @@ $(function () {
     );
   });
 
-  QUnit.test('should init ckeditor on page load with correct language settings', function () {
-    var $textarea = $('<textarea data-onload-ckeditor></textarea>');
+  QUnit.test('should init ckeditor with detected language setting', function () {
+    var $textarea = $('<textarea data-onload-ckeditor=\'{"controlParam": "value"}\'></textarea>');
     $('#qunit-fixture').append($textarea);
 
     sinon.spy(jQuery.fn, 'ckeditor');
@@ -69,7 +69,22 @@ $(function () {
 
     QUnit.ok(jQuery.fn.ckeditor.calledOnce, 'Should init the ckeditor');
     QUnit.ok(
-      jQuery.fn.ckeditor.calledWithExactly({ language: 'cs' }),
+      jQuery.fn.ckeditor.calledWithExactly({ language: 'cs', controlParam: 'value' }),
+      'Should init the ckeditor with proper config object'
+    );
+  });
+
+  QUnit.test('should init ckeditor with overloaded detected language setting', function () {
+    var $textarea = $('<textarea data-onload-ckeditor=\'{"language": "fr"}\'></textarea>');
+    $('#qunit-fixture').append($textarea);
+
+    sinon.spy(jQuery.fn, 'ckeditor');
+    $('html').attr('lang', 'cs');
+    $(window).trigger('load');
+
+    QUnit.ok(jQuery.fn.ckeditor.calledOnce, 'Should init the ckeditor');
+    QUnit.ok(
+      jQuery.fn.ckeditor.calledWithExactly({ language: 'fr' }),
       'Should init the ckeditor with proper config object'
     );
   });
