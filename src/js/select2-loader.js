@@ -13,9 +13,28 @@
         var $this = $(this);
         var confValue = $this.data('onload-select2');
         var formatFunc = function (option) {
-          var imagePath = $(option.element).data('image');
-          if (imagePath) {
-            return '<img src="' + imagePath + '">' + option.id;
+          var $optionEl = $(option.element);
+          var imageSrc = $optionEl.data('image-src');
+          var imageSrcset = $optionEl.data('image-srcset');
+          var imageHeight = $optionEl.data('image-height');
+          var imageWidth = $optionEl.data('image-width');
+          var attribs = '';
+
+          if (imageSrc) {
+            attribs = 'src="' + imageSrc + '" alt="' + option.text + '"';
+            if (imageSrcset) {
+              attribs = attribs + ' srcset="' + imageSrcset + '"';
+            }
+
+            if (imageHeight) {
+              attribs = attribs + ' height="' + imageHeight + '"';
+            }
+
+            if (imageWidth) {
+              attribs = attribs + ' width="' + imageWidth + '"';
+            }
+
+            return '<img ' + attribs + '>&nbsp;' + option.id;
           }
 
           return option.id;
@@ -24,9 +43,10 @@
         if (confValue) {
           confObj = confValue;
         }
+
         confObj.formatSelection = formatFunc;
         confObj.formatResult = formatFunc;
-        confObj.escapeMarkup = function(m) { return m; };
+        confObj.escapeMarkup = function (m) { return m; };
 
         $this.select2(confObj);
       });

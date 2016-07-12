@@ -2,9 +2,9 @@ $(function () {
   'use strict';
 
   var validateBaseArgs = function (value) {
-    if (Object.prototype.toString.call(value.escapeMarkup) == '[object Function]'
-      && Object.prototype.toString.call(value.formatResult) == '[object Function]'
-      && Object.prototype.toString.call(value.formatSelection) == '[object Function]'
+    if (Object.prototype.toString.call(value.escapeMarkup) === '[object Function]' &&
+      Object.prototype.toString.call(value.formatResult) === '[object Function]' &&
+      Object.prototype.toString.call(value.formatSelection) === '[object Function]'
     ) {
       return true;
     }
@@ -32,7 +32,7 @@ $(function () {
     function () {
       var $select = $(
         '<select data-onload-select2=\'{"option": "optionValue"}\'>' +
-        '<option data-select2-image="/image.jpg">opt 1</option>' +
+        '<option>opt 1</option>' +
         '</select>'
       );
 
@@ -42,10 +42,52 @@ $(function () {
 
       QUnit.ok(jQuery.fn.select2.calledOnce, 'Should init the select2 component');
       QUnit.ok(jQuery.fn.select2 .calledWithMatch(function (value) {
-        return value.option === 'optionValue' && validateBaseArgs(value)
+        return value.option === 'optionValue' && validateBaseArgs(value);
       }));
     }
   );
+
+  QUnit.test('should format the select2 options correctly', function () {
+    var option = { text: 'optionText', id: 'optionId' };
+    var $select = $(
+      '<select data-onload-select2>' +
+      '<option id="option" data-image-src="imageSource">opt 1</option>' +
+      '</select>'
+    );
+
+    var $optEl = $select.find('#option');
+
+    $('#qunit-fixture').append($select);
+    sinon.spy(jQuery.fn, 'select2');
+    $(window).trigger('load');
+
+    QUnit.ok(jQuery.fn.select2 .calledWithMatch(function (value) {
+      return value.formatResult === value.formatSelection;
+    }));
+
+    QUnit.ok(jQuery.fn.select2 .calledWithMatch(function (value) {
+      var testOpt = { element: $optEl };
+      var output = '<img src="imageSource" alt="optionText">&nbsp;optionId';
+
+      $.extend(testOpt, option);
+
+      return value.formatResult(testOpt) === output;
+    }));
+
+    QUnit.ok(jQuery.fn.select2 .calledWithMatch(function (value) {
+      var testOpt = { element: $optEl };
+      var output = '<img ' +
+        'src="imageSource" alt="optionText" srcset="imageSrcset" height="10" width="10"' +
+        '>&nbsp;optionId';
+
+      $optEl.attr('data-image-srcset', 'imageSrcset');
+      $optEl.attr('data-image-width', '10');
+      $optEl.attr('data-image-height', '10');
+      $.extend(testOpt, option);
+
+      return value.formatResult(testOpt) === output;
+    }));
+  });
 
   QUnit.test(
     'should call the select2 method on on page load with no attributes',

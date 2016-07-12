@@ -24,12 +24,45 @@ load. The widget can be configured by the value passed to the attribute. If no v
 initiated with default configuration. If a JSON object is passed, then it will be parsed and used as a configuration
 object (see https://select2.github.io/options.html for supported options).
 
+Styleguide 6.6
+*/
+
+/*
+Single selection
+
+Markup:
+<select class="form-control" data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option>Option 1</option>
+    <option selected>Option 2</option>
+    <option
+        data-image-src="assets/images/visionapps.svg"
+        data-image-srcset="assets/images/visionapps.svg"
+        data-image-width="500"
+        data-image-height="300"
+    >
+        Option 3
+    </option>
+</select>
+
+Styleguide 6.6.1
+*/
+
+/*
+Multiple selection
+
 Markup:
 <select class="form-control" multiple data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
     <option>Option 1</option>
     <option selected>Option 2</option>
-    <option data-image="assets/images/visionapps.svg">Option 3</option>
+    <option
+        data-image-src="assets/images/visionapps.svg"
+        data-image-srcset="assets/images/visionapps.svg"
+        data-image-width="500"
+        data-image-height="300"
+    >
+        Option 3
+    </option>
 </select>
 
-Styleguide 6.6
+Styleguide 6.6.2
 */
