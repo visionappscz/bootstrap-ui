@@ -20,7 +20,7 @@ Single Option
 
 Markup:
 <select class="form-control" data-onload-select2>
-    <option selected value="">All</option>
+    <option selected value="All">All</option>
     <option value="Denver">Denver</option>
     <option value="Liptákov">Liptákov</option>
     <option value="Moscow">Moscow</option>
@@ -30,6 +30,39 @@ Markup:
 </select>
 
 Styleguide 4.5.1
+*/
+
+
+/*
+Single Option with Images
+
+Images can be added to options. While multiple selection variant features auto sizing, please note that additional CSS
+may be required to fix size of single selection select2 component.
+
+Markup:
+<select class="form-control" data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option
+        selected
+        data-image-src="//satyr.io/32x16?flag=cze"
+        data-image-srcset="//satyr.io/32x16?flag=cze, //satyr.io/64x32?flag=cze 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Czech</option>
+    <option
+        data-image-src="//satyr.io/32x16?flag=can"
+        data-image-srcset="//satyr.io/32x16?flag=can, //satyr.io/64x32?flag=can 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Canadian</option>
+    <option
+        data-image-src="//satyr.io/32x16?flag=che"
+        data-image-srcset="//satyr.io/32x16?flag=che, //satyr.io/64x32?flag=che 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Swiss</option>
+</select>
+
+Styleguide 4.5.2
 */
 
 
@@ -46,13 +79,50 @@ Markup:
     <option value="Viena">Vienna</option>
 </select>
 
-Styleguide 4.5.2
+Styleguide 4.5.3
 */
 
-// Use inline data-uri instead of external PNG so select2 is easier to use.
-// Native LESS data-uri function unfortunately cannot be used due to incompatibility with style guide generator.
+
+/*
+Multiple Options with Images
+
+Markup:
+<select class="form-control" multiple data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option
+        selected
+        data-image-src="//satyr.io/40x40/forestgreen"
+        data-image-width="40"
+        data-image-height="40"
+    >Forest green</option>
+    <option
+        selected
+        data-image-src="//satyr.io/40x40/crimson"
+        data-image-width="40"
+        data-image-height="40"
+    >Crimson</option>
+    <option
+        data-image-src="//satyr.io/40x40/steelblue"
+        data-image-width="40"
+        data-image-height="40"
+    >Steel blue</option>
+</select>
+
+Styleguide 4.5.4
+*/
+
+
+.select2-container a {
+    transition: none;
+}
+
+.select2-result-label > img,
+.select2-chosen > img,
+.select2-search-choice img {
+    margin-right: @padding-small-horizontal;
+}
 
 // Sprites
+// Use inline data-uri instead of external PNG so select2 is easier to use.
 .select2-search input,
 .select2-search-choice-close,
 .select2-container .select2-choice abbr,
@@ -64,7 +134,6 @@ Styleguide 4.5.2
     }
 }
 
-// Animated spinner
 .select2-search input.select2-active,
 .select2-more-results.select2-active,
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
