@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v2.1.1 (6 July 2016)
+ * v2.2.0 (14 July 2016)
  */
 ;(function ($, window) {
   'use strict';
@@ -525,9 +525,41 @@
         var confObj = {};
         var $this = $(this);
         var confValue = $this.data('onload-select2');
+        var formatFunc = function (option) {
+          var $optionEl = $(option.element);
+          var imageSrc = $optionEl.data('image-src');
+          var imageSrcset = $optionEl.data('image-srcset');
+          var imageHeight = $optionEl.data('image-height');
+          var imageWidth = $optionEl.data('image-width');
+          var attribs = '';
+
+          if (imageSrc) {
+            attribs = 'src="' + imageSrc + '" alt="' + option.text + '"';
+            if (imageSrcset) {
+              attribs = attribs + ' srcset="' + imageSrcset + '"';
+            }
+
+            if (imageHeight) {
+              attribs = attribs + ' height="' + imageHeight + '"';
+            }
+
+            if (imageWidth) {
+              attribs = attribs + ' width="' + imageWidth + '"';
+            }
+
+            return '<img ' + attribs + '>&nbsp;' + option.id;
+          }
+
+          return option.id;
+        };
+
         if (confValue) {
           confObj = confValue;
         }
+
+        confObj.formatSelection = formatFunc;
+        confObj.formatResult = formatFunc;
+        confObj.escapeMarkup = function (m) { return m; };
 
         $this.select2(confObj);
       });
