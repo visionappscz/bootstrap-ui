@@ -20,7 +20,7 @@ Single Option
 
 Markup:
 <select class="form-control" data-onload-select2>
-    <option selected value="">All</option>
+    <option selected value="All">All</option>
     <option value="Denver">Denver</option>
     <option value="Liptákov">Liptákov</option>
     <option value="Moscow">Moscow</option>
@@ -30,6 +30,45 @@ Markup:
 </select>
 
 Styleguide 4.5.1
+*/
+
+
+/*
+Single Option with Images
+
+Images can be added to options.
+
+Markup:
+<select class="form-control" data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option>No image</option>
+    <option
+        selected
+        data-image-src="//satyr.io/32x16?flag=cze"
+        data-image-srcset="//satyr.io/32x16?flag=cze, //satyr.io/64x32?flag=cze 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Czech</option>
+    <option
+        data-image-src="//satyr.io/32x16?flag=can"
+        data-image-srcset="//satyr.io/32x16?flag=can, //satyr.io/64x32?flag=can 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Canadian</option>
+    <option
+        data-image-src="//satyr.io/32x16?flag=che"
+        data-image-srcset="//satyr.io/32x16?flag=che, //satyr.io/64x32?flag=che 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Swiss</option>
+    <option
+        data-image-src="//satyr.io/60x60?flag=che"
+        data-image-srcset="//satyr.io/60x60?flag=che, //satyr.io/120x120?flag=che 2x"
+        data-image-width="60"
+        data-image-height="60"
+    >Swiss bigger</option>
+</select>
+
+Styleguide 4.5.2
 */
 
 
@@ -46,17 +85,71 @@ Markup:
     <option value="Viena">Vienna</option>
 </select>
 
-Styleguide 4.5.2
+Styleguide 4.5.3
 */
 
-// Use inline data-uri instead of external PNG so select2 is easier to use.
-// Native LESS data-uri function unfortunately cannot be used due to incompatibility with style guide generator.
+
+/*
+Multiple Options with Images
+
+Markup:
+<select class="form-control" multiple data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option
+        selected
+        data-image-src="//satyr.io/40x40/forestgreen"
+        data-image-width="40"
+        data-image-height="40"
+    >Forest green</option>
+    <option
+        selected
+        data-image-src="//satyr.io/40x40/crimson"
+        data-image-width="40"
+        data-image-height="40"
+    >Crimson</option>
+    <option
+        data-image-src="//satyr.io/40x40/steelblue"
+        data-image-width="40"
+        data-image-height="40"
+    >Steel blue</option>
+</select>
+
+Styleguide 4.5.4
+*/
+
+
+.select2-container a {
+    transition: none;
+}
+
+.select2-result-label > img,
+.select2-chosen > img,
+.select2-search-choice img {
+    margin-right: @padding-small-horizontal;
+}
+
+// Auto sizing of single selection select2.
+.select2-container.form-control,
+.select2-container .select2-choice {
+    min-height: @input-height-base;
+    height: auto;
+}
+
+.select2-container.input-sm .select2-choice,
+.input-group-sm .select2-container .select2-choice {
+    min-height: @input-height-small;
+    height: auto;
+}
+
+.select2-container.input-lg .select2-choice,
+.input-group-lg .select2-container .select2-choice {
+    min-height: @input-height-large;
+    height: auto;
+}
 
 // Sprites
-.select2-search input,
+// Use inline data-uri instead of external PNG so select2 is easier to use.
 .select2-search-choice-close,
-.select2-container .select2-choice abbr,
-.select2-container .select2-choice .select2-arrow b {
+.select2-container .select2-choice abbr {
     background-image: data-uri('@{external-components-path}select2/select2.png') !important;
 
     @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 2dppx) {
@@ -64,9 +157,75 @@ Styleguide 4.5.2
     }
 }
 
-// Animated spinner
 .select2-search input.select2-active,
 .select2-more-results.select2-active,
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
     background-image: data-uri('@{external-components-path}select2/select2-spinner.gif') !important;
+}
+
+// Change magnifier icon to Glyphicon in search input.
+.select2-search {
+    .glyphicon-search();
+
+    &:before {
+        .glyphicon();
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        bottom: 0;
+        width: 30px;
+        text-align: center;
+        line-height: 34px;
+        color: @gray-light;
+    }
+}
+
+.select2-search input {
+    background: none !important;
+}
+
+// Change caret to Glyphicon.
+.select2-container .select2-choice .select2-arrow {
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.select2-container .select2-choice .select2-arrow b {
+    width: auto;
+    height: auto;
+}
+
+.select2-container .select2-choice .select2-arrow b,
+.select2-container .select2-choice div b,
+.select2-container.input-sm .select2-choice .select2-arrow b,
+.input-group-sm .select2-container .select2-choice .select2-arrow b,
+.select2-container.input-sm .select2-choice div b,
+.input-group-sm .select2-container .select2-choice div b,
+.select2-container.input-lg .select2-choice .select2-arrow b,
+.input-group-lg .select2-container .select2-choice .select2-arrow b,
+.select2-container.input-lg .select2-choice div b,
+.input-group-lg .select2-container .select2-choice div b {
+    .glyphicon();
+    .glyphicon-menu-down();
+    top: 0;
+    background-image: none !important;
+}
+
+.select2-dropdown-open .select2-choice .select2-arrow b,
+.select2-dropdown-open .select2-choice div b,
+.select2-dropdown-open.input-sm .select2-choice .select2-arrow b,
+.input-group-sm .select2-dropdown-open .select2-choice .select2-arrow b,
+.select2-dropdown-open.input-sm .select2-choice div b,
+.input-group-sm .select2-dropdown-open .select2-choice div b,
+.select2-dropdown-open.input-lg .select2-choice .select2-arrow b,
+.input-group-lg .select2-dropdown-open .select2-choice .select2-arrow b,
+.select2-dropdown-open.input-lg .select2-choice div b,
+.input-group-lg .select2-dropdown-open .select2-choice div b {
+    .glyphicon();
+    .glyphicon-menu-up();
+    top: 0;
+    background-image: none !important;
 }

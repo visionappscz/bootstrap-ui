@@ -24,12 +24,63 @@ load. The widget can be configured by the value passed to the attribute. If no v
 initiated with default configuration. If a JSON object is passed, then it will be parsed and used as a configuration
 object (see https://select2.github.io/options.html for supported options).
 
+Styleguide 6.6
+*/
+
+
+/*
+Single Selection
+
 Markup:
-<select class="form-control" multiple data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
-    <option selected>Option 1</option>
-    <option>Option 2</option>
-    <option>Option 3</option>
+<select class="form-control" data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option
+        selected
+        data-image-src="//satyr.io/32x16?flag=cze"
+        data-image-srcset="//satyr.io/32x16?flag=cze, //satyr.io/64x32?flag=cze 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Czech</option>
+    <option
+        data-image-src="//satyr.io/32x16?flag=can"
+        data-image-srcset="//satyr.io/32x16?flag=can, //satyr.io/64x32?flag=can 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Canadian</option>
+    <option
+        data-image-src="//satyr.io/32x16?flag=che"
+        data-image-srcset="//satyr.io/32x16?flag=che, //satyr.io/64x32?flag=che 2x"
+        data-image-width="32"
+        data-image-height="16"
+    >Swiss</option>
 </select>
 
-Styleguide 6.6
+Styleguide 6.6.1
+*/
+
+
+/*
+Multiple Selection
+
+Markup:
+<select class="form-control" multiple data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option
+        selected
+        data-image-src="//satyr.io/40x40/forestgreen"
+        data-image-width="40"
+        data-image-height="40"
+    >Forest green</option>
+    <option
+        selected
+        data-image-src="//satyr.io/40x40/crimson"
+        data-image-width="40"
+        data-image-height="40"
+    >Crimson</option>
+    <option
+        data-image-src="//satyr.io/40x40/steelblue"
+        data-image-width="40"
+        data-image-height="40"
+    >Steel blue</option>
+</select>
+
+Styleguide 6.6.2
 */
