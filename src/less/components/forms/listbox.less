@@ -36,11 +36,11 @@ Styleguide 4.5.1
 /*
 Single Option with Images
 
-Images can be added to options. While multiple selection variant features auto sizing, please note that additional CSS
-may be required to fix size of single selection select2 component.
+Images can be added to options.
 
 Markup:
 <select class="form-control" data-onload-select2='{"minimumResultsForSearch": "Infinity"}'>
+    <option>No image</option>
     <option
         selected
         data-image-src="//satyr.io/32x16?flag=cze"
@@ -60,6 +60,12 @@ Markup:
         data-image-width="32"
         data-image-height="16"
     >Swiss</option>
+    <option
+        data-image-src="//satyr.io/60x60?flag=che"
+        data-image-srcset="//satyr.io/60x60?flag=che, //satyr.io/120x120?flag=che 2x"
+        data-image-width="60"
+        data-image-height="60"
+    >Swiss bigger</option>
 </select>
 
 Styleguide 4.5.2
@@ -119,6 +125,25 @@ Styleguide 4.5.4
 .select2-chosen > img,
 .select2-search-choice img {
     margin-right: @padding-small-horizontal;
+}
+
+// Auto sizing of single selection select2.
+.select2-container.form-control,
+.select2-container .select2-choice {
+    min-height: @input-height-base;
+    height: auto;
+}
+
+.select2-container.input-sm .select2-choice,
+.input-group-sm .select2-container .select2-choice {
+    min-height: @input-height-small;
+    height: auto;
+}
+
+.select2-container.input-lg .select2-choice,
+.input-group-lg .select2-container .select2-choice {
+    min-height: @input-height-large;
+    height: auto;
 }
 
 // Sprites
