@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v2.2.0 (14 July 2016)
+ * v2.2.1 (15 July 2016)
  */
 ;(function ($, window) {
   'use strict';
@@ -547,10 +547,10 @@
               attribs = attribs + ' width="' + imageWidth + '"';
             }
 
-            return '<img ' + attribs + '>&nbsp;' + option.id;
+            return '<img ' + attribs + '>&nbsp;' + option.text;
           }
 
-          return option.id;
+          return option.text;
         };
 
         if (confValue) {
