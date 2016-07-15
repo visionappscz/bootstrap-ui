@@ -66,8 +66,14 @@ $(function () {
     }));
 
     QUnit.ok(jQuery.fn.select2 .calledWithMatch(function (value) {
+      var testOpt = { element: $('option'), text: 'optionText' };
+
+      return value.formatResult(testOpt) === 'optionText';
+    }));
+
+    QUnit.ok(jQuery.fn.select2 .calledWithMatch(function (value) {
       var testOpt = { element: $optEl };
-      var output = '<img src="imageSource" alt="optionText">&nbsp;optionId';
+      var output = '<img src="imageSource" alt="optionText">&nbsp;optionText';
 
       $.extend(testOpt, option);
 
@@ -78,7 +84,7 @@ $(function () {
       var testOpt = { element: $optEl };
       var output = '<img ' +
         'src="imageSource" alt="optionText" srcset="imageSrcset" height="10" width="10"' +
-        '>&nbsp;optionId';
+        '>&nbsp;optionText';
 
       $optEl.attr('data-image-srcset', 'imageSrcset');
       $optEl.attr('data-image-width', '10');
