@@ -34,10 +34,10 @@
               attribs = attribs + ' width="' + imageWidth + '"';
             }
 
-            return '<img ' + attribs + '>&nbsp;' + option.id;
+            return '<img ' + attribs + '>&nbsp;' + option.text;
           }
 
-          return option.id;
+          return option.text;
         };
 
         if (confValue) {
