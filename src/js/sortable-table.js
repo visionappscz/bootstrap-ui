@@ -98,7 +98,13 @@
       if ($.isNumeric(valA) && $.isNumeric(valB)) {
         result = valA - valB;
       } else {
-        result = valA.localeCompare(valB);
+        try {
+          result = valA.localeCompare(valB, $('html').attr('lang'));
+        } catch (err) {
+          if (err instanceof RangeError) {
+            result = valA.localeCompare(valB);
+          }
+        }
       }
 
       return sortDir === 'desc' ? result * -1 : result;
