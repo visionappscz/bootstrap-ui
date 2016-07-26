@@ -16,7 +16,7 @@
 
   // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
   // and thus it would make it impossible to test this part of the code.
-  $(window).load(function () {
+  $(window).on('load', function () {
     var initComponentFn = function (inlineConf) {
       var datetimePickerLoader = new DatetimePickerLoader($(this));
       var conf = {
