@@ -1,8 +1,11 @@
 /*
 Sortable Table
 
-Provides client-side sorting functionality. To ensure keyboard accessibility, remember to add `tabindex="0"` to all
-sortable column headers.
+Provides client-side sorting functionality. If browser supports language argument to the
+`String.prototype.localeCompare()` function, the ordering will be locale aware.
+If the argument is not supported or if the supplied argument is not a valid locale the ordering will not be locale aware.
+
+To ensure keyboard accessibility, remember to add `tabindex="0"` to all sortable column headers.
 
 If a given cell has the attribute `data-sort-value="someValue"` specified, the value of this element is used as
 opposed to the value of the cell.

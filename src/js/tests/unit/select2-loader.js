@@ -66,7 +66,7 @@ $(function () {
     }));
 
     QUnit.ok(jQuery.fn.select2 .calledWithMatch(function (value) {
-      var testOpt = { element: $('option'), text: 'optionText' };
+      var testOpt = { element: $('<option></option>'), text: 'optionText' };
 
       return value.formatResult(testOpt) === 'optionText';
     }));

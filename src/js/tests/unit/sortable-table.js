@@ -17,6 +17,7 @@ $(function () {
     teardown: function () {
       $.fn.sortableTable = $.fn.buiSortableTable;
       delete $.fn.buiSortableTable;
+      $('html').attr('lang', null);
     },
   });
 
@@ -446,6 +447,71 @@ $(function () {
         .buiSortableTable({ 'sorted-th': $(this).find('#headerB'), 'sort-direction': 'asc' });
     }
   );
+
+  QUnit.test('should sort with invalid html language', function () {
+    var $table = $('<table>' +
+      '<tbody>' +
+      '<thead><tr><th id="headerA">HeaderA</th></tr></thead>' +
+      '<tr id="row1"><td>šb</td></tr>' +
+      '<tr id="row2"><td>sa</td></tr>' +
+      '<tr id="row3"><td>sc</td></tr>' +
+      '</tbody>' +
+      '</table>');
+
+    QUnit.stop();
+    $('html').attr('lang', 'some-invalid-language-code');
+    $table.on('sorted.bui.sortableTable', function () {
+      var $rows = $(this).find('tbody tr');
+      $(this).off('sorted.bui.sortableTable');
+      QUnit.ok($($rows[0]).attr('id') === 'row2');
+      QUnit.ok($($rows[1]).attr('id') === 'row1');
+      QUnit.ok($($rows[2]).attr('id') === 'row3');
+      QUnit.start();
+    })
+    .buiSortableTable({ 'sorted-th': $(this).find('#headerA'), 'sort-direction': 'asc' });
+  });
+
+  QUnit.test('should sort based on html language ', function () {
+    var $table = $('<table>' +
+      '<tbody>' +
+      '<thead><tr><th id="headerA">HeaderA</th></tr></thead>' +
+      '<tr id="row1"><td>šb</td></tr>' +
+      '<tr id="row2"><td>sa</td></tr>' +
+      '<tr id="row3"><td>sc</td></tr>' +
+      '</tbody>' +
+      '</table>');
+
+    QUnit.stop();
+    $('html').attr('lang', 'cs');
+    $table.on('sorted.bui.sortableTable', function () {
+      var $rows = $(this).find('tbody tr');
+      var validateNoLocale = function ($rows) {
+        QUnit.ok($($rows[0]).attr('id') === 'row2');
+        QUnit.ok($($rows[1]).attr('id') === 'row1');
+        QUnit.ok($($rows[2]).attr('id') === 'row3');
+      };
+
+      $(this).off('sorted.bui.sortableTable');
+
+      // Test should pass regardless weather browser supports locales
+      // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare#Check_browser_support_for_extended_arguments
+      try {
+        'foo'.localeCompare('bar', 'i');
+        validateNoLocale($rows);
+      } catch (err) {
+        if (err instanceof RangeError) {
+          QUnit.ok($($rows[0]).attr('id') === 'row2');
+          QUnit.ok($($rows[1]).attr('id') === 'row3');
+          QUnit.ok($($rows[2]).attr('id') === 'row1');
+        } else {
+          validateNoLocale($rows);
+        }
+      }
+
+      QUnit.start();
+    })
+    .buiSortableTable({ 'sorted-th': $(this).find('#headerA'), 'sort-direction': 'asc' });
+  });
 
   // Data-api tests
   // ==============

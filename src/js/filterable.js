@@ -139,7 +139,7 @@
   var lastEventTarget;
   var lastEventValue;
 
-  $(window).load(function () {
+  $(window).on('load', function () {
     $.each($('form'), function () {
       var $this = $(this);
       var filterData;

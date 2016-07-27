@@ -98,7 +98,13 @@
       if ($.isNumeric(valA) && $.isNumeric(valB)) {
         result = valA - valB;
       } else {
-        result = valA.localeCompare(valB);
+        try {
+          result = valA.localeCompare(valB, $('html').attr('lang'));
+        } catch (err) {
+          if (err instanceof RangeError) {
+            result = valA.localeCompare(valB);
+          }
+        }
       }
 
       return sortDir === 'desc' ? result * -1 : result;
@@ -162,7 +168,7 @@
 
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function () {
+    $(window).on('load', function () {
       var $sortedTh = $('th[data-sort-onload]');
       $sortedTh.each(function (i) {
         var $sortedTable = $($sortedTh[i]).closest('table');
