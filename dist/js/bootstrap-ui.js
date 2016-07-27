@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v2.2.1 (15 July 2016)
+ * v2.3.0 (27 July 2016)
  */
 ;(function ($, window) {
   'use strict';
@@ -16,7 +16,7 @@
   (function ($, window) {
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function () {
+    $(window).on('load', function () {
       $('[data-onload-ckeditor]').each(function () {
         var language = $('html').attr('lang');
         var confObj = {};
@@ -202,7 +202,7 @@
 
   // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
   // and thus it would make it impossible to test this part of the code.
-  $(window).load(function () {
+  $(window).on('load', function () {
     var initComponentFn = function (inlineConf) {
       var datetimePickerLoader = new DatetimePickerLoader($(this));
       var conf = {
@@ -281,7 +281,7 @@
   (function (Plugin, $, window) {
     // We have to use $(window).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function () {
+    $(window).on('load', function () {
       var $controls = $('[data-toggle=disable]');
 
       $controls.each(function () {
@@ -441,7 +441,7 @@
   var lastEventTarget;
   var lastEventValue;
 
-  $(window).load(function () {
+  $(window).on('load', function () {
     $.each($('form'), function () {
       var $this = $(this);
       var filterData;
@@ -520,7 +520,7 @@
   (function ($, window) {
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function () {
+    $(window).on('load', function () {
       $('[data-onload-select2]').each(function () {
         var confObj = {};
         var $this = $(this);
@@ -751,7 +751,13 @@
       if ($.isNumeric(valA) && $.isNumeric(valB)) {
         result = valA - valB;
       } else {
-        result = valA.localeCompare(valB);
+        try {
+          result = valA.localeCompare(valB, $('html').attr('lang'));
+        } catch (err) {
+          if (err instanceof RangeError) {
+            result = valA.localeCompare(valB);
+          }
+        }
       }
 
       return sortDir === 'desc' ? result * -1 : result;
@@ -815,7 +821,7 @@
 
     // We have to use $(winodow).load() as $(document).ready() can not be triggered manually
     // and thus it would make it impossible to test this part of the code.
-    $(window).load(function () {
+    $(window).on('load', function () {
       var $sortedTh = $('th[data-sort-onload]');
       $sortedTh.each(function (i) {
         var $sortedTable = $($sortedTh[i]).closest('table');
