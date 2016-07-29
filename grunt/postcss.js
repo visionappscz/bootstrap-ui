@@ -4,6 +4,7 @@ module.exports = {
 
   core: {
     options: {
+      map: true,
       processors: [
         require('autoprefixer')(),
       ],
@@ -12,6 +13,7 @@ module.exports = {
   },
   'core-min': {
     options: {
+      map: true,
       processors: [
         require('cssnano')({
           autoprefixer: false,
@@ -25,6 +27,7 @@ module.exports = {
   },
   styleguide: {
     options: {
+      map: true,
       processors: [
         require('autoprefixer')(),
         require('cssnano')({
