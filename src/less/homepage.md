@@ -1,4 +1,4 @@
-<p class="lead">This is the documentation of Bootstrap UI, a Bootstrap 3 extension for building beautiful web apps user
+<p class="lead">This is the documentation of Bootstrap UI, a Bootstrap 3 extension for building beautiful web app user
 interfaces.</p>
 
 **Technologies used:**
@@ -10,7 +10,7 @@ interfaces.</p>
 - [Style guide generator](https://github.com/kss-node/grunt-kss) using
 [KSS syntax](http://warpspire.com/kss/syntax/)
 
-<h2 id="install" class="page-header">Install</h2>
+<h2 id="installation" class="page-header">Installation</h2>
 
 The recommended way to install Bootstrap UI is via [Bower](http://bower.io) (assumes you have
 [Node.js](http://nodejs.org) and [Bower](http://bower.io) installed in your system).
@@ -37,7 +37,7 @@ Link Titillium Web font from [Google Fonts](https://www.google.com/fonts/) and B
 ### JavaScript
 You will find Bootstrap UI JavaScript in the `dist/js` directory.
 
-Please note that jQuery and Bootstrap JavaScript **is not bundled** in Bootstrap UI distribution package, and neither are
+Please note that jQuery and Bootstrap JavaScript **is not bundled** in the Bootstrap UI distribution package, and neither are
 other dependencies of Bootstrap UI. You can load them from [CDN](http://www.bootstrapcdn.com) if this option is
 available, or better, link the packages managed by Bower:
 
