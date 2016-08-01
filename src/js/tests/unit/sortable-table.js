@@ -464,8 +464,8 @@ $(function () {
       var $rows = $(this).find('tbody tr');
       $(this).off('sorted.bui.sortableTable');
       QUnit.ok($($rows[0]).attr('id') === 'row2');
-      QUnit.ok($($rows[1]).attr('id') === 'row1');
-      QUnit.ok($($rows[2]).attr('id') === 'row3');
+
+      // Other rows can not be tested as the result depends on the environment.
       QUnit.start();
     })
     .buiSortableTable({ 'sorted-th': $(this).find('#headerA'), 'sort-direction': 'asc' });
@@ -487,8 +487,8 @@ $(function () {
       var $rows = $(this).find('tbody tr');
       var validateNoLocale = function ($rows) {
         QUnit.ok($($rows[0]).attr('id') === 'row2');
-        QUnit.ok($($rows[1]).attr('id') === 'row1');
-        QUnit.ok($($rows[2]).attr('id') === 'row3');
+
+        // Other rows can not be tested as the result depends on the environment.
       };
 
       $(this).off('sorted.bui.sortableTable');
