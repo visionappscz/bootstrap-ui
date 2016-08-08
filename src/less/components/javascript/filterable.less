@@ -43,107 +43,109 @@ The element that is to reset the filter on click has to have the `data-toggle="r
 
 ##### Filter Object
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>filter-attrib</td>
-            <td>string</td>
-            <td></td>
-            <td>Defines the name of the `data-` attribute of the filterable objects to use for filtering.</td>
-        </tr>
-        <tr>
-            <td>filter-value</td>
-            <td>string</td>
-            <td></td>
-            <td>The filter value to be used in the condition. When using the data-api, this is automatically
-                generated from the `:input` element value and does not not have to be set manually.</td>
-        </tr>
-        <tr>
-            <td>filter-operator</td>
-            <td>enum</td>
-            <td></td>
-            <td>
-                Defines how to compare the values. If comparing strings or arrays of strings, we can use either
-                `subset` or `intersect` operators. For comparing numeric values, the `=`, `<`, `>`, `<=` and `>=` are
-                available.
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Filter object `filter-value`</th>
-                            <th>Filterable element `data-*` attribute value</th>
-                            <th>Operator</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>[string]</td>
-                            <td>string</td>
-                            <td>intersect</td>
-                            <td>Checks if the filterable string attribute is a member of the filter object value array.</td>
-                        </tr>
-                        <tr>
-                            <td>[string]</td>
-                            <td>[string]</td>
-                            <td>intersect</td>
-                            <td>Checks if the filterable array attribute has at least one common element with the filter object value array.</td>
-                        </tr>
-                        <tr>
-                            <td>[string]</td>
-                            <td>[string]</td>
-                            <td>subset</td>
-                            <td>Checks if the filterable array attribute elements are all members of the filter object value array.</td>
-                        </tr>
-                        <tr>
-                            <td>string</td>
-                            <td>[string]</td>
-                            <td>intersect</td>
-                            <td>Checks if the filterable array attribute contains the filter object value string.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>=</td>
-                            <td>Checks if the filterable numeric attribute is equal to the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&gt;</td>
-                            <td>Checks if the filterable numeric attribute is greater than the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&lt;</td>
-                            <td>Checks if the filterable numeric attribute is lower than the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&gt;=</td>
-                            <td>Checks if the filterable numeric attribute is greater than or equal to the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&lt;=</td>
-                            <td>Checks if the filterable numeric attribute is lower than or equal to  the filter object numeric value.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>filter-attrib</td>
+                <td>string</td>
+                <td></td>
+                <td>Defines the name of the `data-` attribute of the filterable objects to use for filtering.</td>
+            </tr>
+            <tr>
+                <td>filter-value</td>
+                <td>string</td>
+                <td></td>
+                <td>The filter value to be used in the condition. When using the data-api, this is automatically
+                    generated from the `:input` element value and does not not have to be set manually.</td>
+            </tr>
+            <tr>
+                <td>filter-operator</td>
+                <td>enum</td>
+                <td></td>
+                <td>
+                    Defines how to compare the values. If comparing strings or arrays of strings, we can use either
+                    `subset` or `intersect` operators. For comparing numeric values, the `=`, `<`, `>`, `<=` and `>=` are
+                    available.
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Filter object `filter-value`</th>
+                                <th>Filterable element `data-*` attribute value</th>
+                                <th>Operator</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>[string]</td>
+                                <td>string</td>
+                                <td>intersect</td>
+                                <td>Checks if the filterable string attribute is a member of the filter object value array.</td>
+                            </tr>
+                            <tr>
+                                <td>[string]</td>
+                                <td>[string]</td>
+                                <td>intersect</td>
+                                <td>Checks if the filterable array attribute has at least one common element with the filter object value array.</td>
+                            </tr>
+                            <tr>
+                                <td>[string]</td>
+                                <td>[string]</td>
+                                <td>subset</td>
+                                <td>Checks if the filterable array attribute elements are all members of the filter object value array.</td>
+                            </tr>
+                            <tr>
+                                <td>string</td>
+                                <td>[string]</td>
+                                <td>intersect</td>
+                                <td>Checks if the filterable array attribute contains the filter object value string.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>=</td>
+                                <td>Checks if the filterable numeric attribute is equal to the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&gt;</td>
+                                <td>Checks if the filterable numeric attribute is greater than the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&lt;</td>
+                                <td>Checks if the filterable numeric attribute is lower than the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&gt;=</td>
+                                <td>Checks if the filterable numeric attribute is greater than or equal to the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&lt;=</td>
+                                <td>Checks if the filterable numeric attribute is lower than or equal to  the filter object numeric value.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ##### Methods
 
@@ -157,32 +159,34 @@ Displays all filterable elements.
 
 ##### Events
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Event Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>resetStart.bui.filterable</td>
-            <td>Fired as soon as the `reset` method is called.</td>
-        </tr>
-        <tr>
-            <td>resetEnd.bui.filterable</td>
-            <td>Fired as soon as the `reset` method is finished executing.</td>
-        </tr>
-        <tr>
-            <td>filter.bui.filterable</td>
-            <td>Fired when the `filter` method is called.</td>
-        </tr>
-        <tr>
-            <td>filtered.bui.filterable</td>
-            <td>Fired when the `filter` method is finished executing.</td>
-        </tr>
-    <tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>resetStart.bui.filterable</td>
+                <td>Fired as soon as the `reset` method is called.</td>
+            </tr>
+            <tr>
+                <td>resetEnd.bui.filterable</td>
+                <td>Fired as soon as the `reset` method is finished executing.</td>
+            </tr>
+            <tr>
+                <td>filter.bui.filterable</td>
+                <td>Fired when the `filter` method is called.</td>
+            </tr>
+            <tr>
+                <td>filtered.bui.filterable</td>
+                <td>Fired when the `filter` method is finished executing.</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
 
 Markup:
 <div class="row">
