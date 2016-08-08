@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v2.3.0 (29 July 2016)
+ * v2.3.1 (8 August 2016)
  */
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -8589,7 +8589,7 @@ Styleguide 1.4
 /*
 Teaser
 
-Article teaser. You can turn the whole teaser into link (preferred use) or just make links from title, image, and
+Article teaser. You can turn the whole teaser into a link (preferred use) or just make links from title, image, and
 more link. Designed for use in grid. Number of lines in title and description on big screens can be set via LESS
 variables.
 
@@ -9188,7 +9188,7 @@ Link back to previous page. Typically used together with `<h2>` headings.
     <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
     <div class="panel-body">
         It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
-        appear on the right side of heading on big screens but they are designed in a different way for mobile.
+        appear on the right side of the heading on big screens, but they are designed in a different way for mobiles.
     </div>
 </div>
 
@@ -9355,7 +9355,7 @@ More Link
 
 Responsive link to a complete listing. Works best with H2.
 
-By default, more link is aligned to baseline with element that has space of one line between itself and the following
+By default, more link is aligned to baseline with the element that has space of one line between itself and the following
 content. The value corresponds to default bottom margin of H2 (which is one line) and can be adjusted via LESS variable
 `@more-link-top-offset`.
 
@@ -9363,7 +9363,7 @@ content. The value corresponds to default bottom margin of H2 (which is one line
     <div class="panel-heading"><h4 class="panel-title">Heads Up!</h4></div>
     <div class="panel-body">
         It may be a little bit confusing to distinguish between the Back Link and More Link components. They both
-        appear on the right side of heading on big screens, but they are designed in a different way for mobile.
+        appear on the right side of the heading on big screens, but they are designed in a different way for mobiles.
     </div>
 </div>
 
@@ -10598,7 +10598,7 @@ Styleguide 5.5
 Item Actions
 
 Item actions extend [Bootstrap button](http://getbootstrap.com/css/#buttons) component. They are optimized for long
-lists of items where each item offers one or more action to be taken. They look the best when used only with icons.
+lists of items where each item offers one or more actions to be taken. They look the best when used only with icons.
 
 Markup:
 <p>
@@ -10618,38 +10618,40 @@ Markup:
     </a>
 </p>
 <p><strong>Used in table:</strong></p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Article</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Hotforwords Can Explain Lorem Ipsum far better than I can</td>
-            <td class="table-cell-actions">
-                <a href="#" class="item-action" title="Edit">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </a>
-                <a href="#" class="item-action item-action-danger" title="Delete">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                </a>
-            </td>
-        </tr>
-        <tr>
-            <td>Which to isn't lesser together years land heaven brought</td>
-            <td class="table-cell-actions">
-                <a href="#" class="item-action" title="Edit">
-                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                </a>
-                <a href="#" class="item-action item-action-danger" title="Delete">
-                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                </a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Article</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hotforwords Can Explain Lorem Ipsum far better than I can</td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Which to isn't lesser together years land heaven brought</td>
+                <td class="table-cell-actions">
+                    <a href="#" class="item-action" title="Edit">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </a>
+                    <a href="#" class="item-action item-action-danger" title="Delete">
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 Styleguide 5.6
 */
@@ -10714,7 +10716,7 @@ Styleguide 5.7
 /*
 Tables
 
-Default [Bootstrap tables](http://getbootstrap.com/css/#tables) can be extended with following features:
+Default [Bootstrap tables](http://getbootstrap.com/css/#tables) can be extended with the following features:
 
 - Disabled row for inactive items
 - Nested items to present hierarchy
@@ -11056,7 +11058,7 @@ Styleguide 5.9
 CKEditor Loader
 
 Initializes [CKEditor WYSIWYG editor](http://ckeditor.com) on the given `<textarea>` element.
-It does no more then to run the `$.ckeditor()` method. It is possible to initialize the editor with default or custom
+It does no more than run the `$.ckeditor()` method. It is possible to initialize the editor with default or custom
 options.
 
 <div class="panel panel-danger">
@@ -11076,10 +11078,9 @@ If the `lang` attribute is set on the `<html>` element the CKEditor is localized
 If a `<textarea>` HTML element has the attribute `data-onload-ckeditor` defined, it will be initialized as a CKEditor
 upon page load. The editor can be configured by the value passed to the attribute. If no value is passed, then CKEditor
 is initiated with default configuration. If the value is a valid JSON, then it will be parsed and used as a
-configuration object (see http://docs.ckeditor.com/#!/api/CKEDITOR.config for supported options). If the value is not a
-valid JSON, then it will be used as a path to an editor config file to be used
-(see http://docs.ckeditor.com/#!/guide/dev_configuration-section-using-a-custom-configuration-file for custom config
-file documentation).
+configuration object (see supported options in <a href="http://docs.ckeditor.com/#!/api/CKEDITOR.config" target="_blank">docs</a>).
+If the value is not a valid JSON, then it will be used as a path to an editor config file to be used (see custom config file
+<a href="http://docs.ckeditor.com/#!/guide/dev_configuration-section-using-a-custom-configuration-file" target="_blank">documentation</a>).
 
 Markup:
 <textarea data-onload-ckeditor='{"language": "en"}'>Hi, I’m a textarea and I’m wearing a fancy CKEditor dress.</textarea>
@@ -11132,37 +11133,38 @@ To override default options, you can use the same options as the JavaScript API 
 #### JavaScript
 
 ##### Options
-
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>confirm-message</td>
-            <td>string</td>
-            <td>Are you sure?</td>
-            <td>Optional. The message to be displayed to the user in the confirmation dialog.</td>
-        </tr>
-        <tr>
-            <td>confirm-yes</td>
-            <td>string</td>
-            <td>Yes</td>
-            <td>Optional. The text to be shown in the button that confirms the action.</td>
-        </tr>
-        <tr>
-            <td>confirm-no</td>
-            <td>string</td>
-            <td>No</td>
-            <td>Optional. The text to be shown in the button that confirms the action.</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>confirm-message</td>
+                <td>string</td>
+                <td>Are you sure?</td>
+                <td>Optional. The message to be displayed to the user in the confirmation dialog.</td>
+            </tr>
+            <tr>
+                <td>confirm-yes</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>Optional. The text to be shown in the button that confirms the action.</td>
+            </tr>
+            <tr>
+                <td>confirm-no</td>
+                <td>string</td>
+                <td>No</td>
+                <td>Optional. The text to be shown in the button that confirms the action.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ##### Methods
 
@@ -11172,28 +11174,30 @@ Triggers a confirmation dialog on the given element.
 
 ##### Events
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Event Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>show.bui.confirmation</td>
-            <td>Fired as soon as the confirmation dialog is displayed.</td>
-        </tr>
-        <tr>
-            <td>confirmed.bui.confirmation</td>
-            <td>Fired when user confirms the dialog.</td>
-        </tr>
-        <tr>
-            <td>rejected.bui.confirmation</td>
-            <td>Fired when user rejects the dialog.</td>
-        </tr>
-    <tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>show.bui.confirmation</td>
+                <td>Fired as soon as the confirmation dialog is displayed.</td>
+            </tr>
+            <tr>
+                <td>confirmed.bui.confirmation</td>
+                <td>Fired when user confirms the dialog.</td>
+            </tr>
+            <tr>
+                <td>rejected.bui.confirmation</td>
+                <td>Fired when user rejects the dialog.</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
 
 Markup:
 <form onsubmit="alert('Confirmation confirmed');" method="get">
@@ -11227,7 +11231,7 @@ Styleguide 6.2
 Datetimepicker Loader
 
 Initializes [Bootstrap Datetimepicker](http://eonasdan.github.io/bootstrap-datetimepicker) by
-[Jonathan Peterson](https://github.com/Eonasdan) on the given form field. It does no more then to run the
+[Jonathan Peterson](https://github.com/Eonasdan) on the given form field. It does no more than run the
 `$.datetimepicker()` method with an optional configuration object as its argument.
 
 <div class="panel panel-danger">
@@ -11311,24 +11315,26 @@ Toggles between enabled and disabled states.
 
 ##### Events
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Event Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>toggle.bui.disable</td>
-            <td>Fired as soon as the disable function is called.</td>
-        </tr>
-        <tr>
-            <td>toggled.bui.disable</td>
-            <td>Fired when the disable function is finished.</td>
-        </tr>
-    <tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>toggle.bui.disable</td>
+                <td>Fired as soon as the disable function is called.</td>
+            </tr>
+            <tr>
+                <td>toggled.bui.disable</td>
+                <td>Fired when the disable function is finished.</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
 
 Markup:
 <form>
@@ -11402,107 +11408,109 @@ The element that is to reset the filter on click has to have the `data-toggle="r
 
 ##### Filter Object
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>filter-attrib</td>
-            <td>string</td>
-            <td></td>
-            <td>Defines the name of the `data-` attribute of the filterable objects to use for filtering.</td>
-        </tr>
-        <tr>
-            <td>filter-value</td>
-            <td>string</td>
-            <td></td>
-            <td>The filter value to be used in the condition. When using the data-api, this is automatically
-                generated from the `:input` element value and does not not have to be set manually.</td>
-        </tr>
-        <tr>
-            <td>filter-operator</td>
-            <td>enum</td>
-            <td></td>
-            <td>
-                Defines how to compare the values. If comparing strings or arrays of strings, we can use either
-                `subset` or `intersect` operators. For comparing numeric values, the `=`, `<`, `>`, `<=` and `>=` are
-                available.
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Filter object `filter-value`</th>
-                            <th>Filterable element `data-*` attribute value</th>
-                            <th>Operator</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>[string]</td>
-                            <td>string</td>
-                            <td>intersect</td>
-                            <td>Checks if the filterable string attribute is a member of the filter object value array.</td>
-                        </tr>
-                        <tr>
-                            <td>[string]</td>
-                            <td>[string]</td>
-                            <td>intersect</td>
-                            <td>Checks if the filterable array attribute has at least one common element with the filter object value array.</td>
-                        </tr>
-                        <tr>
-                            <td>[string]</td>
-                            <td>[string]</td>
-                            <td>subset</td>
-                            <td>Checks if the filterable array attribute elements are all members of the filter object value array.</td>
-                        </tr>
-                        <tr>
-                            <td>string</td>
-                            <td>[string]</td>
-                            <td>intersect</td>
-                            <td>Checks if the filterable array attribute contains the filter object value string.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>=</td>
-                            <td>Checks if the filterable numeric attribute is equal to the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&gt;</td>
-                            <td>Checks if the filterable numeric attribute is greater then the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&lt;</td>
-                            <td>Checks if the filterable numeric attribute is lower then the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&gt;=</td>
-                            <td>Checks if the filterable numeric attribute is greater then or equal to the filter object numeric value.</td>
-                        </tr>
-                        <tr>
-                            <td>number</td>
-                            <td>number</td>
-                            <td>&lt;=</td>
-                            <td>Checks if the filterable numeric attribute is lower then or equal to  the filter object numeric value.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>filter-attrib</td>
+                <td>string</td>
+                <td></td>
+                <td>Defines the name of the `data-` attribute of the filterable objects to use for filtering.</td>
+            </tr>
+            <tr>
+                <td>filter-value</td>
+                <td>string</td>
+                <td></td>
+                <td>The filter value to be used in the condition. When using the data-api, this is automatically
+                    generated from the `:input` element value and does not not have to be set manually.</td>
+            </tr>
+            <tr>
+                <td>filter-operator</td>
+                <td>enum</td>
+                <td></td>
+                <td>
+                    Defines how to compare the values. If comparing strings or arrays of strings, we can use either
+                    `subset` or `intersect` operators. For comparing numeric values, the `=`, `<`, `>`, `<=` and `>=` are
+                    available.
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Filter object `filter-value`</th>
+                                <th>Filterable element `data-*` attribute value</th>
+                                <th>Operator</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>[string]</td>
+                                <td>string</td>
+                                <td>intersect</td>
+                                <td>Checks if the filterable string attribute is a member of the filter object value array.</td>
+                            </tr>
+                            <tr>
+                                <td>[string]</td>
+                                <td>[string]</td>
+                                <td>intersect</td>
+                                <td>Checks if the filterable array attribute has at least one common element with the filter object value array.</td>
+                            </tr>
+                            <tr>
+                                <td>[string]</td>
+                                <td>[string]</td>
+                                <td>subset</td>
+                                <td>Checks if the filterable array attribute elements are all members of the filter object value array.</td>
+                            </tr>
+                            <tr>
+                                <td>string</td>
+                                <td>[string]</td>
+                                <td>intersect</td>
+                                <td>Checks if the filterable array attribute contains the filter object value string.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>=</td>
+                                <td>Checks if the filterable numeric attribute is equal to the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&gt;</td>
+                                <td>Checks if the filterable numeric attribute is greater than the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&lt;</td>
+                                <td>Checks if the filterable numeric attribute is lower than the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&gt;=</td>
+                                <td>Checks if the filterable numeric attribute is greater than or equal to the filter object numeric value.</td>
+                            </tr>
+                            <tr>
+                                <td>number</td>
+                                <td>number</td>
+                                <td>&lt;=</td>
+                                <td>Checks if the filterable numeric attribute is lower than or equal to  the filter object numeric value.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ##### Methods
 
@@ -11516,32 +11524,34 @@ Displays all filterable elements.
 
 ##### Events
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Event Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>resetStart.bui.filterable</td>
-            <td>Fired as soon as the `reset` method is called.</td>
-        </tr>
-        <tr>
-            <td>resetEnd.bui.filterable</td>
-            <td>Fired as soon as the `reset` method is finished executing.</td>
-        </tr>
-        <tr>
-            <td>filter.bui.filterable</td>
-            <td>Fired when the `filter` method is called.</td>
-        </tr>
-        <tr>
-            <td>filtered.bui.filterable</td>
-            <td>Fired when the `filter` method is finished executing.</td>
-        </tr>
-    <tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>resetStart.bui.filterable</td>
+                <td>Fired as soon as the `reset` method is called.</td>
+            </tr>
+            <tr>
+                <td>resetEnd.bui.filterable</td>
+                <td>Fired as soon as the `reset` method is finished executing.</td>
+            </tr>
+            <tr>
+                <td>filter.bui.filterable</td>
+                <td>Fired when the `filter` method is called.</td>
+            </tr>
+            <tr>
+                <td>filtered.bui.filterable</td>
+                <td>Fired when the `filter` method is finished executing.</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
 
 Markup:
 <div class="row">
@@ -11793,7 +11803,7 @@ Styleguide 6.5
 Select2 Loader
 
 Initializes [select2](https://select2.github.io) on the given `<select>` element.
-It does no more then to run the `$.select2()` method. It is possible to initialize the widget with default or custom
+It does no more than run the `$.select2()` method. It is possible to initialize the widget with default or custom
 options.
 
 <div class="panel panel-danger">
@@ -11876,8 +11886,8 @@ Styleguide 6.6.2
 /*
 Slugger
 
-Creates a slug in one HTML form element based on value in another.
-The relationship is unidirectional in the sense that changes made to source element affect the target element, but not
+Creates a slug in one HTML form element based on a value in another.
+The relationship is unidirectional in the sense that changes made to the source element affect the target element, but not
 vice versa.
 
 <div class="panel panel-danger">
@@ -11891,8 +11901,8 @@ vice versa.
 
 #### Data-API
 
-To make this component function there must be two HTML form elements. One is the source where user types text and the
-other is the target where slugger dynamically generates the slug.
+To make this component function there must be two HTML form elements. One is the source where the user types text and the
+other is the target where the slugger dynamically generates the slug.
 
 Two attributes have to be defined on the source element:
 
@@ -11905,24 +11915,26 @@ the generated slug is to be displayed.
 
 ##### Options
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>target</td>
-            <td>jQuery HTML element collection</td>
-            <td></td>
-            <td>The element(s) where the slug should be displayed</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>target</td>
+                <td>jQuery HTML element collection</td>
+                <td></td>
+                <td>The element(s) where the slug should be displayed</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ##### Methods
 
@@ -11932,24 +11944,26 @@ Sets slug generated as the value of the target element based on the value of the
 
 ##### Events
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Event Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>updated.bui.slugger</td>
-            <td>Fired when user changes the value of the source element and the slug gets updated.</td>
-        </tr>
-        <tr>
-            <td>changed.bui.slugger</td>
-            <td>Fired when the source element looses focus after a change.</td>
-        </tr>
-    <tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>updated.bui.slugger</td>
+                <td>Fired when user changes the value of the source element and the slug gets updated.</td>
+            </tr>
+            <tr>
+                <td>changed.bui.slugger</td>
+                <td>Fired when the source element loses focus after a change.</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
 
 Markup:
 <div class="row">
@@ -12019,40 +12033,42 @@ or `desc` to indicate the sorting order.
 
 ##### Options
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>sorted-th</td>
-            <td>string</td>
-            <td></td>
-            <td>Mandatory. A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
-        </tr>
-        <tr>
-            <td>sort-direction</td>
-            <td>string</td>
-            <td>If the column is already sorted it defaults to the reverse order. If it is not sorted, it defaults to `asc`.</td>
-            <td>Optional. Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
-        </tr>
-        <tr>
-            <td>sort-navigation</td>
-            <td>jQuery object</td>
-            <td></td>
-            <td>
-                 Optional. A jQuery object with reference to the DOM element where the group quick links are to appear.
-                 The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
-                 For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
-             </td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>sorted-th</td>
+                <td>string</td>
+                <td></td>
+                <td>Mandatory. A jQuery object with reference to the `<th>` DOM element in the column by which we are to sort the table.</td>
+            </tr>
+            <tr>
+                <td>sort-direction</td>
+                <td>string</td>
+                <td>If the column is already sorted it defaults to the reverse order. If it is not sorted, it defaults to `asc`.</td>
+                <td>Optional. Defines the direction by which to sort. Accepts values `asc` or `desc`.</td>
+            </tr>
+            <tr>
+                <td>sort-navigation</td>
+                <td>jQuery object</td>
+                <td></td>
+                <td>
+                     Optional. A jQuery object with reference to the DOM element where the group quick links are to appear.
+                     The elements are grouped according to the value of th `data-sort-group="someValue"` attribute of each cell.
+                     For this to work correctly, all cells in a given column either must or must not posses the `data-sort-group` attribute.
+                 </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ##### Methods
 
@@ -12062,24 +12078,26 @@ Initiates a sortable table if needed and performs the sorting according to the o
 
 ##### Events
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Event Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>sort.bui.sortableTable</td>
-            <td>Fired as soon as the `sort` method is called.</td>
-        </tr>
-        <tr>
-            <td>sorted.bui.sortableTable</td>
-            <td>Fired as soon as the `sort` method is finished executing.</td>
-        </tr>
-    <tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>sort.bui.sortableTable</td>
+                <td>Fired as soon as the `sort` method is called.</td>
+            </tr>
+            <tr>
+                <td>sorted.bui.sortableTable</td>
+                <td>Fired as soon as the `sort` method is finished executing.</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
 
 Styleguide 6.8
 */
