@@ -6,7 +6,7 @@
 
 Bootstrap UI is a [Bootstrap 3](http://getbootstrap.com) extension for building beautiful web apps user
 interfaces. Migration to Bootstrap 4
-[is planned in the future|https://github.com/visionappscz/bootstrap-ui/issues/94]. 
+[is planned in the future](https://github.com/visionappscz/bootstrap-ui/issues/94). 
 
 Get started at [www.bootstrap-ui.com](http://www.bootstrap-ui.com)!
 
