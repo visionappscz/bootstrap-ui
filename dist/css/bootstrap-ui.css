@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v2.3.1 (7 September 2016)
+ * v2.3.2 (8 September 2016)
  */
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -1112,6 +1112,10 @@ img {
   vertical-align: middle;
 }
 .img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img,
 .article img,
 .article-image > img,
 .teaser-image img,
@@ -3434,20 +3438,26 @@ fieldset[disabled] .btn-link:focus {
   color: #777777;
   text-decoration: none;
 }
-.btn-lg {
+.btn-lg,
+.btn-group-lg > .btn,
+.btn-group-lg > .item-action {
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.3333333;
   border-radius: 2px;
 }
 .btn-sm,
-.item-action {
+.btn-group-sm > .btn,
+.item-action,
+.btn-group-sm > .item-action {
   padding: 5px 10px;
   font-size: 14px;
   line-height: 1.5;
   border-radius: 2px;
 }
-.btn-xs {
+.btn-xs,
+.btn-group-xs > .btn,
+.btn-group-xs > .item-action {
   padding: 1px 5px;
   font-size: 14px;
   line-height: 1.5;
@@ -3733,18 +3743,6 @@ tbody.collapse.in {
 .btn-group .dropdown-toggle:active,
 .btn-group.open .dropdown-toggle {
   outline: 0;
-}
-.btn-group-xs > .btn,
-.btn-group-xs > .item-action {
-  @extend .btn-xs;
-}
-.btn-group-sm > .btn,
-.btn-group-sm > .item-action {
-  @extend .btn-sm;
-}
-.btn-group-lg > .btn,
-.btn-group-lg > .item-action {
-  @extend .btn-lg;
 }
 .btn-group > .btn + .dropdown-toggle,
 .btn-group > .item-action + .dropdown-toggle {
@@ -5094,7 +5092,6 @@ a.badge:focus {
 }
 .thumbnail > img,
 .thumbnail a > img {
-  @extend .img-responsive;
   margin-left: auto;
   margin-right: auto;
 }
@@ -6308,7 +6305,6 @@ button.close {
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-  @extend .img-responsive;
   line-height: 1;
 }
 @media all and (transform-3d), (-webkit-transform-3d) {
