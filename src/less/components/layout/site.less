@@ -32,7 +32,13 @@ Styleguide 2.6
 .site {
     display: flex;
     flex-direction: column;
-    height: 100%; /* 1, 3 */
+    min-height: 100%; /* 3 */
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .site {
+        height: 100%; /* 1, 3 */
+    }
 }
 
 .site-header,
