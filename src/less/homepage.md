@@ -12,14 +12,31 @@ interfaces.</p>
 
 <h2 id="installation" class="page-header">Installation</h2>
 
-The recommended way to install Bootstrap UI is via [Bower](http://bower.io) (assumes you have
-[Node.js](http://nodejs.org) and [Bower](http://bower.io) installed in your system).
+For both installation methods must have [Node.js](http://nodejs.org) installed.
+
+### Npm registry
+The recommended way to install Bootstrap UI is from the npm registry.
+
+```
+$ npm install --save bootstrap-ui
+```
+
+Or if you use [Yarn](https://yarnpkg.com):
+
+```
+$ yarn add bootstrap-ui
+```
+
+### Bower
+You can also install it via [Bower](http://bower.io).
+However please do note that bower is [deprecated](https://bower.io/).
 
 ```
 $ bower install --save bootstrap.ui
 ```
 
-You can also download all releases from [GitHub](https://github.com/visionappscz/bootstrap-ui/releases).
+### Download
+All releases can also be downloaded from [GitHub](https://github.com/visionappscz/bootstrap-ui/releases).
 
 <h2 id="usage" class="page-header">Usage</h2>
 
