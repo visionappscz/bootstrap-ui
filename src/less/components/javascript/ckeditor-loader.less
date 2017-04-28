@@ -22,10 +22,9 @@ If the `lang` attribute is set on the `<html>` element the CKEditor is localized
 If a `<textarea>` HTML element has the attribute `data-onload-ckeditor` defined, it will be initialized as a CKEditor
 upon page load. The editor can be configured by the value passed to the attribute. If no value is passed, then CKEditor
 is initiated with default configuration. If the value is a valid JSON, then it will be parsed and used as a
-configuration object (see http://docs.ckeditor.com/#!/api/CKEDITOR.config for supported options). If the value is not a
-valid JSON, then it will be used as a path to an editor config file to be used
-(see http://docs.ckeditor.com/#!/guide/dev_configuration-section-using-a-custom-configuration-file for custom config
-file documentation).
+configuration object (see supported options in <a href="http://docs.ckeditor.com/#!/api/CKEDITOR.config" target="_blank">docs</a>).
+If the value is not a valid JSON, then it will be used as a path to an editor config file to be used (see custom config file
+<a href="http://docs.ckeditor.com/#!/guide/dev_configuration-section-using-a-custom-configuration-file" target="_blank">documentation</a>).
 
 Markup:
 <textarea data-onload-ckeditor='{"language": "en"}'>Hi, I’m a textarea and I’m wearing a fancy CKEditor dress.</textarea>

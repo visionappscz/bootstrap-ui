@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.6",
+    "jquery": "1.9.1 - 2",
     "eonasdan-bootstrap-datetimepicker": "~4.17.37",
     "select2": "~3.5.4",
     "select2-bootstrap-css": "~1.4.1",

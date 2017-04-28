@@ -44,37 +44,38 @@ To override default options, you can use the same options as the JavaScript API 
 #### JavaScript
 
 ##### Options
-
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>confirm-message</td>
-            <td>string</td>
-            <td>Are you sure?</td>
-            <td>Optional. The message to be displayed to the user in the confirmation dialog.</td>
-        </tr>
-        <tr>
-            <td>confirm-yes</td>
-            <td>string</td>
-            <td>Yes</td>
-            <td>Optional. The text to be shown in the button that confirms the action.</td>
-        </tr>
-        <tr>
-            <td>confirm-no</td>
-            <td>string</td>
-            <td>No</td>
-            <td>Optional. The text to be shown in the button that confirms the action.</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>confirm-message</td>
+                <td>string</td>
+                <td>Are you sure?</td>
+                <td>Optional. The message to be displayed to the user in the confirmation dialog.</td>
+            </tr>
+            <tr>
+                <td>confirm-yes</td>
+                <td>string</td>
+                <td>Yes</td>
+                <td>Optional. The text to be shown in the button that confirms the action.</td>
+            </tr>
+            <tr>
+                <td>confirm-no</td>
+                <td>string</td>
+                <td>No</td>
+                <td>Optional. The text to be shown in the button that confirms the action.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 ##### Methods
 
@@ -84,28 +85,30 @@ Triggers a confirmation dialog on the given element.
 
 ##### Events
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Event Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>show.bui.confirmation</td>
-            <td>Fired as soon as the confirmation dialog is displayed.</td>
-        </tr>
-        <tr>
-            <td>confirmed.bui.confirmation</td>
-            <td>Fired when user confirms the dialog.</td>
-        </tr>
-        <tr>
-            <td>rejected.bui.confirmation</td>
-            <td>Fired when user rejects the dialog.</td>
-        </tr>
-    <tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Event Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>show.bui.confirmation</td>
+                <td>Fired as soon as the confirmation dialog is displayed.</td>
+            </tr>
+            <tr>
+                <td>confirmed.bui.confirmation</td>
+                <td>Fired when user confirms the dialog.</td>
+            </tr>
+            <tr>
+                <td>rejected.bui.confirmation</td>
+                <td>Fired when user rejects the dialog.</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
 
 Markup:
 <form onsubmit="alert('Confirmation confirmed');" method="get">
