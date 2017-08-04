@@ -1,7 +1,7 @@
 FROM            debian:latest
 
-RUN             apt-get update && apt-get install -y git git-core curl bzip2
-RUN             curl -sL https://deb.nodesource.com/setup_7.x | bash -
+RUN             apt-get update && apt-get install -y git git-core curl bzip2 gnupg
+RUN             curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN             apt-get install nodejs
 RUN             npm install --global grunt-cli
 RUN             npm install --global bower
