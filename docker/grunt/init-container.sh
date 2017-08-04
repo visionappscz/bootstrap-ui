@@ -9,4 +9,3 @@ groupmod -g $(stat -c "%g" $1) docker-container-user
 
 chown -R docker-container-user /workspace
 chown -R docker-container-user /home/docker-container-user
-
