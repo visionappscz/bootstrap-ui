@@ -23,19 +23,13 @@ Styleguide 3.2
 .cta {
     margin-top: @line-height-computed;
 
-    @media screen and (min-width: @grid-float-breakpoint) {
+    @media screen and (min-width: @screen-sm-min) {
         float: right;
         margin-top: 0;
         text-align: right;
 
-        &.btn,
-        > .btn {
+        &.btn {
             float: right;
-        }
-
-        &.btn-group > .btn,
-        &.btn-group > .item-action {
-            float: left;
         }
     }
 }
