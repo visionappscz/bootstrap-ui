@@ -1,6 +1,6 @@
 # [Bootstrap UI](http://www.bootstrap-ui.com)
 
-[![Bower version](https://badge.fury.io/bo/bootstrap.ui.svg)](http://badge.fury.io/bo/bootstrap.ui)
+[![npm Version](https://badge.fury.io/js/bootstrap-ui.svg)](https://www.npmjs.com/package/bootstrap-ui)
 [![devDependency Status](https://david-dm.org/visionappscz/bootstrap-ui/dev-status.svg)](https://david-dm.org/visionappscz/bootstrap-ui#info=devDependencies)
 [![Build Status](https://travis-ci.org/visionappscz/bootstrap-ui.svg?branch=master)](https://travis-ci.org/visionappscz/bootstrap-ui)
 

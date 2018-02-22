@@ -17,10 +17,16 @@
   "browser": true,
 
   "globals": {
-    "jQuery": false,
     "$": false,
-    "QUnit": false,
-    "sinon": false,
-    "moment": false
+    "afterEach": false,
+    "assert": false,
+    "beforeEach": false,
+    "chai": false,
+    "describe": false,
+    "it": false,
+    "jQuery": false,
+    "mocha": false,
+    "moment": false,
+    "sinon": false
   }
 }

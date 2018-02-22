@@ -5,7 +5,7 @@ module.exports = {
   core: {
     options: {
       banner: '<%= banner %>',
-      modifyVars: { 'external-components-path': '"bower_components/"' },
+      modifyVars: { 'external-components-path': '"node_modules/"' },
       strictUnits: true,
       sourceMap: true,
       sourceMapFilename: '<%= paths.temp %>/css/<%= pkg.name %>.css.map',
@@ -18,7 +18,7 @@ module.exports = {
   },
   styleguide: {
     options: {
-      paths: ['<%= paths.bower %>'],
+      paths: ['<%= paths.npm %>'],
       strictUnits: true,
     },
     files: {

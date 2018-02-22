@@ -1,31 +1,50 @@
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Bootstrap UI Plugin Test Suite</title>
 
+    <!-- mocha.js -->
+    <link rel="stylesheet" media="all" href="../../../node_modules/mocha/mocha.css">
+</head>
+<body>
     <!-- jQuery -->
-    <script src="../../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../../node_modules/jquery/dist/jquery.js"></script>
+    <!-- moment.js -->
+    <script type="text/javascript" src="../../../node_modules/moment/min/moment-with-locales.min.js"></script>
 
-    <!-- moment.sj -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment-with-locales.min.js"></script>
+    <div id="mocha"></div>
+    <div id="mocha-fixture"></div>
 
-    <!-- QUnit -->
-    <link rel="stylesheet" href="../../../bower_components/qunit/qunit/qunit.css" media="screen" />
-    <script src="../../../bower_components/qunit/qunit/qunit.js"></script>
+    <!-- mocha.js -->
+    <script src="../../../node_modules/mocha/mocha.js"></script>
+    <!-- chai.js -->
+    <script src="../../../node_modules/chai/chai.js"></script>
+    <!-- chai.js -->
+    <script src="../../../node_modules/sinon/pkg/sinon.js"></script>
+
+    <!-- setup -->
     <script>
-        // Cleanup
-        QUnit.testDone(function () {
-            $('#qunit-fixture').empty()
-        })
+        var assert = chai.assert;
+
+        mocha.ui('bdd');
+        mocha.clearFixture = function () {
+            $('#mocha-fixture').children().remove();
+        };
+
+        // Test written in strict mode will not run without this non-strict initialization test
+        describe('Inititialization', function () {
+            it('should initialize all dependencies', function () {
+                assert.isDefined(mocha);
+                assert.isDefined(chai);
+                assert.isDefined(sinon);
+                assert.isDefined($);
+                assert.isDefined(moment);
+            })
+        });
     </script>
 
-    <!-- Sinon -->
-    <script src="../../../bower_components/sinon/index.js"></script>
-    <script src="../../../bower_components/sinon-qunit/lib/sinon-qunit.js"></script>
-
     <!-- Plugin sources -->
-    <script src="../../../bower_components/bootstrap/js/modal.js"></script>
+    <script src="../../../node_modules/bootstrap/js/modal.js"></script>
     <script src="../confirmation.js"></script>
     <script src="../filterable.js"></script>
     <script src="../sortable-table.js"></script>
@@ -36,23 +55,16 @@
     <script src="../slugger.js"></script>
 
     <!-- Unit tests -->
-    <script src="unit/confirmation.js"></script>
-    <script src="unit/filterable.js"></script>
-    <script src="unit/sortable-table.js"></script>
-    <script src="unit/disable.js"></script>
-    <script src="unit/ckeditor-loader.js"></script>
-    <script src="unit/select2-loader.js"></script>
-    <script src="unit/datetimepicker-loader.js"></script>
-    <script src="unit/slugger.js"></script>
+    <script src="./unit/confirmation.js"></script>
+    <script src="./unit/filterable.js"></script>
+    <script src="./unit/sortable-table.js"></script>
+    <script src="./unit/disable.js"></script>
+    <script src="./unit/ckeditor-loader.js"></script>
+    <script src="./unit/select2-loader.js"></script>
+    <script src="./unit/datetimepicker-loader.js"></script>
+    <script src="./unit/slugger.js"></script>
 
-
-</head>
-<body>
-
-    <div id="qunit-container">
-        <div id="qunit"></div>
-        <div id="qunit-fixture"></div>
-    </div>
-
+    <!-- mocha.js run -->
+    <script>mocha.run()</script>
 </body>
 </html>

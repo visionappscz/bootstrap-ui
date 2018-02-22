@@ -8,7 +8,7 @@ module.exports = {
   'test-js': [
     'jscs',
     'jshint',
-    'qunit',
+    'mocha_phantomjs',
   ],
 
   test: [

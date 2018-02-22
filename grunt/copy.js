@@ -16,7 +16,7 @@ module.exports = {
     files: [
       {
         expand: true,
-        cwd: '<%= paths.bower %>/bootstrap/dist/',
+        cwd: '<%= paths.npm %>/bootstrap/dist/',
         src: ['fonts/*'],
         dest: '<%= paths.dist %>/',
       },
@@ -28,16 +28,16 @@ module.exports = {
         expand: true,
         flatten: true,
         src: [
-          '<%= paths.bower %>/jquery/dist/jquery.min.*',
-          '<%= paths.bower %>/eonasdan-bootstrap-datetimepicker/build/js/*',
-          '<%= paths.bower %>/moment/min/moment-with-locales.min.js',
-          '<%= paths.bower %>/select2/select2.min.js',
+          '<%= paths.npm %>/jquery/dist/jquery.min.*',
+          '<%= paths.npm %>/eonasdan-bootstrap-datetimepicker/build/js/*',
+          '<%= paths.npm %>/moment/min/moment-with-locales.min.js',
+          '<%= paths.npm %>/select2/select2.js',
         ],
         dest: '<%= paths.styleguide %>/assets/js/',
       },
       {
         expand: true,
-        cwd: '<%= paths.bower %>/bootstrap/dist/',
+        cwd: '<%= paths.npm %>/bootstrap/dist/',
         src: ['fonts/*', 'js/*'],
         dest: '<%= paths.styleguide %>/assets/',
       },
@@ -61,7 +61,7 @@ module.exports = {
       },
       {
         expand: true,
-        cwd: '<%= paths.bower %>/',
+        cwd: '<%= paths.npm %>/',
         src: ['ckeditor/**/*'],
         dest: '<%= paths.styleguide %>/assets/vendor/',
       },

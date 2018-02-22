@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     paths: {
-      bower: 'bower_components',
+      npm: 'node_modules',
       dist: 'dist',
       grunt: 'grunt',
       src: 'src',
