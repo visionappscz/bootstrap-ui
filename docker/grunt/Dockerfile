@@ -1,12 +1,17 @@
-FROM            debian:latest
+FROM            node:8
 
-RUN             apt-get update && apt-get install -y git git-core curl bzip2 gnupg
-RUN             curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN             apt-get install -y nodejs
-RUN             npm install --global grunt-cli
-RUN             mkdir /workspace
-RUN             useradd -s /bin/bash docker-container-user
-RUN             mkdir /home/docker-container-user
+RUN             apt-get update -y \
+                && apt-get upgrade -y \
+                && apt-get install -y --no-install-recommends \
+                    git \
+                    git-core \
+                    curl \
+                    bzip2 \
+                    gnupg \
+                && npm install --global grunt-cli \
+                && mkdir /workspace \
+                && useradd -s /bin/bash docker-container-user \
+                && mkdir /home/docker-container-user
 
 COPY            ./init-container.sh /root/init-container.sh
 WORKDIR         /workspace
