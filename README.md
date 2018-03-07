@@ -4,7 +4,7 @@
 [![devDependency Status](https://david-dm.org/visionappscz/bootstrap-ui/dev-status.svg)](https://david-dm.org/visionappscz/bootstrap-ui#info=devDependencies)
 [![Build Status](https://travis-ci.org/visionappscz/bootstrap-ui.svg?branch=master)](https://travis-ci.org/visionappscz/bootstrap-ui)
 
-**⚠ There is a [bug](https://nvd.nist.gov/vuln/detail/CVE-2015-9251) in jQuere < 3.0.0. It is therefre recomended to explicitly require `jQuery` in version > 3.0.0 in `package.json`. We will update the dependency in the next major release.**
+**⚠ There is a [bug](https://nvd.nist.gov/vuln/detail/CVE-2015-9251) in jQuery < 3.0.0. It is therefore recommended to explicitly require `jQuery` in version > 3.0.0 in `package.json`. We will update the dependency in the next major release.**
 
 Bootstrap UI is a [Bootstrap 3](http://getbootstrap.com) extension for building beautiful web apps user
 interfaces. Migration to Bootstrap 4
