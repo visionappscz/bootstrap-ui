@@ -10,7 +10,7 @@ interfaces.</p>
 - [Style guide generator](https://github.com/kss-node/grunt-kss) using
 [KSS syntax](http://warpspire.com/kss/syntax/)
 
-<h2 id="installation" class="page-header">Installation</h2>
+<h2 id="install" class="page-header">Installation</h2>
 
 ### npm
 Bootstrap UI is available as npm package. For installation you must have [Node.js](http://nodejs.org) installed.
