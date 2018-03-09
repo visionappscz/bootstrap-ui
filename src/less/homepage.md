@@ -12,10 +12,8 @@ interfaces.</p>
 
 <h2 id="installation" class="page-header">Installation</h2>
 
-For installation you must have [Node.js](http://nodejs.org) installed.
-
-### Npm registry
-To install Bootstrap UI is from the npm registry.
+### npm
+Bootstrap UI is available as npm package. For installation you must have [Node.js](http://nodejs.org) installed.
 
 ```
 $ npm install --save bootstrap-ui
