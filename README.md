@@ -43,6 +43,14 @@ In both cases include migration path in issue's description (and later in releas
 6. Add the version with change log to [GitHub Releases page](https://github.com/visionappscz/bootstrap-ui/releases)
 7. Deploy docs to production (outside of GitHub)
 
+## Don’t Forget
+
+* `demo.bootstrap-ui.com`
+    * Update package version in `package.json` 
+* `www.bootstrap-ui.com`
+    * Update package version in `package.json`
+    * Update number in button i.e. &ldquo;WHAT’S NEW IN x.x&rdquo; 
+
 ## License
 
 Code is licensed under [MIT](https://github.com/visionappscz/bootstrap-ui/blob/master/LICENSE).
