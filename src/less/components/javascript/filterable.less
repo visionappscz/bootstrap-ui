@@ -143,6 +143,12 @@ The element that is to reset the filter on click has to have the `data-toggle="r
                     </table>
                 </td>
             </tr>
+            <tr>
+                <td>filter-strict</td>
+                <td>-</td>
+                <td></td>
+                <td>When `data-filter-strict` is present, both strings must be equal to produce a match. This differs from normal behavior where only part of the string can be used to get a match. Only applicable if `data-filter-operator` is set to intersect.</td>
+            </tr>
         </tbody>
     </table>
 </div>
@@ -235,6 +241,19 @@ Markup:
                     >
                 </div>
             </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Allergens</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        data-toggle="filter"
+                        data-filter-attrib="allergens"
+                        data-filter-operator="intersect"
+                        data-filter-strict
+                    >
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -319,6 +338,7 @@ Markup:
                     <th>Residence</th>
                     <th>Countries Visited</th>
                     <th>Favorite Meal</th>
+                    <th>Allergens</th>
                 </tr>
             </thead>
             <tbody id="people">
@@ -328,6 +348,7 @@ Markup:
                     data-cash="10"
                     data-countries-visited='["China", "Russia"]'
                     data-favorite-meal='["Hamburger", "Pizza", "Spagethi"]'
+                    data-allergens='["1"]'
                 >
                     <td class="table-cell-id">1</td>
                     <td><a href="#"><strong>Brown</strong>, James</a></td>
@@ -336,6 +357,7 @@ Markup:
                     <td>Philadelphia</td>
                     <td>China, Russia</td>
                     <td>Hamburger, Pizza, Spagethi</td>
+                    <td>1</td>
                 </tr>
                 <tr
                     data-birth-place="Denver"
@@ -343,6 +365,7 @@ Markup:
                     data-cash="15"
                     data-countries-visited='["China", "USA"]'
                     data-favorite-meal='["Hamburger", "Hotdog", "Fries"]'
+                    data-allergens='["2"]'
                 >
                     <td class="table-cell-id">2</td>
                     <td><a href="#"><strong>Paisley</strong>, Brad</a></td>
@@ -351,6 +374,7 @@ Markup:
                     <td>Philadelphia</td>
                     <td>China, USA</td>
                     <td>Hamburger, Hotdog, Fries</td>
+                    <td>2</td>
                 </tr>
                 <tr
                     data-birth-place="Munich"
@@ -358,6 +382,7 @@ Markup:
                     data-cash="8"
                     data-countries-visited='["USA", "Russia", "Denmark"]'
                     data-favorite-meal='["Fries", "Meatloaf"]'
+                    data-allergens='["3"]'
                 >
                     <td class="table-cell-id">3</td>
                     <td><a href="#"><strong>Parker</strong>, Maceo</a></td>
@@ -366,6 +391,7 @@ Markup:
                     <td>Toronto</td>
                     <td>USA, Russia, Denmark</td>
                     <td>Fries, Meatloaf</td>
+                    <td>3</td>
                 </tr>
                 <tr
                     data-birth-place="Liptákov"
@@ -373,6 +399,7 @@ Markup:
                     data-cash="25"
                     data-countries-visited='["China", "Russia", "Germany"]'
                     data-favorite-meal='["Goulash"]'
+                    data-allergens='["1", "2", "13"]'
                 >
                     <td class="table-cell-id">4</td>
                     <td><a href="#"><strong>Cimrman</strong>, Jára</a></td>
@@ -381,6 +408,7 @@ Markup:
                     <td>Vienna</td>
                     <td>China, Russia, Germany</td>
                     <td>Goulash</td>
+                    <td>1, 2, 13</td>
                 </tr>
                 <tr
                     data-birth-place="Munich"
@@ -388,6 +416,7 @@ Markup:
                     data-cash="17"
                     data-countries-visited='["Germany", "Holland", "Denmark"]'
                     data-favorite-meal='["Meatloaf", "Hotdog"]'
+                    data-allergens='["11"]'
                 >
                     <td class="table-cell-id">5</td>
                     <td><a href="#"><strong>Smith</strong>, John</a></td>
@@ -396,6 +425,7 @@ Markup:
                     <td>Sydney</td>
                     <td>Germany, Holland, Denmark</td>
                     <td>Meatloaf, Hotdog</td>
+                    <td>11</td>
                 </tr>
                 <tr
                     data-birth-place="Moscow"
@@ -403,6 +433,7 @@ Markup:
                     data-cash="5"
                     data-countries-visited='["USA"]'
                     data-favorite-meal='["Pizza", "Goulash"]'
+                    data-allergens='["12"]'
                 >
                     <td class="table-cell-id">6</td>
                     <td><a href="#"><strong>Scholizin</strong>, Vladimir</a></td>
@@ -411,6 +442,7 @@ Markup:
                     <td>Philadelphia</td>
                     <td>USA</td>
                     <td>Pizza, Goulash</td>
+                    <td>12</td>
                 </tr>
                 <tr
                     data-birth-place="Denver"
@@ -418,6 +450,7 @@ Markup:
                     data-cash="0"
                     data-countries-visited='["Germany", "Russia", "Denamrk"]'
                     data-favorite-meal='["Pizza", "Goulash"]'
+                    data-allergens='["13"]'
                 >
                     <td class="table-cell-id">7</td>
                     <td><a href="#"><strong>Wesley</strong>, Fred</a></td>
@@ -426,6 +459,7 @@ Markup:
                     <td>Toronto</td>
                     <td>Germany, Russia, Denmark</td>
                     <td>Pizza, Hotdog</td>
+                    <td>13</td>
                 </tr>
             </tbody>
         </table>

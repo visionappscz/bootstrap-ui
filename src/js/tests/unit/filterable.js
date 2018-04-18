@@ -249,7 +249,8 @@ $(function () {
       );
 
       it(
-        'should filter elements for: filterValue = [], dataValue = [], operator = "intersect"',
+        'should filter elements for: filterValue = [], dataValue = [], ' +
+        'operator = "intersect", strict = false',
         function (done) {
           $('#mocha-fixture')
             .append('<div data-tags=\'["tag4", "tag5"]\'>')
@@ -277,14 +278,15 @@ $(function () {
             {
               'filter-attrib': 'tags',
               'filter-operator': 'intersect',
-              'filter-value': ['tag1', 'tag2'],
+              'filter-value': ['1', '2'],
             },
           ]);
         }
       );
 
       it(
-        'should filter elements for: filterValue = string, dataValue = [], operator = "intersect"',
+        'should filter elements for: filterValue = string, dataValue = [], ' +
+        'operator = "intersect", strict = false',
         function (done) {
           $('#mocha-fixture')
             .append('<div data-tags=\'["tag4", "tag5"]\'>')
@@ -307,14 +309,15 @@ $(function () {
             {
               'filter-attrib': 'tags',
               'filter-operator': 'intersect',
-              'filter-value': 'tag1',
+              'filter-value': '1',
             },
           ]);
         }
       );
 
       it(
-        'should filter elements for: filterValue = [], dataValue = string, operator = "intersect"',
+        'should filter elements for: filterValue = [], dataValue = string, ' +
+        'operator = "intersect", strict = false',
         function (done) {
           $('#mocha-fixture')
             .append('<div data-tags="tag4">')
@@ -337,7 +340,7 @@ $(function () {
             {
               'filter-attrib': 'tags',
               'filter-operator': 'intersect',
-              'filter-value': ['tag1', 'tag2'],
+              'filter-value': ['1', '2'],
             },
           ]);
         }
@@ -345,7 +348,7 @@ $(function () {
 
       it(
         'should filter elements for: filterValue = string, ' +
-        'dataValue = string, operator = "intersect"',
+        'dataValue = string, operator = "intersect", strict = false',
         function (done) {
           $('#mocha-fixture')
             .append('<div data-tags="tag4">')
@@ -368,6 +371,139 @@ $(function () {
             {
               'filter-attrib': 'tags',
               'filter-operator': 'intersect',
+              'filter-value': '1',
+            },
+          ]);
+        }
+      );
+
+      it(
+        'should filter elements for: filterValue = [], dataValue = [], ' +
+        'operator = "intersect", strict = true',
+        function (done) {
+          $('#mocha-fixture')
+            .append('<div data-tags=\'["tag4", "tag5"]\'>')
+            .append('<div data-tags=\'["tag1", "tag2", "tag3"]\'>')
+            .append('<div data-tags=\'["tag1", "tag4"]\'>');
+
+          $(document).on('filtered.bui.filterable', function () {
+            $(document).off('filtered.bui.filterable');
+            assert.isNotOk(
+              $('#mocha-fixture div[data-tags=\'["tag4", "tag5"]\']').is(':visible'),
+              '["tag1", "tag2"] has no common members with ["tag4", "tag5"] -> hidden'
+            );
+            assert.isOk(
+              $('#mocha-fixture div[data-tags=\'["tag1", "tag2", "tag3"]\']').is(':visible'),
+              '["tag1", "tag2"] has common members with ["tag1", "tag2", "tag3"] -> visible'
+            );
+            assert.isOk(
+              $('#mocha-fixture div[data-tags=\'["tag1", "tag4"]\']').is(':visible'),
+              '["tag1", "tag2"] has common members with ["tag1", "tag4"] -> visible'
+            );
+            done();
+          });
+
+          $('#mocha-fixture div').buiFilterable([
+            {
+              'filter-attrib': 'tags',
+              'filter-operator': 'intersect',
+              'filter-strict': true,
+              'filter-value': ['tag1', 'tag2'],
+            },
+          ]);
+        }
+      );
+
+      it(
+        'should filter elements for: filterValue = string, dataValue = [], ' +
+        'operator = "intersect", strict = true',
+        function (done) {
+          $('#mocha-fixture')
+            .append('<div data-tags=\'["tag4", "tag5"]\'>')
+            .append('<div data-tags=\'["tag1", "tag4"]\'>');
+
+          $(document).on('filtered.bui.filterable', function () {
+            $(document).off('filtered.bui.filterable');
+            assert.isNotOk(
+              $('#mocha-fixture div[data-tags=\'["tag4", "tag5"]\']').is(':visible'),
+              '"tag1" is not a member of ["tag4", "tag5"] -> hidden'
+            );
+            assert.isOk(
+              $('#mocha-fixture div[data-tags=\'["tag1", "tag4"]\']').is(':visible'),
+              '"tag1" is a member of ["tag1", "tag4"] -> visible'
+            );
+            done();
+          });
+
+          $('#mocha-fixture div').buiFilterable([
+            {
+              'filter-attrib': 'tags',
+              'filter-operator': 'intersect',
+              'filter-strict': true,
+              'filter-value': 'tag1',
+            },
+          ]);
+        }
+      );
+
+      it(
+        'should filter elements for: filterValue = [], dataValue = string, ' +
+        'operator = "intersect", strict = true',
+        function (done) {
+          $('#mocha-fixture')
+            .append('<div data-tags="tag4">')
+            .append('<div data-tags="tag1">');
+
+          $(document).on('filtered.bui.filterable', function () {
+            $(document).off('filtered.bui.filterable');
+            assert.isNotOk(
+              $('#mocha-fixture div[data-tags="tag4"]').is(':visible'),
+              '"tag4" is not a member of ["tag1", "tag2"] -> hidden'
+            );
+            assert.isOk(
+              $('#mocha-fixture div[data-tags="tag1"]').is(':visible'),
+              '"tag1" is a member of ["tag1", "tag2"] -> visible'
+            );
+            done();
+          });
+
+          $('#mocha-fixture div').buiFilterable([
+            {
+              'filter-attrib': 'tags',
+              'filter-operator': 'intersect',
+              'filter-strict': true,
+              'filter-value': ['tag1', 'tag2'],
+            },
+          ]);
+        }
+      );
+
+      it(
+        'should filter elements for: filterValue = string, ' +
+        'dataValue = string, operator = "intersect", strict = true',
+        function (done) {
+          $('#mocha-fixture')
+            .append('<div data-tags="tag4">')
+            .append('<div data-tags="tag1">');
+
+          $(document).on('filtered.bui.filterable', function () {
+            $(document).off('filtered.bui.filterable');
+            assert.isNotOk(
+              $('#mocha-fixture div[data-tags="tag4"]').is(':visible'),
+              '"tag4" is not the same as "tag1" -> hidden'
+            );
+            assert.isOk(
+              $('#mocha-fixture div[data-tags="tag1"]').is(':visible'),
+              '"tag1" is the same as "tag1"  -> visible'
+            );
+            done();
+          });
+
+          $('#mocha-fixture div').buiFilterable([
+            {
+              'filter-attrib': 'tags',
+              'filter-operator': 'intersect',
+              'filter-strict': true,
               'filter-value': 'tag1',
             },
           ]);
@@ -376,7 +512,7 @@ $(function () {
 
       it(
         'should filter elements for: filterValue = [], ' +
-        'dataValue = [], operator = "intersect" - case insensitive test',
+        'dataValue = [], operator = "intersect" - case insensitive test, strict = true',
         function (done) {
           $('#mocha-fixture')
             .append('<div data-tags=\'["tag4", "tag5"]\'>')
@@ -404,6 +540,44 @@ $(function () {
             {
               'filter-attrib': 'tags',
               'filter-operator': 'intersect',
+              'filter-strict': true,
+              'filter-value': ['Tag1', 'Tag2'],
+            },
+          ]);
+        }
+      );
+
+      it(
+        'should filter elements for: filterValue = [], ' +
+        'dataValue = [], operator = "intersect" - case insensitive test, strict = true',
+        function (done) {
+          $('#mocha-fixture')
+            .append('<div data-tags=\'["tag4", "tag5"]\'>')
+            .append('<div data-tags=\'["Tag1", "tag2", "tag3"]\'>')
+            .append('<div data-tags=\'["Tag1", "tag4"]\'>');
+
+          $(document).on('filtered.bui.filterable', function () {
+            $(document).off('filtered.bui.filterable');
+            assert.isNotOk(
+              $('#mocha-fixture div[data-tags=\'["tag4", "tag5"]\']').is(':visible'),
+              '["tag1", "tag2"] has no common members with ["tag4", "tag5"] -> hidden'
+            );
+            assert.isOk(
+              $('#mocha-fixture div[data-tags=\'["Tag1", "tag2", "tag3"]\']').is(':visible'),
+              '["tag1", "tag2"] has common members with ["tag1", "tag2", "tag3"] -> visible'
+            );
+            assert.isOk(
+              $('#mocha-fixture div[data-tags=\'["Tag1", "tag4"]\']').is(':visible'),
+              '["tag1", "tag2"] has common members with ["tag1", "tag4"] -> visible'
+            );
+            done();
+          });
+
+          $('#mocha-fixture div').buiFilterable([
+            {
+              'filter-attrib': 'tags',
+              'filter-operator': 'intersect',
+              'filter-strict': true,
               'filter-value': ['Tag1', 'Tag2'],
             },
           ]);
@@ -885,12 +1059,12 @@ $(function () {
         $('#mocha-fixture').html('<div data-tag="tag1">Tag 1</div>' +
           '<form data-filter-target="div[data-tag=tag1]" data-filter-storage-id="storageId">' +
           '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
-          'data-filter-operator="intersect" />' +
+          'data-filter-operator="intersect" data-filter-strict />' +
           '</form>' +
           '<div data-tag="tag2">Tag 2</div>' +
           '<form data-filter-target="#mocha-fixture div[data-tag=tag2]">' +
           '<input type="text" data-toggle="filter" data-filter-attrib="tag" ' +
-          'data-filter-operator="intersect" />' +
+          'data-filter-operator="intersect" data-filter-strict />' +
           '</form>');
 
         $(document).on('filtered.bui.filterable', function () {
@@ -898,6 +1072,7 @@ $(function () {
             {
               'filter-attrib': 'tag',
               'filter-operator': 'intersect',
+              'filter-strict': true,
               'filter-value': 'tag2',
             },
           ]));
@@ -920,7 +1095,7 @@ $(function () {
         $('#mocha-fixture').html('<div data-tag="tag1">Tag 1</div>' +
           '<form data-filter-target="#mocha-fixture div[data-tag=tag1]">' +
           '<input id="control" type="text" data-toggle="filter" data-filter-attrib="tag" ' +
-          'data-filter-operator="intersect" />' +
+          'data-filter-operator="intersect" data-filter-strict />' +
           '</form>');
 
         $(document).on('filtered.bui.filterable', function () {
@@ -981,6 +1156,7 @@ $(function () {
           {
             'filter-attrib': 'tag',
             'filter-operator': 'intersect',
+            'filter-strict': true,
             'filter-value': 'tag2',
           },
         ]));
@@ -989,7 +1165,7 @@ $(function () {
           '<form data-filter-target="div[data-tag=tag1]" data-filter-storage-id="storageId">' +
           '<button type="reset" data-toggle="filter-reset">Reset</button>' +
           '<input type="text" data-toggle="filter" data-filter-attrib="tag" ' +
-          'data-filter-operator="intersect" />' +
+          'data-filter-operator="intersect" data-filter-strict />' +
           '</form>');
 
         $(document).on('resetEnd.bui.filterable', function () {
