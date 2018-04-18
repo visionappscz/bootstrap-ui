@@ -14,6 +14,7 @@
     var filterValLength;
     var filterVal;
     var filterOper;
+    var filterStrict;
     var dataValCounter;
     var dataValLength;
     var fObjCounter;
@@ -26,6 +27,7 @@
       for (fObjCounter = 0; fObjCounter < fObjectsLength; fObjCounter++) {
         filterVal = fObjects[fObjCounter]['filter-value'];
         filterOper = fObjects[fObjCounter]['filter-operator'];
+        filterStrict = fObjects[fObjCounter]['filter-strict'];
         dataVal = this.$filterable.data(fObjects[fObjCounter]['filter-attrib']);
 
         if (dataVal !== null) {
@@ -53,10 +55,18 @@
             dataValLength = dataVal.length;
             for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
-                if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter]
-                        .toLowerCase()) !== -1) {
-                  hideEl = false;
-                  break;
+                if (filterStrict) {
+                  if (dataVal[dataValCounter].toLowerCase() ===
+                    filterVal[filterValCounter].toLowerCase()) {
+                    hideEl = false;
+                    break;
+                  }
+                } else {
+                  if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter]
+                    .toLowerCase()) !== -1) {
+                    hideEl = false;
+                    break;
+                  }
                 }
               }
             }
@@ -175,6 +185,8 @@
             filterData.push({
               'filter-attrib': $this.data('filter-attrib'),
               'filter-operator': $this.data('filter-operator'),
+              'filter-strict': $this.data().hasOwnProperty('filterStrict') &&
+                $this.data('filter-strict') !== false,
               'filter-value': $this.val(),
             });
           }
