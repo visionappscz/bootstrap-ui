@@ -7,9 +7,9 @@
   var Confirmation = function ($triggerEl, options) {
     options = $.extend({}, this.options, options);
     this.modal = this.getModal(
-        options['confirm-message'],
-        options['confirm-yes'],
-        options['confirm-no']
+      options['confirm-message'],
+      options['confirm-yes'],
+      options['confirm-no']
     );
     this.$triggerEl = $triggerEl;
     this.callback = options.callback;
@@ -54,9 +54,9 @@
     });
 
     $modal.on('keydown.bui.confirmation', function (e) {
-      if (e.keyCode === 27) { //escape
+      if (e.keyCode === 27) { // escape
         $triggerEl.trigger('rejected.bui.confirmation');
-      } else if (e.keyCode === 13) { //enter
+      } else if (e.keyCode === 13) { // enter
         $triggerEl.trigger('confirmed.bui.confirmation');
       }
     });
@@ -81,7 +81,7 @@
       '<div class="modal-body">' + message + '</div>' +
       '<div class="modal-footer">' +
       '<button type="button" class="btn btn-default" data-confirmation="reject">' + no +
-      '</button>' + '<button type="button" class="btn btn-primary" data-confirmation="confirm">' +
+      '</button><button type="button" class="btn btn-primary" data-confirmation="confirm">' +
       yes + '</button></div></div></div></div>');
   };
 
@@ -117,7 +117,9 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.bui.confirmation.data-api', '[data-toggle=confirm]',
+  $(document).on(
+    'click.bui.confirmation.data-api',
+    '[data-toggle=confirm]',
     function (e, noConfirm) {
       var $this = $(this);
 

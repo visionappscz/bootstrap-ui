@@ -1,12 +1,12 @@
 language: node_js
 node_js:
-- '7'
+- '8'
 notifications:
   slack:
     secure: j8KyxkdFp5XqzVUPXLWP6vkk7oR7mYbDIgY5GNPJjUSiCZUQTtp2PfsYsjql8uM1pH2yv/CK1/xMLi4eN34QVxJILdmtyVQ8+k6arfRwjUVjimhS0jPT4KuMPwHYc7jvmEYl6x816HpGZiK6RkSINXYd9U6odsCWIS1DafQXA3Y=
 before_install:
-- npm install -g grunt-cli
+- npm install -g gulp-cli
 install:
 - npm install
 before_script:
-- grunt
+- gulp

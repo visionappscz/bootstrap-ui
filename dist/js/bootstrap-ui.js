@@ -1,12 +1,3 @@
-/*!
- * Bootstrap UI
- * Built on the shoulders of a giant: Bootstrap 3
- * http://www.bootstrap-ui.com
- *
- * Created by VisionApps (www.visionapps.cz)
- *
- * v3.0.0 (22 February 2018)
- */
 ;(function ($, window) {
   'use strict';
 
@@ -51,9 +42,9 @@
   var Confirmation = function ($triggerEl, options) {
     options = $.extend({}, this.options, options);
     this.modal = this.getModal(
-        options['confirm-message'],
-        options['confirm-yes'],
-        options['confirm-no']
+      options['confirm-message'],
+      options['confirm-yes'],
+      options['confirm-no']
     );
     this.$triggerEl = $triggerEl;
     this.callback = options.callback;
@@ -98,9 +89,9 @@
     });
 
     $modal.on('keydown.bui.confirmation', function (e) {
-      if (e.keyCode === 27) { //escape
+      if (e.keyCode === 27) { // escape
         $triggerEl.trigger('rejected.bui.confirmation');
-      } else if (e.keyCode === 13) { //enter
+      } else if (e.keyCode === 13) { // enter
         $triggerEl.trigger('confirmed.bui.confirmation');
       }
     });
@@ -125,7 +116,7 @@
       '<div class="modal-body">' + message + '</div>' +
       '<div class="modal-footer">' +
       '<button type="button" class="btn btn-default" data-confirmation="reject">' + no +
-      '</button>' + '<button type="button" class="btn btn-primary" data-confirmation="confirm">' +
+      '</button><button type="button" class="btn btn-primary" data-confirmation="confirm">' +
       yes + '</button></div></div></div></div>');
   };
 
@@ -161,7 +152,9 @@
   // CONFIRMATION DATA-API
   // =====================
 
-  $(document).on('click.bui.confirmation.data-api', '[data-toggle=confirm]',
+  $(document).on(
+    'click.bui.confirmation.data-api',
+    '[data-toggle=confirm]',
     function (e, noConfirm) {
       var $this = $(this);
 
@@ -316,6 +309,7 @@
     var filterValLength;
     var filterVal;
     var filterOper;
+    var filterStrict;
     var dataValCounter;
     var dataValLength;
     var fObjCounter;
@@ -328,6 +322,7 @@
       for (fObjCounter = 0; fObjCounter < fObjectsLength; fObjCounter++) {
         filterVal = fObjects[fObjCounter]['filter-value'];
         filterOper = fObjects[fObjCounter]['filter-operator'];
+        filterStrict = fObjects[fObjCounter]['filter-strict'];
         dataVal = this.$filterable.data(fObjects[fObjCounter]['filter-attrib']);
 
         if (dataVal !== null) {
@@ -355,10 +350,18 @@
             dataValLength = dataVal.length;
             for (filterValCounter = 0; filterValCounter < filterValLength; filterValCounter++) {
               for (dataValCounter = 0; dataValCounter < dataValLength; dataValCounter++) {
-                if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter]
-                        .toLowerCase()) !== -1) {
-                  hideEl = false;
-                  break;
+                if (filterStrict) {
+                  if (dataVal[dataValCounter].toLowerCase() ===
+                    filterVal[filterValCounter].toLowerCase()) {
+                    hideEl = false;
+                    break;
+                  }
+                } else {
+                  if (dataVal[dataValCounter].toLowerCase().indexOf(filterVal[filterValCounter]
+                    .toLowerCase()) !== -1) {
+                    hideEl = false;
+                    break;
+                  }
                 }
               }
             }
@@ -477,6 +480,8 @@
             filterData.push({
               'filter-attrib': $this.data('filter-attrib'),
               'filter-operator': $this.data('filter-operator'),
+              'filter-strict': $this.data().hasOwnProperty('filterStrict') &&
+                $this.data('filter-strict') !== false,
               'filter-value': $this.val(),
             });
           }
@@ -581,10 +586,10 @@
   Slugger.prototype.updateSlug = function () {
     var generateSlug = function (str) {
       var from = 'ãàáäâåčçďẽèéëêìíïîñõòóöôřšťùúüûýž·/_,:;';
-      var to   = 'aaaaaaccdeeeeeiiiinooooorstuuuuyz------';
+      var to = 'aaaaaaccdeeeeeiiiinooooorstuuuuyz------';
 
       str = str
-        .replace(/^\s+|\s+$/g, '') //trim
+        .replace(/^\s+|\s+$/g, '') // trim
         .toLowerCase();
 
       for (var i = 0; i < from.length; i++) {
@@ -696,7 +701,7 @@
       .sort(this.comparer($sortedTh.index(), sortDir));
 
     isNavigationCol = this.$navigation && typeof $(rows[0]).children('td').eq($sortedTh.index())
-            .data('sort-group') !== 'undefined';
+      .data('sort-group') !== 'undefined';
     tableHtml = '<thead>' + this.$sortedTable.find('thead:eq(0)').html() + '</thead>';
 
     rowsLength = rows.length;
@@ -775,7 +780,7 @@
 
       if (!data) {
         $navigation = options && 'navigation' in options && options.navigation ?
-            $(options.navigation) : false;
+          $(options.navigation) : false;
         data = new SortableTable($this, $navigation);
         $this.data('bui.sortableTable', data);
       }
@@ -814,7 +819,7 @@
     });
 
     $(document).on('keydown.bui.sortableTable.data-api', 'th[data-toggle=sort]', function (e) {
-      if (e.keyCode === 13 || e.keyCode === 32) { //enter or space
+      if (e.keyCode === 13 || e.keyCode === 32) { // enter or space
         callPlugin($(this));
       }
     });

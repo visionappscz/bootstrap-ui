@@ -11,10 +11,10 @@
   Slugger.prototype.updateSlug = function () {
     var generateSlug = function (str) {
       var from = 'ãàáäâåčçďẽèéëêìíïîñõòóöôřšťùúüûýž·/_,:;';
-      var to   = 'aaaaaaccdeeeeeiiiinooooorstuuuuyz------';
+      var to = 'aaaaaaccdeeeeeiiiinooooorstuuuuyz------';
 
       str = str
-        .replace(/^\s+|\s+$/g, '') //trim
+        .replace(/^\s+|\s+$/g, '') // trim
         .toLowerCase();
 
       for (var i = 0; i < from.length; i++) {

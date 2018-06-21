@@ -8,7 +8,7 @@ RUN             apt-get update -y \
                     curl \
                     bzip2 \
                     gnupg \
-                && npm install --global grunt-cli \
+                && npm install --global gulp-cli \
                 && mkdir /workspace \
                 && useradd -s /bin/bash docker-container-user \
                 && mkdir /home/docker-container-user
