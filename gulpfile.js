@@ -97,7 +97,7 @@ function copyImages() {
     .pipe(gulp.dest('dist/images'));
 }
 
-function bs(done) {
+function runBrowserSync(done) {
   browserSync.init({
     open: false,
     server: {
@@ -187,7 +187,6 @@ gulp.task('build-js', gulp.series(cleanJS, buildJS, minifyJS));
 gulp.task('copy-images', gulp.series(cleanImages, copyImages));
 gulp.task('watch', gulp.parallel(watchCSS, watchJS));
 gulp.task('default', gulp.parallel('lint-css', 'build-css', 'lint-js', 'build-js', 'copy-images'));
-gulp.task('serve', gulp.series('default', bs, 'watch'));
 gulp.task('build-styleguide',
   gulp.series(
     cleanSG,
@@ -204,3 +203,4 @@ gulp.task('build-styleguide',
   )
 );
 gulp.task('styleguide', gulp.series('default', 'build-styleguide'));
+gulp.task('serve', gulp.series('styleguide', runBrowserSync, 'watch'));
