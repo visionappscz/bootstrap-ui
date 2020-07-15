@@ -1,16 +1,18 @@
-$(function () {
+(function () {
   'use strict';
 
   describe('CKEditor loader plugin', function () {
 
     beforeEach(function () {
-      jQuery.fn.ckeditor = function () {};
+      jQuery.fn.ckeditor = function () {
+      };
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
       delete jQuery.fn.ckeditor;
       $('html').attr('lang', null);
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     // Only Data API tests are needed as the rest of the functionality is provided by the ckeditor
@@ -20,13 +22,12 @@ $(function () {
       it('should init ckeditor on page load with no attribute', function () {
         var $textarea = $('<textarea data-onload-ckeditor></textarea>');
         $('#mocha-fixture').append($textarea);
-
         sinon.spy(jQuery.fn, 'ckeditor');
         $(window).trigger('load');
 
         assert.ok(jQuery.fn.ckeditor.calledOnce, 'Should init the ckeditor');
         assert.isOk(
-          jQuery.fn.ckeditor.calledWithExactly({  }),
+          jQuery.fn.ckeditor.calledWithExactly({}),
           'Should init the ckeditor with no arguments'
         );
       });
@@ -61,7 +62,7 @@ $(function () {
 
       it('should init ckeditor with detected language setting', function () {
         var $textarea = $(
-            '<textarea data-onload-ckeditor=\'{"controlParam": "value"}\'></textarea>'
+          '<textarea data-onload-ckeditor=\'{"controlParam": "value"}\'></textarea>'
         );
         $('#mocha-fixture').append($textarea);
 
@@ -92,4 +93,4 @@ $(function () {
       });
     });
   });
-});
+})();

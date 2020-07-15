@@ -1,16 +1,17 @@
-$(function () {
+(function () {
   'use strict';
 
   describe('Slugger plugin', function () {
 
     beforeEach(function () {
       $.fn.buiSlugger = $.fn.slugger.noConflict();
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
       $.fn.slugger = $.fn.buiSlugger;
       delete $.fn.buiSlugger;
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     describe('Initialization tests', function () {
@@ -100,4 +101,4 @@ $(function () {
       });
     });
   });
-});
+})();

@@ -1,16 +1,17 @@
-$(function () {
+(function () {
   'use strict';
 
   describe('Filterable plugin', function () {
 
     beforeEach(function () {
       $.fn.buiFilterable = $.fn.filterable.noConflict();
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
       $.fn.filterable = $.fn.buiFilterable;
       delete $.fn.buiFilterable;
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     describe('Initialization tests', function () {
@@ -1052,6 +1053,29 @@ $(function () {
         $('#control-1').val('').change();
       });
 
+      it(
+        'empty multiselect value should match all, that is reset the filter field',
+        function (done) {
+          $('#mocha-fixture').html('<div data-tag="tag1">Tag 1</div>' +
+            '<form id="form-1" data-filter-target="#mocha-fixture div[data-tag=tag1]">' +
+            '<select multiple id="control-1" data-toggle="filter" data-filter-attrib="tag" ' +
+            'data-filter-operator="intersect" />' +
+            '<option>OPT</option><option>OPT1</option></select></form>');
+
+          $('#control-1').val(['OPT', 'OPT1']).keyup();
+          $(document).on('filtered.bui.filterable', function () {
+            $(document).off('filtered.bui.filterable');
+            assert.isOk($(
+              '#mocha-fixture div[data-tag="tag1"]').is(':visible'),
+              '"div1" was not hidden'
+            );
+            done();
+          });
+
+          $('#control-1').val([]).change();
+        }
+      );
+
       it('should store the filter values in session storage', function (done) {
         var storageId = window.location.pathname + '|storageId';
 
@@ -1181,4 +1205,4 @@ $(function () {
       });
     });
   });
-});
+})();

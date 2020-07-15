@@ -1,16 +1,17 @@
-$(function () {
+(function () {
   'use strict';
 
   describe('Disable plugin', function () {
 
     beforeEach(function () {
       $.fn.buiDisable = $.fn.disable.noConflict();
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
       $.fn.disable = $.fn.buiDisable;
       delete $.fn.buiDisable;
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     describe('Initialization tests', function () {
@@ -172,4 +173,4 @@ $(function () {
       });
     });
   });
-});
+})();

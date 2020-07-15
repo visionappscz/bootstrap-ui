@@ -1,4 +1,4 @@
-$(function () {
+(function () {
   'use strict';
 
   describe('Select2 loader plugin', function () {
@@ -15,13 +15,13 @@ $(function () {
     };
 
     beforeEach(function () {
-      jQuery.fn.select2 = function () {
-      };
+      jQuery.fn.select2 = function () {};
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
       delete jQuery.fn.select2;
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     // Only Data API tests are needed as the rest of the functionality is provided by the
@@ -113,4 +113,4 @@ $(function () {
       );
     });
   });
-});
+})();
