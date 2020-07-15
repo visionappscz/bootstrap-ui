@@ -8,18 +8,13 @@ module.exports = {
   'test-js': [
     'jscs',
     'jshint',
-    'mocha_phantomjs',
+    'karma',
   ],
 
   test: [
     'test-js',
   ],
 
-  // Run JS tests in a real browser.
-  // NOTE: add `src/js/tests/` to URL (typically localhost:3000) to view the test page.
-  // To access the tests from a remote device that is connected to local network (mobile, tablet,
-  // etc.), visit
-  // `http://<your local IP address>:3000/src/js/tests/`.
   'test-remote': [
     'jscs',
     'jshint',

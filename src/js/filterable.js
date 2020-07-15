@@ -79,7 +79,6 @@
           ) {
             hideEl = true;
           }
-
           if (hideEl === true) {
             this.$filterable.hide();
           }
@@ -181,7 +180,10 @@
         lastEventValue !== e.target.value) {
         $filter.find(':input').each(function () {
           var $this = $(this);
-          if ($this.val() !== '' && $this.val() !== null) {
+          var val = $this.val();
+          if (!Array.isArray(val) && val !== '' && val !== null ||
+            Array.isArray(val) && val.length > 0
+          ) {
             filterData.push({
               'filter-attrib': $this.data('filter-attrib'),
               'filter-operator': $this.data('filter-operator'),

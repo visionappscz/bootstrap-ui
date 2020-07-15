@@ -1,10 +1,11 @@
-$(function () {
+(function () {
   'use strict';
 
   describe('Confirmation plugin', function () {
 
     beforeEach(function () {
       $.fn.buiConfirmation = $.fn.confirmation.noConflict();
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
@@ -13,7 +14,7 @@ $(function () {
       $('.modal-backdrop').remove();
       $.fn.confirmation = $.fn.buiConfirmation;
       delete $.fn.buiConfirmation;
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     describe('Initialization tests', function () {
@@ -338,4 +339,4 @@ $(function () {
       );
     });
   });
-});
+})();

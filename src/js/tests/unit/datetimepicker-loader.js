@@ -1,14 +1,13 @@
-$(function () {
+(function () {
   'use strict';
+
   describe('Datetime picker loader plugin', function () {
 
     beforeEach(function () {
-      jQuery.fn.datetimepicker = function () {
-      };
-
+      jQuery.fn.datetimepicker = function () {};
       moment.localeOrig = moment.locale;
-      moment.locale = function () {
-      };
+      moment.locale = function () {};
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
@@ -16,7 +15,7 @@ $(function () {
       $('html').attr('lang', null);
       delete moment.localeOrig;
       delete jQuery.fn.datetimepicker;
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     // Only Data API tests are needed as the rest of the functionality is provided by the
@@ -90,4 +89,4 @@ $(function () {
       });
     });
   });
-});
+})();

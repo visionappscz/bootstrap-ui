@@ -1,17 +1,18 @@
-$(function () {
+(function () {
   'use strict';
 
   describe('Sortable table plugin', function () {
 
     beforeEach(function () {
       $.fn.buiSortableTable = $.fn.sortableTable.noConflict();
+      document.body.insertAdjacentHTML('afterbegin', '<div id="mocha-fixture"></div>');
     });
 
     afterEach(function () {
       $.fn.sortableTable = $.fn.buiSortableTable;
       delete $.fn.buiSortableTable;
       $('html').attr('lang', null);
-      mocha.clearFixture();
+      document.body.removeChild(document.getElementById('mocha-fixture'));
     });
 
     describe('Initialization tests', function () {
@@ -684,4 +685,4 @@ $(function () {
       });
     });
   });
-});
+})();
