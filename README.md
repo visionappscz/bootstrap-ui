@@ -36,7 +36,8 @@ In both cases include migration path in issue's description (and later in releas
 
 1. Update version number in `package.json`
 2. `$ grunt dist`
-3. `$ git commit -m "Bump version"`
+3. `$ git checkout -b release-version-<VERSION_ID>`
+3. `$ git commit -am "Bump version"`
 4. `$ git tag <SEMANTIC_VERSION_NUMBER>`
 5. `$ git push --follow-tags`
 6. Add the version with change log to [GitHub Releases page](https://github.com/visionappscz/bootstrap-ui/releases)
