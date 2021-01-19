@@ -21,7 +21,7 @@ module.exports = {
   styleguide: {
     files: [
       '<%= paths.src %>/less/homepage.md',
-      '<%= paths.src %>/styleguide/**/*',
+      '<%= paths.src %>/docs/**/*',
     ],
     tasks: [
       'build-styleguide',

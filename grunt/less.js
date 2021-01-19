@@ -22,8 +22,8 @@ module.exports = {
       strictUnits: true,
     },
     files: {
-      '<%= paths.temp %>/styleguide/kss.css':
-        '<%= paths.src %>/styleguide/kss-assets/less/kss.less',
+      '<%= paths.temp %>/docs/kss.css':
+        '<%= paths.src %>/docs/kss-assets/less/kss.less',
     },
   },
 

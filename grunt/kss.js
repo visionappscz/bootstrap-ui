@@ -3,14 +3,11 @@
 module.exports = {
 
   options: {
-    builder: '<%= paths.temp %>/styleguide/',
+    builder: '<%= paths.temp %>/docs/',
   },
   dist: {
-    files: [
-      {
-        styleguide: '<%= paths.src %>/less/',
-      },
-    ],
+    src: ['<%= paths.src %>/less/'],
+    dest: '<%= paths.styleguide %>',
   },
 
 };

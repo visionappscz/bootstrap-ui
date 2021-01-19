@@ -37,7 +37,7 @@ module.exports = {
         }),
       ],
     },
-    src: '<%= paths.temp %>/styleguide/kss.css',
+    src: '<%= paths.temp %>/docs/kss.css',
     dest: '<%= paths.styleguide %>/kss-assets/css/kss.min.css',
   },
 
