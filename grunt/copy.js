@@ -55,7 +55,7 @@ module.exports = {
       },
       {
         expand: true,
-        cwd: '<%= paths.src %>/styleguide/kss-assets/js/',
+        cwd: '<%= paths.src %>/docs/kss-assets/js/',
         src: ['*'],
         dest: '<%= paths.styleguide %>/kss-assets/js/',
       },

@@ -12,7 +12,7 @@ module.exports = {
     },
     options: {
       server: {
-        baseDir: './styleguide/',
+        baseDir: '<%= paths.styleguide %>',
       },
       browser: '<%= devBrowser %>',
       watchTask: true,

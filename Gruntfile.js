@@ -10,7 +10,7 @@ module.exports = function (grunt) {
       dist: 'dist',
       grunt: 'grunt',
       src: 'src',
-      styleguide: 'styleguide',
+      styleguide: 'docs',
       temp: '.tmp',
     },
 

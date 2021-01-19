@@ -12,7 +12,9 @@
   "style": "dist/css/bootstrap-ui.css",
   "less": "src/less/bootstrap-ui.less",
   "scripts": {
+    "serve": "grunt serve",
     "build": "grunt build",
+    "dist": "grunt dist",
     "test": "grunt test"
   },
   "devDependencies": {
