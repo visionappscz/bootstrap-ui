@@ -34,13 +34,15 @@ In both cases include migration path in issue's description (and later in releas
 
 ## Releasing New Version
 
-1. Update version number in `package.json` and `package-lock.json`
+1. Update version number in `package.json` and `package-lock.json`.
 2. `$ npm run dist`
 3. `$ git checkout -b release/<VERSION>`
-3. `$ git commit -am "Bump version"`
-4. `$ git tag <VERSION>`
-5. `$ git push --follow-tags`
-6. Add the version with change log to [GitHub Releases page](https://github.com/visionappscz/bootstrap-ui/releases)
+4. `$ git commit -am "Bump version"`
+5. `$ git push`
+6. Merge the branch via PR.
+7. Create new release on
+   [GitHub Releases page](https://github.com/visionappscz/bootstrap-ui/releases)
+   using version number from step 1.
 
 ## Don’t Forget
 

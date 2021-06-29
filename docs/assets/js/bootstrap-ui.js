@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v3.1.0 (19 January 2021)
+ * v3.1.1 (29 June 2021)
  */
 ;(function ($, window) {
   'use strict';
