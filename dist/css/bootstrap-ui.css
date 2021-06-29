@@ -5,7 +5,7 @@
  *
  * Created by VisionApps (www.visionapps.cz)
  *
- * v3.1.0 (23 July 2020)
+ * v3.1.1 (29 June 2021)
  */
 /*!
  * Bootstrap v3.4.1 (https://getbootstrap.com/)
@@ -7153,8 +7153,7 @@ html[dir="rtl"] .select2-search input {
 .select2-dropdown-open .select2-choice .select2-arrow {
     background: transparent;
     border-left: none;
-    -webkit-filter: none;
-            filter: none;
+    filter: none;
 }
 html[dir="rtl"] .select2-dropdown-open .select2-choice .select2-arrow {
     border-right: none;
@@ -7809,8 +7808,7 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
   border-bottom-right-radius: 2px !important;
   border-bottom-left-radius: 2px !important;
   background: #fff;
-  -webkit-filter: none;
-          filter: none;
+  filter: none;
 }
 .input-group.select2-bootstrap-prepend .select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
   border-top-left-radius: 0 !important;
@@ -7964,10 +7962,10 @@ html[dir="rtl"] .select2-container-multi .select2-search-choice-close {
   position: absolute !important;
 }
 /*!
- * Datetimepicker for Bootstrap 3
- * version : 4.17.47
- * https://github.com/Eonasdan/bootstrap-datetimepicker/
- */
+   * Bootstrap Datetime Picker v4.17.49
+   * Copyright 2015-2020 Jonathan Peterson
+   * Licensed under MIT (https://github.com/Eonasdan/bootstrap-datetimepicker/blob/master/LICENSE)
+   */
 .bootstrap-datetimepicker-widget {
   list-style: none;
 }
